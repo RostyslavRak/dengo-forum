@@ -24,10 +24,10 @@
             <li ng-class="{ active: $state.is('app.user') }">
               <a ui-sref="app.user">Home</a>
             </li>
-            <li ng-class="{ active: $state.is('app.login') }">
+            <li ng-class="{ active: $state.is('app.login') }" ng-if="!ls.isLogged">
               <a ui-sref="app.login">Login</a>
             </li>
-            <li ng-class="{ active: $state.is('app.register') }">
+            <li ng-class="{ active: $state.is('app.register') }" ng-if="!ls.isLogged">
               <a ui-sref="app.register">Register</a>
             </li>
 
