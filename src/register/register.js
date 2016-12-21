@@ -32,7 +32,7 @@ angular.module('dengo-forum.register', ['angular-login.grandfather'])
       $scope.xhr = false;
       $scope.redirect = true;
       $timeout(function () {
-        $state.go('app.home');
+        $state.go('app.login');
       }, 2000);
     })
     .error(function (data, status, headers, config) {
