@@ -7,7 +7,8 @@
 
 $ git clone 
 $ cd Dengo-Forum
-$ npm install 
+$ npm install
+$ bower install
 $ npm install -g bower
 $ npm install -g grunt-cli
 $ grunt

@@ -15,6 +15,7 @@ angular.module('loginService', ['ui.router'])
   this.$get = function ($rootScope, $http, $q, $state) {
 
 
+
     var setHeaders = function (token) {
       if (!token) {
         delete $http.defaults.headers.common['X-Token'];

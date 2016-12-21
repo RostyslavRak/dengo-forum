@@ -12,8 +12,10 @@ angular.module('dengo-forum', [
   'ngAnimate'
 ])
 .config(function ($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 })
+
+
 .run(function ($rootScope, $window) {
   // google analytics
   $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
