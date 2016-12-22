@@ -1,0 +1,129 @@
+.login_page_container {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  //display: flex;
+  .login_wraper {
+    flex-basis: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .title {
+    text-align: center;
+    margin-top: 50px;
+  }
+  h1.h1_login {
+    font-size: 26px;
+    font-weight: 300 !important;
+    color: #1c1c1c !important;;
+    margin: .67em 0;
+    display: block;
+  }
+  .login-form {
+    width: 400px;
+    height: 300px;
+  }
+  .button_box {
+    display: flex;
+    #login_rememberme {
+      float: left;
+      margin-right: 5px;
+      .square_box {
+        float: left;
+        width: 15%;
+        height: 16px;
+        padding: 6px 12px;
+        font-size: 14px;
+        //line-height: 1.42857143;
+        color: #37a000;
+        background-color: transparent;
+        background-image: none;
+        border: 1px solid #37a000;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        input {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+          font-size: 18px;
+          color: #37a000;
+          position: relative;
+          top: 3px;
+          background-color: #fff;
+          border: 2px solid #37a000;
+          margin-left: -28px;
+          margin-right: 10px
+        }
+      }
+    }
+  }
+  .form-group {
+    margin: 0 0 40px;
+  }
+  p.login_text {
+    font-size: 18px;
+    margin: 0;
+  }
+  .fa {
+    margin-left: 5px;
+    font-size: 18px;
+  }
+  .btn-block {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #37a000;
+    border-color: #37a000;
+  }
+
+  .btn {
+    //padding: 12px 38px;
+    border-radius: 2px;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    //background-image: none;
+    //border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 18px;
+    //line-height: 1.42857143;
+    //border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  label {
+    //display: inline-flex;
+    max-width: 94%;
+    //margin-bottom: 5px;
+    margin-top: 8px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+  .forgot_password {
+    margin-top: 5%;
+    float: left;
+    margin-left: 52px;
+    a {
+      color: #37a000;
+    }
+  }
+}
