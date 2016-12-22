@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         tasks: ['html2js']
       },
       less: {
-        files: ['style.less', 'src/**/*.less'],
+        files: ['src/**/*.less'],
         tasks: ['less']
       },
       sources: {
