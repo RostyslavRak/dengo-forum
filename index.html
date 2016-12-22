@@ -16,59 +16,65 @@
 
   </head>
   <body ng-controller="BodyController">
+
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-collapse">
-          <!-- Navbar links -->
-          <ul class="nav navbar-nav">
-            <li ng-class="{ active: $state.is('app.user') }">
-              <a ui-sref="app.user">Home</a>
-            </li>
-            <li ng-class="{ active: $state.is('app.login') }" ng-if="!ls.isLogged">
-              <a ui-sref="app.login">Login</a>
-            </li>
-            <li ng-class="{ active: $state.is('app.register') }" ng-if="!ls.isLogged">
-              <a ui-sref="app.register">Register</a>
-            </li>
-
-          </ul>
-          <!-- Right side of the navbar -->
-          <!-- Login Form -->
-          <!--<form class="navbar-form navbar-right" name="loginForm" role="login" ng-submit="loginMe()" ng-hide="ls.isLogged || !ls.doneLoading">-->
-            <!--<div class="form-group">-->
-              <!--<input type="text"  class="form-control" ng-model="login.username" name="username" placeholder="Username">-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-              <!--<input type="password" class="form-control" ng-model="login.password" name="password" placeholder="Password">-->
-            <!--</div>-->
-            <!--<button type="submit"  class="btn btn-default hidden-devices" ng-disabled="login.working" >Login <i class="fa" ng-class="login.working ? 'fa-cog fa-spin' : 'fa-sign-in'"></i></button>-->
-          <!--</form>-->
-
-          <!-- Spinner -->
-          <button class="btn btn-default navbar-btn navbar-right" ng-hide="ls.doneLoading">
-            <i class="fa fa-spinner fa-spin"></i>
-          </button>
-          <!-- Logout Form -->
-          <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
-            <div class="form-group">
-              <label>Hello {{ ls.user.name }}</label>
-            </div>
-            <div class="form-group">
-              <button  type="submit" class="btn btn-default">Logout<i class="fa fa-signout"></i></button>
-            </div>
-          </form>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand" ng-class="{ active: $state.is('app.user') }">
+          <a ui-sref="app.user">Dengo-Forum</a>
         </div>
       </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-class="{ active: $state.is('app.login') }" ng-if="!ls.isLogged">
+            <a ui-sref="app.login">Login</a>
+          </li>
+          <li ng-class="{ active: $state.is('app.register') }" ng-if="!ls.isLogged">
+            <a ui-sref="app.register">Register</a>
+          </li>
+        </ul>
+
+        <button class="btn btn-default navbar-btn navbar-right" ng-hide="ls.doneLoading">
+          <i class="fa fa-spinner fa-spin"></i>
+        </button>
+        <!-- Logout Form -->
+        <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
+          <div class="form-group">
+            <label>Hello {{ ls.user.name }}</label>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Logout<i class="fa fa-signout"></i></button>
+          </div>
+        </form>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="all-content-wraper">
+    <div class="container">
       <ui-view ng-hide="doingResolve"></ui-view>
       <div class="jumbotron loading-jumbo" ng-show="doingResolve">
-        <h1 ><i class="fa fa-refresh fa-1x fa-spin"></i> Loading..</h1>
-      </div>
-      <!--Footer -->
-      <div class="panel panel-default" style="margin-top: 30px">
-        <div class="panel-body" style="text-align: center">
-          <p  target="_blank"><b>Footer</b></p>
-        </div>
+        <h1><i class="fa fa-refresh fa-1x fa-spin"></i> Loading..</h1>
       </div>
     </div>
+  </div>
+
+    <!--Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <p class="text-muted">Privacy Policy</p>
+        <p class="text-muted">© 2016 DENGO Systems</p>
+      </div>
+    </div>
+  </footer>
+
   </body>
 </html>
