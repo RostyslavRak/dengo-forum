@@ -4,7 +4,7 @@
             <h4>Browse Categories</h4>
             <div id="tree">
                 <ul>
-                    <li>Загальні теми для обговорення</li>
+                    <li><a ui-sref="app.post">Загальні теми для обговорення</a></li>
                 </ul>
                 <ul>
                     <li>Регіональні групи
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9" ng-controller="DropdownCtrl">
+        <div class="col-md-9">
 
             <div class="welcome-text-title">DENGO Community - Community Discussions</div>
             <div class="category-description">Start a discussion related to freelancing or hiring, Upwork features, policies and questions related to the Upwork platform. Or, have some fun in the Coffee Break area.</div>
@@ -72,7 +72,7 @@
 
                     <div class="col-lg-9 col-md-9 post-cell">
                         <div class="post-subject">
-                            <a class="message-subject" href="#">Help me to fill Tax Information please!</a>
+                            <a class="message-subject" ui-sref="app.postone">Help me to fill Tax Information please!</a>
                         </div>
 
                         <div class="post-author">
@@ -113,7 +113,7 @@
 
                     <div class="col-lg-9 col-md-9 post-cell">
                         <div class="post-subject">
-                            <a class="message-subject" href="#">Finishing an hourly contract</a>
+                            <a class="message-subject" ui-sref="app.postone">Finishing an hourly contract</a>
                         </div>
 
                         <div class="post-author">
@@ -154,7 +154,7 @@
 
                     <div class="col-lg-9 col-md-9 post-cell">
                         <div class="post-subject">
-                            <a class="message-subject" href="#">Milestone contract</a>
+                            <a class="message-subject" ui-sref="app.postone">Milestone contract</a>
                         </div>
 
                         <div class="post-author">
@@ -189,10 +189,6 @@
                     </div>
 
                 </div><!--post-->
-            </div>
-
-            <div ng-controller="PaginationDemoCtrl">
-                <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
             </div>
         </div>
     </div>

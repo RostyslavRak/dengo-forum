@@ -6,6 +6,7 @@ angular.module('dengo-forum', [
   'dengo-forum.pages',
   'dengo-forum.profile',
   'dengo-forum.post',
+  'dengo-forum.postone',
   'dengo-forum.register',
   'dengo-forum.addPost',
   'dengo-forum.error',

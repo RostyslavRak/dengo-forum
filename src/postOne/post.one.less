@@ -1,0 +1,146 @@
+.post-one {
+  .top-authors {
+    .title {
+      color: #494949;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .top-solution-authors, .top-liked-authors {
+      margin-top: 20px;
+    }
+    .autor {
+      margin-top: 10px;
+      .author-img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .author-name a {
+        color: #37a000;
+        font-weight: bold;
+        &:hover {
+          color: #B0E44F;
+        }
+      }
+      .count {
+        color: #999999;
+        font-weight: bold;
+        float: right;
+      }
+    }
+  }
+  .welcome-text-title {
+    font-size: 26px;
+    line-height: 52px;
+    color: #494949;
+    padding-top: 15px;
+    padding-bottom: 12px;
+  }
+  .post-pagination {
+    text-align: end;
+    .pagination {
+      li a {
+        color: #000;
+        margin-left: 10px;
+      }
+      .active a {
+        border-color: #dddddd;
+        background-color: #37a000;
+        outline: 0;
+        color: #fff;
+      }
+    }
+  }
+  .post {
+    border-left: 2px solid #dadada;
+    border-right: 2px solid #dadada;
+    .post-content {
+      padding: 25px;
+      margin-left: 0;
+      margin-right: 0;
+      background-color: #fff;
+      border-top: 2px solid #dadada;
+      &:last-child {
+        border-bottom: 2px solid #dadada;
+      }
+      a {
+        cursor: pointer;
+        color: #37a000;
+        &:hover {
+          color: #B0E44F;
+        }
+      }
+      .post-icon {
+        padding-top: 15px;
+        .author-img {
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+        }
+        .post-author {
+          font-weight: bold;
+        }
+      }
+      .post-cell {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .post-date {
+          margin: 0 0 30px;
+          color: #B2B2B2;
+          font-weight: bold;
+        }
+        .post-body {
+          padding-bottom: 13px;
+        }
+      }
+      .post-info {
+        padding-top: 15px;
+        .like-count {
+          float: right;
+          color: #999999;
+          font-weight: bold;
+          ng-md-icon {
+            cursor: pointer;
+          }
+        }
+        .add-reply {
+          margin-left: 20px;
+          float: right;
+          button {
+            border-radius: 2px;
+            background-color: #37a000;
+            border: none;
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+  .meeting-calendar {
+    margin-top: 20px;
+    display: inline-block;
+    .title {
+      color: #494949;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .well-sm {
+      margin-top: 10px;
+      border-radius: 0;
+    }
+    .full button {
+      background-color: limegreen;
+      color: black;
+    }
+    .partially button {
+      background-color: orange;
+      color: black;
+    }
+  }
+}

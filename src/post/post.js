@@ -13,9 +13,4 @@ angular.module('dengo-forum.post', ['angular-login.grandfather'])
         //         "plugins": ["wholerow"]
         //     });
         // });
-    })
-    .controller('PaginationDemoCtrl', function ($scope) {
-        $scope.maxSize = 5;
-        $scope.bigTotalItems = 175;
-        $scope.bigCurrentPage = 1;
     });
