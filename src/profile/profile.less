@@ -1,0 +1,115 @@
+.user {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .user_left {
+    width: 50%;
+    display: flex;
+    flex-basis: 340px;
+    //background-color: rgba(153, 153, 153, 0.69);
+    .avatar {
+      flex-basis: 104px;
+      //background-color: rgba(121, 121, 121, 0.69);
+
+      img {
+        border-radius: 50%;
+        border: 2px solid grey;
+      }
+    }
+    .user_name_box {
+      margin-left: 20px;
+      //flex-grow: 1;
+      width: 340px;
+      .user_name {
+        width: 100%;
+        //background-color: rgba(88, 88, 88, 0.69);
+        h3.user_name_text {
+          font-size: 26px;
+          font-weight: 300;
+          margin-top: 0;
+          line-height: 1.5;
+        }
+      }
+    }
+    .user_status {
+      width: 100%;
+      color: #3c3c3c;
+      background: none;
+      //background-color: rgba(121, 121, 121, 0.69);
+      .user_status_text {
+        font-size: 18px;
+        font-weight: 300;
+        margin-top: 0;
+        line-height: 1.5;
+      }
+    }
+    .user_public {
+      width: 150px;
+      margin-left: 0;
+      margin-top: 20px;
+      margin-right: auto;
+      border: 1px solid green;
+      border-radius: 4px;
+      background-color: rgb(153, 153, 153);
+      h4.user_public_text {
+        font-size: 14px;
+        color: #ffffff;
+        font-weight: 600;
+        align-self: center;
+        text-align: center;
+        line-height: 1.5;
+
+      }
+    }
+  }
+
+  .user_right {
+    width: 50%;
+    //min-width: 300px;
+    //flex-basis: 300px;
+    //display: inline-block;
+    //flex-wrap: wrap;
+    background-color: #00b3ee;
+    float: left;
+    .user_data {
+      margin-left: 0px;
+      width: 200px;
+      h3 {
+        font-size: 14px;
+        font-weight: 800;
+        margin-top: 0;
+      .date_registration {
+        width: 200px;
+        .last_visited {
+          width: 200px;
+          .massages_posted {
+            width: 200px;
+            .likes {
+              width: 200px;
+              .likes_text {
+                width: 100%;
+
+              }
+              }
+            }
+
+          }
+        }
+      }
+    }
+    .user_statistic {
+      width: 200px;
+      background-color: rgba(153, 153, 153, 0.58);
+      float: left;
+      display: block;
+      h3 {
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 0;
+      }
+
+
+    }
+  }
+}
