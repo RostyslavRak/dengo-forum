@@ -1,3 +1,4 @@
+
 .user {
   width: 100%;
   display: flex;
@@ -28,7 +29,7 @@
           font-size: 26px;
           font-weight: 300;
           margin-top: 0;
-          line-height: 1.5;
+          line-height: 1;
         }
       }
     }
@@ -41,13 +42,13 @@
         font-size: 18px;
         font-weight: 300;
         margin-top: 0;
-        line-height: 1.5;
+        line-height: 1;
       }
     }
     .user_public {
-      width: 150px;
+      width: 170px;
       margin-left: 0;
-      margin-top: 20px;
+      margin-top: 15px;
       margin-right: auto;
       border: 1px solid green;
       border-radius: 4px;
@@ -58,7 +59,7 @@
         font-weight: 600;
         align-self: center;
         text-align: center;
-        line-height: 1.5;
+        line-height: 1;
 
       }
     }
@@ -66,31 +67,29 @@
 
   .user_right {
     width: 50%;
-    //min-width: 300px;
-    //flex-basis: 300px;
-    //display: inline-block;
-    //flex-wrap: wrap;
-    background-color: #00b3ee;
+    display: flex;
     float: left;
     .user_data {
       margin-left: 0px;
       width: 200px;
       h3 {
-        font-size: 14px;
-        font-weight: 800;
+        font-size: 16px;
+        font-weight: 700;
         margin-top: 0;
-      .date_registration {
-        width: 200px;
-        .last_visited {
-          width: 200px;
-          .massages_posted {
-            width: 200px;
-            .likes {
-              width: 200px;
-              .likes_text {
-                width: 100%;
+        line-height: 1.1;
 
-              }
+        .date_registration {
+          width: 200px;
+          .last_visited {
+            width: 200px;
+            .massages_posted {
+              width: 200px;
+              .likes {
+                width: 200px;
+                .likes_text {
+                  width: 100%;
+
+                }
               }
             }
 
@@ -100,16 +99,122 @@
     }
     .user_statistic {
       width: 200px;
-      background-color: rgba(153, 153, 153, 0.58);
       float: left;
       display: block;
       h3 {
-        font-size: 14px;
-        font-weight: 300;
+        font-size: 16px;
+        font-weight: 200;
         margin-top: 0;
+        line-height: 1.1;
       }
 
+    }
+  }
+  .user_sidebar_and_posts {
+    margin-top: 30px;
+    .top-authors {
+      .title {
+        color: #494949;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .top-solution-authors, .top-liked-authors {
+        margin-top: 20px;
+      }
+      .autor {
+        margin-top: 10px;
+        .author-img {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          margin-right: 15px;
+        }
+        .author-name a {
+          color: #37a000;
+          font-weight: bold;
+          &:hover {
+            color: #B0E44F;
+          }
+        }
+        .count {
+          color: #999999;
+          font-weight: bold;
+          float: right;
+        }
+      }
+    }
 
+
+    .posts {
+      margin-top: 30px;
+      border-left: 2px solid #dadada;
+      border-right: 2px solid #dadada;
+
+      h3.title-posts {
+        padding-top: 15px;
+        padding-left: 11%;
+        font-size: 26px;
+        color: #585858;
+      }
+      .post-content {
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #fff;
+        border-top: 2px solid #dadada;
+        &:last-child {
+          border-bottom: 2px solid #dadada;
+        }
+        a {
+          cursor: pointer;
+          color: #37a000;
+          &:hover {
+            color: #B0E44F;
+          }
+        }
+        .post-icon {
+          padding-top: 15px;
+        }
+        .post-cell {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          .post-subject a {
+            font-size: 16px;
+            color: #494949;
+            font-weight: bold;
+            &:hover {
+              color: #B0E44F;
+            }
+          }
+          .post-author {
+            font-weight: bold;
+          }
+          .post-body a {
+            font-weight: bold;
+          }
+          .post-date {
+            font-weight: bold;
+          }
+          .post-subject, .post-author, .post-body {
+            padding-bottom: 13px;
+          }
+        }
+        .post-info {
+          padding-top: 15px;
+          span {
+            color: #999999;
+            font-weight: bold;
+          }
+          .view_all {
+            color: #37a000;
+            font-weight: bold;
+            height: 96px;
+            padding-top: 30px;
+          }
+        }
+
+      }
     }
   }
 }
