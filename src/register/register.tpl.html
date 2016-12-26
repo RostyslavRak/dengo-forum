@@ -1,8 +1,19 @@
 <form class="form-signin" name="registerForm" role="registration" ng-submit="submit(registerForm)">
 
   <h2 class="form-signin-heading" ><i class="fa fa-user"></i> Registration</h2>
+  <div class="form-input name">
+    <input type="text"  class="form-control" placeholder="Real Name" name="name" ng-model="registerObj.name" autofocus="true" ng-minlength="4" ng-maxlength="32" ng-required="true">
+    <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+      <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+        <p >Provided name is too short!</p>
+      </div>
+      <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+        <p >Max name length is 32, please shorten it.</p>
+      </div>
+    </div>
+  </div>
   <div class="form-input username">
-    <input type="text" class="form-control" placeholder="Username" name="username" ng-model="registerObj.username" autofocus="true"
+    <input type="text" class="form-control" placeholder="Username" name="username" ng-model="registerObj.username"
       ng-minlength="4" ng-maxlength="16" ng-required="true" remote-validated="used">
     <div class="errors" ng-class="{ active: registerForm.username.$invalid && registerForm.username.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.username.$error.minlength">
@@ -13,17 +24,6 @@
       </div>
       <div class="error ng-hide" ng-show="registerForm.username.$error.used">
         <p>Username is already taken.</p>
-      </div>
-    </div>
-  </div>
-  <div class="form-input name">
-    <input type="text"  class="form-control" placeholder="Real Name" name="name" ng-model="registerObj.name" ng-minlength="4" ng-maxlength="32" ng-required="true">
-    <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
-      <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
-        <p >Provided name is too short!</p>
-      </div>
-      <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
-        <p >Max name length is 32, please shorten it.</p>
       </div>
     </div>
   </div>
@@ -56,11 +56,40 @@
       <!--<option value="admin">Administrator</option>-->
     </select>
   </div>
+  <div class="company">
+      <input type="text" class="form-control" placeholder="Company name" name="company-name">
+  </div>
+  <div class="company-site">
+    <input type="text" class="form-control" placeholder="company.com" name="company-site">
+  </div>
+  <div class="city">
+    <input type="text" class="form-control" placeholder="City" name="city">
+  </div>
+  <div class="captcha-img">
+      <input type="text" class="form-control" placeholder="Type the letters below" name="captcha">
+      <img class="img-responsive" src="http://i1.kym-cdn.com/photos/images/newsfeed/000/401/711/3a6.gif"/>
+  </div>
+
+  <div class="form-group signup-checkbox-small">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="checkbox" class="ng-untouched ng-valid ng-dirty ng-empty">
+        <small>Підписатися на розсилку новин</small>
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="checkbox" class="ng-untouched ng-valid ng-dirty ng-empty">
+        <small>Я згідний з політикою конфіденційності і приймаю умови угоди</small>
+      </label>
+    </div>
+  </div>
+
   <button class="btn btn-lg btn-block" type="submit"
-    ng-class="{ 'btn-primary': registerForm.$valid && registerForm.$dirty, 'btn-success': redirect }"
-    ng-disabled="registerForm.$invalid || registerForm.$pristine || xhr || redirect">
-    <span ng-hide="redirect" >Register <i class="fa fa-repeat fa-spin" ng-show="xhr"></i></span>
-    <span ng-show="redirect">Redirecting... <i class="fa fa-repeat fa-spin"></i></span>
+  ng-class="{ 'btn-primary': registerForm.$valid && registerForm.$dirty, 'btn-success': redirect }"
+  ng-disabled="registerForm.$invalid || registerForm.$pristine || xhr || redirect">
+  <span ng-hide="redirect" >Register <i class="fa fa-repeat fa-spin" ng-show="xhr"></i></span>
+  <span ng-show="redirect">Redirecting... <i class="fa fa-repeat fa-spin"></i></span>
   </button>
 </form>
 

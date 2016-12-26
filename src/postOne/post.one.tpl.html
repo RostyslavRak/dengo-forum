@@ -1,0 +1,150 @@
+<div class="post-one">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Browse Categories</h4>
+            <div id="tree">
+                <ul>
+                    <li><a ui-sref="app.post">Загальні теми для обговорення</a></li>
+                </ul>
+                <ul>
+                    <li>Регіональні групи
+                        <ul>
+                            <li><a href="#">Львів</a></li>
+                            <li><a href="#">Київ</a></li>
+                            <li><a href="#">Харків</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-authors">
+                <div class="top-solution-authors">
+                    <span class="title">TOP Solution Authors</span>
+                    <div class="autor">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Valeria K</a></span>
+                        <span class="count">171</span>
+                    </div>
+                    <div class="autor">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Petra R</a></span>
+                        <span class="count">99</span>
+                    </div>
+                </div>
+                <div class="top-liked-authors">
+                    <span class="title">TOP Liked Author</span>
+                    <div class="autor">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Vladimir G</a></span>
+                        <span class="count">941</span>
+                    </div>
+                    <div class="autor">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Nichola L</a></span>
+                        <span class="count">399</span>
+                    </div>
+                    <div class="autor">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Preston H</a></span>
+                        <span class="count">9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meeting-calendar" ng-controller="DatepickerDemoCtrl">
+                <span class="title">Meeting calendar</span>
+                    <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+
+            <div class="welcome-text-title">Help me to fill Tax Information please!</div>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Search</button>
+                </span>
+            </div>
+
+            <div class="post-pagination" ng-controller="PaginationDemoCtrl">
+                <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+            </div>
+
+            <div class="post">
+                <div class="row post-content">
+                    <div class="col-lg-2 col-md-2 post-icon">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                    <div class="post-author">
+                           <a class="page-link lia-link-navigation lia-user-name-link"
+                           href="#" target="_blank">Tharanga E</a>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-10 col-md-10 post-cell">
+
+                        <div class="post-date">
+                            <span>23.12.2016</span>
+                        </div>
+
+                        <div class="post-body">In the Tax Information settings there is a required field to enter the Legal Name of Business.
+                            I am only a freelancer and I do not have any business. May be this is a stupid question but please help me. I am a new freelancer and don't know what should I enter on that space
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 post-info">
+                        <div class="add-reply">
+                            <button type="button" class="btn btn-primary">Reply</button>
+                        </div>
+                        <div class="like-count"  ng-controller="ButtonsCtrl">
+                            <!--Post Likes Count:-->
+                            <span class="like-count-total">{{singleModel}}</span>
+                            <span class="like-count-text"> Likes </span>
+                            <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
+                        </div>
+                    </div>
+                </div><!--post-->
+
+                <div class="row post-content post-reply">
+                    <div class="col-lg-2 col-md-2 post-icon">
+                        <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <div class="post-author">
+                            <a class="page-link lia-link-navigation lia-user-name-link"
+                               href="#" target="_blank">Preston H</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 col-md-10 post-cell">
+
+                        <div class="post-date">
+                            <span>22.12.2016</span>
+                        </div>
+
+                        <div class="post-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequatur deleniti ducimus eum fugit illo, laboriosam laudantium, maxime mollitia nobis nulla numquam, omnis pariatur placeat provident quae quaerat qui sapiente tempore temporibus? Amet blanditiis consequuntur culpa cupiditate debitis delectus dignissimos dolore, dolorem dolores ducimus eveniet facilis fugiat incidunt magnam minus natus neque officiis quas quasi quia quis quisquam, ratione reiciendis rem similique voluptas voluptate voluptates. Ad at cupiditate fugit ipsa laboriosam laudantium nam, nobis omnis quibusdam, quo recusandae repellat. A adipisci architecto asperiores assumenda autem consequuntur deserunt dignissimos ducimus, ea eligendi est ex illo illum in iure libero maiores molestiae natus nemo nesciunt nobis nulla numquam odio omnis possimus quae qui quod quos sit tempore vel veniam veritatis vitae voluptate!
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 post-info">
+                        <div class="add-reply">
+                            <button type="button" class="btn btn-primary">Reply</button>
+                        </div>
+                        <div class="like-count"  ng-controller="ButtonsCtrl">
+                            <!--Post Likes Count:-->
+                            <span class="like-count-total">{{singleModel}}</span>
+                            <span class="like-count-text"> Likes </span>
+                            <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
+                        </div>
+                    </div>
+                </div><!--post reply-->
+
+            </div>
+
+            <div class="post-pagination" ng-controller="PaginationDemoCtrl">
+                <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+            </div>
+
+        </div>
+    </div>
+</div>

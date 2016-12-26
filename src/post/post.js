@@ -8,5 +8,9 @@ angular.module('dengo-forum.post', ['angular-login.grandfather'])
             });
     })
     .controller('PostController', function ($scope) {
-
+        // $(document).ready(function () {
+        //     $("#tree").jstree({
+        //         "plugins": ["wholerow"]
+        //     });
+        // });
     });
