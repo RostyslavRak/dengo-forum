@@ -79,7 +79,10 @@ module.exports = function (grunt) {
           'libs/angular/angular.js',
           'libs/angular-animate/angular-animate.js',
           'libs/angular-mocks/angular-mocks.js',
-          'libs/angular-ui-router/release/angular-ui-router.js'
+          'libs/angular-ui-router/release/angular-ui-router.js',
+          'node_modules/textangular/dist/textAngular-rangy.min.js',
+          'node_modules/textangular/dist/textAngular-sanitize.min.js',
+          'node_modules/textangular/dist/textAngular.min.js'
 
         ],
         dest: 'build/libs.js'
