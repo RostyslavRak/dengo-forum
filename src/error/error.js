@@ -6,4 +6,4 @@
 
 
 
-angular.module('dengo-forum.error', ['dengo-forum.routing'])
+angular.module('dengo-forum.error', ['dengo-forum.routing']);
