@@ -8,4 +8,6 @@ angular.module('dengo-forum.addPost', ['angular-login.grandfather'])
             });
     })
     .controller('addPostController', function ($scope) {
+    })
+    .controller('wysiwygeditor', function ($scope) {
     });
