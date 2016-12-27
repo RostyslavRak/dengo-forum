@@ -1,3 +1,343 @@
-<div class="jumbotron">
-    <h1>Profile</h1>
-</div>
+<div class="user">
+    <div class="user_left">
+        <div class="avatar">
+            <img src="http://lorempixel.com/100/100/"/>
+        </div>
+        <div class="user_name_box">
+            <div class="user_name">
+                <h3 class="user_name_text">Valeria A User</h3>
+            </div>
+            <div class="user_status">
+                <h4 class="user_status_text">Moderator</h4>
+            </div>
+            <div class="user_public">
+                <h4 class="user_public_text">user_is_Not_public</h4>
+            </div>
+        </div>
+    </div>
+    <div class="user_right">
+        <div class="user_data">
+            <div class="date_registration">
+                <h3 class="date_reg"> Date Registered:</h3>
+            </div>
+            <div class="last_visited">
+                <h3 class="last_vis"> Last Visited:</h3>
+            </div>
+            <div class="massages_posted">
+                <h3 class="massages_posted_text">Messages Posted:</h3>
+            </div>
+            <div class="likes">
+                <h3 class="likes_text">Likes received:</h3>
+            </div>
+        </div>
+        <div class="user_statistic">
+            <div class="date_registration">
+                <h3 class="date_reg"> Date Registered</h3>
+            </div>
+            <div class="last_visited">
+                <h3 class="last_vis"> Last Visited</h3>
+            </div>
+            <div class="massages_posted">
+                <h3 class="massages_posted_text">Messages Posted</h3>
+            </div>
+            <div class="likes">
+                <h3 class="likes_text">Likes received</h3>
+            </div>
+
+        </div>
+    </div>
+    <div class="user_sidebar_and_posts">
+
+
+        <div class="col-md-3">
+            <h4>Browse Categories</h4>
+            <div id="tree">
+                <ul>
+                    <li><a ui-sref="app.post">Загальні теми для обговорення</a></li>
+                </ul>
+                <ul>
+                    <li>Регіональні групи
+                        <ul>
+                            <li><a href="#">Львів</a></li>
+                            <li><a href="#">Київ</a></li>
+                            <li><a href="#">Харків</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-authors">
+                <div class="top-solution-authors">
+                    <span class="title">TOP Solution Authors</span>
+                    <div class="autor">
+                        <img class="author-img"
+                             src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Valeria K</a></span>
+                        <span class="count">171</span>
+                    </div>
+                    <div class="autor">
+                        <img class="author-img"
+                             src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Petra R</a></span>
+                        <span class="count">99</span>
+                    </div>
+                </div>
+                <div class="top-liked-authors">
+                    <span class="title">TOP Liked Author</span>
+                    <div class="autor">
+                        <img class="author-img"
+                             src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Vladimir G</a></span>
+                        <span class="count">941</span>
+                    </div>
+                    <div class="autor">
+                        <img class="author-img"
+                             src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Nichola L</a></span>
+                        <span class="count">399</span>
+                    </div>
+                    <div class="autor">
+                        <img class="author-img"
+                             src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <span class="author-name"><a href="#">Preston H</a></span>
+                        <span class="count">9</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9"> <!--Beginning of posts-->
+            <div class="posts">   <!-----My Kudoed Posts---------->
+                <div class="row post-content">
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="post-subject">
+                            <h3 class="title-posts">Latest Posts By User</h3>
+                        </div>
+                    </div>
+                </div><!--My Kudoed Posts-->
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="Post_latest">
+                            <h2 class="Post_latest_text">
+                                <a class="Post_latest_text_link"
+                                   ui-sref="app.postone">
+                                    Re: Welcome to our first forum post
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="message-subject-board">
+                            <a class="local-time xsmall-text"
+                               href="#">Регіональні групи / Львів</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="Post_latest">
+                            <h2 class="Post_latest_text">
+                                <a class="Post_latest_text_link" 
+                                   ui-sref="app.postone">
+                                    Re: Welcome to our first forum post
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="message-subject-board">
+                            <a class="local-time xsmall-text" 
+                               href="#">Регіональні групи / Львів</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>26.12.2016</span></div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="Post_latest">
+                            <h2 class="Post_latest_text">
+                                <a class="Post_latest_text_link"
+                                   ui-sref="app.postone">
+                                    Re: Welcome to our first forum post
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="message-subject-board">
+                            <a class="local-time xsmall-text"
+                               href="#">Регіональні групи / Львів</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>25.12.2016</span></div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div class="view_all">
+                            <a href="#">View All</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="posts">
+                <div class="row post-content">
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="post-subject">
+                            <h3 class="title-posts">Latest Posts By Valeria K</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="post-subject">
+                            <a class="message-subject" ui-sref="app.postone">Help me to fill Tax Information please!</a>
+                        </div>
+
+                        <div class="post-author">
+                            Latest Post by:
+                            <a class="page-link lia-link-navigation lia-user-name-link"
+                               href="https://community.upwork.com/t5/user/viewprofilepage/user-id/354116"
+                               style="visibility: visible;" target="_blank">Tharanga E</a>
+                        </div>
+
+                        <div class="post-body">
+                            In the Tax Information settings there is a required field to enter the Legal Name of
+                            Business. I...
+                            <a href="#">see post</a>
+                        </div>
+
+                        <div class="post-date">
+                            <span>23.12.2016</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div class="reply-count">
+                            <!--Post Reply Count-->
+                            <span class="reply-count-total">8</span>
+                            <span class="reply-count-text"> Replies </span>
+                        </div>
+                        <div class="like-count">
+                            <!--Post Likes Count:-->
+                            <span class="like-count-total">0</span>
+                            <span class="like-count-text"> Likes </span><br><br><br><br>
+                        </div>
+                    </div>
+
+                </div><!--post-->
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div class="view_all">
+                            <a href="#">View All</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="posts">   <!-----My Kudoed Posts---------->
+                <div class="row post-content">
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="post-subject">
+                            <h3 class="title-posts">My Kudoed Posts</h3>
+                        </div>
+                    </div>
+                </div><!--My Kudoed Posts-->
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="Post_latest">
+                            <h2 class="Post_latest_text">
+                                <a class="Post_latest_text_link" 
+                                   ui-sref="app.postone">
+                                    Re: Welcome to our first forum post
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="message-subject-board">
+                            <a class="local-time xsmall-text"
+                               href="#">Регіональні групи / Львів</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="Post_latest">
+                            <h2 class="Post_latest_text">
+                                <a class="Post_latest_text_link" 
+                                   ui-sref="app.postone">
+                                    Re: Welcome to our first forum post
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="message-subject-board">
+                            <a class="local-time xsmall-text"
+                               href="#">Регіональні групи / Львів</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>26.12.2016</span></div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                        <ng-md-icon icon="comment" style="fill: #777777" size="45"></ng-md-icon>
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="Post_latest">
+                            <h2 class="Post_latest_text">
+                                <a class="Post_latest_text_link" 
+                                   ui-sref="app.postone">
+                                    Re: Welcome to our first forum post
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="message-subject-board">
+                            <a class="local-time xsmall-text" id="link_1_15"
+                               href="#">Регіональні групи / Львів</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>25.12.2016</span></div>
+                    </div>
+                </div>
+                <div class="row post-content">
+                    <div class="col-lg-1 col-md-1 post-icon">
+                    </div>
+                    <div class="col-lg-9 col-md-9 post-cell">
+                    </div>
+                    <div class="col-lg-2 col-md-2 post-info">
+                        <div class="view_all">
+                            <a href="#">View All</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+        </div>

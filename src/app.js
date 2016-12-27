@@ -12,7 +12,8 @@ angular.module('dengo-forum', [
   'dengo-forum.error',
   'ngAnimate',
   'ui.bootstrap',
-  'ngMdIcons'
+  'ngMdIcons',
+  'textAngular'
 ])
 .config(function ($urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');

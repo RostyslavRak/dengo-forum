@@ -29,6 +29,8 @@
     "grunt-git-describe": "~2.3.2",
     "grunt-html2js": "~0.3.0",
     "grunt-contrib-imagemin": "^1.0.0"
-
+  },
+  "dependencies": {
+    "textangular": "^1.5.16"
   }
 }

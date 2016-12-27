@@ -104,7 +104,10 @@ module.exports = function (grunt) {
           'libs/jquery/dist/jquery.min.js',
           'libs/jstree/dist/jstree.min.js',
           'libs/angular-material-icons/angular-material-icons.min.js',
-          'libs/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js'
+          'libs/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+            'node_modules/textangular/dist/textAngular-rangy.min.js',
+            'node_modules/textangular/dist/textAngular-sanitize.min.js',
+            'node_modules/textangular/dist/textAngular.min.js'
         ],
         dest: 'build/libs.js'
       }
