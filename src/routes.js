@@ -5,19 +5,19 @@ angular.module('dengo-forum.routing', ['ui.router', 'templates-app'])
         $stateProvider
                 .state('app', {
                     abstract: true,
-                    template: '<ui-view></ui-view>',
-                    resolve: {
-                        'login': function (loginService, $q, $http) {
-                            var roleDefined = $q.defer();
-
-                            if (loginService.pendingStateChange) {
-                                return loginService.resolvePendingState($http.get('/user'));
-                            } else {
-                                roleDefined.resolve();
-                            }
-                            return roleDefined.promise;
-                        }
-                    }
+                    template: '<ui-view></ui-view>'
+                    // resolve: {
+                    //     'login': function (loginService, $q, $http) {
+                    //         var roleDefined = $q.defer();
+                    //
+                    //         if (loginService.pendingStateChange) {
+                    //             return loginService.resolvePendingState($http.get('/user'));
+                    //         } else {
+                    //             roleDefined.resolve();
+                    //         }
+                    //         return roleDefined.promise;
+                    //     }
+                    // }
                 })
 
             .state('app.login', {

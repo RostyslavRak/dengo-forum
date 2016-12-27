@@ -97,14 +97,14 @@ module.exports = function (grunt) {
       },
       libs: {
         src: [
-          'libs/angular/angular.js',
-          'libs/angular-animate/angular-animate.js',
-          'libs/angular-mocks/angular-mocks.js',
-          'libs/angular-ui-router/release/angular-ui-router.js',
-          'libs/jquery/dist/jquery.min.js',
-          'libs/jstree/dist/jstree.min.js',
-          'libs/angular-material-icons/angular-material-icons.min.js',
-          'libs/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+          'node_modules/angular/angular.js',
+          'node_modules/angular-animate/angular-animate.js',
+          'node_modules/angular-mocks/angular-mocks.js',
+          'node_modules/angular-ui-router/release/angular-ui-router.js',
+          'node_modules/jquery/dist/jquery.min.js',
+          'node_modules/jstree/dist/jstree.min.js',
+          'node_modules/angular-material-icons/angular-material-icons.min.js',
+          'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
             'node_modules/textangular/dist/textAngular-rangy.min.js',
             'node_modules/textangular/dist/textAngular-sanitize.min.js',
             'node_modules/textangular/dist/textAngular.min.js'

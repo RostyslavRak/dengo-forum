@@ -8,8 +8,6 @@
 $ git clone 
 $ cd Dengo-Forum
 $ npm install
-$ bower install
-$ npm install -g bower
 $ npm install -g grunt-cli
 $ grunt
 # Open browser on http://localhost:8080
