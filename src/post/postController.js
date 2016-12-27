@@ -1,4 +1,4 @@
-angular.module('dengo-forum.post', ['dengo-forum.routing'])
+app
 
     .controller('PostController', function ($scope) {
         $(document).ready(function () {

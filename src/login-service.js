@@ -5,7 +5,7 @@
  */
 
 
-angular.module('loginService', ['ui.router'])
+app
 .provider('loginService', function () {
   var userToken = localStorage.getItem('userToken'),
       errorState = 'app.error',

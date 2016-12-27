@@ -1,24 +1,32 @@
-angular.module('dengo-forum.routing', ['ui.router', 'templates-app'])
-.config( function ( $stateProvider, $urlRouterProvider ) {
+/**
+ * Application router
+ * Config that holds all possible routes in client-side application
+ *
+ * @author Dima Zelenyuk
+ */
+
+app
+    .config(function ($stateProvider, $urlRouterProvider) {
 
         //Main provider
         $stateProvider
-                .state('app', {
-                    abstract: true,
-                    template: '<ui-view></ui-view>'
-                    // resolve: {
-                    //     'login': function (loginService, $q, $http) {
-                    //         var roleDefined = $q.defer();
-                    //
-                    //         if (loginService.pendingStateChange) {
-                    //             return loginService.resolvePendingState($http.get('/user'));
-                    //         } else {
-                    //             roleDefined.resolve();
-                    //         }
-                    //         return roleDefined.promise;
-                    //     }
-                    // }
-                })
+
+            .state('app', {
+                abstract: true,
+                template: '<ui-view></ui-view>',
+                resolve: {
+                    'login': function (loginService, $q, $http) {
+                        var roleDefined = $q.defer();
+
+                        if (loginService.pendingStateChange) {
+                            return loginService.resolvePendingState($http.get('/user'));
+                        } else {
+                            roleDefined.resolve();
+                        }
+                        return roleDefined.promise;
+                    }
+                }
+            })
 
             .state('app.login', {
                 url: '/login',
@@ -26,17 +34,10 @@ angular.module('dengo-forum.routing', ['ui.router', 'templates-app'])
                         controller: 'LoginController'
 
             })
-
             .state('app.error', {
                 url: '/error/:error',
                 templateUrl: 'error/error.tpl.html',
                 accessLevel: accessLevels.public
-            })
-
-            .state('app.addPost', {
-                url: '/addPost',
-                templateUrl: 'addPost/addPost.tpl.html',
-                controller: 'addPostController'
             })
 
             .state('app.user', {
@@ -68,7 +69,14 @@ angular.module('dengo-forum.routing', ['ui.router', 'templates-app'])
                 templateUrl: 'register/register.tpl.html',
                 controller: 'RegisterController',
                 accessLevel: accessLevels.anon
+            })
+
+            .state('app.addPost', {
+                url: '/postAdd',
+                templateUrl: 'postAdd/postAdd.tpl.html',
+                controller: 'AddPostController'
             });
+
 
         // .state('app.admin', {
         //   url: '/admin',
@@ -76,4 +84,6 @@ angular.module('dengo-forum.routing', ['ui.router', 'templates-app'])
         //   accessLevel: accessLevels.admin
         // })
 
-    } );
+        $urlRouterProvider.otherwise('/login');
+
+    });

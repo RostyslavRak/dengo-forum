@@ -6,7 +6,7 @@
 
 
 
-angular.module('dengo-forum.login', ['dengo-forum.routing'])
+app
 .controller('LoginController', function ($scope) {
   $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
 

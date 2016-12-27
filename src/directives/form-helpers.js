@@ -1,4 +1,4 @@
-angular.module('dengo-forum.directives', [])
+app
 /**
  * Simple directive to check password equality
  *

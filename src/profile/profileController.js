@@ -1,4 +1,4 @@
-angular.module('dengo-forum.profile', ['dengo-forum.routing'])
+app
 
     .controller('ProfileController', function ($scope) {
     });

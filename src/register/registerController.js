@@ -5,7 +5,7 @@
  */
 
 
-angular.module('dengo-forum.register', ['dengo-forum.routing'])
+app
 
 .controller('RegisterController', function ($scope, $http, $timeout, $state) {
   $scope.xhr = false;

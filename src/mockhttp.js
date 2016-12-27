@@ -1,4 +1,4 @@
-angular.module('angular-login.mock', ['ngMockE2E'])
+app
 .factory('delayHTTP', function ($q, $timeout) {
   return {
     request: function (request) {
