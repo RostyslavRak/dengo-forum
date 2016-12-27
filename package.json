@@ -27,6 +27,8 @@
     "grunt-contrib-less": "~1.0.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-git-describe": "~2.3.2",
-    "grunt-html2js": "~0.3.0"
+    "grunt-html2js": "~0.3.0",
+    "grunt-contrib-imagemin": "^1.0.0"
+
   }
 }

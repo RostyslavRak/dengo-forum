@@ -1,16 +1,9 @@
-angular.module('dengo-forum.post', ['angular-login.grandfather'])
-    .config(function ($stateProvider) {
-        $stateProvider
-            .state('app.post', {
-                url: '/post',
-                templateUrl: 'post/post.tpl.html',
-                controller: 'PostController'
-            });
-    })
+angular.module('dengo-forum.post', ['dengo-forum.routing'])
+
     .controller('PostController', function ($scope) {
-        // $(document).ready(function () {
-        //     $("#tree").jstree({
-        //         "plugins": ["wholerow"]
-        //     });
-        // });
+        $(document).ready(function () {
+            $("#tree").jstree({
+                "plugins": ["wholerow"]
+            });
+        });
     });

@@ -7,11 +7,23 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-concat-sourcemap');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 
 
-  grunt.initConfig({
+    grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+        imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    src: ['libs/**/*.{png,jpg,gif}','src/**/*.{png,jpg,gif}'],
+                    dest: 'build/images'
+                }]
+            }
+        },
+
     html2js: {
       /**
        * These are the templates from `src/app`.
@@ -24,6 +36,8 @@ module.exports = function (grunt) {
         dest: 'build/templates-app.js'
       }
     },
+
+
     less: {
       all: {
         src: 'style.less',
@@ -63,6 +77,13 @@ module.exports = function (grunt) {
       index: {
         files: 'index.html',
         tasks: ['copy:index']
+      },
+      images: {
+        files: ['**/*.{png,jpg,gif}'],
+        tasks: ['imagemin:dynamic'],
+          options: {
+              spawn: false,
+          }
       }
 
     },
@@ -79,8 +100,11 @@ module.exports = function (grunt) {
           'libs/angular/angular.js',
           'libs/angular-animate/angular-animate.js',
           'libs/angular-mocks/angular-mocks.js',
-          'libs/angular-ui-router/release/angular-ui-router.js'
-
+          'libs/angular-ui-router/release/angular-ui-router.js',
+          'libs/jquery/dist/jquery.min.js',
+          'libs/jstree/dist/jstree.min.js',
+          'libs/angular-material-icons/angular-material-icons.min.js',
+          'libs/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js'
         ],
         dest: 'build/libs.js'
       }
@@ -88,20 +112,21 @@ module.exports = function (grunt) {
     copy: {
       index: {
         src: 'index.html',
-        dest: 'build/',
-        options: {
-          processContent: function (content, srcpath) {
-            // Compiling index.html file!
-            var packageVersion = require('./package.json').version;
-            return grunt.template.process(content, {
-              data: {
-                version: packageVersion
-              }
-            });
-          }
-        }
+        dest: 'build/'
+        // options: {
+        //   processContent: function (content, srcpath) {
+        //     // Compiling index.html file!
+        //     var packageVersion = require('./package.json').version;
+        //     return grunt.template.process(content, {
+        //       data: {
+        //         version: packageVersion
+        //       }
+        //     });
+        //   }
+        // }
       }
     },
+
     clean: {
       all: {
         src: ['build/']
@@ -112,6 +137,6 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('build', ['clean', 'html2js', 'less', 'concat_sourcemap:app', 'concat_sourcemap:libs', 'copy']);
-  grunt.registerTask('default', ['clean', 'concat_sourcemap:libs', 'connect', 'watch']);
+  grunt.registerTask('default', ['clean', 'concat_sourcemap:libs', 'connect', 'watch','imagemin', 'copy:index']);
 
 };

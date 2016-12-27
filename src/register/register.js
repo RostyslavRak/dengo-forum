@@ -5,16 +5,8 @@
  */
 
 
-angular.module('dengo-forum.register', ['angular-login.grandfather'])
-.config(function ($stateProvider) {
-  $stateProvider
-    .state('app.register', {
-      url: '/register',
-      templateUrl: 'register/register.tpl.html',
-      controller: 'RegisterController',
-      accessLevel: accessLevels.anon
-    });
-})
+angular.module('dengo-forum.register', ['dengo-forum.routing'])
+
 .controller('RegisterController', function ($scope, $http, $timeout, $state) {
   $scope.xhr = false;
   $scope.redirect = false;
