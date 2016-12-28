@@ -18,11 +18,12 @@ module.exports = function (grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    src: ['node_modules/**/*.{png,jpg,gif}','src/**/*.{png,jpg,gif}'],
+                    src: ['src/**/*.{png,jpg,gif}'],
                     dest: 'build/images'
                 }]
             }
         },
+
 
     html2js: {
       /**
@@ -79,12 +80,16 @@ module.exports = function (grunt) {
         tasks: ['copy:index']
       },
       images: {
-        files: ['**/*.{png,jpg,gif}'],
+        files: ['{png,jpg,gif}'],
         tasks: ['imagemin:dynamic'],
           options: {
               spawn: false
           }
-      }
+      },
+      fonts: {
+         files: ['{eot,svg,ttf,woff,woff2}'],
+         tasks: ['copy:fonts']
+        }
 
     },
     concat_sourcemap: {
@@ -127,7 +132,17 @@ module.exports = function (grunt) {
         //     });
         //   }
         // }
-      }
+
+      },
+        fonts: {
+            files: [{
+                expand: true,
+                cwd: 'src/fonts',
+                src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
+                dest: 'build/fonts/'
+            }]
+        }
+
     },
 
     clean: {
@@ -140,6 +155,6 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('build', ['clean', 'html2js', 'less', 'concat_sourcemap:app', 'concat_sourcemap:libs', 'copy']);
-  grunt.registerTask('default', ['clean', 'concat_sourcemap:libs', 'connect', 'watch','imagemin', 'copy:index']);
+  grunt.registerTask('default', ['clean', 'concat_sourcemap:libs', 'connect', 'watch','imagemin', 'copy:index','copy:fonts']);
 
 };

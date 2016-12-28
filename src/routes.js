@@ -195,51 +195,11 @@ app
         $urlRouterProvider.otherwise('/login');
    })
 
-
-    //
-    // .run(function ($rootScope, $window ) {
-    //     // google analytics
-    //     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
-    //         var realURL = toState.url;
-    //         if (!!$window.ga) {
-    //             for (var v in toParams) {
-    //                 realURL = realURL.replace(':' + v, toParams[v]);
-    //             }
-    //             $window.ga('send', 'pageview', realURL);
-    //         }
-    //     });
-    //
-    //     var resolveDone = function () {
-    //         $rootScope.doingResolve = false;
-    //     };
-    //     $rootScope.doingResolve = false;
-    //
-    //     $rootScope.$on('$stateChangeStart', function () {
-    //         $rootScope.doingResolve = true;
-    //     });
-    //     $rootScope.$on('$stateChangeSuccess', resolveDone);
-    //     $rootScope.$on('$stateChangeError', resolveDone);
-    //     $rootScope.$on('$statePermissionError', resolveDone);
-    // });
-
-
-    // .run(function($rootScope, $state,loginService) {
-    //     // google analytics
-    //     $rootScope.$on('$stateChangeSuccess', function () {
-    //         if (loginService.isLogged==false &&  ($state.current.name == 'user' || $state.current.name == 'post' || $state.current.name == 'postone' || $state.current.name == 'addPost' || $state.current.name == 'profile' )) {
-    //             $state.go('login');
-    //             console.log($state.current.name)
-    //         }
-    //
-    //     });
-    // });
-
-
-    .run(function ($rootScope, $state, loginService) {
-        $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+   .run(function ($rootScope, $state, loginService) {
+        $rootScope.$on("$stateChangeStart", function(event, toState){
             if (toState.authenticate && !loginService.isLogged){
                 // User isn’t authenticated
-                $state.transitionTo("login");
+                $state.go("login");
                 event.preventDefault();
             }
         });
