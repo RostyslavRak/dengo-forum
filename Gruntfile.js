@@ -82,7 +82,7 @@ module.exports = function (grunt) {
         files: ['**/*.{png,jpg,gif}'],
         tasks: ['imagemin:dynamic'],
           options: {
-              spawn: false,
+              spawn: false
           }
       }
 
@@ -105,9 +105,9 @@ module.exports = function (grunt) {
           'node_modules/jstree/dist/jstree.min.js',
           'node_modules/angular-material-icons/angular-material-icons.min.js',
           'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
-            'node_modules/textangular/dist/textAngular-rangy.min.js',
-            'node_modules/textangular/dist/textAngular-sanitize.min.js',
-            'node_modules/textangular/dist/textAngular.min.js'
+          'node_modules/textangular/dist/textAngular-rangy.min.js',
+          'node_modules/textangular/dist/textAngular-sanitize.min.js',
+          'node_modules/textangular/dist/textAngular.min.js'
         ],
         dest: 'build/libs.js'
       }
