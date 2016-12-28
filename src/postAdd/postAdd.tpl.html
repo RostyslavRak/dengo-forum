@@ -1,96 +1,43 @@
-<div class="add-post">
-        <div class="row">
-            <div class="col-md-3">
-                <h4>Browse Categories</h4>
-                <div id="tree">
-                    <ul>
-                        <li><a ui-sref="post">Загальні теми для обговорення</a></li>
-                    </ul>
-                    <ul>
-                        <li>Регіональні групи
-                            <ul>
-                                <li><a href="#">Львів</a></li>
-                                <li><a href="#">Київ</a></li>
-                                <li><a href="#">Харків</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+<div class="col-md-9">
+    <div class="add-post">
+        <div class="welcome-text-title">Post Message</div>
+
+        <div class="form-input subject">
+            <label>Subject</label>
+            <input type="text" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
+                   ng-minlength="4" ng-maxlength="32" ng-required="true">
+            <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+                <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+                    <p>Provided name is too short!</p>
                 </div>
-                <div class="top-authors">
-                    <div class="top-solution-authors">
-                        <span class="title">TOP Solution Authors</span>
-                        <div class="autor">
-                            <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                            <span class="author-name"><a href="#">Valeria K</a></span>
-                            <span class="count">171</span>
-                        </div>
-                        <div class="autor">
-                            <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                            <span class="author-name"><a href="#">Petra R</a></span>
-                            <span class="count">99</span>
-                        </div>
-                    </div>
-                    <div class="top-liked-authors">
-                        <span class="title">TOP Liked Author</span>
-                        <div class="autor">
-                            <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                            <span class="author-name"><a href="#">Vladimir G</a></span>
-                            <span class="count">941</span>
-                        </div>
-                        <div class="autor">
-                            <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                            <span class="author-name"><a href="#">Nichola L</a></span>
-                            <span class="count">399</span>
-                        </div>
-                        <div class="autor">
-                            <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                            <span class="author-name"><a href="#">Preston H</a></span>
-                            <span class="count">9</span>
-                        </div>
-                    </div>
+                <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+                    <p>Max name length is 32, please shorten it.</p>
                 </div>
-            </div>
-            <div class="col-md-9">
-
-                <div class="welcome-text-title">Post Message</div>
-
-                <div class="form-input subject">
-                    <label>Subject</label>
-                    <input type="text"  class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true" ng-minlength="4" ng-maxlength="32" ng-required="true">
-                    <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
-                        <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
-                            <p >Provided name is too short!</p>
-                        </div>
-                        <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
-                            <p >Max name length is 32, please shorten it.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-input location">
-                    <label>Select Location</label>
-                    <select class="form-control" name="location">
-                        <option value="">Choose a Category</option>
-                        <option value="general-group">Загальні теми для обговорення</option>
-                        <option value="regional-group">Регіональні групи</option>
-                    </select>
-                </div>
-
-
-                <div class="form-input body" ng-controller="wysiwygeditor">
-                    <label>Body</label>
-                    <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
-                </div>
-
-                <div class="post-add-file">
-                    <input class="form-file" accept="*" multiple="multiple" name="multipleUpload" type="file">
-                </div>
-
-                <div class="add-post-btn">
-                    <button type="button" class="btn btn-primary">Post</button>
-                    <a ui-sref="post" class="btn cancel-post">Cancel</a>
-                </div>
-
             </div>
         </div>
+
+        <div class="form-input location">
+            <label>Select Location</label>
+            <select class="form-control" name="location">
+                <option value="">Choose a Category</option>
+                <option value="general-group">Загальні теми для обговорення</option>
+                <option value="regional-group">Регіональні групи</option>
+            </select>
+        </div>
+
+
+        <div class="form-input body" ng-controller="wysiwygeditor">
+            <label>Body</label>
+            <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+        </div>
+
+        <div class="post-add-file">
+            <input class="form-file" accept="*" multiple="multiple" name="multipleUpload" type="file">
+        </div>
+
+        <div class="add-post-btn">
+            <button type="button" class="btn btn-primary">Post</button>
+            <a ui-sref="post" class="btn cancel-post">Cancel</a>
+        </div>
+    </div>
 </div>

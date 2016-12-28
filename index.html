@@ -60,12 +60,8 @@
 <div class="all-content-wraper">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
                 <div ui-view="Sidebar"></div>
-            </div>
-            <div class="col-md-9">
                 <div ng-hide="doingResolve" ui-view="Content"></div>
-            </div>
         </div>
         <!--<ui-view ng-hide="doingResolve"></ui-view>-->
         <div class="jumbotron loading-jumbo" ng-show="doingResolve">
