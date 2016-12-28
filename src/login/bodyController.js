@@ -22,6 +22,7 @@ app
                 $scope.login.working = false;
             });
         };
+
         $scope.logoutMe = function () {
             loginService.logoutUser($http.get('/logout'));
         };
