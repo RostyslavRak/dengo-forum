@@ -24,7 +24,7 @@ app
       $scope.xhr = false;
       $scope.redirect = true;
       $timeout(function () {
-        $state.go('app.login');
+        $state.go('login');
       }, 2000);
     })
     .error(function (data, status, headers, config) {
