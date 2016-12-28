@@ -7,12 +7,6 @@ app
             });
         });
 
-
-        $scope.maxSize = 5;
-        $scope.bigTotalItems = 175;
-        $scope.bigCurrentPage = 1;
-        $scope.singleModel = 1;
-
         $scope.today = function() {
             $scope.dt = new Date();
         };
