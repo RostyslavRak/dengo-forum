@@ -7,13 +7,33 @@
 
 app
     .config(function ($stateProvider, $urlRouterProvider) {
-
         //Main provider
         $stateProvider
 
-            .state('app', {
-                abstract: true,
-                template: '<ui-view></ui-view>',
+            // .state('app', {
+            //     abstract: true,
+            //     resolve: {
+            //         'login': function (loginService, $q, $http) {
+            //             var roleDefined = $q.defer();
+            //
+            //             if (loginService.pendingStateChange) {
+            //                 return loginService.resolvePendingState($http.get('/user'));
+            //             } else {
+            //                 roleDefined.resolve();
+            //             }
+            //             return roleDefined.promise;
+            //         }
+            //     }
+            // })
+
+            .state('login', {
+                url: '/login',
+                views: {
+                    "Content": {
+                        templateUrl: 'login/login.tpl.html',
+                        controller: 'LoginController'
+                    }
+                },
                 resolve: {
                     'login': function (loginService, $q, $http) {
                         var roleDefined = $q.defer();
@@ -28,62 +48,111 @@ app
                 }
             })
 
-            .state('app.login', {
-                url: '/login',
-                        templateUrl: 'login/login.tpl.html',
-                        controller: 'LoginController'
 
-            })
-            .state('app.error', {
+
+            .state('error', {
                 url: '/error/:error',
-                templateUrl: 'error/error.tpl.html',
-                accessLevel: accessLevels.public
+                views: {
+                    "Content": {
+                        templateUrl: 'error/error.tpl.html',
+                        accessLevel: accessLevels.public
+                    }
+                }
             })
 
-            .state('app.user', {
+
+            .state('user', {
                 url: '/user',
-                templateUrl: 'pages/user.tpl.html',
-                accessLevel: accessLevels.user
+                views: {
+                    "Sidebar": {
+                        templateUrl: "sidebar/sidebar.tpl.html"
+                    },
+                    "Content": {
+                        templateUrl: 'pages/user.tpl.html',
+                        accessLevel: accessLevels.user
+                    }
+                }
             })
 
-            .state('app.post', {
+            .state('post', {
                 url: '/post',
-                templateUrl: 'post/post.tpl.html',
-                controller: 'PostController'
+
+                views: {
+                    "Sidebar": {
+                        templateUrl: "sidebar/sidebar.tpl.html"
+                    },
+                    "Content": {
+                        templateUrl: 'post/post.tpl.html',
+                        controller: 'PostController'
+                    }
+                }
             })
 
-            .state('app.postone', {
+            .state('postone', {
                 url: '/postone',
-                templateUrl: 'postOne/post.one.tpl.html',
-                controller: 'PostOneController'
+                views: {
+                    "Sidebar": {
+                        templateUrl: "sidebar/sidebar.tpl.html"
+                    },
+                    "Content": {
+                        templateUrl: 'postOne/post.one.tpl.html',
+                        controller: 'PostOneController'
+                    }
+                }
             })
 
-            .state('app.profile', {
+            .state('profile', {
                 url: '/profile',
-                templateUrl: 'profile/profile.tpl.html',
-                controller: 'ProfileController'
+                views: {
+                    "Sidebar": {
+                        templateUrl: "sidebar/sidebar.tpl.html"
+                    },
+                    "Content": {
+                        templateUrl: 'profile/profile.tpl.html',
+                        controller: 'ProfileController'
+                    }
+                }
             })
 
-            .state('app.register', {
+            .state('register', {
                 url: '/register',
-                templateUrl: 'register/register.tpl.html',
-                controller: 'RegisterController',
-                accessLevel: accessLevels.anon
+                views: {
+                    "Content": {
+                        templateUrl: 'register/register.tpl.html',
+                        controller: 'RegisterController',
+                        accessLevel: accessLevels.anon
+                    }
+                }
             })
 
-            .state('app.addPost', {
+            .state('addPost', {
                 url: '/postAdd',
-                templateUrl: 'postAdd/postAdd.tpl.html',
-                controller: 'AddPostController'
+                views: {
+                    "Sidebar": {
+                        templateUrl: "sidebar/sidebar.tpl.html"
+                    },
+                    "Content": {
+                        templateUrl: 'postAdd/postAdd.tpl.html',
+                        controller: 'AddPostController'
+                    }
+                }
             });
 
 
-        // .state('app.admin', {
+
+        // .state('admin', {
         //   url: '/admin',
-        //   templateUrl: 'pages/admin.tpl.html',
-        //   accessLevel: accessLevels.admin
+        // views: {
+        //     "Sidebar": {
+        //         template: "index.viewA"
+        //     },
+        //     "Content": {
+        //           templateUrl: 'pages/admin.tpl.html',
+        //           accessLevel: accessLevels.admin
+        //     }
+        // }
         // })
 
         $urlRouterProvider.otherwise('/login');
 
-    });
+   });

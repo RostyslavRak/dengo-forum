@@ -8,9 +8,9 @@
 app
 .provider('loginService', function () {
   var userToken = localStorage.getItem('userToken'),
-      errorState = 'app.error',
-      homeState = 'app.user',
-      logoutState = 'app.login';
+      errorState = 'error',
+      homeState = 'user',
+      logoutState = 'login';
 
   this.$get = function ($rootScope, $http, $q, $state) {
 
