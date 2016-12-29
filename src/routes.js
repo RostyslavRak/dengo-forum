@@ -59,16 +59,18 @@ app
                 }
             })
 
-            .state('error', {
+            .state('welcome', {
                 authenticate: false,
-                url: '/error/:error',
+                url: '/welcome',
+
                 views: {
                     "Header": {
                         templateUrl: 'layout/header/header.tpl.html',
                         controller: 'HeaderController'
                     },
-                    "Content": {
-                        templateUrl: 'error/error.tpl.html',
+                    "ProfileHeader": {
+                        templateUrl: 'welcome/welcome.tpl.html',
+                        controller: 'WelcomeController',
                         accessLevel: accessLevels.public
                     },
                     "Footer": {
@@ -90,7 +92,9 @@ app
                         controller: 'HeaderController'
                     },
                     "Sidebar": {
-                        templateUrl: "layout/sidebar/sidebar.tpl.html"
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
+
                     },
                     "Content": {
                         templateUrl: 'pages/user.tpl.html',
@@ -115,7 +119,8 @@ app
                         controller: 'HeaderController'
                     },
                     "Sidebar": {
-                        templateUrl: "layout/sidebar/sidebar.tpl.html"
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
                     },
                     "Content": {
                         templateUrl: 'post/post.tpl.html',
@@ -141,7 +146,8 @@ app
                         controller: 'HeaderController'
                     },
                     "Sidebar": {
-                        templateUrl: "layout/sidebar/sidebar.tpl.html"
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
                     },
                     "Content": {
                         templateUrl: 'postOne/post.one.tpl.html',
@@ -170,7 +176,8 @@ app
                         controller: 'ProfileHeaderController'
                     },
                     "Sidebar": {
-                        templateUrl: "layout/sidebar/sidebar.tpl.html"
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
                     },
                     "Content": {
                         templateUrl: 'profile/profile.tpl.html',
@@ -219,7 +226,8 @@ app
                         controller: 'HeaderController'
                     },
                     "Sidebar": {
-                        templateUrl: "layout/sidebar/sidebar.tpl.html"
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
                     },
                     "Content": {
                         templateUrl: 'postAdd/postAdd.tpl.html',
@@ -236,7 +244,7 @@ app
 
 
 // Send to login if the URL was not found
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/welcome');
    })
 
    .run(function ($rootScope, $state, loginService) {
