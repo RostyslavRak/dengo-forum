@@ -8,7 +8,7 @@
 app
 .provider('loginService', function () {
   var userToken = localStorage.getItem('userToken'),
-      errorState = 'error',
+      welcomeState = 'welcome',
       homeState = 'user',
       logoutState = 'login';
 
@@ -58,10 +58,11 @@ app
         if (to.accessLevel === undefined || to.accessLevel.bitMask & wrappedService.userRole.bitMask) {
           angular.noop();
 
-        } else {
+        }
+        else {
             event.preventDefault();
           $rootScope.$emit('$statePermissionError');
-          $state.go(errorState, { error: 'unauthorized' }, { location: false, inherit: false });
+          $state.go(welcomeState, { error: 'unauthorized' }, { location: false, inherit: false });
         }
       });
 
@@ -86,7 +87,7 @@ app
             return $state.go(redirectObj.state, { error: redirectObj.prefix + error }, { location: false, inherit: false });
           }
         }
-        return $state.go(errorState, { error: error }, { location: false, inherit: false });
+        return $state.go(welcomeState, { error: error }, { location: false, inherit: false });
       });
     };
 

@@ -7,7 +7,7 @@
 
 
 app
-    .controller('ErrorController', function ($scope) {
+    .controller('WelcomeController', function ($scope) {
 
     });
 
