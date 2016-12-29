@@ -112,7 +112,8 @@ module.exports = function (grunt) {
           'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
           'node_modules/textangular/dist/textAngular-rangy.min.js',
           'node_modules/textangular/dist/textAngular-sanitize.min.js',
-          'node_modules/textangular/dist/textAngular.min.js'
+          'node_modules/textangular/dist/textAngular.min.js',
+          'node_modules/bootstrap-treeview/src/js/bootstrap-treeview.js'
         ],
         dest: 'build/libs.js'
       }
