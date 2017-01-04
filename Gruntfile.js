@@ -102,6 +102,7 @@ module.exports = function (grunt) {
       },
       libs: {
         src: [
+          'http://maps.googleapis.com/maps/api/js?sensor=false',
           'node_modules/angular/angular.js',
           'node_modules/angular-animate/angular-animate.js',
           'node_modules/angular-mocks/angular-mocks.js',
@@ -112,7 +113,10 @@ module.exports = function (grunt) {
           'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
           'node_modules/textangular/dist/textAngular-rangy.min.js',
           'node_modules/textangular/dist/textAngular-sanitize.min.js',
-          'node_modules/textangular/dist/textAngular.min.js'
+          'node_modules/textangular/dist/textAngular.min.js',
+          'node_modules/lodash/lodash.js',
+          'node_modules/angular-simple-logger/dist/angular-simple-logger.js',
+          'node_modules/angular-google-maps/dist/angular-google-maps.js'
         ],
         dest: 'build/libs.js'
       }
