@@ -8,6 +8,5 @@
 
 app
     .controller('WelcomeController', function ($scope) {
-
     });
 

@@ -5,7 +5,7 @@ app
       var delayedResponse = $q.defer();
       $timeout(function () {
         delayedResponse.resolve(request);
-      }, 700);
+      }, 0);
       return delayedResponse.promise;
     },
     response: function (response) {

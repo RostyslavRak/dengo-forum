@@ -12,6 +12,8 @@ var app = angular
         'textAngular',
         'ui.router',
         'templates-app',
-        'ngMockE2E'
+        'ngMockE2E',
+        'ui.calendar',
+        'angularMoment'
     ]);
 
