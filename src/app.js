@@ -14,7 +14,7 @@ var app = angular
         'templates-app',
         'ngMockE2E',
         'ui.calendar',
-        'angularMoment'
+        'angularMoment',
         'ngMockE2E',
         'uiGmapgoogle-maps'
     ]);
