@@ -1,1 +1,77 @@
-<h1>addEnents</h1>
+<div class="add-event">
+    <div class="add-event-title">Add Event</div>
+
+    <div class="form-input subject">
+        <label>Subject</label>
+        <input type="text" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
+               ng-minlength="4" ng-maxlength="32" ng-required="true">
+        <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+            <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+                <p>Provided name is too short!</p>
+            </div>
+            <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+                <p>Max name length is 32, please shorten it.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="map_canvas" ng-controller="mainCtrl">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+
+            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+            </ui-gmap-marker>
+            <div ng-cloak>
+                <ul>
+                    <li>coords update ctr: {{coordsUpdates}}</li>
+                    <li>dynamic move ctr: {{dynamicMoveCtr}}</li>
+                </ul>
+            </div>
+
+        </ui-gmap-google-map>
+    </div>
+
+    <div class="form-input time">
+        <label>Start Time</label>
+        <!--AIzaSyB87utrSbC6ij0pkq0rjnBR9niT7b2t4Y4-->
+        <div ng-controller="TimepickerDemoCtrl">
+            <div uib-timepicker ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="false"></div>
+            <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+        </div>
+    </div>
+    <div class="form-input location">
+        <label>Select Location</label>
+        <select class="form-control" name="location">
+            <option value="">Choose Locations</option>
+            <option value="general-group">Львів</option>
+            <option value="regional-group">Київ</option>
+            <option value="regional-group">Запоріжжя</option>
+            <option value="regional-group">Тернопіль</option>
+            <option value="regional-group">Харків</option>
+        </select>
+    </div>
+
+    <div class="form-input mobile">
+        <label>Contact Number</label>
+        <input type="text" class="form-control" placeholder="Enter Contact Number Here" name="mobile"
+               ng-minlength="9" ng-maxlength="32" ng-required="true">
+        <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+            <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+                <p>Provided number is too short!</p>
+            </div>
+            <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+                <p>Max number length is 32, please shorten it.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-input body" ng-controller="wysiwygeditor">
+        <label>Body</label>
+        <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+    </div>
+
+    <div class="add-post-btn">
+        <button type="button" class="btn btn-primary">Add Event</button>
+        <a ui-sref="post" class="btn cancel-post">Cancel</a>
+    </div>
+</div>

@@ -233,7 +233,7 @@ app
                         templateUrl: 'layout/header/header.tpl.html',
                         controller: 'HeaderController'
                     },
-                    "Content": {
+                    "ProfileHeader": {
                         templateUrl: 'calendar/calendar.tpl.html',
                         controller: 'CalendarController'
                     },
