@@ -13,6 +13,9 @@ var app = angular
         'ui.router',
         'templates-app',
         'ngMockE2E',
+        'ui.calendar',
+        'angularMoment'
+        'ngMockE2E',
         'uiGmapgoogle-maps'
     ]);
 

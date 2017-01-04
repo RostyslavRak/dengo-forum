@@ -8,6 +8,8 @@ app
             working: false,
             wrong: false
         };
+
+
         $scope.loginMe = function () {
             var loginPromise = $http.post('/login', $scope.login);
             $scope.login.working = true;

@@ -114,6 +114,11 @@ module.exports = function (grunt) {
           'node_modules/textangular/dist/textAngular-rangy.min.js',
           'node_modules/textangular/dist/textAngular-sanitize.min.js',
           'node_modules/textangular/dist/textAngular.min.js',
+          'node_modules/moment/min/moment.min.js',
+          'node_modules/angular-moment/angular-moment.js',
+          'node_modules/angular-ui-calendar/src/calendar.js',
+          'node_modules/fullcalendar/dist/fullcalendar.min.js'
+          'node_modules/textangular/dist/textAngular.min.js',
           'node_modules/lodash/lodash.js',
           'node_modules/angular-simple-logger/dist/angular-simple-logger.js',
           'node_modules/angular-google-maps/dist/angular-google-maps.js'

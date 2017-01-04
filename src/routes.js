@@ -22,22 +22,6 @@ app
 
         //Main provider
         $stateProvider
-            // .state('app', {
-            //     abstract: true,
-            //     resolve: {
-            //         'login': function (loginService, $q, $http) {
-            //             var roleDefined = $q.defer();
-            //
-            //             if (loginService.pendingStateChange) {
-            //                 return loginService.resolvePendingState($http.get('/user'));
-            //             } else {
-            //                 roleDefined.resolve();
-            //             }
-            //             return roleDefined.promise;
-            //         }
-            //     }
-            // })
-
             .state('login', {
                 url: '/login',
                 authenticate: false,
@@ -237,6 +221,47 @@ app
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
                 },
+                resolve: {
+                    'login':resovle
+                }
+            })
+            .state('calendar', {
+                url: '/calendar',
+                authenticate: true,
+                views: {
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Content": {
+                        templateUrl: 'calendar/calendar.tpl.html',
+                        controller: 'CalendarController'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                },
+
+                resolve: {
+                    'login':resovle
+                }
+            })
+
+            .state('calendar.eventsAdd', {
+                url: '/eventsAdd',
+                authenticate: true,
+                        templateUrl: 'eventsAdd/eventsAdd.tpl.html',
+                        controller: 'eventsAddController',
+                resolve: {
+                    'login':resovle
+                }
+            })
+
+            .state('calendar.viawEvents', {
+                url: '/viawEvents',
+                authenticate: true,
+                templateUrl: 'viawEvents/viawEvents.tpl.html',
+                controller: 'ViawEventsController',
                 resolve: {
                     'login':resovle
                 }
