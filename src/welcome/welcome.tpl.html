@@ -1,5 +1,172 @@
 <div class="backgroundPage">
-`<div class="welcome_page">
+    <div class="col-md-6"></div>
+    <div class="col-md-3">
+            <div class="add-event">
+                <div class="add-event-title">Add Event</div>
+
+                <div class="form-input subject">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
+                           ng-minlength="4" ng-maxlength="32" ng-required="true">
+                    <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+                        <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+                            <p>Provided name is too short!</p>
+                        </div>
+                        <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+                            <p>Max name length is 32, please shorten it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-input time">
+                    <label>Start Time</label>
+                    <div ng-controller="TimepickerDemoCtrl">
+                        <div uib-timepicker ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="false"></div>
+                        <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+                    </div>
+                </div>
+
+                <div class="form-input location">
+                    <label>Select Location</label>
+                    <select class="form-control" name="location">
+                        <option value="">Choose Locations</option>
+                        <option value="general-group">Львів</option>
+                        <option value="regional-group">Київ</option>
+                        <option value="regional-group">Запоріжжя</option>
+                        <option value="regional-group">Тернопіль</option>
+                        <option value="regional-group">Харків</option>
+                    </select>
+                </div>
+
+                <div class="form-input mobile">
+                    <label>Contact Number</label>
+                    <input type="text" class="form-control" placeholder="Enter Contact Number Here" name="mobile"
+                           ng-minlength="9" ng-maxlength="32" ng-required="true">
+                    <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+                        <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+                            <p>Provided number is too short!</p>
+                        </div>
+                        <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+                            <p>Max number length is 32, please shorten it.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-input body" ng-controller="wysiwygeditor">
+                    <label>Body</label>
+                    <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+                </div>
+
+                <div class="add-post-btn">
+                    <button type="button" class="btn btn-primary">Add Event</button>
+                    <a ui-sref="post" class="btn cancel-post">Cancel</a>
+                </div>
+            </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="event">
+            <div class="welcome-text-title">
+                <h3 class="text_event"> Перша в 2017 році зутріч Front-End Developer-ів!</h3>
+            </div>
+
+            <div class="post">
+                <div class="row post-content">
+                    <div class="col-lg-3 col-md-3 post-icon">
+                        <img class="author-img"
+                             src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                        <div class="post-author">
+                            <a class="page-link lia-link-navigation lia-user-name-link"
+                               href="#" target="_blank">Tharanga E</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-9 post-cell">
+                        <div class="event-date">
+                            <div class="post-date">
+                                <span>15.01.2017</span></div>
+                            <div class="start-time">
+                                <span>14:00</span>
+                            </div>
+
+                            <div class="event-place">
+                                <span>Львів</span>
+                            </div>
+                            <div class="post-place">
+                                <span>пр. Свободи 13 оф.13</span>
+                                <a href="#"><img src="/images/src/welcome/images/map-marker_30.png"></a>
+                            </div>
+                        </div>
+
+                        <div class="post-body">Плануємо цікаву зустріч всіх хто живе
+                            прагамуванням і хто має бажання знайти однодумців. Перша неформальна
+                            тема : Моє бачення перспектив ІТ в Україні та Світі.</div>
+
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 post-info">
+                        <div class="author-tel">
+                            <a class="page-link lia-link-navigation lia-user-tel" href="#" target="_blank">+38-097-00-00-000</a>
+                        </div>
+                        <div class="add-i-go">
+                            <button type="button" class="btn btn-primary">Я Піду</button>
+                        </div>
+                        <div class="add-reply">
+                            <button type="button" class="btn btn-primary">Коментар</button>
+                        </div>
+                        <div class="like-count">
+                            <!--Post Likes Count:-->
+                            <span class="like-count-total">{{singleModel}}</span>
+                            <span class="like-count-text">Підтримую</span>
+                            <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel"
+                                        uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
+                        </div>
+                    </div>
+                </div><!--post-->
+
+                <div class="row post-content post-reply">
+                    <div class="col-lg-3 col-md-3 post-icon">
+                        <img class="author-img" src="/images/src/welcome/images/bill_geits.png">
+                        <div class="post-author">
+                            <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">Білл Гейтс</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-9 post-cell">
+
+                        <div class="post-date">
+                            <span>01.01.2017</span>
+                        </div>
+                        <div class="post-body">Всім раджу прийняти участь в даній зустрічі.
+                            Я теж маю честь бути запрошеним на цю подію.
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 post-info">
+                        <div class="add-reply">
+                            <button type="button" class="btn btn-primary">Reply</button>
+                        </div>
+                        <div class="like-count">
+                            <!--Post Likes Count:-->
+                            <span class="like-count-total">{{singleModel}}</span>
+                            <span class="like-count-text"> Likes </span>
+                            <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel"
+                                        uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
+                        </div>
+                    </div>
+                </div><!--post reply-->
+
+            </div>
+
+            <div class="post-pagination">
+                <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
+                    class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+            </div>
+        </div>
+    </div>
+<div class="welcome_page">
             <!--<h1>Error</h1>-->
             <div class="none_login_user">
                 <h3 class="none_login">Why You Should Join Our Community ?</h3>
