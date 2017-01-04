@@ -6,8 +6,7 @@
 
 
 app
-    .controller('CalendarController', function ($scope) {
-
+    .controller('CalendarController', function ($scope,$state) {
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -15,23 +14,34 @@ app
 
         /* event source that contains custom events on the scope */
         $scope.events = [
-            { title: 'All Day Event', start: new Date(y, m, 1) },
-            { title: 'Long Event', start: new Date(y, m, d - 5), end: new Date(y, m, d - 2) },
-            { id: 999, title: 'Repeating Event', start: new Date(y, m, d - 3, 16, 0), allDay: false },
-            { id: 999, title: 'Repeating Event', start: new Date(y, m, d + 4, 16, 0), allDay: false },
-            { title: 'Birthday Party', start: new Date(y, m, d + 1, 19, 0), end: new Date(y, m, d + 1, 22, 30), allDay: false },
-            { title: 'Click for Google', start: new Date(y, m, 28), end: new Date(y, m, 29), url: 'http://google.com/' }
+            { title: 'Плануємо цікаву зустріч всіх хто живе прагамуванням і хто має бажання знайти однодумців. Перша неформальна тема : Моє бачення перспектив ІТ в Україні та Світі.',
+                start: new Date(y, m, d)
+            }
+
         ];
 
-        /* config object */
+
+
+        $scope.eventClick = function (calEvent) {
+            $state.go('calendar.viawEvents');
+        };
+
+        $scope.dayClick = function(date ){
+            $('#start').val(date.format('YYYY-MM-DD'));
+            $state.go('calendar.eventsAdd');
+        };
+
+            /* config object */
         $(function() {
             $('#calendar').fullCalendar({
-                editable: true,
+                //editable: true,
                 header: {
                     left: 'month,agendaWeek,agendaDay,today ',
                     center: 'title',
                    right: 'prev,next'
                 },
+                dayClick: $scope.dayClick,
+                eventClick: $scope.eventClick,
                 events: $scope.events
 
             })});

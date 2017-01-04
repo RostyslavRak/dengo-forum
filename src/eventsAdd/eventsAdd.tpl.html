@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div id="map_canvas" ng-controller="mainCtrl">
+    <div id="map_canvas">
         <ui-gmap-google-map center="map.center" zoom="map.zoom">
 
             <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
@@ -33,9 +33,10 @@
     <div class="form-input time">
         <label>Start Time</label>
         <!--AIzaSyB87utrSbC6ij0pkq0rjnBR9niT7b2t4Y4-->
-        <div ng-controller="TimepickerDemoCtrl">
+        <div>
             <div uib-timepicker ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="false"></div>
             <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+            <input type="text" id="start" placeholder="Date">
         </div>
     </div>
     <div class="form-input location">

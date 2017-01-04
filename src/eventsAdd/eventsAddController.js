@@ -6,9 +6,6 @@
 
 app
     .controller('eventsAddController', function ($scope) {
-
-    })
-    .controller('mainCtrl', function($scope) {
         $scope.map = { center: { latitude: 49.8415, longitude: 24.0297 }, zoom: 8 };
 
         $scope.options = {scrollwheel: false};
@@ -27,11 +24,11 @@ app
             $scope.coordsUpdates++;
         });
 
-    })
-    .controller('TimepickerDemoCtrl', function ($scope) {
         $scope.mytime = new Date();
-
         $scope.hstep = 1;
         $scope.mstep = 1;
+
+
+
 
     });
