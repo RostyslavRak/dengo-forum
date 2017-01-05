@@ -16,6 +16,6 @@ var app = angular
         'ui.calendar',
         'angularMoment',
         'ngMockE2E',
-        'uiGmapgoogle-maps'
+        'ngMap'
     ]);
 

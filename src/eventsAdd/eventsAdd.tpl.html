@@ -15,40 +15,25 @@
         </div>
     </div>
 
-    <div id="map_canvas">
-        <ui-gmap-google-map center="map.center" zoom="map.zoom">
-
-            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-            </ui-gmap-marker>
-            <div ng-cloak>
-                <ul>
-                    <li>coords update ctr: {{coordsUpdates}}</li>
-                    <li>dynamic move ctr: {{dynamicMoveCtr}}</li>
-                </ul>
-            </div>
-
-        </ui-gmap-google-map>
-    </div>
-
     <div class="form-input time">
         <label>Start Time</label>
-        <!--AIzaSyB87utrSbC6ij0pkq0rjnBR9niT7b2t4Y4-->
         <div>
             <div uib-timepicker ng-model="mytime" hour-step="hstep" minute-step="mstep" show-meridian="false"></div>
             <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
             <input type="text" id="start" placeholder="Date">
         </div>
     </div>
+
     <div class="form-input location">
+        <!--AIzaSyB87utrSbC6ij0pkq0rjnBR9niT7b2t4Y4-->
         <label>Select Location</label>
-        <select class="form-control" name="location">
-            <option value="">Choose Locations</option>
-            <option value="general-group">Львів</option>
-            <option value="regional-group">Київ</option>
-            <option value="regional-group">Запоріжжя</option>
-            <option value="regional-group">Тернопіль</option>
-            <option value="regional-group">Харків</option>
-        </select>
+        <ng-map zoom="9" center="{{address}}">
+            <marker position="{{address}}" title="{{address}}"></marker>
+        </ng-map>
+        <br>
+        <label>Address:</label>
+        <input class="form-control" ng-model="address" ng-required="true"/>
+        <pre class="alert alert-info">Address is: {{address}}</pre>
     </div>
 
     <div class="form-input mobile">

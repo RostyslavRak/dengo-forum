@@ -48,6 +48,7 @@
     "jstree": "3.3.3",
     "lodash": "^4.17.4",
     "moment": "~2.14.1",
+    "ngmap": "^1.17.8",
     "textangular": "^1.5.16",
     "ui-calendar": "latest"
   }
