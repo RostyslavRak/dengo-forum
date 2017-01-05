@@ -47,8 +47,11 @@
             </div>
         </div>
     </div>
-    <div class="meeting-calendar" ng-controller="SidebarController">
+    <div class="meeting-calendar">
         <span class="title">Meeting calendar</span>
-        <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+        <!--<div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>-->
+        <div id='calendarSidebar'></div>
+        <a ui-sref="calendar.viawEvents" type="button" class="btn btn-primary btn-sm">Календар</a>
+
     </div>
 </div>

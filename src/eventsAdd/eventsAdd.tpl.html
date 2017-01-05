@@ -1,9 +1,9 @@
-<div class="add-event">
+<div class="add-event" id="addEventPage">
     <div class="add-event-title">Add Event</div>
 
     <div class="form-input subject">
         <label>Subject</label>
-        <input type="text" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
+        <input type="text" id="title" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
                ng-minlength="4" ng-maxlength="32" ng-required="true">
         <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
             <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="add-post-btn">
-        <button type="button" class="btn btn-primary">Add Event</button>
+        <button type="button" ng-click="addEvent()" class="btn btn-primary">Add Event</button>
         <a ui-sref="post" class="btn cancel-post">Cancel</a>
     </div>
 </div>

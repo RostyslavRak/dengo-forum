@@ -7,8 +7,7 @@
 
 
 app
-    .controller('ViawEventsController', function ($scope) {
-
+    .controller('ViawEventsController', function ($scope,$state) {
 
 
     });

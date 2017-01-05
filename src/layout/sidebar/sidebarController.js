@@ -1,69 +1,76 @@
 app
     .controller('SidebarController', function ($scope) {
 
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        /* event source that contains custom events on the scope */
+        $scope.events =  [
+            {   id: 1,
+                title  : "event1",
+                time:"13:00",
+                sity:"Lviv",
+                location:"пр. Свободи 10 оф.10",
+                content:"content1",
+                start  : "2017-01-05",
+                end  : "2017-01-05",
+                author :{
+                    name:"Ross",
+                    photo:"images/src/viawEvents/images/ross.jpg"
+                },
+                comments:[{
+                }]
+            },
+            {   id: 2,
+                title  : "event2",
+                sity:"Kiev",
+                location:"пр. Свободи 11 оф.11",
+                time:"14:00",
+                content:"content2",
+                start  : "2017-01-06",
+                end  : "2017-01-06",
+                author  :{
+                    name:"Dima",
+                    photo:"images/src/viawEvents/images/dima.jpg"
+                },
+                comments:[{
+                }]
+            },
+            {   id: 3,
+                time:"15:00",
+                sity:"Ivano-Frankivsk",
+                location:"пр. Свободи 13 оф.13",
+                content:"content3",
+                title  : "event3",
+                start  : "2017-01-10",
+                end  : "2017-01-10",
+                author  :{
+                    name:"Oleg",
+                    photo:"images/src/viawEvents/images/oleg.jpg"
+                },
+                comments:[{
+                }]
+
+            }
+
+        ];
+        $(function() {
+            $('#calendarSidebar').fullCalendar({
+                header: {
+                    left: 'prev',
+                    center: 'title',
+                    right: 'next'
+                },
+                events: $scope.events
+
+            })});
+
         $(document).ready(function () {
             $("#tree").jstree({
                 "plugins": ["wholerow"]
             });
         });
 
-        $scope.today = function() {
-            $scope.dt = new Date();
-        };
-
-        $scope.today();
-
-        $scope.options = {
-            customClass: getDayClass,
-            minDate: null,
-            showWeeks: false,
-            yearColumns: 4
-        };
-        // Disable weekend selection
-        function disabled(data) {
-            var date = data.date,
-                mode = data.mode;
-            return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-        }
-
-        $scope.toggleMin = function() {
-            $scope.options.minDate = $scope.options.minDate ? null : new Date();
-        };
-        $scope.toggleMin();
-
-        $scope.setDate = function(year, month, day) {
-            $scope.dt = new Date(year, month, day);
-        };
-
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        var afterTomorrow = new Date(tomorrow);
-        afterTomorrow.setDate(tomorrow.getDate() + 1);
-        $scope.events = [
-            {
-                date: tomorrow,
-                status: 'full'
-            },
-            {
-                date: afterTomorrow,
-                status: 'partially'
-            }
-        ];
-
-        function getDayClass(data) {
-            var date = data.date,
-                mode = data.mode;
-            if (mode === 'day') {
-                var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-                for (var i = 0; i < $scope.events.length; i++) {
-                    var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-                    if (dayToCheck === currentDay) {
-                        return $scope.events[i].status;
-                    }
-                }
-            }
-            return '';
-        }
     });

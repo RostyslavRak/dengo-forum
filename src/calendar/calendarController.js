@@ -13,29 +13,136 @@ app
         var y = date.getFullYear();
 
         /* event source that contains custom events on the scope */
-        $scope.events = [
-            { title: 'Плануємо цікаву зустріч всіх хто живе прагамуванням і хто має бажання знайти однодумців. Перша неформальна тема : Моє бачення перспектив ІТ в Україні та Світі.',
-                start: new Date(y, m, d)
+
+        $scope.events =  [
+            {   id: 1,
+                title  : "event1",
+                time:"13:00",
+                sity:"Lviv",
+                location:"пр. Свободи 10 оф.10",
+                content:"content1",
+                start  : "2017-01-05",
+                end  : "2017-01-05",
+                    author :{
+                         name:"Ross",
+                         photo:"images/src/viawEvents/images/ross.jpg",
+                         phoneNumber:"+38-097-00-00-000"
+                },
+                comments:[{
+                }]
+            },
+            {   id: 2,
+                title  : "event2",
+                sity:"Kiev",
+                location:"пр. Свободи 11 оф.11",
+                time:"14:00",
+                content:"content2",
+                start  : "2017-01-06",
+                end  : "2017-01-06",
+                    author  :{
+                        name:"Dima",
+                        photo:"images/src/viawEvents/images/dima.jpg",
+                        phoneNumber:"+38-097-11-11-111"
+
+                    },
+                comments:[{
+                    id:1,
+                    name:"Oleg",
+                    photo:"images/src/viawEvents/images/oleg.jpg",
+                    content:"content1",
+                    data  : "2017-01-10"
+
+                }]
+            },
+            {   id: 3,
+                time:"15:00",
+                sity:"Ivano-Frankivsk",
+                location:"пр. Свободи 13 оф.13",
+                content:"content3",
+                title  : "event3",
+                start  : "2017-01-10",
+                end  : "2017-01-10",
+                    author  :{
+                        name:"Oleg",
+                        photo:"images/src/viawEvents/images/oleg.jpg",
+                        phoneNumber:"+38-097-22-22-222"
+
+                    },
+                comments:[{
+                    name:"Oleg",
+                    photo:"images/src/viawEvents/images/oleg.jpg",
+                    content:"content1",
+                    data  : "2017-01-10"
+
+                },{
+                    name:"Dima",
+                    photo:"images/src/viawEvents/images/dima.jpg",
+                    content:"content2",
+                    data  : "2017-01-10"
+                }]
+
             }
 
         ];
 
-
-
         $scope.eventClick = function (calEvent) {
-            $state.go('calendar.viawEvents');
+             $state.go('calendar.viawEvents');
+                    $('#viewEventPage').removeClass("ng-hide");
+                    $('#eventTitle').html(calEvent.title);
+                    $('#eventAuthor').html(calEvent.author.name);
+                    $('#eventAuthorPhoneNumber').html(calEvent.author.phoneNumber);
+                    $('#eventAuthorPhoto').attr('src', calEvent.author.photo);
+                    $('#eventTime').html(calEvent.time);
+                    $('#eventSity').html(calEvent.sity);
+                    $('#eventLocation').html(calEvent.location);
+                    $('#eventDate').html(calEvent.start.format('YYYY-MM-DD'));
+                    $('#eventContent').html(calEvent.content);
+
+            $scope.removeEvent = function () {
+               $('#calendar').fullCalendar('removeEvents', calEvent.id);
+                $('#viewEventPage').addClass("ng-hide");
+            }
         };
 
         $scope.dayClick = function(date ){
-            $('#start').val(date.format('YYYY-MM-DD'));
             $state.go('calendar.eventsAdd');
+            $('#addEventPage').removeClass("ng-hide");
+            $('#start').val(date.format('YYYY-MM-DD'));
+
+            $scope.addEvent = function () {
+                if($('#title').val() != ""){
+                    $scope.obj = {
+                        id: $scope.events.length,
+                        title: $('#title').val(),
+                        start: $('#start').val(),
+                        end: $('#start').val(),
+                        time:"00:00",
+                        sity:"Ivano-Frankivsk",
+                        location:"пр. Свободи 13 оф.13",
+                        content:"test Content",
+                        author  :{
+                            name:"Test",
+                            photo:"images/src/viawEvents/images/dima.jpg"
+                        },
+                        comments:[{
+                        }]
+                    };
+                    $scope.events.push($scope.obj);
+                    $state.go('calendar.viawEvents');
+                    $('#calendar').fullCalendar('renderEvent', $scope.obj);
+                }
+            };
+
+
+            angular.element(document.getElementById('title')).val("");
+            angular.element(document.getElementById('end')).val("");
+
         };
 
             /* config object */
         $(function() {
             $('#calendar').fullCalendar({
-                //editable: true,
-                header: {
+            header: {
                     left: 'month,agendaWeek,agendaDay,today ',
                     center: 'title',
                    right: 'prev,next'
