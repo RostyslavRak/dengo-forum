@@ -4,6 +4,19 @@
     </div>
     <div class="post">
         <div class="row post-content">
+
+            <uib-accordion>
+            <div uib-accordion-group class="panel-default map-accordion" is-open="status.isCustomHeaderOpen">
+                <uib-accordion-heading>
+                    <img src="/images/src/viawEvents/images/map-marker_30.png">Location on map
+                </uib-accordion-heading>
+                <p>{{address}}</p>
+                <ng-map zoom="15" center="{{address}}">
+                    <marker position="{{address}}" title="{{address}}"></marker>
+                </ng-map>
+            </div>
+            </uib-accordion>
+
             <div class="col-lg-3 col-md-3 post-icon">
                 <img id="eventAuthorPhoto" class="author-img"
                      src="">
@@ -27,7 +40,6 @@
                     </div>
                     <div class="post-place">
                         <span id="eventLocation"></span>
-                        <a href="#"><img src="/images/src/viawEvents/images/map-marker_30.png"></a>
                     </div>
                 </div>
 
