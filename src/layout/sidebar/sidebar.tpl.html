@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <h4>Browse Categories</h4>
+    <h4>Категорії</h4>
     <div id="tree">
         <ul>
             <li><a ui-sref="post">Загальні теми для обговорення</a></li>
@@ -7,16 +7,61 @@
         <ul>
             <li>Регіональні групи
                 <ul>
-                    <li><a href="#">Львів</a></li>
-                    <li><a href="#">Київ</a></li>
-                    <li><a href="#">Харків</a></li>
+                    <li>Захід
+                        <ul>
+                            <li><a href="#">Львів</a></li>
+                            <li><a href="#">Луцьк</a></li>
+                            <li><a href="#">Ів-Франківськ</a></li>
+                            <li><a href="#">Рівне</a></li>
+                            <li><a href="#">Тернопіль</a></li>
+                            <li><a href="#">Ужгород</a></li>
+                        </ul>
+                    </li>
+                    <li>Схід
+                    <ul>
+                        <li><a href="#">Донецьк</a></li>
+                        <li><a href="#">Луганськ</a></li>
+                        <li><a href="#">Харків</a></li>
+                    </ul>
+                    </li>
+                    <li>Центр
+                        <ul>
+                            <li><a href="#">Київ</a></li>
+                            <li><a href="#">Вінниця</a></li>
+                            <li><a href="#">Дніпропетровськ</a></li>
+                            <li><a href="#">Полтава</a></li>
+                            <li><a href="#">Хмельницьк</a></li>
+                            <li><a href="#">Черкаси</a></li>
+                        </ul>
+                    </li>
+                    <li>Південь
+                        <ul>
+                            <li><a href="#">Миколаїв</a></li>
+                            <li><a href="#">Одеса</a></li>
+                            <li><a href="#">Запоріжжя</a></li>
+                            <li><a href="#">Кіровоград</a></li>
+                            <li><a href="#">Херсон</a></li>
+                            <li><a href="#">Севастопіль</a></li>
+                            <li><a href="#">Ужгород</a></li>
+                        </ul>
+
+                    </li>
+                    <li>Північ
+                        <ul>
+                            <li><a href="#">Житомир</a></li>
+                            <li><a href="#">Чернігів</a></li>
+                            <li><a href="#">Суми</a></li>
+                        </ul>
+
+
+                    </li>
                 </ul>
             </li>
         </ul>
     </div>
     <div class="top-authors">
         <div class="top-solution-authors">
-            <span class="title">TOP Solution Authors</span>
+            <span class="title">TOP-5 Авторів</span>
             <div class="autor">
                 <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
                 <span class="author-name"><a href="#">Valeria K</a></span>
@@ -29,7 +74,7 @@
             </div>
         </div>
         <div class="top-liked-authors">
-            <span class="title">TOP Liked Author</span>
+            <span class="title">TOP-5 Постів</span>
             <div class="autor">
                 <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
                 <span class="author-name"><a href="#">Vladimir G</a></span>
@@ -48,7 +93,7 @@
         </div>
     </div>
     <div class="meeting-calendar">
-        <span class="title">Meeting calendar</span>
+        <span class="title">Календар зустрічей</span>
         <!--<div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>-->
         <div id='calendarSidebar'></div>
         <a ui-sref="calendar.viawEvents" type="button" class="btn btn-primary btn-sm">Календар</a>
