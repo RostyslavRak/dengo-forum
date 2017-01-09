@@ -142,9 +142,10 @@ app
         $(function() {
             $('#calendar').fullCalendar({
             header: {
-                    left: 'month,agendaWeek,agendaDay,today ',
-                    center: 'title',
-                   right: 'prev,next'
+                left: 'month,agendaWeek,agendaDay,today ',
+                center: 'title',
+                right: 'prev,next',
+                lang: 'uk'
                 },
                 dayClick: $scope.dayClick,
                 eventClick: $scope.eventClick,

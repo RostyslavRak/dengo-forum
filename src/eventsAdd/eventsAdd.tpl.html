@@ -1,6 +1,18 @@
 <div class="add-event" id="addEventPage">
     <div class="add-event-title">Add Event</div>
-
+    <div class="form-input subject">
+        <label>Short Title</label>
+        <input type="text" class="form-control" placeholder="Enter Short Title Here" name="subject" autofocus="true"
+               ng-minlength="5" ng-maxlength="15" ng-required="true">
+        <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
+            <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
+                <p>Provided name is too short!</p>
+            </div>
+            <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
+                <p>Max name length is 15, please shorten it.</p>
+            </div>
+        </div>
+    </div>
     <div class="form-input subject">
         <label>Subject</label>
         <input type="text" id="title" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
@@ -52,7 +64,7 @@
 
 
     <div class="form-input body" ng-controller="wysiwygeditor">
-        <label>Body</label>
+        <label>Text</label>
         <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
     </div>
 
