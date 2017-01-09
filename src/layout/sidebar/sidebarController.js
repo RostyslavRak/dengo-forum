@@ -63,6 +63,7 @@ app
                     center: 'title',
                     right: 'next'
                 },
+                height: 'auto',
                 events: $scope.events
 
             })});
