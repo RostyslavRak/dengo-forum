@@ -69,7 +69,7 @@
             </div>
         </div><!--post-->
 
-        <div class="row post-content post-reply" ng-repeat="comment in commentForm">
+        <div class="row post-content post-reply" ng-repeat="comment in commentForm" ng-if="commentForm.length>0">
             <div class="col-lg-3 col-md-3 post-icon">
                 <img class="author-img" src="{{comment.photo}}">
                 <div class="post-author">
@@ -80,7 +80,9 @@
                 <div class="post-date">
                     <span>{{comment.data}}</span>
                 </div>
-                <div class="post-body">{{comment.content}}</div>
+                <div class="post-body"><br>
+               {{comment.content}}
+                </div>
             </div>
         </div><!--post reply-->
 

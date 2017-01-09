@@ -11,6 +11,7 @@ app
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
+       $scope.dateFormat=(y+"-"+m+"-"+d);
 
         /* event source that contains custom events on the scope */
 
@@ -28,8 +29,7 @@ app
                          photo:"images/src/viawEvents/images/ross.jpg",
                          phoneNumber:"+38-097-00-00-000"
                 },
-                comments:[{
-                }]
+                comments:[]
             },
             {   id: 2,
                 title  : "event2",
@@ -103,38 +103,38 @@ app
 
 
         $scope.dayClick = function(eventDate){
-            $state.go('calendar.eventsAdd');
-            $state.go('calendar');
-            $state.go('calendar.eventsAdd');
-            $scope.eventDate = eventDate.format('YYYY-MM-DD');
-            $scope.addEvent = function () {
-                if($('#title').val() != ""){
-                    $scope.obj = {
-                        id: $scope.events.length,
-                        title: $('#title').val(),
-                        start: $('#start').val(),
-                        end: $('#start').val(),
-                        time:"00:00",
-                        sity:"Ivano-Frankivsk",
-                        location:"пр. Свободи 13 оф.13",
-                        content:"test Content",
-                        author  :{
-                            name:"Test",
-                            photo:"images/src/viawEvents/images/dima.jpg"
-                        },
-                        comments:[{
-                        }]
-                    };
-                    $scope.events.push($scope.obj);
-                    $state.go('calendar');
-                    $('#calendar').fullCalendar('renderEvent', $scope.obj);
+            if(eventDate>date) {
+                $state.go('calendar.eventsAdd');
+                $state.go('calendar');
+                $state.go('calendar.eventsAdd');
+
+                $scope.eventDate = eventDate.format('YYYY-MM-DD');
+                $scope.addEvent = function () {
+                    if ($('#shortTitle').val() != "") {
+                        $scope.obj = {
+                            id: $scope.events.length,
+                            title: $('#shortTitle').val(),
+                            start: $('#start').val(),
+                            end: $('#start').val(),
+                            time: "00:00",
+                            sity: "Ivano-Frankivsk",
+                            location: "пр. Свободи 13 оф.13",
+                            content: "test Content",
+                            author: {
+                                name: "Test",
+                                photo: "images/src/viawEvents/images/dima.jpg"
+                            },
+                            comments: [{}]
+                        };
+                        $scope.events.push($scope.obj);
+                        $state.go('calendar');
+                        $('#calendar').fullCalendar('renderEvent', $scope.obj);
+
+                    }
+                    angular.element(document.getElementById('title')).val("");
+                    angular.element(document.getElementById('end')).val("");
                 }
-            };
-
-
-            angular.element(document.getElementById('title')).val("");
-            angular.element(document.getElementById('end')).val("");
-
+            }
         };
             /* config object */
         $(function() {
