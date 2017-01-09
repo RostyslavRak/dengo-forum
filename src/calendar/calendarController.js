@@ -46,7 +46,6 @@ app
 
                     },
                 comments:[{
-                    id:1,
                     name:"Oleg",
                     photo:"images/src/viawEvents/images/oleg.jpg",
                     content:"content1",
@@ -78,37 +77,37 @@ app
                     name:"Dima",
                     photo:"images/src/viawEvents/images/dima.jpg",
                     content:"content2",
-                    data  : "2017-01-10"
+                    data  : "2017-01-11"
                 }]
 
             }
 
         ];
 
+
+
         $scope.eventClick = function (calEvent) {
-             $state.go('calendar.viawEvents');
-                    $('#viewEventPage').removeClass("ng-hide");
-                    $('#eventTitle').html(calEvent.title);
-                    $('#eventAuthor').html(calEvent.author.name);
-                    $('#eventAuthorPhoneNumber').html(calEvent.author.phoneNumber);
-                    $('#eventAuthorPhoto').attr('src', calEvent.author.photo);
-                    $('#eventTime').html(calEvent.time);
-                    $('#eventSity').html(calEvent.sity);
-                    $('#eventLocation').html(calEvent.location);
-                    $('#eventDate').html(calEvent.start.format('YYYY-MM-DD'));
-                    $('#eventContent').html(calEvent.content);
+            $scope.commentForm = calEvent.comments;
+            $scope.calEvent = calEvent;
+            $scope.calEventData = calEvent.start.format('YYYY-MM-DD');
+           $state.go('calendar.viawEvents');
+           $state.go('calendar');
+           $state.go('calendar.viawEvents');
 
             $scope.removeEvent = function () {
                $('#calendar').fullCalendar('removeEvents', calEvent.id);
-                $('#viewEventPage').addClass("ng-hide");
+                $state.go('calendar');
             }
         };
 
-        $scope.dayClick = function(date ){
-            $state.go('calendar.eventsAdd');
-            $('#addEventPage').removeClass("ng-hide");
-            $('#start').val(date.format('YYYY-MM-DD'));
 
+
+        $scope.dayClick = function(eventDate){
+            if(date<=eventDate){
+            $state.go('calendar.eventsAdd');
+            $state.go('calendar');
+            $state.go('calendar.eventsAdd');
+            $scope.eventDate = eventDate.format('YYYY-MM-DD');
             $scope.addEvent = function () {
                 if($('#title').val() != ""){
                     $scope.obj = {
@@ -128,7 +127,7 @@ app
                         }]
                     };
                     $scope.events.push($scope.obj);
-                    $state.go('calendar.viawEvents');
+                    $state.go('calendar');
                     $('#calendar').fullCalendar('renderEvent', $scope.obj);
                 }
             };
@@ -137,8 +136,8 @@ app
             angular.element(document.getElementById('title')).val("");
             angular.element(document.getElementById('end')).val("");
 
+        }
         };
-
             /* config object */
         $(function() {
             $('#calendar').fullCalendar({

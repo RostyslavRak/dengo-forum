@@ -9,5 +9,4 @@
 app
     .controller('ViawEventsController', function ($scope,$state) {
 
-
     });
