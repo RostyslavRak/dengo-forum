@@ -103,7 +103,6 @@ app
 
 
         $scope.dayClick = function(eventDate){
-            if(date<=eventDate){
             $state.go('calendar.eventsAdd');
             $state.go('calendar');
             $state.go('calendar.eventsAdd');
@@ -136,7 +135,6 @@ app
             angular.element(document.getElementById('title')).val("");
             angular.element(document.getElementById('end')).val("");
 
-        }
         };
             /* config object */
         $(function() {
