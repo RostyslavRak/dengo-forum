@@ -12,6 +12,11 @@
                 <a ui-sref="user">Dengo-Forum</a>
             </div>
         </div>
+        <div ng-controller="HeaderController as ctrl">
+            <select ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language"
+                    ng-change="ctrl.updateLanguage()">
+            </select>
+        </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li ng-class="{ active: $state.is('login') }" ng-if="!ls.isLogged">

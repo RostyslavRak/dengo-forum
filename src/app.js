@@ -16,6 +16,7 @@ var app = angular
         'ui.calendar',
         'angularMoment',
         'ngMockE2E',
-        'ngMap'
+        'ngMap',
+        'pascalprecht.translate'
     ]);
 
