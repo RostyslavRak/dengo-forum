@@ -13,29 +13,28 @@ app
         var y = date.getFullYear();
        $scope.dateFormat=(y+"-"+m+"-"+d);
 
-        /* event source that contains custom events on the scope */
 
+        /* event source that contains custom events on the scope */
         $scope.events =  [
-            {   id: 1,
+            {   id: 0,
                 title  : "event1",
-                time:"13:00",
-                sity:"Lviv",
+                fullTitle: "Events-One",
                 location:"пр. Свободи 10 оф.10",
                 content:"content1",
-                start  : "2017-01-05",
+                start  : "2017-01-05T14:30:00",
                 end  : "2017-01-05",
                     author :{
                          name:"Ross",
                          photo:"images/src/viawEvents/images/ross.jpg",
                          phoneNumber:"+38-097-00-00-000"
                 },
-                comments:[]
+                comments:[
+                ]
             },
-            {   id: 2,
+            {   id: 1,
                 title  : "event2",
-                sity:"Kiev",
+                fullTitle: "Events-Two",
                 location:"пр. Свободи 11 оф.11",
-                time:"14:00",
                 content:"content2",
                 start  : "2017-01-06",
                 end  : "2017-01-06",
@@ -53,12 +52,12 @@ app
 
                 }]
             },
-            {   id: 3,
+            {   id: 2,
                 time:"15:00",
-                sity:"Ivano-Frankivsk",
                 location:"пр. Свободи 13 оф.13",
                 content:"content3",
                 title  : "event3",
+                fullTitle: "Events-Three",
                 start  : "2017-01-10",
                 end  : "2017-01-10",
                     author  :{
@@ -97,6 +96,26 @@ app
             $scope.removeEvent = function () {
                $('#calendar').fullCalendar('removeEvents', calEvent.id);
                 $state.go('calendar');
+            };
+            $scope.editEvent = function () {
+                $state.go('calendar.editEvents');
+
+                $scope.saveEditEvent = function () {
+                        calEvent.title = $("#shortTitleEdit").val(),
+                        calEvent.fullTitle = $("#fullTitleEdit").val(),
+                        //calEvent.time= $("#timeEdit").val(),
+                        calEvent.time = $scope.mytime.getHours("shortTime");
+                        //calEvent.sity = $("#sityEdit").val(),
+                        calEvent.location = $("#locationEdit").val(),
+                        //calEvent.content = $("#contentEdit").val(),
+                        calEvent.start = $("#startEdit").val(),
+                        //calEvent.end  = $("#endEdit").val(),
+                        calEvent.author.phoneNumber = $("#phoneNumberEdit").val() ;
+                    $('#calendar').fullCalendar('updateEvent', calEvent);
+                    $state.go('calendar');
+                    console.log()
+
+                };
             }
         };
 
@@ -114,27 +133,29 @@ app
                         $scope.obj = {
                             id: $scope.events.length,
                             title: $('#shortTitle').val(),
+                            fullTitle : $('#fullTitle').val(),
                             start: $('#start').val(),
-                            end: $('#start').val(),
+                            end: $('#end').val(),
                             time: "00:00",
-                            sity: "Ivano-Frankivsk",
-                            location: "пр. Свободи 13 оф.13",
+                            location: $('#location').val(),
                             content: "test Content",
                             author: {
                                 name: "Test",
-                                photo: "images/src/viawEvents/images/dima.jpg"
+                                photo: "images/src/viawEvents/images/dima.jpg",
+                                phoneNumber: $('#phoneNumber').val()
                             },
-                            comments: [{}]
+                            comments: []
                         };
                         $scope.events.push($scope.obj);
                         $state.go('calendar');
                         $('#calendar').fullCalendar('renderEvent', $scope.obj);
 
                     }
-                    angular.element(document.getElementById('title')).val("");
-                    angular.element(document.getElementById('end')).val("");
+
+
                 }
             }
+
         };
             /* config object */
         $(function() {
@@ -150,6 +171,7 @@ app
                 events: $scope.events
 
             })});
+
 
 
     });

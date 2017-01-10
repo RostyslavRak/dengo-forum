@@ -14,10 +14,10 @@ app
         $scope.address = "";
 
 
-        $scope.endDateBeforeRender = endDateBeforeRender
-        $scope.endDateOnSetTime = endDateOnSetTime
-        $scope.startDateBeforeRender = startDateBeforeRender
-        $scope.startDateOnSetTime = startDateOnSetTime
+        $scope.endDateBeforeRender = endDateBeforeRender;
+        $scope.endDateOnSetTime = endDateOnSetTime;
+        $scope.startDateBeforeRender = startDateBeforeRender;
+        $scope.startDateOnSetTime = startDateOnSetTime;
 
         function startDateOnSetTime () {
             $scope.$broadcast('start-date-changed');

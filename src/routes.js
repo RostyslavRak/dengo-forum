@@ -257,6 +257,16 @@ app
                 }
             })
 
+            .state('calendar.editEvents', {
+                    url: '/editEvents',
+                authenticate: true,
+                templateUrl: 'editEvents/editEvent.tpl.html',
+                controller: 'editEventController',
+                resolve: {
+                    'login':resovle
+                }
+            })
+
             .state('calendar.viawEvents', {
                 url: '/viawEvents',
                 authenticate: true,

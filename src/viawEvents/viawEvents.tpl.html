@@ -1,6 +1,6 @@
 <div class="event">
     <div class="welcome-text-title">
-        <h3 class="text_event">{{calEvent.title}}</h3>
+        <h3 class="text_event">{{calEvent.fullTitle}}</h3>
     </div>
     <div class="post">
         <div class="row post-content">
@@ -123,5 +123,6 @@
 
     </div>
     <button type="button" ng-click="removeEvent()" class="btn btn-danger">Удалить</button>
+    <button type="button" ng-click="editEvent()" class="btn btn-success">Изменить</button>
 </div>
 
