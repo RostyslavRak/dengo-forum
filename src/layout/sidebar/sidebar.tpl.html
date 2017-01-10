@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <h4>Категорії</h4>
+    <h4>{{ 'category' | translate }}</h4>
     <div id="tree">
         <ul>
             <li><a ui-sref="post">Загальні теми для обговорення</a></li>
@@ -61,7 +61,7 @@
     </div>
     <div class="top-authors">
         <div class="top-solution-authors">
-            <span class="title">TOP-5 Авторів</span>
+            <span class="title">{{ 'topAuthors' | translate }}</span>
             <div class="autor">
                 <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
                 <span class="author-name"><a href="#">Valeria K</a></span>
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="top-liked-authors">
-            <span class="title">TOP-5 Постів</span>
+            <span class="title">{{ 'topPosts' | translate }}</span>
             <div class="autor">
                 <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
                 <span class="author-name"><a href="#">Vladimir G</a></span>
@@ -93,7 +93,7 @@
         </div>
     </div>
     <div class="meeting-calendar">
-        <span class="title">Календар зустрічей</span>
+        <span class="title">{{ 'eventsCalendar' | translate }}</span>
         <!--<div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>-->
         <div id='calendarSidebar'></div>
         <a ui-sref="calendar" type="button" class="btn btn-primary btn-sm">Календар</a>
