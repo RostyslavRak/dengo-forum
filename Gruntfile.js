@@ -119,7 +119,9 @@ module.exports = function (grunt) {
           'node_modules/angular-ui-calendar/src/calendar.js',
           'node_modules/fullcalendar/dist/fullcalendar.min.js',
           'node_modules/textangular/dist/textAngular.min.js',
-          'node_modules/angular-translate/dist/angular-translate.min.js'
+          'node_modules/angular-translate/dist/angular-translate.min.js',
+          'node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.js',
+          'node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js'
         ],
         dest: 'build/libs.js'
       }
