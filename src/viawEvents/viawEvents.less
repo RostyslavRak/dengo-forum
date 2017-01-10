@@ -45,6 +45,16 @@
           background: none;
         }
       }
+      .comment-add.collapse {
+        padding: 0 15px 10px;
+        .comment-body {
+          textarea {
+            resize: none;
+            width: 100%;
+            height: 150px;
+          }
+        }
+      }
       a {
         cursor: pointer;
         color: #37a000;
@@ -92,16 +102,20 @@
       }
       .post-info {
         padding-top: 5px;
+        padding-bottom: 10px;
         .author-tel {
           padding-bottom: 10px;
         }
         .like-count {
           float: right;
-
           color: #999999;
           font-weight: bold;
           ng-md-icon {
             cursor: pointer;
+            fill: #37a000;
+            svg {
+              margin-bottom: -10px;
+            }
           }
         }
         .add-i-go {
@@ -111,6 +125,17 @@
             background-color: #37a000;
             border: none;
             outline: 0;
+          }
+            ng-md-icon {
+              cursor: pointer;
+              fill: #37a000;
+              svg {
+                margin-bottom: -10px;
+              }
+            }
+          .i-go-count-total {
+            color: #999999;
+            font-weight: bold;
           }
         }
         .add-reply {

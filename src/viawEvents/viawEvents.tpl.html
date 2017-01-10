@@ -39,9 +39,7 @@
                         <span>{{calEvent.sity}}</span>
                     </div>
                     <div class="post-place">
-                        <span id="eventLocation"></span>
                         <span>{{calEvent.location}}</span>
-                        <a href="#"><img src="/images/src/viawEvents/images/map-marker_30.png"></a>
                     </div>
                 </div>
 
@@ -53,20 +51,58 @@
                 <div class="author-tel">
                     <a class="page-link lia-link-navigation lia-user-tel" href="#" target="_blank">{{calEvent.author.phoneNumber}}</a>
                 </div>
-                <div class="add-i-go">
-                    <button type="button" class="btn btn-primary">Я Піду</button>
+
+                <div ng-controller="ViawEventsController as $ctrl" class="modal-demo">
+
+                    <div class="add-i-go">
+                        <button type="button" class="btn btn-primary" ng-model="igo"
+                                uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Я Піду</button>
+
+                        <ng-md-icon icon="supervisor_account" ng-click="$ctrl.open()" size="30"></ng-md-icon>
+                        <span class="i-go-count-total">{{igo}}</span>
+                    </div>
+
+                    <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="modal-title">Я піду</h3>
+                        </div>
+                        <div class="modal-body" id="modal-body">
+                            <ul>
+                                <li>
+                                    <a href="#">User#1</a>
+                                </li>
+                                <li>
+                                    <a href="#">User#2</a>
+                                </li>
+                                <li>
+                                    <a href="#">User#3</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </script>
+
+                    <div class="modal-parent"></div>
                 </div>
+
                 <div class="add-reply">
-                    <button type="button" class="btn btn-primary">Коментар</button>
+                    <button data-toggle="collapse" data-target="#event-comment" type="button" class="btn btn-primary">Коментар</button>
                 </div>
                 <div class="like-count">
                     <!--Post Likes Count:-->
                     <span class="like-count-total">{{singleModel}}</span>
                     <span class="like-count-text">Підтримую</span>
-                    <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel"
+                    <ng-md-icon icon="thumb_up" size="30" ng-model="singleModel"
                                 uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
                 </div>
             </div>
+                <div id="event-comment" class="comment-add collapse">
+                    <div class="form-input comment-body">
+                        <label>Comment</label>
+                        <textarea ng-model="comment"></textarea>
+                    </div>
+                </div>
         </div><!--post-->
 
         <div class="row post-content post-reply" ng-repeat="comment in commentForm" ng-if="commentForm.length>0">
