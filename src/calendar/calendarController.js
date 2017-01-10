@@ -11,6 +11,7 @@ app
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
+       $scope.dateFormat=(y+"-"+m+"-"+d);
 
         /* event source that contains custom events on the scope */
 
@@ -28,8 +29,7 @@ app
                          photo:"images/src/viawEvents/images/ross.jpg",
                          phoneNumber:"+38-097-00-00-000"
                 },
-                comments:[{
-                }]
+                comments:[]
             },
             {   id: 2,
                 title  : "event2",
@@ -46,7 +46,6 @@ app
 
                     },
                 comments:[{
-                    id:1,
                     name:"Oleg",
                     photo:"images/src/viawEvents/images/oleg.jpg",
                     content:"content1",
@@ -78,67 +77,65 @@ app
                     name:"Dima",
                     photo:"images/src/viawEvents/images/dima.jpg",
                     content:"content2",
-                    data  : "2017-01-10"
+                    data  : "2017-01-11"
                 }]
 
             }
 
         ];
 
+
+
         $scope.eventClick = function (calEvent) {
-             $state.go('calendar.viawEvents');
-                    $('#viewEventPage').removeClass("ng-hide");
-                    $('#eventTitle').html(calEvent.title);
-                    $('#eventAuthor').html(calEvent.author.name);
-                    $('#eventAuthorPhoneNumber').html(calEvent.author.phoneNumber);
-                    $('#eventAuthorPhoto').attr('src', calEvent.author.photo);
-                    $('#eventTime').html(calEvent.time);
-                    $('#eventSity').html(calEvent.sity);
-                    $('#eventLocation').html(calEvent.location);
-                    $('#eventDate').html(calEvent.start.format('YYYY-MM-DD'));
-                    $('#eventContent').html(calEvent.content);
+            $scope.commentForm = calEvent.comments;
+            $scope.calEvent = calEvent;
+            $scope.calEventData = calEvent.start.format('YYYY-MM-DD');
+           $state.go('calendar.viawEvents');
+           $state.go('calendar');
+           $state.go('calendar.viawEvents');
 
             $scope.removeEvent = function () {
                $('#calendar').fullCalendar('removeEvents', calEvent.id);
-                $('#viewEventPage').addClass("ng-hide");
+                $state.go('calendar');
             }
         };
 
-        $scope.dayClick = function(date ){
-            $state.go('calendar.eventsAdd');
-            $('#addEventPage').removeClass("ng-hide");
-            $('#start').val(date.format('YYYY-MM-DD'));
 
-            $scope.addEvent = function () {
-                if($('#title').val() != ""){
-                    $scope.obj = {
-                        id: $scope.events.length,
-                        title: $('#title').val(),
-                        start: $('#start').val(),
-                        end: $('#start').val(),
-                        time:"00:00",
-                        sity:"Ivano-Frankivsk",
-                        location:"пр. Свободи 13 оф.13",
-                        content:"test Content",
-                        author  :{
-                            name:"Test",
-                            photo:"images/src/viawEvents/images/dima.jpg"
-                        },
-                        comments:[{
-                        }]
-                    };
-                    $scope.events.push($scope.obj);
-                    $state.go('calendar.viawEvents');
-                    $('#calendar').fullCalendar('renderEvent', $scope.obj);
+
+        $scope.dayClick = function(eventDate){
+            if(eventDate>date) {
+                $state.go('calendar.eventsAdd');
+                $state.go('calendar');
+                $state.go('calendar.eventsAdd');
+
+                $scope.eventDate = eventDate.format('YYYY-MM-DD');
+                $scope.addEvent = function () {
+                    if ($('#shortTitle').val() != "") {
+                        $scope.obj = {
+                            id: $scope.events.length,
+                            title: $('#shortTitle').val(),
+                            start: $('#start').val(),
+                            end: $('#start').val(),
+                            time: "00:00",
+                            sity: "Ivano-Frankivsk",
+                            location: "пр. Свободи 13 оф.13",
+                            content: "test Content",
+                            author: {
+                                name: "Test",
+                                photo: "images/src/viawEvents/images/dima.jpg"
+                            },
+                            comments: [{}]
+                        };
+                        $scope.events.push($scope.obj);
+                        $state.go('calendar');
+                        $('#calendar').fullCalendar('renderEvent', $scope.obj);
+
+                    }
+                    angular.element(document.getElementById('title')).val("");
+                    angular.element(document.getElementById('end')).val("");
                 }
-            };
-
-
-            angular.element(document.getElementById('title')).val("");
-            angular.element(document.getElementById('end')).val("");
-
+            }
         };
-
             /* config object */
         $(function() {
             $('#calendar').fullCalendar({

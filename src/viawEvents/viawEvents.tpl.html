@@ -1,6 +1,6 @@
-<div class="event" id="viewEventPage" ng-hide="true">
+<div class="event">
     <div class="welcome-text-title">
-        <h3 class="text_event" id="eventTitle"></h3>
+        <h3 class="text_event">{{calEvent.title}}</h3>
     </div>
     <div class="post">
         <div class="row post-content">
@@ -18,38 +18,40 @@
             </uib-accordion>
 
             <div class="col-lg-3 col-md-3 post-icon">
-                <img id="eventAuthorPhoto" class="author-img"
-                     src="">
+                <img class="author-img"
+                     src="{{calEvent.author.photo}}">
                 <div class="post-author">
                     <a class="page-link lia-link-navigation lia-user-name-link"
-                       href="#" target="_blank" id="eventAuthor"></a>
+                       href="#" target="_blank">{{calEvent.author.name}}</a>
                 </div>
             </div>
 
             <div class="col-lg-9 col-md-9 post-cell">
                 <div class="event-date">
                     <div class="post-date">
-                        <span id="eventDate"></span>
+                        <span>{{calEventData}}</span>
                     </div>
                     <div class="start-time">
-                        <span id="eventTime"></span>
+                        <span>{{calEvent.time}}</span>
                     </div>
 
                     <div class="event-place">
-                        <span id="eventSity"></span>
+                        <span>{{calEvent.sity}}</span>
                     </div>
                     <div class="post-place">
                         <span id="eventLocation"></span>
+                        <span>{{calEvent.location}}</span>
+                        <a href="#"><img src="/images/src/viawEvents/images/map-marker_30.png"></a>
                     </div>
                 </div>
 
-                <div class="post-body" id="eventContent"></div>
+                <div class="post-body">{{calEvent.content}}</div>
 
             </div>
 
             <div class="col-lg-12 col-md-12 post-info">
                 <div class="author-tel">
-                    <a class="page-link lia-link-navigation lia-user-tel" href="#" target="_blank" id="eventAuthorPhoneNumber"></a>
+                    <a class="page-link lia-link-navigation lia-user-tel" href="#" target="_blank">{{calEvent.author.phoneNumber}}</a>
                 </div>
                 <div class="add-i-go">
                     <button type="button" class="btn btn-primary">Я Піду</button>
@@ -67,19 +69,19 @@
             </div>
         </div><!--post-->
 
-        <div class="row post-content post-reply">
+        <div class="row post-content post-reply" ng-repeat="comment in commentForm" ng-if="commentForm.length>0">
             <div class="col-lg-3 col-md-3 post-icon">
-                <img class="author-img" src="/images/src/viawEvents/images/bill_geits.png">
+                <img class="author-img" src="{{comment.photo}}">
                 <div class="post-author">
-                    <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">Білл Гейтс</a>
+                    <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">{{comment.name}}</a>
                 </div>
             </div>
             <div class="col-lg-9 col-md-9 post-cell">
                 <div class="post-date">
-                    <span>01.01.2017</span>
+                    <span>{{comment.data}}</span>
                 </div>
-                <div class="post-body">Всім раджу прийняти участь в даній зустрічі.
-                    Я теж маю честь бути запрошеним на цю подію.
+                <div class="post-body"><br>
+               {{comment.content}}
                 </div>
             </div>
         </div><!--post reply-->
