@@ -1,38 +1,6 @@
 <div class="add-event" id="addEventPage">
     <div class="add-event-title">Add Event</div>
 
-    <div class="dropdown form-group">
-        <label>Start Date</label>
-        <a class="dropdown-toggle" id="dropdownStart" role="button" data-toggle="dropdown" >
-            <div class="input-group date">
-                <input type="text" class="form-control" data-ng-model="dateRangeStart">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-            </div>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <datetimepicker data-ng-model="dateRangeStart"
-                            data-datetimepicker-config="{ dropdownSelector: '#dropdownStart', renderOn: 'end-date-changed' }"
-                            data-on-set-time="startDateOnSetTime()"
-                            data-before-render="startDateBeforeRender($dates)"></datetimepicker>
-        </ul>
-    </div>
-
-    <div class="dropdown form-group">
-        <label>End Date</label>
-        <a class="dropdown-toggle" id="dropdownEnd" role="button" data-toggle="dropdown">
-            <div class="input-group date">
-                <input type="text" class="form-control" data-ng-model="dateRangeEnd">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-            </div>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <datetimepicker data-ng-model="dateRangeEnd"
-                            data-datetimepicker-config="{ dropdownSelector: '#dropdownEnd', renderOn: 'start-date-changed' }"
-                            data-on-set-time="endDateOnSetTime()"
-                            data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
-        </ul>
-    </div>
-
     <div class="form-input subject">
         <label>Short Title</label>
         <input type="text" id="shortTitle" class="form-control" placeholder="Enter Short Title Here" name="subject" autofocus="true"
@@ -59,16 +27,24 @@
             </div>
         </div>
     </div>
-    <div class="form-input time">
-        <label>Start Date</label>
-        <div>
-            <input type="text" placeholder="Date-Start" id="start"  value="{{eventDate}}">
-            <input type="text" placeholder="Date-End" id="end"  value="{{eventDate}}">
+
+
+
+        <label for="start">Start Date</label>
+        <input type="datetime-local" id="start" name="input" ng-model="start"
+               placeholder="yyyy-MM-ddTHH:mm" min="2017-01-01T00:00" max="2017-12-31T00:00" required />
+        <div role="alert">
         </div>
+        <tt>value = {{start | date: "yyyy-MM-ddTHH:mm"}}</tt><br/>
+    <label for="end">End Date</label>
+    <input type="datetime-local" id="end" name="input" ng-model="end"
+           placeholder="yyyy-MM-ddTHH:mm:ss" min="2017-01-01T00:00:00" max="2017-12-31T00:00:00" required />
+    <div role="alert">
     </div>
+    <tt>value = {{end | date: "yyyy-MM-ddTHH:mm"}}</tt><br/>
+
 
     <div class="form-input location">
-        <!--AIzaSyB87utrSbC6ij0pkq0rjnBR9niT7b2t4Y4-->
         <label>Select Location</label>
         <ng-map zoom="9" center="{{address}}">
             <marker position="{{address}}" title="{{address}}"></marker>
@@ -81,7 +57,7 @@
 
     <div class="form-input mobile">
         <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="Enter Contact Number Here" name="mobile"
+        <input type="number" class="form-control" placeholder="Enter Contact Number Here" name="mobile"
                ng-minlength="9" ng-maxlength="32" ng-required="true" id="phoneNumber">
         <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
             <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
@@ -94,17 +70,14 @@
     </div>
 
 
-    <div class="form-input body">
-        <label>Text</label>
-        <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
-    </div>
+    <div text-angular="text-angular"  name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled' placeholder="enter text:"
+         ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]"></div>
+    <input id="htmlcontent" ng-model="htmlcontent" ng-hide="true"/>
 
     <div class="add-post-btn">
         <button type="button" ng-click="addEvent()" class="btn btn-primary">Add Event</button>
         <a ui-sref="post" class="btn cancel-post">Cancel</a>
     </div>
-
-
 </div>
 
 

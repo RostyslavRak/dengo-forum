@@ -26,24 +26,25 @@
             </div>
         </div>
     </div>
-    <div class="form-input time">
-        <label>Start Date</label>
-        <div>
-            <input type="text" placeholder="Date-Start" id="start"  value="{{eventDate}}">
-            <input type="text" placeholder="Date-End" id="end"  value="{{eventDate}}">
-        </div>
-    </div>
+
+        <label for="startEdit">Start Date:</label>
+        <input type="datetime-local" id="startEdit" name="input" ng-model="start"
+               placeholder="yyyy-MM-ddTHH:mm" min="2017-01-01T00:00" max="2017-12-31T00:00" required />
+        <div role="alert"></div>
+        <label for="endEdit">End Date:</label>
+        <input type="datetime-local" id="endEdit" name="input" ng-model="end"
+               placeholder="yyyy-MM-ddTHH:mm:ss" min="2017-01-01T00:00:00" max="2017-12-31T00:00:00" required />
+        <div role="alert"></div>
 
     <div class="form-input location">
         <!--AIzaSyB87utrSbC6ij0pkq0rjnBR9niT7b2t4Y4-->
         <label>Select Location</label>
-        <ng-map zoom="9" center="{{address}}">
-            <marker position="{{address}}" title="{{address}}"></marker>
+        <ng-map zoom="9" center="{{calEvent.location}}">
+            <marker position="{{calEvent.location}}" title="{{calEvent.location}}"></marker>
         </ng-map>
         <br>
         <label>Address:</label>
-        <input class="form-control" ng-model="address" ng-required="true" id="locationEdit"/>
-        <pre class="alert alert-info">Address is: {{address}}</pre>
+        <input class="form-control" ng-model="calEvent.location" ng-required="true" id="locationEdit"/>
     </div>
     <div class="form-input mobile">
         <label>Contact Number</label>
@@ -59,10 +60,9 @@
         </div>
     </div>
 
-
     <div class="form-input body">
         <label>Text</label>
-        <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+        <div text-angular="text-angular" name="htmlcontent" ng-model="calEvent.content" ta-disabled='disabled'></div>
     </div>
 
     <div class="add-post-btn">

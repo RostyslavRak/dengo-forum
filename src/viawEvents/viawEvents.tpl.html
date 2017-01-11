@@ -10,9 +10,9 @@
                 <uib-accordion-heading>
                     <img src="/images/src/viawEvents/images/map-marker_30.png">Location on map
                 </uib-accordion-heading>
-                <p>{{address}}</p>
-                <ng-map zoom="15" center="{{address}}">
-                    <marker position="{{address}}" title="{{address}}"></marker>
+                <p>{{calEvent.location}}</p>
+                <ng-map zoom="15" center="{{calEvent.location}}">
+                    <marker position="{{calEvent.location}}" title="{{calEvent.location}}"></marker>
                 </ng-map>
             </div>
             </uib-accordion>
@@ -31,18 +31,10 @@
                     <div class="post-date">
                         <span>{{calEventData}}</span>
                     </div>
-                    <div class="start-time">
-                        <span>{{calEvent.time}}</span>
-                    </div>
-
-                    <div class="event-place">
-                        <span>{{calEvent.sity}}</span>
-                    </div>
-                    <div class="post-place">
-                        <span>{{calEvent.location}}</span>
+                    <div class="post-place"><span>{{calEvent.location}}</span>
                     </div>
                 </div>
-                <div class="post-body">{{calEvent.content}}</div>
+                <div class="post-body" ng-bind-html="calEvent.content">{{calEvent.content}}</div>
             </div>
 
             <div class="col-lg-12 col-md-12 post-info">
@@ -105,7 +97,7 @@
 
         <div class="row post-content post-reply" ng-repeat="comment in commentForm" ng-if="commentForm.length>0">
             <div class="col-lg-3 col-md-3 post-icon">
-                <img class="author-img" src="{{comment.photo}}">
+                <!--<img class="author-img" src="{{comment.photo}}">-->
                 <div class="post-author">
                     <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">{{comment.name}}</a>
                 </div>

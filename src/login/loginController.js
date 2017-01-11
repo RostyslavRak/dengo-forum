@@ -10,4 +10,5 @@ app
 .controller('LoginController', function ($scope) {
   $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
 
+
 });

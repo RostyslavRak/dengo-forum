@@ -8,7 +8,6 @@
 
 app
     .controller('ViawEventsController', function ($scope, $state, $uibModal, $log, $document) {
-        $scope.address = "Львів, Галицька, 21";
         $scope.comment = "Коментар до події";
 
             var $ctrl = this;

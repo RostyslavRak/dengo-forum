@@ -1,5 +1,6 @@
 app
     .config(function($translateProvider) {
+
         $translateProvider.translations('en', {
             TITLE: 'Welcome!',
             MESSAGE: 'This app supports your lanaguage!',
@@ -25,7 +26,8 @@ app
 
         $translateProvider.preferredLanguage('uk');
     })
-    .controller('HeaderController', function ($translate, $scope) {
+    .controller('HeaderController', function ($translate, $scope,$state) {
+
         var ctrl = this;
 
         ctrl.language = 'uk';
@@ -35,4 +37,6 @@ app
         ctrl.updateLanguage = function() {
             $translate.use(ctrl.language);
         };
+
+
     });
