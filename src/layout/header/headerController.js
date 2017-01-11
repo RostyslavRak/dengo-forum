@@ -27,7 +27,6 @@ app
         $translateProvider.preferredLanguage('uk');
     })
     .controller('HeaderController', function ($translate, $scope,$state) {
-
         var ctrl = this;
 
         ctrl.language = 'uk';
@@ -37,6 +36,7 @@ app
         ctrl.updateLanguage = function() {
             $translate.use(ctrl.language);
         };
+
 
 
     });

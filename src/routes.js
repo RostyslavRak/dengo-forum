@@ -54,8 +54,7 @@ app
                     },
                     "ProfileHeader": {
                         templateUrl: 'welcome/welcome.tpl.html',
-                        controller: 'WelcomeController',
-                        accessLevel: accessLevels.public
+                        controller: 'WelcomeController'
                     },
                     "Footer": {
                         templateUrl: 'layout/footer/statisticfooter.tpl.html'
@@ -280,7 +279,7 @@ app
 
 // Send to login if the URL was not found
         $urlRouterProvider.otherwise('/welcome');
-   })
+     })
 
    .run(function ($rootScope, $state, loginService) {
         $rootScope.$on("$stateChangeStart", function(event, toState){

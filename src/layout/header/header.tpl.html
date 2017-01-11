@@ -15,7 +15,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li ng-class="{ active: $state.is('login') }" ng-if="!ls.isLogged">
-                    <a ui-sref="login">Login</a>
+                    <a ui-sref="login" >Login</a>
                 </li>
                 <li ng-class="{ active: $state.is('register') }" ng-if="!ls.isLogged">
                     <a ui-sref="register">Register</a>
