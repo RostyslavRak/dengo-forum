@@ -121,7 +121,9 @@ module.exports = function (grunt) {
           'node_modules/textangular/dist/textAngular.min.js',
           'node_modules/angular-translate/dist/angular-translate.min.js',
           'node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.js',
-          'node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js'
+          'node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js',
+          'src/welcome/geometryangle.js',
+          'node_modules/jquery-circle-progress/dist/circle-progress.min.js'
         ],
         dest: 'build/libs.js'
       }

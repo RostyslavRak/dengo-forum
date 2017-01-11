@@ -58,7 +58,7 @@ app
                         accessLevel: accessLevels.public
                     },
                     "Footer": {
-                        templateUrl: 'layout/footer/footer.tpl.html'
+                        templateUrl: 'layout/footer/statisticfooter.tpl.html'
                     }
                 },
                 resolve: {
