@@ -17,6 +17,7 @@ var app = angular
         'angularMoment',
         'ngMockE2E',
         'ngMap',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'ui.bootstrap.datetimepicker'
     ]);
 

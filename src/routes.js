@@ -58,7 +58,7 @@ app
                         accessLevel: accessLevels.public
                     },
                     "Footer": {
-                        templateUrl: 'layout/footer/footer.tpl.html'
+                        templateUrl: 'layout/footer/statisticfooter.tpl.html'
                     }
                 },
                 resolve: {
@@ -252,6 +252,16 @@ app
                 authenticate: true,
                         templateUrl: 'eventsAdd/eventsAdd.tpl.html',
                         controller: 'eventsAddController',
+                resolve: {
+                    'login':resovle
+                }
+            })
+
+            .state('calendar.editEvents', {
+                    url: '/editEvents',
+                authenticate: true,
+                templateUrl: 'editEvents/editEvent.tpl.html',
+                controller: 'editEventController',
                 resolve: {
                     'login':resovle
                 }

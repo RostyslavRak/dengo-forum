@@ -1,6 +1,6 @@
 <div class="event">
     <div class="welcome-text-title">
-        <h3 class="text_event">{{calEvent.title}}</h3>
+        <h3 class="text_event">{{calEvent.fullTitle}}</h3>
     </div>
     <div class="post">
         <div class="row post-content">
@@ -47,7 +47,7 @@
 
             <div class="col-lg-12 col-md-12 post-info">
                 <div class="author-tel">
-                    <a class="page-link lia-link-navigation lia-user-tel" href="#" target="_blank">{{calEvent.author.phoneNumber}}</a>
+                    <span>{{calEvent.author.phoneNumber}}</span>
                 </div>
 
                 <div ng-controller="ViawEventsController as $ctrl" class="modal-demo">
@@ -87,13 +87,13 @@
                 <div class="add-reply">
                     <button data-toggle="collapse" data-target="#event-comment" type="button" class="btn btn-primary">Коментар</button>
                 </div>
-                <div class="like-count">
-                    <!--Post Likes Count:-->
-                    <span class="like-count-total">{{singleModel}}</span>
-                    <span class="like-count-text">Підтримую</span>
-                    <ng-md-icon icon="thumb_up" size="30" ng-model="singleModel"
-                                uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
-                </div>
+                <!--<div class="like-count">-->
+                    <!--&lt;!&ndash;Post Likes Count:&ndash;&gt;-->
+                    <!--<span class="like-count-total">{{singleModel}}</span>-->
+                    <!--<span class="like-count-text">Підтримую</span>-->
+                    <!--<ng-md-icon icon="thumb_up" size="30" ng-model="singleModel"-->
+                                <!--uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>-->
+                <!--</div>-->
             </div>
                 <div id="event-comment" class="comment-add collapse">
                     <div class="form-input comment-body">
@@ -123,5 +123,6 @@
 
     </div>
     <button type="button" ng-click="removeEvent()" class="btn btn-danger">Удалить</button>
+    <button type="button" ng-click="editEvent()" class="btn btn-success">Изменить</button>
 </div>
 
