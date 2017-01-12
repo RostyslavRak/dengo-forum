@@ -48,7 +48,7 @@ app
   if (userStorage === null || emailStorage === null) {
     userStorage = {
       'Dengo-Forum': { name: 'Dengo', username: 'Dengo-Forum', password: '12345', email: 'Dengo-Forum@mail.ru', userRole: userRoles.user, tokens: [] },
-      'Dim4k1993': { name: 'Dima', username: 'Dim4k1993', password: '54321', email: 'dimaszelenyuk@gmail.com', userRole: userRoles.admin, tokens: [] }
+      'Dim4k1993': { name: 'Dima', username: 'Dim4k1993',  password: '54321', email: 'dimaszelenyuk@gmail.com', userRole: userRoles.user, tokens: [] }
     };
     emailStorage = {
       'Dengo-Forum@mail.ru': 'Dengo-Forum',

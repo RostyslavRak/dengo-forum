@@ -127,7 +127,7 @@ app
             $scope.iGoEvent = function () {
                 $scope.newIgoOnEvent = {
                     id: "user id",
-                    name:"Oles",
+                    name: $scope.ls.user.name ,
                     photo:"images/src/viawEvents/images/oleg.jpg"
                 };
                 angular.forEach($scope.events, function (event) {
@@ -140,7 +140,7 @@ app
 
             $scope.addCommentEvent = function () {
                 $scope.newCommentEvent = {
-                    name:"Oleg",
+                    name:$scope.ls.user.name,
                     photo:"images/src/viawEvents/images/oleg.jpg",
                     content: $('#commentEvent').val(),
                     data  : $scope.dateFormat1_12
@@ -176,7 +176,7 @@ app
                             location: $('#location').val(),
                             content: $("#htmlcontent").val(),
                             author: {
-                                name: "Test",
+                                name: $scope.ls.user.name,
                                 photo: "images/src/viawEvents/images/dima.jpg",
                                 phoneNumber: $('#phoneNumber').val()
                             },
