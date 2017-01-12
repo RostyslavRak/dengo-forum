@@ -22,27 +22,6 @@ app
 
         //Main provider
         $stateProvider
-            .state('login', {
-                url: '/login',
-                authenticate: false,
-                views: {
-                    "Header": {
-                        templateUrl: 'layout/header/header.tpl.html',
-                        controller: 'HeaderController'
-                    },
-                    "Content": {
-                        templateUrl: 'login/login.tpl.html',
-                        controller: 'LoginController'
-                    },
-                    "Footer": {
-                        templateUrl: 'layout/footer/footer.tpl.html'
-                    }
-                },
-                resolve: {
-                    'login':resovle
-                }
-            })
-
             .state('welcome', {
                 authenticate: false,
                 url: '/',
@@ -64,7 +43,26 @@ app
                     'login':resovle
                 }
             })
-
+            .state('login', {
+                url: '/login',
+                authenticate: false,
+                views: {
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Content": {
+                        templateUrl: 'login/login.tpl.html',
+                        controller: 'LoginController'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                },
+                resolve: {
+                    'login':resovle
+                }
+            })
 
             .state('user', {
                 url: '/user',
@@ -146,6 +144,32 @@ app
                 }
             })
 
+            .state('addPost', {
+                url: '/postAdd',
+                authenticate: true,
+                views:{
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Sidebar": {
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
+                    },
+                    "Content":{
+                        templateUrl: 'postAdd/postAdd.tpl.html',
+                        controller: 'AddPostController'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                },
+                resolve: {
+                    'login':resovle
+                }
+            })
+
+
             .state('profile', {
                 url: '/profile',
                 authenticate: true,
@@ -200,21 +224,17 @@ app
                 }
             })
 
-            .state('addPost', {
-                url: '/postAdd',
-                authenticate: true,
-                views:{
+            .state('forgotPassword', {
+                url: '/forgotPassword',
+                authenticate: false,
+                views: {
                     "Header": {
                         templateUrl: 'layout/header/header.tpl.html',
                         controller: 'HeaderController'
                     },
-                    "Sidebar": {
-                        templateUrl: "layout/sidebar/sidebar.tpl.html",
-                        controller: 'SidebarController'
-                    },
-                    "Content":{
-                        templateUrl: 'postAdd/postAdd.tpl.html',
-                        controller: 'AddPostController'
+                    "Content": {
+                        templateUrl: 'forgotPassword/forgotPassword.tpl.html',
+                        controller: 'ForgotPasswordController'
                     },
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
@@ -224,6 +244,7 @@ app
                     'login':resovle
                 }
             })
+
             .state('calendar', {
                 url: '/calendar',
                 authenticate: true,
