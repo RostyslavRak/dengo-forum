@@ -5,7 +5,7 @@
  */
 app
     .controller('WelcomeController', function ($scope) {
-        $(function(){
+        $( document ).ready(function(){
             var winHeight = window.innerHeight    ||
                 document.documentElement.clientHeight ||
                 document.body.clientHeight;

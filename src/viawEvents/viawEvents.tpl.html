@@ -31,7 +31,9 @@
                     <div class="post-date">
                         <span>{{calEventData}}</span>
                     </div>
-                    <div class="post-place"><span>{{calEvent.location}}</span>
+                    </br>
+                    <div class="post-place">
+                        <span>{{calEvent.location}}</span>
                     </div>
                 </div>
                 <div class="post-body" ng-bind-html="calEvent.content">{{calEvent.content}}</div>
@@ -45,11 +47,10 @@
                 <div ng-controller="ViawEventsController as $ctrl" class="modal-demo">
 
                     <div class="add-i-go">
-                        <button type="button" class="btn btn-primary" ng-model="igo"
-                                uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Я Піду</button>
+                        <button type="button" class="btn btn-primary"  ng-click="iGoEvent()">Я Піду</button>
 
                         <ng-md-icon icon="directions_walk" ng-click="$ctrl.open()" size="30"></ng-md-icon>
-                        <span class="i-go-count-total">{{igo}}</span>
+                        <span class="i-go-count-total">{{calEvent.peopleGo.length}}</span>
                     </div>
 
                     <script type="text/ng-template" id="myModalContent.html">
@@ -90,14 +91,16 @@
                 <div id="event-comment" class="comment-add collapse">
                     <div class="form-input comment-body">
                         <label>Comment</label>
-                        <textarea ng-model="comment"></textarea>
+                        <textarea id="commentEvent"></textarea>
                     </div>
+                    <button type="button" class="btn btn-primary" ng-click="addCommentEvent()">Add</button>
+
                 </div>
         </div><!--post-->
 
         <div class="row post-content post-reply" ng-repeat="comment in commentForm" ng-if="commentForm.length>0">
             <div class="col-lg-3 col-md-3 post-icon">
-                <!--<img class="author-img" src="{{comment.photo}}">-->
+                <img class="author-img" src="{{comment.photo}}">
                 <div class="post-author">
                     <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">{{comment.name}}</a>
                 </div>
