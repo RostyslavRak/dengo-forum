@@ -1,7 +1,5 @@
 <div class="col-md-9">
     <div class="post-one">
-        <div class="welcome-text-title">Help me to fill Tax Information please!</div>
-
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
@@ -18,28 +16,21 @@
             <div class="row post-content">
                 <div class="col-lg-2 col-md-2 post-icon">
                     <img class="author-img"
-                         src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
+                         src="{{posts[0].author.photo}}">
                     <div class="post-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">Андрій Бекендовський</a>
+                           href="#" target="_blank">{{posts[0].author.name}}</a>
                     </div>
                 </div>
 
                 <div class="col-lg-10 col-md-10 post-cell">
-
+                    <div class="welcome-text-title">{{posts[0].title}}</div>
                     <div class="post-date">
-                        <span>23.12.2016</span>
+                        <span>{{posts[0].date}}</span>
                     </div>
-
                     <div class="post-body">
-                        Основні функції GIT: це просто та зручно !
-                        Git — розподілена система керування версіями файлів та спільної роботи. Проект створив
-                        Git є однією з найефективніших, надійних і високопродуктивних систем керування версіями,
-                        що надає гнучкі засоби нелінійної розробки, що базуються на відгалуженні і злитті гілок.
-                        Для забезпечення цілісності історії та стійкості до змін заднім числом використовуються
-                        криптографічні методи, також можлива прив'язка цифрових підписів розробників до тегів і комітів.
+                       {{posts[0].content}}
                     </div>
-
                 </div>
 
                 <div class="col-lg-12 col-md-12 post-info">
@@ -48,68 +39,21 @@
                     </div>
                     <div class="like-count">
                         <!--Post Likes Count:-->
-                        <span class="like-count-total">{{singleModel}}</span>
+                        <span class="like-count-total">{{posts[0].likes.length}}</span>
                         <span class="like-count-text"> Likes </span>
-                        <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel"
-                                    uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
+                        <ng-md-icon icon="thumb_up" style="fill: #37a000"></ng-md-icon>
                     </div>
                 </div>
             </div><!--post-->
 
-            <div class="row post-content post-reply">
-                <div class="col-lg-2 col-md-2 post-icon">
-                    <img class="author-img"
-                         src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                    <div class="post-author">
-                        <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">Preston H</a>
-                    </div>
-                </div>
 
-                <div class="col-lg-10 col-md-10 post-cell">
+</div>
 
-                    <div class="post-date">
-                        <span>22.12.2016</span>
-                    </div>
 
-                    <div class="post-body">Прикладами проектів, що використовують Git, є ядро Linux, Android, LibreOffice,
-                        Cairo, GNU Core Utilities[2], Mesa 3D[3], Wine, багато проектів з X.org[4], XMMS2[5], GStreamer,
-                        Debian DragonFly BSD, Perl, Eclipse, GNOME, KDE, Qt, Ruby on Rails, PostgreSQL, VideoLAN, PHP,
-                        Beryl[6], One Laptop Per Child (OLPC), АБІС Koha, GNU LilyPond[7] та ELinks[8] і
-                        деякі дистрибутиви GNU/Linux.
-                        Програма є вільною і випущена під ліцензією GNU GPL версії 2.
-                        Система спроектована як набір програм, спеціально розроблених з врахуванням їхнього використання у скриптах.
-                        Це дозволяє зручно створювати спеціалізовані системи управління версіями на базі Git
-                        або користувацькі інтерфейси. Наприклад, Cogito[9] є саме таким прикладом фронтенда до репозиторіїв Git.
-                        А StGit[10] використовує Git для управління колекцією латок.
-                        Система має ряд користувацьких інтерфейсів: наприклад, gitk та git-gui розповсюджуються з самим Git.
-                        Віддалений доступ до репозиторіїв Git забезпечується git-демоном, SSH або HTTP сервером.
-                        TCP-сервіс git-daemon входить у дистрибутив Git і є разом з SSH найпоширенішим і надійним методом доступу.
-                        Метод доступу HTTP, незважаючи на ряд обмежень, дуже популярний в контрольованих мережах,
-                        тому що дозволяє використання існуючих конфігурацій мережевих фільтрів.
-                    </div>
 
-                </div>
-
-                <div class="col-lg-12 col-md-12 post-info">
-                    <div class="add-reply">
-                        <button type="button" class="btn btn-primary">Reply</button>
-                    </div>
-                    <div class="like-count">
-                        <!--Post Likes Count:-->
-                        <span class="like-count-total">{{singleModel}}</span>
-                        <span class="like-count-text"> Likes </span>
-                        <ng-md-icon icon="thumb_up" style="fill: #37a000" size="20" ng-model="singleModel"
-                                    uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>
-                    </div>
-                </div>
-            </div><!--post reply-->
-
-        </div>
-
-        <div class="post-pagination">
-            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
-                class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
-        </div>
-    </div>
+<div class="post-pagination">
+    <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
+        class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+</div>
+</div>
 </div>
