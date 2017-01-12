@@ -1,5 +1,5 @@
 /**
- *  error page
+ *  welcome page
  *
  * @author Dima Zelenyuk
  */
@@ -8,18 +8,16 @@
 
 app
     .controller('WelcomeController', function ($scope) {
-        $(document).ready(function(){
-
+        $(function(){
             var winHeight = window.innerHeight    ||
                 document.documentElement.clientHeight ||
                 document.body.clientHeight;
 
             var pageHeight = $('body').height();
             if (pageHeight < winHeight) {
-                winHeight = winHeight - 54;
+                winHeight = winHeight - 260;
                 $('.all-content-wraper').css('min-height',winHeight)
             }
-
             $('.first.circle').circleProgress({
                 value: 0.7,
                 size: 130,
@@ -50,7 +48,8 @@ app
                 $(this).find('strong').html(Math.round(100 * progress));
             });
 
-            $('.all-content-wraper').Geometryangle({
+
+            $('.background').Geometryangle({
                 mesh:{
                     width: 1.5,
                     height: 1.6,

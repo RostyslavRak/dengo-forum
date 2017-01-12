@@ -13,15 +13,14 @@ app
         var y = date.getFullYear();
        $scope.dateFormat=(y+"-"+m+"-"+d);
 
-
         /* event source that contains custom events on the scope */
         $scope.events =  [
             {   id: 0,
                 title  : "event1",
                 fullTitle: "Events-One",
                 location:"пр. Свободи 10 оф.10",
-                content:"content1",
-                start  : "2017-01-05T14:30:00",
+                content:"<h2>content1</h2>",
+                start  : "2017-01-05 22:30:00",
                 end  : "2017-01-05",
                     author :{
                          name:"Ross",
@@ -99,36 +98,29 @@ app
             };
             $scope.editEvent = function () {
                 $state.go('calendar.editEvents');
-
                 $scope.saveEditEvent = function () {
                         calEvent.title = $("#shortTitleEdit").val(),
                         calEvent.fullTitle = $("#fullTitleEdit").val(),
-                        //calEvent.time= $("#timeEdit").val(),
-                        calEvent.time = $scope.mytime.getHours("shortTime");
-                        //calEvent.sity = $("#sityEdit").val(),
                         calEvent.location = $("#locationEdit").val(),
-                        //calEvent.content = $("#contentEdit").val(),
+                        calEvent.content = $("#contentEdit").val(),
                         calEvent.start = $("#startEdit").val(),
-                        //calEvent.end  = $("#endEdit").val(),
+                        calEvent.end  = $("#endEdit").val(),
                         calEvent.author.phoneNumber = $("#phoneNumberEdit").val() ;
                     $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
-                    console.log()
-
                 };
             }
         };
-
-
 
         $scope.dayClick = function(eventDate){
             if(eventDate>date) {
                 $state.go('calendar.eventsAdd');
                 $state.go('calendar');
                 $state.go('calendar.eventsAdd');
+                $scope.eventDate = eventDate.format('YYYY-MM-DD HH:mm');
 
-                $scope.eventDate = eventDate.format('YYYY-MM-DD');
                 $scope.addEvent = function () {
+
                     if ($('#shortTitle').val() != "") {
                         $scope.obj = {
                             id: $scope.events.length,
@@ -136,9 +128,8 @@ app
                             fullTitle : $('#fullTitle').val(),
                             start: $('#start').val(),
                             end: $('#end').val(),
-                            time: "00:00",
                             location: $('#location').val(),
-                            content: "test Content",
+                            content: $("#htmlcontent").val(),
                             author: {
                                 name: "Test",
                                 photo: "images/src/viawEvents/images/dima.jpg",
@@ -150,9 +141,8 @@ app
                         $state.go('calendar');
                         $('#calendar').fullCalendar('renderEvent', $scope.obj);
 
+                        console.log( $scope.obj);
                     }
-
-
                 }
             }
 
@@ -171,7 +161,6 @@ app
                 events: $scope.events
 
             })});
-
 
 
     });
