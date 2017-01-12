@@ -8,7 +8,7 @@
 
 app
     .controller('ViawEventsController', function ($scope, $state, $uibModal, $log, $document) {
-        $scope.comment = "Коментар до події";
+
 
             var $ctrl = this;
 

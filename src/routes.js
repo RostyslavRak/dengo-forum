@@ -45,7 +45,7 @@ app
 
             .state('welcome', {
                 authenticate: false,
-                url: '/welcome',
+                url: '/',
 
                 views: {
                     "Header": {
@@ -278,8 +278,11 @@ app
 
 
 // Send to login if the URL was not found
-        $urlRouterProvider.otherwise('/welcome');
-     })
+        $urlRouterProvider.otherwise('/');
+    })
+
+
+
 
    .run(function ($rootScope, $state, loginService) {
         $rootScope.$on("$stateChangeStart", function(event, toState){
