@@ -3,6 +3,9 @@
  *
  * @author Dima Zelenyuk
  */
+
+
+
 app
     .controller('WelcomeController', function ($scope) {
         $( document ).ready(function(){
@@ -17,21 +20,30 @@ app
             }
             $('.first.circle').circleProgress({
                 value: 0.7,
-                size: 130
+                size: 130,
+                fill: {
+                    gradient: ["rgba(98, 162, 174, 1)", "rgba(255, 120, 89, 1)"]
+                }
             }).on('circle-animation-progress', function(event, progress) {
                 $(this).find('strong').html(Math.round(900 * progress));
             });
 
             $('.second.circle').circleProgress({
                 value: 0.3,
-                size: 130
+                size: 130,
+                fill: {
+                    gradient: ["rgba(98, 162, 174, 1)", "rgba(255, 120, 89, 1)"]
+                }
             }).on('circle-animation-progress', function(event, progress) {
                 $(this).find('strong').html(Math.round(30 * progress));
             });
 
             $('.third.circle').circleProgress({
                 value: 0.9,
-                size: 130
+                size: 130,
+                fill: {
+                    gradient: ["rgba(98, 162, 174, 1)", "rgba(255, 120, 89, 1)"]
+                }
             }).on('circle-animation-progress', function(event, progress) {
                 $(this).find('strong').html(Math.round(100 * progress));
             });
@@ -59,7 +71,7 @@ app
                     yRange: 0.1,
                     zRange: 1.0,
                     ambient: 'rgba(98, 162, 174, 1)',
-                    diffuse: 'rgba(255, 120, 89, 1)',
+                    diffuse: 'rgba(255, 255, 255, 0.7)',
                     background: 'rgb(255, 255, 255)',
                     speed: 0.0002,
                     fluctuationSpeed: 0.5,
@@ -79,7 +91,7 @@ app
                     // Position of light source.
                     zOffset: 100,
 
-                    ambient: 'rgba(98, 162, 174, 1)',
+                    ambient: 'rgba(255, 255, 255, 1)',
                     diffuse: 'rgba(255, 120, 89, 1)',
                     speed: 0.010,
                     gravity: 1200,
