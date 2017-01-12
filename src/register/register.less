@@ -47,21 +47,19 @@
       display: inline-block;
       float: right;
     }
-    input {
+    &.password {
+      display: inline-block;
+      width: 357px;
       // margin-bottom: 10px;
-      &.password {
-        margin-bottom: -1px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+      .password1 {
         width: 169px;
         display: inline-block;
       }
-      &.password2 {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+      .password2 {
         width: 169px;
         display: inline-block;
         float: right;
+        margin-left: 17px;
       }
     }
     &.company {
@@ -86,7 +84,7 @@
       .error {
         margin: 3px 5px;
         white-space: nowrap; // white-space div align
-        overflow: hidden;
+        //overflow: hidden;
 
          //FIXME: needs rework
         &.ng-hide-add {
