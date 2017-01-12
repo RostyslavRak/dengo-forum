@@ -10,15 +10,16 @@ app
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
+        var m1 = date.getMonth()+1;
         var y = date.getFullYear();
        $scope.dateFormat=(y+"-"+m+"-"+d);
-
+       $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
         /* event source that contains custom events on the scope */
         $scope.events =  [
             {   id: 0,
                 title  : "event1",
                 fullTitle: "Events-One",
-                location:"пр. Свободи 10 оф.10",
+                location:"Львів пр. Свободи 10 оф.10",
                 content:"<h2>content1</h2>",
                 start  : "2017-01-05 22:30:00",
                 end  : "2017-01-05",
@@ -27,6 +28,17 @@ app
                          photo:"images/src/viawEvents/images/ross.jpg",
                          phoneNumber:"+38-097-00-00-000"
                 },
+                peopleGo:[
+                    {
+                    name:"Ross",
+                    photo:"images/src/viawEvents/images/ross.jpg"
+                },
+                    {
+                        name:"Dima",
+                        photo:"images/src/viawEvents/images/dima.jpg"
+                    }
+                ],
+
                 comments:[
                 ]
             },
@@ -43,6 +55,7 @@ app
                         phoneNumber:"+38-097-11-11-111"
 
                     },
+                peopleGo:[],
                 comments:[{
                     name:"Oleg",
                     photo:"images/src/viawEvents/images/oleg.jpg",
@@ -65,6 +78,7 @@ app
                         phoneNumber:"+38-097-22-22-222"
 
                     },
+                peopleGo:[],
                 comments:[{
                     name:"Oleg",
                     photo:"images/src/viawEvents/images/oleg.jpg",
@@ -109,7 +123,38 @@ app
                     $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
                 };
-            }
+            };
+            $scope.iGoEvent = function () {
+                $scope.newIgoOnEvent = {
+                    id: "user id",
+                    name: $scope.ls.user.name ,
+                    photo:"images/src/viawEvents/images/oleg.jpg"
+                };
+                angular.forEach($scope.events, function (event) {
+                    if(event.id == calEvent.id){
+                     event.peopleGo.push($scope.newIgoOnEvent);
+                    }
+                });
+                console.log( $scope.newIgoOnEvent);
+            };
+
+            $scope.addCommentEvent = function () {
+                $scope.newCommentEvent = {
+                    name:$scope.ls.user.name,
+                    photo:"images/src/viawEvents/images/oleg.jpg",
+                    content: $('#commentEvent').val(),
+                    data  : $scope.dateFormat1_12
+                };
+                angular.forEach($scope.events, function (event) {
+                    if(event.id == calEvent.id){
+                        event.comments.push($scope.newCommentEvent);
+                    }
+                });
+                $('#commentEvent').val("");
+                $('#event-comment').removeClass("in");
+                console.log( $scope.newCommentEvent);
+            };
+
         };
 
         $scope.dayClick = function(eventDate){
@@ -122,7 +167,7 @@ app
                 $scope.addEvent = function () {
 
                     if ($('#shortTitle').val() != "") {
-                        $scope.obj = {
+                        $scope.newEvent = {
                             id: $scope.events.length,
                             title: $('#shortTitle').val(),
                             fullTitle : $('#fullTitle').val(),
@@ -131,17 +176,17 @@ app
                             location: $('#location').val(),
                             content: $("#htmlcontent").val(),
                             author: {
-                                name: "Test",
+                                name: $scope.ls.user.name,
                                 photo: "images/src/viawEvents/images/dima.jpg",
                                 phoneNumber: $('#phoneNumber').val()
                             },
                             comments: []
                         };
-                        $scope.events.push($scope.obj);
+                        $scope.events.push($scope.newEvent);
                         $state.go('calendar');
-                        $('#calendar').fullCalendar('renderEvent', $scope.obj);
+                        $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
 
-                        console.log( $scope.obj);
+                        console.log( $scope.newEvent);
                     }
                 }
             }

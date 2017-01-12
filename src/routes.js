@@ -45,7 +45,7 @@ app
 
             .state('welcome', {
                 authenticate: false,
-                url: '/welcome',
+                url: '/',
 
                 views: {
                     "Header": {
@@ -81,6 +81,7 @@ app
                     },
                     "Content": {
                         templateUrl: 'pages/user.tpl.html',
+                        controller: 'PagesController',
                         accessLevel: accessLevels.user
                     },
                     "Footer": {
@@ -156,7 +157,7 @@ app
                     },
                     "ProfileHeader": {
                         templateUrl: 'layout/profileHeader/profileHeader.tpl.html',
-                        controller: 'ProfileHeaderController'
+                        controller: 'PagesController'
                     },
                     "Sidebar": {
                         templateUrl: "layout/sidebar/sidebar.tpl.html",
@@ -202,8 +203,7 @@ app
             .state('addPost', {
                 url: '/postAdd',
                 authenticate: true,
-
-                views: {
+                views:{
                     "Header": {
                         templateUrl: 'layout/header/header.tpl.html',
                         controller: 'HeaderController'
@@ -212,7 +212,7 @@ app
                         templateUrl: "layout/sidebar/sidebar.tpl.html",
                         controller: 'SidebarController'
                     },
-                    "Content": {
+                    "Content":{
                         templateUrl: 'postAdd/postAdd.tpl.html',
                         controller: 'AddPostController'
                     },
@@ -278,8 +278,11 @@ app
 
 
 // Send to login if the URL was not found
-        $urlRouterProvider.otherwise('/welcome');
-     })
+        $urlRouterProvider.otherwise('/');
+    })
+
+
+
 
    .run(function ($rootScope, $state, loginService) {
         $rootScope.$on("$stateChangeStart", function(event, toState){

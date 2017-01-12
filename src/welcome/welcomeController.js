@@ -8,7 +8,7 @@
 
 app
     .controller('WelcomeController', function ($scope) {
-        $(function(){
+        $( document ).ready(function(){
             var winHeight = window.innerHeight    ||
                 document.documentElement.clientHeight ||
                 document.body.clientHeight;
@@ -22,7 +22,7 @@ app
                 value: 0.7,
                 size: 130,
                 fill: {
-                    gradient: ["rgba(98, 162, 174, 1)", "rgba(255, 120, 89, 1)"]
+                    gradient: ["rgb(98, 162, 174)", "rgb(255, 255, 255)"]
                 }
             }).on('circle-animation-progress', function(event, progress) {
                 $(this).find('strong').html(Math.round(900 * progress));
@@ -32,17 +32,17 @@ app
                 value: 0.3,
                 size: 130,
                 fill: {
-                    gradient: ["rgba(98, 162, 174, 1)", "rgba(255, 120, 89, 1)"]
+                    gradient: ["rgb(98, 162, 174)", "rgb(255, 255, 255)"]
                 }
             }).on('circle-animation-progress', function(event, progress) {
-                $(this).find('strong').html(Math.round(30 * progress));
+                $(this).find('strong').html(Math.round(30 * progress) + '<i>%</i>');
             });
 
             $('.third.circle').circleProgress({
                 value: 0.9,
                 size: 130,
                 fill: {
-                    gradient: ["rgba(98, 162, 174, 1)", "rgba(255, 120, 89, 1)"]
+                    gradient: ["rgb(98, 162, 174)", "rgb(255, 255, 255)"]
                 }
             }).on('circle-animation-progress', function(event, progress) {
                 $(this).find('strong').html(Math.round(100 * progress));
@@ -71,7 +71,7 @@ app
                     yRange: 0.1,
                     zRange: 1.0,
                     ambient: 'rgba(98, 162, 174, 1)',
-                    diffuse: 'rgba(255, 255, 255, 0.7)',
+                    diffuse: 'rgba(255, 255, 255, 0.9)',
                     background: 'rgb(255, 255, 255)',
                     speed: 0.0002,
                     fluctuationSpeed: 0.5,

@@ -9,14 +9,31 @@ body {
 }
 .navbar-static-top {
   margin-bottom: 0;
-
   background-color: #fff;
   .navbar-header {
-    a {
-      color: #777777;
+    .navbar-brand {
+      padding: 12px 15px;
+      a {
+        font-size: 30px;
+        color: #494846;
+        font-family: "Lato";
+        span {
+          font-family: "Lato Black";
+        }
+      }
     }
     a:hover, a:focus {
       text-decoration: none;
+    }
+  }
+  .navbar-nav {
+    li a {
+      font-size: 24px;
+      color: #3b3b3b;
+      font-family: "Lato";
+      &:hover, &:focus {
+      font-family: "Lato Heavy";
+      }
     }
   }
 }
@@ -43,6 +60,15 @@ body {
   background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
+  .right-circle {
+    text-align: right;
+  }
+  .center-circle {
+    text-align: center;
+  }
+  .left-circle {
+    text-align: left;
+  }
   .circle {
     width: 130px;
     margin: 6px 6px 20px;
@@ -68,13 +94,13 @@ body {
 
   .circle strong i {
     font-style: normal;
-    font-size: 0.6em;
-    font-weight: normal;
   }
 
   .circle span {
+    font-family: "Lato Black";
+    text-transform: uppercase;
+    color: #3b3b3b;
     display: block;
-    color: #aaa;
     margin-top: 12px;
   }
 }

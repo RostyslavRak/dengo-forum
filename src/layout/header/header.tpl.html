@@ -9,16 +9,16 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="navbar-brand" ng-class="{ active: $state.is('user') }">
-                <a ui-sref="user">Dengo-Forum</a>
+                <a ui-sref="user">Dengo <span>Forum</span></a>
             </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li ng-class="{ active: $state.is('login') }" ng-if="!ls.isLogged">
-                    <a ui-sref="login" >Login</a>
+                    <a ui-sref="login" >Log in</a>
                 </li>
                 <li ng-class="{ active: $state.is('register') }" ng-if="!ls.isLogged">
-                    <a ui-sref="register">Sign Up</a>
+                    <a ui-sref="register">Sing up</a>
                 </li>
             </ul>
 
