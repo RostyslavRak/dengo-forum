@@ -1,7 +1,19 @@
 @slate-color: rgb(39, 43, 48);
+@font-face {
+  font-family: 'Lucida Fax Demibold';
+  src: url('../fonts/LucidaFaxDemibold.ttf');
+}
+@font-face {
+  font-family: 'Lucida Fax Italic';
+  src: url('../fonts/LucidaFaxItalic.ttf');
+}
+@font-face {
+  font-family: 'Lucida Fax Regular';
+  src: url('../fonts/LucidaFaxRegular.ttf');
+}
 
 .form-signin {
-  max-width: 400px;
+  max-width: 357px;
   //padding: 15px;
   margin: 0 auto;
   //background-color: lighten(@slate-color, 10%);
@@ -11,35 +23,56 @@
     z-index: 2;
     border-color: #008329;
     box-shadow: none;
-    border-width: 2px;
   }
   .form-control:hover {
     z-index: 2;
     border-color: #008329;
     box-shadow: none;
-    border-width: 2px;
   }
   .form-control {
+    font-family: "Lucida Fax Regular";
     position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    border-radius: 2px;
-  }
-  input {
-    // margin-bottom: 10px;
-    &.password {
-      margin-bottom: -1px;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    &.password2 {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
+    height: 33px;
+    padding: 0 10px;
+    border-radius: 1px;
   }
   .form-input {
-    //margin-bottom: 10px;
+    margin-bottom: 11px;
+    &.name {
+      width: 169px;
+      display: inline-block;
+    }
+    &.username {
+      width: 169px;
+      display: inline-block;
+      float: right;
+    }
+    input {
+      // margin-bottom: 10px;
+      &.password {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 169px;
+        display: inline-block;
+      }
+      &.password2 {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        width: 169px;
+        display: inline-block;
+        float: right;
+      }
+    }
+    &.company {
+      width: 169px;
+      display: inline-block;
+    }
+    &.company-site {
+      width: 169px;
+      display: inline-block;
+      float: right;
+    }
     .errors {
       //background-color: softlight(@slate-color, white);
       //border: 1px solid transparent;
@@ -100,14 +133,23 @@
     }
   }
   .form-signin-heading {
-    font-weight: 300;
-    //text-shadow: 2px 2px 4px black;
-    margin-bottom: 20px;
+    font-size: 24px;
+    font-family: "Lucida Fax Demibold";
+    text-transform: uppercase;
+    margin-bottom: 58px;
     text-align: center;
   }
   .signup-checkbox-small {
     .checkbox {
       font-weight: normal;
+      small {
+        font-family: "Lucida Fax Italic";
+        color: #b5b5b5;
+        font-size: 14px;
+        span {
+          color: #56b4c1;
+        }
+      }
     }
   }
   .captcha-img {
@@ -118,8 +160,20 @@
   }
   button {
     margin: 20px auto 0;
-    width: auto;
-    border-radius: 2px;
+    padding: 2px;
+    width: 167px;
+    height: 31px;
+    border-radius: 0;
+    background-color: #56b4c1;
+    border: none;
+    &:hover {
+      background-color: #56b4c1;
+    }
+    span {
+      font-family: "Lucida Fax Regular";
+      font-size: 14px;
+      text-transform: uppercase;
+    }
   }
 }
 
