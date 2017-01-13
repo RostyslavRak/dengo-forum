@@ -1,112 +1,241 @@
-.user {
-  width: 100%;
+.profile_header {
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  .top-authors {
-    .title {
-      color: #494949;
-      font-size: 15px;
-      line-height: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .top-solution-authors, .top-liked-authors {
-      margin-top: 20px;
-    }
-    .autor {
-      margin-top: 10px;
-      .author-img {
-        width: 20px;
-        height: 20px;
+  margin-bottom: 20px;
+  float: left;
+  .user_left {
+    width: 50%;
+    display: flex;
+    flex-basis: 340px;
+    .avatar {
+      flex-basis: 104px;
+      img {
         border-radius: 50%;
-        margin-right: 15px;
+        border: 2px solid grey;
       }
-      .author-name a {
-        color: #37a000;
-        font-weight: bold;
-        &:hover {
-          color: #B0E44F;
+    }
+    .user_name_box {
+      margin-left: 20px;
+      //flex-grow: 1;
+      width: 340px;
+      .user_name {
+        width: 100%;
+        h3.user_name_text {
+          font-size: 22px;
+          font-weight: 300;
+          font-family: "Raleway ExtraBold";
+          color: #62a2ae;
+          margin-top: 0;
+
+          line-height: 1;
         }
-      }
-      .count {
-        color: #999999;
-        font-weight: bold;
-        float: right;
       }
     }
   }
-  .posts {
-    margin-top: 30px;
-    width: 100%;
-    border-left: 2px solid #dadada;
-    border-right: 2px solid #dadada;
-
-    h3.title-posts {
-      padding-top: 15px;
-      padding-left: 11%;
-      font-size: 24px;
-      color: #585858;
-    }
-    .post-content {
+    .user_status {
       width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-      background-color: #fff;
-      border-top: 2px solid #dadada;
-      &:last-child {
-        border-bottom: 2px solid #dadada;
+      color: #3c3c3c;
+      background: none;
+      .user_status_text {
+        font-family: "Raleway Medium";
+        font-size: 18px;
+        margin-top: 0;
+        line-height: 1;
       }
-      h3.Post_latest_text {
-        font-size: 20px;
-              }
-      a {
+    }
+    .user_public {
+      width: 170px;
+      margin-left: 0;
+      margin-top: 15px;
+      margin-right: auto;
+    }
+    ng-md-icon {
+      fill: #b1b1b1;
+      &:hover {
         cursor: pointer;
-        color: #37a000;
-        &:hover {
-          color: #B0E44F;
+        fill: #62a2ae;
+      }
+    }
+
+    .user_right {
+      width: 50%;
+      display: flex;
+      float: left;
+      .user_data {
+        margin-left: 0px;
+        width: 200px;
+        h3 {
+          font-family: "Raleway SemiBold";
+          font-size: 16px;
+          margin-top: 0;
+          line-height: 1.1;
+          .date_registration {
+            width: 200px;
+            .last_visited {
+              width: 200px;
+              .massages_posted {
+                width: 200px;
+                .likes {
+                  width: 200px;
+                  .likes_text {
+                    width: 100%;
+                  }
+                }
+              }
+
+            }
+          }
         }
       }
-      .post-icon {
-        padding-top: 15px;
-      }
-      .post-cell {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        .post-subject a {
+      .user_statistic {
+        width: 200px;
+        float: left;
+        display: block;
+        h3 {
+          font-family: "Raleway Medium";
           font-size: 16px;
-          color: #494949;
+          //font-weight: 200;
+          margin-top: 0;
+          line-height: 1.1;
+        }
+      }
+    }
+  }
+
+  .user {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .top-authors {
+      .title {
+        color: #494949;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .top-solution-authors, .top-liked-authors {
+        margin-top: 20px;
+      }
+      .autor {
+        margin-top: 10px;
+        .author-img {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          margin-right: 15px;
+        }
+        .author-name a {
+          color: #37a000;
           font-weight: bold;
           &:hover {
             color: #B0E44F;
           }
         }
-        .post-author {
-          font-weight: bold;
-        }
-        .post-body a {
-          font-weight: bold;
-        }
-        .post-date {
-          font-weight: bold;
-        }
-        .post-subject, .post-author, .post-body {
-          padding-bottom: 13px;
-        }
-      }
-      .post-info {
-        padding-top: 15px;
-        span {
+        .count {
           color: #999999;
           font-weight: bold;
-        }
-        .view_all {
-          color: #37a000;
-          font-weight: bold;
-          height: 96px;
-          padding-top: 30px;
+          float: right;
         }
       }
     }
-  }
-}
+    .posts {
+      margin-top: 30px;
+      width: 100%;
+      //border-left: 2px solid #dadada;
+      //border-right: 2px solid #dadada;
+
+      h3.title-posts {
+        padding-top: 15px;
+        //padding-left: 11%;
+        font-size: 20px;
+        color: #62a2ae;
+      }
+      .post-content {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #fff;
+        border-bottom: 2px solid #dadada;
+        &:last-child {
+          border-bottom: 2px solid #dadada;
+        }
+        h3.Post_latest_text {
+          font-size: 20px;
+          font-family: "Raleway SemiBold";
+          a {
+            cursor: pointer;
+            color: #353d3e;
+            &:hover {
+              color: #62a2ae;
+              text-decoration: none;
+            }
+          }
+        }
+          .message-subject-board {
+            font-size: 16px;
+            color: #353d3e;
+            font-family: "Raleway SemiBold";
+
+          }
+            h3.message-subject-board1 {
+              font-size: 16px;
+              color: #353d3e;
+              font-family: "Raleway SemiBold";
+              a {
+                cursor: pointer;
+                color: #353d3e;
+                &:hover {
+                  color: #62a2ae;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+
+
+        .post-icon {
+          padding-top: 15px;
+        }
+        .post-cell {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          .post-subject a {
+            font-size: 16px;
+            color: #494949;
+            font-weight: bold;
+            &:hover {
+              color: #B0E44F;
+            }
+          }
+          .post-author {
+            font-weight: bold;
+          }
+          .post-body a {
+            font-weight: bold;
+          }
+          .post-date {
+            font-weight: bold;
+          }
+          .post-subject, .post-author, .post-body {
+            padding-bottom: 13px;
+          }
+        }
+        .post-info {
+          padding-top: 15px;
+          span {
+            color: #999999;
+            font-weight: bold;
+          }
+          .view_all {
+            color: #62a2ae;
+            font-weight: bold;
+            height: 96px;
+            padding-top: 30px;
+          }
+        }
+      }
+    }
