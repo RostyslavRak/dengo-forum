@@ -5,7 +5,7 @@
         <div class="form-input subject">
             <label>Short Title</label>
             <input type="text" class="form-control" placeholder="Enter Title Here" name="subject" autofocus="true"
-                   ng-minlength="5" ng-maxlength="15" ng-required="true">
+                   ng-minlength="5" ng-maxlength="15" ng-required="true" ng-model="newPost.title">
             <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
                 <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
                     <p>Provided name is too short!</p>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="add-post-btn">
-            <button type="button" class="btn btn-primary">Post</button>
+            <button type="button" class="btn btn-primary" ng-click="addPost()">Post</button>
             <a ui-sref="post" class="btn cancel-post">Cancel</a>
         </div>
     </div>

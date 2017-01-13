@@ -1,7 +1,7 @@
 app
-    .controller('PostController', function ($scope) {
+    .controller('PostController', function ($rootScope,$state) {
 
-        $scope.posts =  [
+        $rootScope.posts =  [
             {   id: 0,
                 title  : "Основні функції GIT: це просто та зручно !",
                 categoryGroup:"Регіональні групи",
@@ -38,8 +38,6 @@ app
                 ]
             }
         ];
-
-
 
 
     });

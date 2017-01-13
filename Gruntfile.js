@@ -90,6 +90,10 @@ module.exports = function (grunt) {
          files: ['{eot,svg,ttf,woff,woff2}'],
          tasks: ['copy:fonts']
         }
+        // data: {
+        //     files: ['*.json'],
+        //     tasks: ['copy:data']
+        // }
 
     },
     concat_sourcemap: {
@@ -153,6 +157,11 @@ module.exports = function (grunt) {
                 dest: 'build/fonts/'
             }]
         }
+        // data: {
+        //         src: 'src/post/posts.json',
+        //         dest: 'build/data/'
+        //
+        // }
 
     },
 
