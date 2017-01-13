@@ -1,75 +1,94 @@
 .postTest {
+  padding: 50px 0 0 100px;
+  color: #353d3e;
   .welcome-text-title {
-    font-size: 26px;
-    line-height: 52px;
-    color: #494949;
-    padding-top: 15px;
-    padding-bottom: 12px;
+    font-family: 'Raleway ExtraBold';
+    text-transform: uppercase;
+    font-size: 24px;
+    //color: #353d3e;
+    padding-bottom: 15px;
   }
   .category-description {
-    font-size: 15px;
-    line-height: 30px;
-    width: 710px;
-    margin-bottom: 30px;
+    font-family: 'Raleway Bold';
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .input-group {
+    input {
+      border-radius: 0;
+      height: 30px;
+      &:focus {
+        border: 1px solid #dfdfdf;
+        box-shadow: none;
+      }
+    }
+    .input-group-btn {
+      button {
+        background-color: #dfdfdf;
+        border-radius: 0;
+        border: 0;
+        text-transform: lowercase;
+        font-family: "Lato";
+        color: #3b3b3b;
+        font-size: 16px;
+        padding: 4px 27px;
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
   }
   .img-title {
-    padding-bottom: 35px;
-    padding-top: 35px;
+    padding: 16px 100px 35px;
     img {
       width: 100%;
-      height: 250px;
+      height: 185px;
     }
   }
   .posts {
-    border-left: 2px solid #dadada;
-    border-right: 2px solid #dadada;
     .post-content {
-      margin-left: 0;
+      font-family: 'Raleway Medium';
+      margin-left: -85px;
       margin-right: 0;
-      background-color: #fff;
-      border-top: 2px solid #dadada;
-      &:last-child {
-        border-bottom: 2px solid #dadada;
-      }
+      border-top: 1px solid #dfdfdf;
       a {
         cursor: pointer;
-        color: #37a000;
-        &:hover {
-          color: #B0E44F;
-        }
-      }
-      .post-icon {
-        padding-top: 15px;
       }
       .post-cell {
         padding-top: 15px;
         padding-bottom: 15px;
+        padding-left: 87px;
         .post-subject a {
-          font-size: 16px;
-          color: #494949;
-          font-weight: bold;
+          padding-left: 30px;
+          font-family: 'Raleway Bold';
+          font-size: 18px;
+          cursor: pointer;
+          color: #62a2ae;
           &:hover {
-            color: #B0E44F;
+            //color: #B0E44F;
           }
         }
         .post-author {
-          font-weight: bold;
+          color: #a4a3a3;
+          padding-left: 30px;
+          padding-bottom: 30px;
+          a {
+            color: #353d3e;
+          }
         }
-        .post-body a {
-          font-weight: bold;
+        .post-body {
+          text-align: justify;
+          padding-bottom: 30px;
         }
         .post-date {
-          font-weight: bold;
-        }
-        .post-subject, .post-author, .post-body {
-          padding-bottom: 13px;
+          color: #a4a3a3;
+          padding-left: 30px;
         }
       }
       .post-info {
         padding-top: 15px;
         span {
-          color: #999999;
-          font-weight: bold;
+          color: #aaa9a9;
         }
       }
     }
