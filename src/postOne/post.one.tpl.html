@@ -6,12 +6,6 @@
                     <button class="btn btn-default" type="button">Search</button>
                 </span>
         </div>
-
-        <div class="post-pagination">
-            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
-                class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
-        </div>
-
         <div class="post">
             <div class="row post-content">
                 <div class="col-lg-2 col-md-2 post-icon">
@@ -34,23 +28,55 @@
                 </div>
 
                 <div class="col-lg-12 col-md-12 post-info">
-                    <div class="add-reply">
-                        <button type="button" class="btn btn-primary">Reply</button>
-                    </div>
+                    <!--<div class="add-reply">-->
+                        <!--<button type="button" class="btn btn-primary">Reply</button>-->
+                    <!--</div>-->
                     <div class="like-count">
                         <!--Post Likes Count:-->
                         <span class="like-count-total">{{posts[0].likes.length}}</span>
-                        <span class="like-count-text"> Likes </span>
-                        <ng-md-icon icon="thumb_up" style="fill: #37a000"></ng-md-icon>
+                        <!--<span class="like-count-text"> Likes </span>-->
+                        <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+                        <span class="like-count-total">{{posts[0].likes.length}}</span>
+                        <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>
             </div><!--post-->
 
 
 </div>
+        <div class="post">
+            <div class="row post-content">
+                <div class="col-lg-2 col-md-2 post-icon">
+                    <img class="author-img"
+                         src="{{posts[0].author.photo}}">
+                    <div class="post-author">
+                        <a class="page-link lia-link-navigation lia-user-name-link"
+                           href="#" target="_blank">{{posts[0].author.name}}</a>
+                    </div>
+                </div>
 
+                <div class="col-lg-10 col-md-10 post-cell">
+                    <div class="welcome-text-title">{{posts[0].title}}</div>
+                    <div class="post-date">
+                        <span>{{posts[0].date}}</span>
+                    </div>
+                    <div class="post-body">
+                       {{posts[0].content}}
+                    </div>
+                </div>
 
-
+                <div class="col-lg-12 col-md-12 post-info">
+                    <
+                    <div class="like-count">
+                        <!--Post Likes Count:-->
+                        <span class="like-count-total">{{posts[0].likes.length}}</span>
+                                              <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+                        <span class="like-count-total">{{posts[0].likes.length}}</span>
+                        <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
+                    </div>
+                </div>
+            </div><!--post-->
+</div>
 <div class="post-pagination">
     <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
         class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
