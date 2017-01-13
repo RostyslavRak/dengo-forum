@@ -7,7 +7,7 @@ app
             text1: 'Why You Should Join Our Community ?',
             topAuthors: 'TOP-5 Authors',
             topPosts: 'TOP-5 Posts',
-            eventsCalendar: 'Events Calendar',
+            eventsCalendar: 'Calendar',
             category: 'Category',
             en: 'English',
             uk: 'Ukrainian'
@@ -18,7 +18,7 @@ app
                 text1: 'Текс українською моваю і',
                 topAuthors: 'TOP-5 Авторів',
                 topPosts: 'TOP-5 Постів',
-                eventsCalendar: 'Календар зустрічей',
+                eventsCalendar: 'Календар',
                 category: 'Категорії',
                 en: 'English',
                 uk: 'Ukrainian'
