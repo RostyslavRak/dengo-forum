@@ -19,4 +19,3 @@ var app = angular
         'ngMap',
         'pascalprecht.translate'
     ]);
-

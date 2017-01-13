@@ -10,9 +10,9 @@
                 <uib-accordion-heading>
                     <img src="/images/src/viawEvents/images/map-marker_30.png">Location on map
                 </uib-accordion-heading>
-                <p>{{calEvent.location}}</p>
-                <ng-map zoom="15" center="{{calEvent.location}}">
-                    <marker position="{{calEvent.location}}" title="{{calEvent.location}}"></marker>
+                <p>{{calEvent.address}}</p>
+                <ng-map zoom="15" center="{{calEvent.address}}">
+                    <marker position="{{calEvent.address}}" title="{{calEvent.address}}"></marker>
                 </ng-map>
             </div>
             </uib-accordion>
@@ -33,10 +33,10 @@
                     </div>
                     </br>
                     <div class="post-place">
-                        <span>{{calEvent.location}}</span>
+                        <span>{{calEvent.address}}</span>
                     </div>
                 </div>
-                <div class="post-body" ng-bind-html="calEvent.content">{{calEvent.content}}</div>
+                <div class="post-body" ng-bind-html="calEvent.htmlContent">{{calEvent.htmlContent}}</div>
             </div>
 
             <div class="col-lg-12 col-md-12 post-info">

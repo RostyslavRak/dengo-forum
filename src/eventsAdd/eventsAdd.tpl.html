@@ -3,7 +3,7 @@
 
     <div class="form-input subject">
         <label>Short Title</label>
-        <input type="text" id="shortTitle" class="form-control" placeholder="Enter Short Title Here" name="subject" autofocus="true"
+        <input type="text" ng-model="newEvent.title" class="form-control" placeholder="Enter Short Title Here" name="subject" autofocus="true"
                ng-minlength="5" ng-maxlength="15" ng-required="true">
         <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
             <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
@@ -17,7 +17,7 @@
     <div class="form-input subject">
         <label>Subject</label>
         <input type="text" class="form-control" placeholder="Enter Subject Here" name="subject" autofocus="true"
-               ng-minlength="4" ng-maxlength="32" ng-required="true" id="fullTitle">
+               ng-minlength="4" ng-maxlength="32" ng-required="true" ng-model="newEvent.fullTitle">
         <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
             <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
                 <p>Provided name is too short!</p>
@@ -29,36 +29,44 @@
     </div>
 
 
+    <label>Start Date</label>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepickerStart'>
+                    <input type='text' class="form-control" ng-model="newEvent.start" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+            </div>
+    <h5>{{newEvent.start}}</h5>
 
-        <label for="start">Start Date</label>
-        <input type="datetime-local" id="start" name="input" ng-model="start"
-               placeholder="yyyy-MM-ddTHH:mm" min="2017-01-01T00:00" max="2017-12-31T00:00" required />
-        <div role="alert">
-        </div>
-        <tt>value = {{start | date: "yyyy-MM-ddTHH:mm"}}</tt><br/>
-    <label for="end">End Date</label>
-    <input type="datetime-local" id="end" name="input" ng-model="end"
-           placeholder="yyyy-MM-ddTHH:mm:ss" min="2017-01-01T00:00:00" max="2017-12-31T00:00:00" required />
-    <div role="alert">
-    </div>
-    <tt>value = {{end | date: "yyyy-MM-ddTHH:mm"}}</tt><br/>
+    <label>End Date</label>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepickerEnd'>
+                    <input type='text' class="form-control" ng-model="newEvent.end" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+            </div>
+
 
 
     <div class="form-input location">
         <label>Select Location</label>
-        <ng-map zoom="9" center="{{address}}">
-            <marker position="{{address}}" title="{{address}}"></marker>
+        <ng-map zoom="9" center="{{newEvent.address}}">
+            <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
         </ng-map>
         <br>
         <label>Address:</label>
-        <input class="form-control" ng-model="address" ng-required="true" id="location"/>
-        <pre class="alert alert-info">Address is: {{address}}</pre>
+        <input class="form-control" ng-model="newEvent.address" ng-required="true"/>
+        <pre class="alert alert-info">Address is: {{newEvent.address}}</pre>
     </div>
 
     <div class="form-input mobile">
         <label>Contact Number</label>
-        <input type="number" class="form-control" placeholder="Enter Contact Number Here" name="mobile"
-               ng-minlength="9" ng-maxlength="32" ng-required="true" id="phoneNumber">
+        <input type="text" class="form-control" placeholder="Enter Contact Number Here" name="mobile"
+               ng-minlength="9" ng-maxlength="32" ng-required="true" ng-model="newEvent.phoneNumber">
         <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
             <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
                 <p>Provided number is too short!</p>
@@ -70,9 +78,8 @@
     </div>
 
 
-    <div text-angular="text-angular"  name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled' placeholder="enter text:"
+    <div text-angular="text-angular"  name="newEvent.htmlContent" ng-model="newEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
          ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]"></div>
-    <input id="htmlcontent" ng-model="htmlcontent" ng-hide="true"/>
 
     <div class="add-post-btn">
         <button type="button" ng-click="addEvent()" class="btn btn-primary">Add Event</button>

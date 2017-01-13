@@ -6,7 +6,7 @@
 
 
 app
-    .controller('CalendarController', function ($scope,$state) {
+    .controller('CalendarController', function ($rootScope,$scope,$state) {
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -15,14 +15,19 @@ app
        $scope.dateFormat=(y+"-"+m+"-"+d);
        $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
         /* event source that contains custom events on the scope */
-        $scope.events =  [
+
+
+
+
+
+        $rootScope.events =  [
             {   id: 0,
                 title  : "event1",
                 fullTitle: "Events-One",
-                location:"Львів пр. Свободи 10 оф.10",
-                content:"<h2>content1</h2>",
-                start  : "2017-01-05 22:30:00",
-                end  : "2017-01-05",
+                address:"Львів пр. Свободи 10 оф.10",
+                htmlContent:"<h2>content1</h2>",
+                start  : "2017-01-05 22:30",
+                end  : "2017-01-05 23:30",
                     author :{
                          name:"Ross",
                          photo:"images/src/viawEvents/images/ross.jpg",
@@ -45,8 +50,8 @@ app
             {   id: 1,
                 title  : "event2",
                 fullTitle: "Events-Two",
-                location:"пр. Свободи 11 оф.11",
-                content:"content2",
+                address:"пр. Свободи 11 оф.11",
+                htmlContent:"content2",
                 start  : "2017-01-06",
                 end  : "2017-01-06",
                     author  :{
@@ -66,8 +71,8 @@ app
             },
             {   id: 2,
                 time:"15:00",
-                location:"пр. Свободи 13 оф.13",
-                content:"content3",
+                address:"пр. Свободи 13 оф.13",
+                htmlContent:"content3",
                 title  : "event3",
                 fullTitle: "Events-Three",
                 start  : "2017-01-10",
@@ -113,13 +118,6 @@ app
             $scope.editEvent = function () {
                 $state.go('calendar.editEvents');
                 $scope.saveEditEvent = function () {
-                        calEvent.title = $("#shortTitleEdit").val(),
-                        calEvent.fullTitle = $("#fullTitleEdit").val(),
-                        calEvent.location = $("#locationEdit").val(),
-                        calEvent.content = $("#contentEdit").val(),
-                        calEvent.start = $("#startEdit").val(),
-                        calEvent.end  = $("#endEdit").val(),
-                        calEvent.author.phoneNumber = $("#phoneNumberEdit").val() ;
                     $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
                 };
@@ -166,34 +164,24 @@ app
                 $state.go('calendar.eventsAdd');
                 $state.go('calendar');
                 $state.go('calendar.eventsAdd');
-                $scope.eventDate = eventDate.format('YYYY-MM-DD HH:mm');
+
+                $scope.newEvent = {
+                      id: $scope.events.length,
+                    author: {
+                        name: $scope.ls.user.name,
+                        photo: $scope.ls.user.photo
+                    },
+                    comments: [],
+                    peopleGo: []
+                };
 
                 $scope.addEvent = function () {
-
-                    if ($('#shortTitle').val() != "") {
-                        $scope.newEvent = {
-                            id: $scope.events.length,
-                            title: $('#shortTitle').val(),
-                            fullTitle : $('#fullTitle').val(),
-                            start: $('#start').val(),
-                            end: $('#end').val(),
-                            location: $('#location').val(),
-                            content: $("#htmlcontent").val(),
-                            author: {
-                                name: $scope.ls.user.name,
-                                photo: "images/src/viawEvents/images/dima.jpg",
-                                phoneNumber: $('#phoneNumber').val()
-                            },
-                            comments: []
-                        };
-                        $scope.events.push($scope.newEvent);
+                        $rootScope.events.push($scope.newEvent);
                         $state.go('calendar');
                         $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
-
                         console.log( $scope.newEvent);
                     }
                 }
-            }
 
         };
             /* config object */

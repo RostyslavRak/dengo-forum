@@ -43,6 +43,7 @@
     "angular-ui-calendar": "^1.0.2",
     "angular-ui-router": "^0.2.0",
     "bootstrap": "^3.3.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.0.0",
     "font-awesome": "^4.7.0",
     "fullcalendar": "3.0.1",
     "jquery": "^3.1.1",
