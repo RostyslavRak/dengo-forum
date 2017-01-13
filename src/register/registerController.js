@@ -12,7 +12,8 @@ app
   $scope.redirect = false;
 
   $scope.registerObj = {
-    role: 'user'
+    role: 'user',
+    photo:"images/src/register/images/no_image.png"
   };
 
   $scope.submit = function (formInstance) {

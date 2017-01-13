@@ -1,4 +1,4 @@
-<form class="form-signin" name="registerForm" role="registration" ng-submit="submit(registerForm)">
+<form class="form-signin" name="registerForm" role="registration" ng-submit="addCommentEvent(registerForm)">
 
   <h2 class="form-signin-heading">Registration</h2>
   <div class="form-input name">
@@ -58,10 +58,10 @@
     </select>
   </div>
   <div class="form-input company">
-      <input type="text" class="form-control" placeholder="Company Name" name="company-name">
+      <input type="text" class="form-control" placeholder="Company Name" name="company-name" ng-model="registerObj.company">
   </div>
   <div class="form-input company-site">
-    <input type="text" class="form-control" placeholder="Website" name="company-site">
+    <input type="text" class="form-control" placeholder="Website" name="company-site" ng-model="registerObj.companySite">
   </div>
   <!--<div class="city">-->
     <!--<input type="text" class="form-control" placeholder="City" name="city">-->

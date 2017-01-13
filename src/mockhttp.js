@@ -47,8 +47,8 @@ app
 
   if (userStorage === null || emailStorage === null) {
     userStorage = {
-      'Dengo-Forum': { name: 'Dengo', username: 'Dengo-Forum', password: '12345', email: 'Dengo-Forum@mail.ru', userRole: userRoles.user, tokens: [] },
-      'Dim4k1993': { name: 'Dima', username: 'Dim4k1993',  password: '54321', email: 'dimaszelenyuk@gmail.com', userRole: userRoles.user, tokens: [] }
+      'Dengo-Forum': { name: 'Dengo',company:'Dengo-Systems', companySite:"dengo.com",  photo:"images/src/register/images/no_image.png", username: 'Dengo-Forum', password: '12345', email: 'Dengo-Forum@mail.ru', userRole: userRoles.user, tokens: [] },
+      'Dim4k1993': { name: 'Dima', company:'Dengo-Systems', companySite:"dengo.com", photo:"images/src/viawEvents/images/dima.jpg", username: 'Dim4k1993',  password: '54321', email: 'dimaszelenyuk@gmail.com', userRole: userRoles.user, tokens: [] }
     };
     emailStorage = {
       'Dengo-Forum@mail.ru': 'Dengo-Forum',
@@ -87,7 +87,15 @@ app
       tokenStorage[newToken] = postData.username;
       localStorage.setItem('userStorage', angular.toJson(userStorage));
       localStorage.setItem('tokenStorage', angular.toJson(tokenStorage));
-      return [200, { name: user.name, userRole: user.userRole, token: newToken }, {}];
+      return [200, {
+        name: user.name,
+        username: user.username,
+        company: user.company,
+        companySite: user.companySite,
+        photo: user.photo,
+        userRole: user.userRole,
+        token: newToken }, {}
+        ];
     } else {
       return [401, 'wrong combination username/password', {}];
     }
@@ -121,7 +129,14 @@ app
     if (queryToken = headers['X-Token']) {
       if (angular.isDefined(tokenStorage[queryToken])) {
         userObject = userStorage[tokenStorage[queryToken]];
-        return [200, { token: queryToken, name: userObject.name, userRole: userObject.userRole }, {}];
+        return [200, { token: queryToken,
+            name: userObject.name,
+            username: userObject.username,
+            company: userObject.company,
+            companySite: userObject.companySite,
+            photo: userObject.photo,
+            userRole: userObject.userRole
+                }, {}];
       } else {
         return [401, 'auth token invalid or expired', {}];
       }

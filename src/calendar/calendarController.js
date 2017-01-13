@@ -128,7 +128,7 @@ app
                 $scope.newIgoOnEvent = {
                     id: "user id",
                     name: $scope.ls.user.name ,
-                    photo:"images/src/viawEvents/images/oleg.jpg"
+                    photo:$scope.ls.user.photo
                 };
                 angular.forEach($scope.events, function (event) {
                     if(event.id == calEvent.id){
@@ -138,19 +138,23 @@ app
                 console.log( $scope.newIgoOnEvent);
             };
 
+
+
             $scope.addCommentEvent = function () {
                 $scope.newCommentEvent = {
                     name:$scope.ls.user.name,
-                    photo:"images/src/viawEvents/images/oleg.jpg",
+                    photo:$scope.ls.user.photo,
                     content: $('#commentEvent').val(),
                     data  : $scope.dateFormat1_12
                 };
+
                 angular.forEach($scope.events, function (event) {
                     if(event.id == calEvent.id){
                         event.comments.push($scope.newCommentEvent);
                     }
                 });
-                $('#commentEvent').val("");
+                 $('#commentEvent').val("");
+                //$state.go('viawEvents');
                 $('#event-comment').removeClass("in");
                 console.log( $scope.newCommentEvent);
             };

@@ -99,11 +99,11 @@ app
         wrappedService.isLogged = true;
         wrappedService.userRole = user.userRole;
           $state.go(homeState);
+          console.log(user);
           return user;
       },
       loginUser: function (httpPromise) {
           httpPromise.success(this.loginHandler);
-
 
       },
       logoutUser: function (httpPromise) {
@@ -139,7 +139,8 @@ app
       },
 
       userRole: null,
-      user: {},
+      user: {
+      },
       isLogged: null,
       pendingStateChange: null,
       doneLoading: null
