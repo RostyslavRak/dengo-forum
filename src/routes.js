@@ -302,11 +302,12 @@ app
 
 
 
-   .run(function ($rootScope, $state, loginService) {
+   .run(function ($rootScope, $state, loginService ) {
         $rootScope.$on("$stateChangeStart", function(event, toState){
             if (toState.authenticate && !loginService.isLogged){
                 // User isn’t authenticated
-                $state.go("login");
+                // console.log($state.current.name);
+              $state.go('login');
                 event.preventDefault();
             }
         });

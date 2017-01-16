@@ -32,7 +32,7 @@ app
 .constant('loginExampleData', {
     version: '0.0.1'
 })
-.run(function ($httpBackend, $log, loginExampleData) {
+.run(function ($httpBackend, $log, loginExampleData, $rootScope) {
   var userStorage = angular.fromJson(localStorage.getItem('userStorage')),
       emailStorage = angular.fromJson(localStorage.getItem('emailStorage')),
       tokenStorage = angular.fromJson(localStorage.getItem('tokenStorage')) || {},
@@ -75,6 +75,7 @@ app
 
 
   $httpBackend.when('POST', '/login').respond(function (method, url, data, headers) {
+      $rootScope.loginError = {status: false};
     var postData = angular.fromJson(data),
         user = userStorage[postData.username],
         newToken,
@@ -97,7 +98,8 @@ app
         token: newToken }, {}
         ];
     } else {
-      return [401, 'wrong combination username/password', {}];
+        $rootScope.loginError.status = true;
+        return [401, 'wrong combination username/password', {}];
     }
   });
 

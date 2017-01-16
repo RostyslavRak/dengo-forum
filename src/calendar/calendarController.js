@@ -53,7 +53,7 @@ app
                 address:"пр. Свободи 11 оф.11",
                 htmlContent:"content2",
                 start  : "2017-01-06 20:30",
-                end  : "2017-01-06 20:30",
+                end  : "2017-01-06 21:30",
                     author  :{
                         name:"Dima",
                         photo:"images/src/viawEvents/images/dima.jpg",

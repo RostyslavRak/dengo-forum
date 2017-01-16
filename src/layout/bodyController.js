@@ -2,13 +2,11 @@ app
     .controller('BodyController', function ($scope, $state, $stateParams, loginService, $http, $timeout) {
         $scope.$state = $state;
         $scope.$stateParams = $stateParams;
-
         $scope.ls = loginService;
         $scope.login = {
             working: false,
             wrong: false
         };
-
 
         $scope.loginMe = function () {
             var loginPromise = $http.post('/login', $scope.login);

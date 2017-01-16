@@ -12,7 +12,7 @@ app
       homeState = 'user',
       logoutState = 'login';
 
-  this.$get = function ($rootScope, $http, $q, $state) {
+  this.$get = function ($rootScope, $http, $q, $state, $timeout) {
 
 
 
@@ -93,14 +93,17 @@ app
 
 
     var wrappedService = {
-      loginHandler: function (user, status, headers, config) {
+      loginHandler: function (user ,status, headers, config) {
+          $timeout(function () {
         setToken(user.token);
         angular.extend(wrappedService.user, user);
         wrappedService.isLogged = true;
         wrappedService.userRole = user.userRole;
-          $state.go(homeState);
-          console.log(user);
+              $state.go(homeState);
+              console.log(user);
+          }, 0);
           return user;
+
       },
       loginUser: function (httpPromise) {
           httpPromise.success(this.loginHandler);

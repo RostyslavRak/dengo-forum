@@ -8,9 +8,10 @@
 app
 
 .controller('RegisterController', function ($scope, $http, $timeout, $state) {
-  $scope.xhr = false;
-  $scope.redirect = false;
 
+
+    $scope.xhr = false;
+  $scope.redirect = false;
   $scope.registerObj = {
     role: 'user',
     photo:"images/src/register/images/no_image.png"

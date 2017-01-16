@@ -1,5 +1,8 @@
 <div class="login_page_container">
     <div class="login_wraper">
+        <!--<div ng-if="ls.isLogged || !ls.doneLoading">-->
+            <!--<h1>ви авторизовані!!!</h1>-->
+        <!--</div>-->
         <form class="login-form" name="loginForm" role="login" ng-submit="loginMe()"
               ng-hide="ls.isLogged || !ls.doneLoading">
             <div class="title">
@@ -8,13 +11,21 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" ng-model="login.username" name="username"
-                       placeholder="Username">
+                       placeholder="Username" required  autofocus="true" ng-minlength="4" ng-maxlength="16">
+                    <div class="errorsLogin ng-hide" ng-show="loginForm.username.$error.minlength">Error:</div>
+                    <b class="errorsContentLogin" ng-show="loginForm.username.$error.minlength">Please Enter a valid username</b>
+
                 <input type="password" class="form-control" ng-model="login.password" name="password"
-                       placeholder="Password">
+                       placeholder="Password" ng-minlength="4" ng-maxlength="16" ng-required="true">
+                <div class="errorsLogin ng-hide" ng-show="loginForm.password.$error.minlength">Error:</div>
+                <b class="errorsContentLogin" ng-show="loginForm.password.$error.minlength">Please Enter a valid password</b>
             </div>
+
+            <h1 class="loginError" ng-show="loginError.status">username or password not valid</h1>
+
             <div class="button_box">
-                <button type="submit" class="btn btn-primary" ng-disabled="login.working">
-                    Log In
+                <button type="submit" class="btn btn-primary"  ng-disabled="loginForm.username.$invalid || loginForm.password.$invalid">
+                    <span>Log In </span>
                 </button>
 
                 <div class="forgot-pass1">
@@ -25,7 +36,10 @@
                 <div class="forgot-pass2">
                     <a ui-sref="register">
                         <h3 class="first-time1">First time here?</h3>
-                        <h3 class="first-time2">Create your account</h3>
+                        <!--<h3 class="first-time2">Create your account</h3>-->
+                        <button class="btn btn-primary create_akk_login_form">
+                             <span>Create your account</span>
+                        </button>
                     </a>
                 </div>
 

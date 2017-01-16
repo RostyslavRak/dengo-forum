@@ -29,9 +29,9 @@
             <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
                 <div class="form-group">
                     <label class="user-name-header">{{ ls.user.name }}</label>
-                    <div class="avatar-header">
+                    <div class="avatar-header" ui-sref="profile">
                         <!--<img src="{{ ls.user.photo}}"/>-->
-                        <img src="http://lorempixel.com/100/100/"/>
+                        <img src="{{ ls.user.photo}}"/>
                     </div>
 
                                     </div>

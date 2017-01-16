@@ -1,6 +1,5 @@
 app
     .controller('PostController', function ($rootScope,$state) {
-
         $rootScope.posts =  [
             {   id: 0,
                 title  : "Основні функції GIT: це просто та зручно !",
