@@ -52,8 +52,8 @@ app
                 fullTitle: "Events-Two",
                 address:"пр. Свободи 11 оф.11",
                 htmlContent:"content2",
-                start  : "2017-01-06",
-                end  : "2017-01-06",
+                start  : "2017-01-06 20:30",
+                end  : "2017-01-06 20:30",
                     author  :{
                         name:"Dima",
                         photo:"images/src/viawEvents/images/dima.jpg",
@@ -75,8 +75,8 @@ app
                 htmlContent:"content3",
                 title  : "event3",
                 fullTitle: "Events-Three",
-                start  : "2017-01-10",
-                end  : "2017-01-10",
+                start  : "2017-01-10 12:30",
+                end  : "2017-01-10 13:00",
                     author  :{
                         name:"Oleg",
                         photo:"images/src/viawEvents/images/oleg.jpg",
@@ -106,7 +106,7 @@ app
         $scope.eventClick = function (calEvent) {
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
-            $scope.calEventData = calEvent.start.format('YYYY-MM-DD');
+            $scope.calEventData = calEvent.start.format('YYYY-MM-DD HH:mm');
            $state.go('calendar.viawEvents');
            $state.go('calendar');
            $state.go('calendar.viawEvents');
@@ -116,10 +116,13 @@ app
                 $state.go('calendar');
             };
             $scope.editEvent = function () {
+                calEvent.start = calEvent.start.format('YYYY-MM-DD HH:mm');
+                calEvent.end = calEvent.end.format('YYYY-MM-DD HH:mm');
                 $state.go('calendar.editEvents');
                 $scope.saveEditEvent = function () {
                     $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
+                    console.log(calEvent.start );
                 };
             };
             $scope.iGoEvent = function () {

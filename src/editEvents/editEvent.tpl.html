@@ -22,7 +22,7 @@
     <label>Start Date</label>
     <div class="form-group">
         <div class='input-group date' id='datetimepickerStart'>
-            <input type='text' class="form-control" ng-model="calEvent.start" />
+            <input type='text'  ng-blur="calEvent.start = dataStartEdit" class="form-control" ng-model="calEvent.start" />
             <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -31,7 +31,7 @@
     <label>End Date</label>
     <div class="form-group">
         <div class='input-group date' id='datetimepickerEnd'>
-            <input type='text' class="form-control" ng-model="calEvent.end" />
+            <input type='text' ng-blur="calEvent.end = dataEndEdit" class="form-control" ng-model="calEvent.end" />
             <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>

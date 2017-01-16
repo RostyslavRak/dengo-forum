@@ -20,11 +20,12 @@ app
 
             $("#datetimepickerStart").on("dp.change", function (e) {
                 $('#datetimepickerEnd').data("DateTimePicker").minDate(e.date);
+                $scope.dataStart = e.date.format("YYYY-MM-DD HH:mm");
             });
             $("#datetimepickerEnd").on("dp.change", function (e) {
                 $('#datetimepickerStart').data("DateTimePicker").maxDate(e.date);
+                $scope.dataEnd = e.date.format("YYYY-MM-DD HH:mm");
             });
         });
     });
-
 
