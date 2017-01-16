@@ -179,10 +179,7 @@ app
                         templateUrl: 'layout/header/header.tpl.html',
                         controller: 'HeaderController'
                     },
-                    "ProfileHeader": {
-                        templateUrl: 'layout/profileHeader/profileHeader.tpl.html',
-                        controller: 'PagesController'
-                    },
+
                     "Sidebar": {
                         templateUrl: "layout/sidebar/sidebar.tpl.html",
                         controller: 'SidebarController'

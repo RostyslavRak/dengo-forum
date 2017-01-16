@@ -28,10 +28,20 @@
             <!-- Logout Form -->
             <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
                 <div class="form-group">
-                    <label>Hello {{ ls.user.name }}</label>
-                </div>
+                    <label class="user-name-header">{{ ls.user.name }}</label>
+                    <div class="avatar-header">
+                        <!--<img src="{{ ls.user.photo}}"/>-->
+                        <img src="http://lorempixel.com/100/100/"/>
+                    </div>
+
+                                    </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-default">Logout<i class="fa fa-signout"></i></button>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-class="{ active: $state.is('login') }" ng-if="!ls.isLogged">
+                            <a ui-sref="logout" >Log Out</a>
+                        </li>
+                    </ul>
+                    <button type="submit" class="btn-loguot btn-default-loguot">Log Out<i class="fa fa-signout"></i></button>
                 </div>
                 <div ng-controller="HeaderController as ctrl" style="display: inline-block">
                     <select ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language"

@@ -1,6 +1,8 @@
 app
     .config(function($translateProvider) {
 
+        $translateProvider.determinePreferredLanguage();
+
         $translateProvider.translations('en', {
             TITLE: 'Welcome!',
             MESSAGE: 'This app supports your lanaguage!',
@@ -9,8 +11,10 @@ app
             topPosts: 'TOP-5 Posts',
             eventsCalendar: 'Calendar',
             category: 'Category',
-            en: 'English',
-            uk: 'Ukrainian'
+            catcommon: 'Common discussion',
+            en: 'EN',
+            uk: 'UK',
+            ru: 'RU'
         })
             .translations('uk', {
                 TITLE: 'Välkommen!',
@@ -20,18 +24,35 @@ app
                 topPosts: 'TOP-5 Постів',
                 eventsCalendar: 'Календар',
                 category: 'Категорії',
-                en: 'English',
-                uk: 'Ukrainian'
+                catcommon: 'Загальні теми для обговорення',
+                en: 'EN',
+                uk: 'UK',
+                ru: 'RU'
+            })
+            .translations('ru', {
+                TITLE: 'Приветствую!',
+                MESSAGE: 'Привет на рус!',
+                text1: 'Текс на русском',
+                topAuthors: 'TOP-5 Авторов',
+                topPosts: 'TOP-5 Постов',
+                eventsCalendar: 'Календар Рус',
+                category: 'Категории',
+                catcommon: 'общие темы для дискуссий',
+                en: 'EN',
+                uk: 'UK',
+                ru: 'RU'
             });
 
-        $translateProvider.preferredLanguage('uk');
+
+
+        // $translateProvider.preferredLanguage('uk');
     })
     .controller('HeaderController', function ($translate, $scope,$state) {
         var ctrl = this;
 
         ctrl.language = 'uk';
 
-        ctrl.languages = ['uk', 'en'];
+        ctrl.languages = ['uk', 'en', 'ru'];
 
         ctrl.updateLanguage = function() {
             $translate.use(ctrl.language);

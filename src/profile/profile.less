@@ -160,10 +160,13 @@
       width: 100%;
       margin-left: 0;
       margin-right: 0;
+      padding-left: 25px;
       border-top: 1px solid #dadada;
+
       .Post_latest_text_link {
         font-size: 20px;
         font-family: "Raleway SemiBold";
+        color: #353d3e;
         a {
           cursor: pointer;
           color: #353d3e;
@@ -200,7 +203,7 @@
     .post-cell {
       padding-top: 5px;
       padding-bottom: 5px;
-      padding-left: 30px;
+      padding-left: 0px;
       .post-subject a {
         font-size: 16px;
         color: #494949;
@@ -229,15 +232,32 @@
         font-weight: bold;
       }
     }
-    .view_all {
-      border-top: 1px solid #dadada;
-      color: #62a2ae;
-      font-weight: bold;
-      height: 96px;
-      padding-top: 30px;
-      a {
+    .view-all-button {
+      float: right;
+      padding-top: 20px;
+      }
+      .btn-primary, .btn-primary:focus {
+        color: #fff;
+        background-color: #62a2ae;
+        border-color: #62a2ae;
+        width: 100px;
+        height: 31px;
         float: right;
       }
+      .btn {
+        border-radius: 0px;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        font-size: 14px;
+        font-family: "Lucida Fax";
+        font-style: normal;
+        margin: 0;
+      }
+    a.view-all {
+
+
     }
   }
 }
