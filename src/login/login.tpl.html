@@ -1,8 +1,8 @@
 <div class="login_page_container">
     <div class="login_wraper">
-        <!--<div ng-if="ls.isLogged || !ls.doneLoading">-->
-            <!--<h1>ви авторизовані!!!</h1>-->
-        <!--</div>-->
+        <div ng-if="ls.isLogged || !ls.doneLoading">
+            <h1 ui-sref="user">ви авторизовані!!!</h1>
+        </div>
         <form class="login-form" name="loginForm" role="login" ng-submit="loginMe()"
               ng-hide="ls.isLogged || !ls.doneLoading">
             <div class="title">

@@ -18,4 +18,18 @@ var app = angular
         'ngMockE2E',
         'ngMap',
         'pascalprecht.translate'
-    ]);
+    ])
+
+.run(function ($rootScope, $state, $window, loginService ) {
+     $rootScope.$on("$stateChangeStart", function(event, toState){
+         if (toState.authenticate && !loginService.isLogged){
+             if(loginService.isLogged == false){
+                 event.preventDefault();
+                 $state.go('login');
+             }
+         }
+     });
+
+
+});
+

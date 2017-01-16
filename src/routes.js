@@ -5,9 +5,7 @@
  * @author Dima Zelenyuk
  */
 
-app
-
-    .config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
         var resovle =  function (loginService, $q, $http) {
             var roleDefined = $q.defer();
@@ -295,20 +293,10 @@ app
             });
 
 
-// Send to login if the URL was not found
-        $urlRouterProvider.otherwise('/');
-    })
+            $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.when('', '/user');
 
 
-
-
-   .run(function ($rootScope, $state, loginService ) {
-        $rootScope.$on("$stateChangeStart", function(event, toState){
-            if (toState.authenticate && !loginService.isLogged){
-                // User isn’t authenticated
-                // console.log($state.current.name);
-              $state.go('login');
-                event.preventDefault();
-            }
-        });
     });
+
+

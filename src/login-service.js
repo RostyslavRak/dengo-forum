@@ -8,11 +8,9 @@
 app
 .provider('loginService', function () {
   var userToken = localStorage.getItem('userToken'),
-      welcomeState = 'welcome',
-      homeState = 'user',
-      logoutState = 'login';
+      welcomeState = 'welcome';
 
-  this.$get = function ($rootScope, $http, $q, $state, $timeout) {
+  this.$get = function ($rootScope, $http, $q, $state) {
 
 
 
@@ -44,20 +42,19 @@ app
     };
 
     var managePermissions = function () {
-      $rootScope.$on('$stateChangeStart', function (event, to, toParams, from, fromParams) {
-
+      $rootScope.$on('$stateChangeStart', function (event, to, toParams,from,toState, fromParams) {
         if (wrappedService.userRole === null) {
           wrappedService.doneLoading = false;
-          wrappedService.pendingStateChange = {
+
+            wrappedService.pendingStateChange = {
             to: to,
             toParams: toParams
-          };
+        };
           return;
         }
 
         if (to.accessLevel === undefined || to.accessLevel.bitMask & wrappedService.userRole.bitMask) {
           angular.noop();
-
         }
         else {
             event.preventDefault();
@@ -94,14 +91,12 @@ app
 
     var wrappedService = {
       loginHandler: function (user ,status, headers, config) {
-          $timeout(function () {
+
         setToken(user.token);
         angular.extend(wrappedService.user, user);
         wrappedService.isLogged = true;
         wrappedService.userRole = user.userRole;
-              $state.go(homeState);
-              console.log(user);
-          }, 0);
+        console.log(user);
           return user;
 
       },
@@ -114,7 +109,7 @@ app
           this.userRole = userRoles.public;
         this.user = {};
         this.isLogged = false;
-        $state.go(logoutState);
+        $state.go(welcomeState);
       },
       resolvePendingState: function (httpPromise) {
         var checkUser = $q.defer(),
