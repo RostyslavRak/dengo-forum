@@ -1,17 +1,22 @@
-<div class="col-md-9 profile_header">
+<div class="col-md-9 profile_header" ng-show="profile">
     <div class="user_left">
         <div class="avatar">
             <img src="{{ ls.user.photo}}" style="height: 100px; width: 100px" />
         </div>
         <div class="user_name_box">
+
             <div class="user_name">
                 <h3 class="user_name_text">{{ ls.user.username}}</h3>
+            </div>
+            <div class="user_status">
+                <h3 class="user_name_text">{{ ls.user.city}}</h3>
             </div>
             <div class="user_status">
                 <h4 class="user_status_text">{{ ls.user.userRole.title}}</h4>
             </div>
             <div class="user_public">
-                <ng-md-icon ng-click="sendEmail(message.Email, message.subject, message.body)" icon="mail_outline" size="40"></ng-md-icon>
+                <ng-md-icon ng-click="sendEmail(message.Email, message.subject, message.body)" icon="mail_outline" size="25"></ng-md-icon>
+                <ng-md-icon icon="settings" size="25" ng-click="profileEdit()"></ng-md-icon>
             </div>
         </div>
     </div>
@@ -32,7 +37,7 @@
         </div>
         <div class="user_statistic">
             <div class="date_registration">
-                <h3 class="date_reg"> Date Registered</h3>
+                <h3 class="date_reg"> {{ ls.user.dataRegistration}}</h3>
             </div>
             <div class="last_visited">
                 <h3 class="last_vis"> Last Visited</h3>
@@ -47,6 +52,63 @@
         </div>
     </div>
 </div>
+
+<div class="col-md-9 profile_header" ng-show="!profile">
+    <div class="user_left">
+        <div class="avatar">
+            <img src="{{ ls.user.photo}}" style="height: 100px; width: 100px" />
+        </div>
+        <div class="user_name_box">
+
+            <div class="user_name">
+                <input placeholder="username" class="editInput" ng-model="ls.user.username"/>
+            </div>
+            <div class="user_name">
+                <input placeholder="name" class="editInput" ng-model="ls.user.name"/>
+            </div>
+            <div class="user_status">
+                <input placeholder="city" class="editInput" ng-model="ls.user.city"/>
+            </div>
+            <div class="user_public">
+                <ng-md-icon ng-click="sendEmail(message.Email, message.subject, message.body)" icon="mail_outline" size="25"></ng-md-icon>
+                <ng-md-icon icon="settings" size="25" ng-click="profileEdit()"></ng-md-icon>
+                <ng-md-icon icon="check_circle" size="25" ng-click="saveProfileEdit()"></ng-md-icon>
+            </div>
+        </div>
+    </div>
+    <div class="user_right">
+        <div class="user_data">
+            <div class="date_registration">
+                <h3 class="date_reg"> Date Registered:</h3>
+            </div>
+            <div class="last_visited">
+                <h3 class="last_vis"> Last Visited:</h3>
+            </div>
+            <div class="massages_posted">
+                <h3 class="massages_posted_text">Messages Posted:</h3>
+            </div>
+            <div class="likes">
+                <h3 class="likes_text">Likes received:</h3>
+            </div>
+        </div>
+        <div class="user_statistic">
+            <div class="date_registration">
+                <h3 class="date_reg"> {{ ls.user.dataRegistration}}</h3>
+            </div>
+            <div class="last_visited">
+                <h3 class="last_vis"> Last Visited</h3>
+            </div>
+            <div class="massages_posted">
+                <h3 class="massages_posted_text">Messages Posted</h3>
+            </div>
+            <div class="likes">
+                <h3 class="likes_text">Likes received</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="col-md-9">
     <div class="user">
 

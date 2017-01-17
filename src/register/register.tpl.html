@@ -39,6 +39,12 @@
       </div>
     </div>
   </div>
+
+
+  <div class="form-input city">
+    <input type="text" class="form-control" placeholder="City*" name="city"  ng-model="registerObj.city">
+  </div>
+
   <div class="form-input email">
     <input type="email" class="form-control email"  ng-pattern="emailFormat" placeholder="E-Mail*" name="email" ng-model="registerObj.email" ng-required="true" remote-validated="used">
     <div class="errors" ng-class="{ active: registerForm.email.$invalid && registerForm.email.$dirty }">
@@ -63,9 +69,6 @@
   <div class="form-input company-site">
     <input type="text" class="form-control" placeholder="Website" name="company-site" ng-model="registerObj.companySite">
   </div>
-  <!--<div class="city">-->
-    <!--<input type="text" class="form-control" placeholder="City" name="city">-->
-  <!--</div>-->
   <!--<div class="captcha-img">-->
       <!--<input type="text" class="form-control" placeholder="Type the letters below" name="captcha">-->
       <!--<img class="img-responsive" src="http://i1.kym-cdn.com/photos/images/newsfeed/000/401/711/3a6.gif"/>-->

@@ -7,11 +7,19 @@
 
 app
 .controller('RegisterController', function ($scope, $http, $timeout, $state) {
-    $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
+    // $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var m1 = date.getMonth()+1;
+    var y = date.getFullYear();
+    $scope.dateFormat=(y+"-"+m+"-"+d);
+    $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
     $scope.xhr = false;
   $scope.redirect = false;
   $scope.registerObj = {
+    dataRegistration: $scope.dateFormat1_12,
     role: 'user',
     photo:"images/src/register/images/no_image1.png"
   };

@@ -1,5 +1,5 @@
 app
-    .controller('BodyController', function ($scope, $state, $stateParams, loginService, $http, $timeout) {
+    .controller('BodyController', function ($scope, $state, $stateParams, loginService, $http, $timeout,$rootScope) {
         $scope.$state = $state;
         $scope.loginError = false;
         $scope.$stateParams = $stateParams;

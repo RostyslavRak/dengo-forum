@@ -261,3 +261,20 @@
     }
   }
 }
+
+.editInput {
+  background-color: #f9f9f9;
+  padding: 5px 0;
+  border: none;
+  border-bottom: solid 1px #62a2ae;
+  color: darken(grey, 40%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 98%, #999999 98%);
+  background-repeat: no-repeat;
+  background-size: 260px 100%;
+  background-position: -260px 0;
+  transition: background-position 0.2s;
+  &:focus, &:valid {
+    background-position: 0 0;
+    outline: none;
+  }
+}

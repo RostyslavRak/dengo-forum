@@ -95,7 +95,6 @@ app
         angular.extend(wrappedService.user, user);
         wrappedService.isLogged = true;
         wrappedService.userRole = user.userRole;
-        console.log(user);
           return user;
       },
       loginUser: function (httpPromise) {
@@ -134,8 +133,7 @@ app
       },
 
       userRole: null,
-      user: {
-      },
+      user: {},
       isLogged: null,
       pendingStateChange: null,
       doneLoading: null

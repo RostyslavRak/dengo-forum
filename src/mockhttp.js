@@ -46,9 +46,11 @@ app
               name: 'Dengo',
               company: 'Dengo-Systems',
               companySite: "dengo.com",
+              city: "Львів",
               photo: "images/src/register/images/no_image1.png",
               username: 'Dengo-Forum',
               password: '12345',
+              dataRegistration:"2017-1-17",
               email: 'Dengo-Forum@mail.ru',
               userRole: userRoles.user,
               tokens: []
@@ -57,6 +59,8 @@ app
               name: 'Dima',
               company: 'Dengo-Systems',
               companySite: "dengo.com",
+              city: "Львів",
+              dataRegistration:"2017-1-17",
               photo: "images/src/viawEvents/images/dima.jpg",
               username: 'Dim4k1993',
               password: '54321',
@@ -103,10 +107,12 @@ app
       tokenStorage[newToken] = postData.username;
       localStorage.setItem('userStorage', angular.toJson(userStorage));
       localStorage.setItem('tokenStorage', angular.toJson(tokenStorage));
-      return [200, {
+        return [200, {
         name: user.name,
         username: user.username,
         company: user.company,
+        city: user.city,
+        dataRegistration:user.dataRegistration,
         companySite: user.companySite,
         photo: user.photo,
         userRole: user.userRole,
@@ -142,18 +148,22 @@ app
   $httpBackend.when('GET', '/user').respond(function (method, url, data, headers) {
     var queryToken, userObject;
     $log.info(method, '->', url);
-
     if (queryToken = headers['X-Token']) {
       if (angular.isDefined(tokenStorage[queryToken])) {
         userObject = userStorage[tokenStorage[queryToken]];
-        return [200, { token: queryToken,
+        $rootScope.userTrue = userObject;
+          return [200, {
+            token: queryToken,
             name: userObject.name,
             username: userObject.username,
             company: userObject.company,
+            city: userObject.city,
+            dataRegistration:userObject.dataRegistration,
             companySite: userObject.companySite,
             photo: userObject.photo,
             userRole: userObject.userRole
                 }, {}];
+
       } else {
         return [401, 'auth token invalid or expired', {}];
       }
@@ -165,8 +175,8 @@ app
   $httpBackend.when('POST', '/user').respond(function (method, url, data, headers) {
     var postData = angular.fromJson(data),
         newUser,
-        errors = [];
-    $log.info(method, '->', url);
+      errors = [];
+      $log.info(method, '->', url);
 
     if (angular.isDefined(userStorage[postData.username])) {
       errors.push({ field: 'username', name: 'used' });

@@ -6,7 +6,7 @@
 
 
 app
-    .controller('CalendarController', function ($rootScope,$scope,$state) {
+    .controller('CalendarController', function ($scope,$state) {
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -18,7 +18,7 @@ app
 
 
 
-        $rootScope.events =  [
+        $scope.events =  [
             {   id: 0,
                 title  : "event1",
                 fullTitle: "Events-One",

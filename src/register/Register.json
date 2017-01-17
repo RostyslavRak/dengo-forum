@@ -1,34 +1,61 @@
-[
-  {
-    "Dengo-Forum": {
-      "id": 1,
-      "name": "Dengo",
-      "company": "Dengo-Systems",
-      "companySite": "dengo.com",
-      "photo": "images/src/register/images/no_image1.png",
-      "username": "Dengo-Forum",
-      "password": "12345",
-      "email": "Dengo-Forum@mail.ru",
-      "userRole": {
-        "bitMask": 2,
-        "title": "user"
-      },
-      "tokens": []
+{
+  "Dengo-Forum": {
+    "name": "Dengo",
+    "company": "Dengo-Systems",
+    "companySite": "dengo.com",
+    "photo": "images/src/register/images/no_image1.png",
+    "username": "Dengo-Forum",
+    "password": "12345",
+    "email": "Dengo-Forum@mail.ru",
+    "userRole": {
+      "bitMask": 2,
+      "title": "user"
     },
-    "Dim4k1993": {
-      "id": 2,
-      "name": "Dima",
-      "company": "Dengo-Systems",
-      "companySite": "dengo.com",
-      "photo": "images/src/viawEvents/images/dima.jpg",
-      "username": "Dim4k1993",
-      "password": "54321",
-      "email": "dimaszelenyuk@gmail.com",
-      "userRole": {
-        "bitMask": 2,
-        "title": "user"
-      },
-      "tokens": []
-    }
+    "tokens": []
+  },
+  "Dim4k1993": {
+    "name": "Dima",
+    "company": "Dengo-Systems",
+    "companySite": "dengo.com",
+    "photo": "images/src/viawEvents/images/dima.jpg",
+    "username": "Dim4k1993",
+    "password": "54321",
+    "email": "dimaszelenyuk@gmail.com",
+    "userRole": {
+      "bitMask": 2,
+      "title": "user"
+    },
+    "tokens": []
+  },
+  "test": {
+    "photo": "images/src/register/images/no_image1.png",
+    "name": "Test",
+    "username": "test",
+    "password": "1111",
+    "email": "test@mail.ru",
+    "company": "test",
+    "companySite": "test.com",
+    "userRole": {
+      "bitMask": 2,
+      "title": "user"
+    },
+    "tokens": []
+  },
+  "dima1": {
+    "dataRegistration": "2017-1-17",
+    "photo": "images/src/register/images/no_image1.png",
+    "name": "dima1",
+    "username": "dima1",
+    "password": "1111",
+    "email": "dima1@mail.ru",
+    "company": "qwqw",
+    "companySite": "wqwwqwqwqw",
+    "userRole": {
+      "bitMask": 2,
+      "title": "user"
+    },
+    "tokens": [
+      "vurRJvUnKwcuL1wDGRmMete2AYLz8FmB"
+    ]
   }
-]
+}
