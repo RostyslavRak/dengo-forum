@@ -6,15 +6,12 @@
 
 
 app
-
 .controller('RegisterController', function ($scope, $http, $timeout, $state) {
     $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
-    console.log($scope.users.length);
 
     $scope.xhr = false;
   $scope.redirect = false;
   $scope.registerObj = {
-    //id:  $scope.users.length,
     role: 'user',
     photo:"images/src/register/images/no_image1.png"
   };

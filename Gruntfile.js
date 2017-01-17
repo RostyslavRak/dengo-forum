@@ -111,7 +111,6 @@ module.exports = function (grunt) {
           'node_modules/angular-mocks/angular-mocks.js',
           'node_modules/angular-ui-router/release/angular-ui-router.js',
           'node_modules/jquery/dist/jquery.min.js',
-          'node_modules/jstree/dist/jstree.min.js',
           'node_modules/angular-material-icons/angular-material-icons.min.js',
           'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
           'node_modules/bootstrap/dist/js/bootstrap.min.js',

@@ -33,19 +33,6 @@
     color: #FFF;
     font-size: 24px;
   }
-  #tree {
-    li a {
-      font-family: "Raleway Bold";
-      color: #FFF;
-      font-size: 15px;
-    }
-    .jstree-wholerow-clicked {
-      background: none;
-    }
-    .jstree-wholerow-hovered {
-      background: none;
-    }
-  }
   .top-authors {
     .title {
       font-family: "Raleway Bold";
@@ -136,17 +123,46 @@
     }
   }
 }
-.jstree-default .jstree-node, .jstree-default .jstree-icon {
-  background-image: url('images/src/layout/sidebar/images/32px.png');
-}
-.jstree-default > .jstree-container-ul .jstree-loading > .jstree-ocl {
-  background: url("images/src/layout/sidebar/images/throbber.gif");
-}
-.jstree-default .jstree-node i.jstree-icon.jstree-themeicon {
-  display: none;
-}
 
 h2, .h2 {
   font-size: 25px;
 }
 
+.categoryDropDown{
+  cursor: pointer;
+  font-family: "Raleway Bold";
+  color: #FFF;
+  font-size: 16px;
+}
+
+.categoryDropDown:hover{
+  color: #494846;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.displayNone{
+list-style-type: none;
+  display: none;
+}
+.dropdown-menu {
+  left: -3px;
+  background-color: #62a2ae;
+}
+.dropdown-menu > li > a {
+  color: #eeeeee;
+}
+
+.dropdown-menu-a {
+  color: #eeeeee;
+}
+
+.displayNone>li>a{
+  color: #eeeeee;
+}
+.displayNone>li>a:hover{
+  color: #62a2ae;
+  text-decoration: none;
+}
