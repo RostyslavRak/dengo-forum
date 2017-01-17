@@ -186,18 +186,34 @@ app
 
         };
             /* config object */
+        var initialLocaleCode = 'en';
         $(function() {
             $('#calendar').fullCalendar({
             header: {
                 left: 'month,agendaWeek,agendaDay,today ',
                 center: 'title',
                 right: 'prev,next',
-                lang: 'uk'
+                locale: initialLocaleCode
                 },
                 dayClick: $scope.dayClick,
                 eventClick: $scope.eventClick,
                 events: $scope.events
 
-            })});
+            });
+            $.each($.fullCalendar.locales, function(localeCode) {
+                $('#locale-selector').append(
+                    $('<option/>')
+                        .attr('value', localeCode)
+                        .prop('selected', localeCode)
+                        .text(localeCode)
+                );
+            });
 
+            // when the selected option changes, dynamically change the calendar option
+            $('#locale-selector').on('change', function() {
+                if (this.value) {
+                    $('#calendar').fullCalendar('option', 'locale', this.value);
+                }
+            })
+        });
     });
