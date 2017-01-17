@@ -91,18 +91,15 @@ app
 
     var wrappedService = {
       loginHandler: function (user ,status, headers, config) {
-
         setToken(user.token);
         angular.extend(wrappedService.user, user);
         wrappedService.isLogged = true;
         wrappedService.userRole = user.userRole;
         console.log(user);
           return user;
-
       },
       loginUser: function (httpPromise) {
           httpPromise.success(this.loginHandler);
-
       },
       logoutUser: function (httpPromise) {
         setToken(null);

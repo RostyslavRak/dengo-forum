@@ -28,8 +28,8 @@
     </div>
   </div>
   <div class="form-input password">
-    <input type="password"  class="form-control password1" placeholder="Password*" name="password" ng-model="registerObj.password" ng-minlength="4" ng-maxlength="16" ng-required="true" password-match="registerObj.password2">
-    <input type="password" class="form-control password2"  placeholder="Repeat password*" name="password2" ng-model="registerObj.password2" password-match="registerObj.password">
+    <input type="password"  class="form-control password1" placeholder="Password*" name="password" ng-model="registerObj.password" ng-minlength="4" ng-maxlength="16" ng-required="true" password-match="password2">
+    <input type="password" class="form-control password2"  placeholder="Repeat password*" name="password2" ng-model="password2" password-match="registerObj.password">
     <div class="errors" ng-class="{ active: registerForm.password.$invalid && registerForm.password.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.password.$error.match">
         <p class="errorsContent">Passwords do not match.</p>

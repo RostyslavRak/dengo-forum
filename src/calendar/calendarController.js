@@ -18,8 +18,6 @@ app
 
 
 
-
-
         $rootScope.events =  [
             {   id: 0,
                 title  : "event1",
@@ -201,6 +199,5 @@ app
                 events: $scope.events
 
             })});
-
 
     });

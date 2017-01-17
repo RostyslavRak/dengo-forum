@@ -1,62 +1,34 @@
-{
-  "Dengo-Forum": {
-    "name": "Dengo",
-    "company": "Dengo-Systems",
-    "companySite": "dengo.com",
-    "photo": "images/src/register/images/no_image.png",
-    "username": "Dengo-Forum",
-    "password": "12345",
-    "email": "Dengo-Forum@mail.ru",
-    "userRole": {
-      "bitMask": 2,
-      "title": "user"
+[
+  {
+    "Dengo-Forum": {
+      "id": 1,
+      "name": "Dengo",
+      "company": "Dengo-Systems",
+      "companySite": "dengo.com",
+      "photo": "images/src/register/images/no_image1.png",
+      "username": "Dengo-Forum",
+      "password": "12345",
+      "email": "Dengo-Forum@mail.ru",
+      "userRole": {
+        "bitMask": 2,
+        "title": "user"
+      },
+      "tokens": []
     },
-    "tokens": []
-  },
-  "Dim4k1993": {
-    "name": "Dima",
-    "company": "Dengo-Systems",
-    "companySite": "dengo.com",
-    "photo": "images/src/viawEvents/images/dima.jpg",
-    "username": "Dim4k1993",
-    "password": "54321",
-    "email": "dimaszelenyuk@gmail.com",
-    "userRole": {
-      "bitMask": 2,
-      "title": "user"
-    },
-    "tokens": [
-      "voifJ9WnHwN2Qbq0pWuxcPUoPyRGhucn"
-    ]
-  },
-  "zelenyuk": {
-    "photo": "images/src/register/images/no_image.png",
-    "name": "dima",
-    "username": "zelenyuk",
-    "password": "1111",
-    "password2": "1111",
-    "email": "zelenyuk@gmail.com",
-    "company": "Dengo",
-    "companySite": "Dengo.com",
-    "userRole": {
-      "bitMask": 2,
-      "title": "user"
-    },
-    "tokens": []
-  },
-  "zelenyuk1993": {
-    "photo": "images/src/register/images/no_image.png",
-    "name": "Dimas",
-    "username": "zelenyuk1993",
-    "password": "11111",
-    "password2": "11111",
-    "email": "dimas@mail.ru",
-    "company": "Dengo-Dimas",
-    "companySite": "Dimas.com",
-    "userRole": {
-      "bitMask": 2,
-      "title": "user"
-    },
-    "tokens": []
+    "Dim4k1993": {
+      "id": 2,
+      "name": "Dima",
+      "company": "Dengo-Systems",
+      "companySite": "dengo.com",
+      "photo": "images/src/viawEvents/images/dima.jpg",
+      "username": "Dim4k1993",
+      "password": "54321",
+      "email": "dimaszelenyuk@gmail.com",
+      "userRole": {
+        "bitMask": 2,
+        "title": "user"
+      },
+      "tokens": []
+    }
   }
-}
+]

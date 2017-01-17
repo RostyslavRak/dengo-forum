@@ -1,12 +1,10 @@
 app
-.factory('delayHTTP', function ($q, $timeout) {
+.factory('delayHTTP', function ($q) {
   return {
     request: function (request) {
       var delayedResponse = $q.defer();
-      $timeout(function () {
         delayedResponse.resolve(request);
-      }, 0);
-      return delayedResponse.promise;
+         return delayedResponse.promise;
     },
     response: function (response) {
       var deferResponse = $q.defer();
@@ -18,13 +16,10 @@ app
       } else {
         deferResponse.resolve(response);
       }
-
-      return $timeout(function () {
         deferResponse.resolve(response);
         return deferResponse.promise;
-      });
     }
-  };
+  }
 })
 .config(['$httpProvider', function ($httpProvider) {
   $httpProvider.interceptors.push('delayHTTP');
@@ -46,10 +41,30 @@ app
   }
 
   if (userStorage === null || emailStorage === null) {
-    userStorage = {
-      'Dengo-Forum': { name: 'Dengo',company:'Dengo-Systems', companySite:"dengo.com",  photo:"images/src/register/images/no_image.png", username: 'Dengo-Forum', password: '12345', email: 'Dengo-Forum@mail.ru', userRole: userRoles.user, tokens: [] },
-      'Dim4k1993': { name: 'Dima', company:'Dengo-Systems', companySite:"dengo.com", photo:"images/src/viawEvents/images/dima.jpg", username: 'Dim4k1993',  password: '54321', email: 'dimaszelenyuk@gmail.com', userRole: userRoles.user, tokens: [] }
-    };
+      userStorage = {
+          'Dengo-Forum': {
+              name: 'Dengo',
+              company: 'Dengo-Systems',
+              companySite: "dengo.com",
+              photo: "images/src/register/images/no_image1.png",
+              username: 'Dengo-Forum',
+              password: '12345',
+              email: 'Dengo-Forum@mail.ru',
+              userRole: userRoles.user,
+              tokens: []
+          },
+          'Dim4k1993': {
+              name: 'Dima',
+              company: 'Dengo-Systems',
+              companySite: "dengo.com",
+              photo: "images/src/viawEvents/images/dima.jpg",
+              username: 'Dim4k1993',
+              password: '54321',
+              email: 'dimaszelenyuk@gmail.com',
+              userRole: userRoles.user,
+              tokens: []
+          }
+      };
     emailStorage = {
       'Dengo-Forum@mail.ru': 'Dengo-Forum',
       'dimaszelenyuk@gmail.com': 'Dim4k1993'
@@ -75,7 +90,7 @@ app
 
 
   $httpBackend.when('POST', '/login').respond(function (method, url, data, headers) {
-      $rootScope.loginError = {status: false};
+      //$rootScope.loginError = {status: false};
     var postData = angular.fromJson(data),
         user = userStorage[postData.username],
         newToken,
@@ -98,7 +113,7 @@ app
         token: newToken }, {}
         ];
     } else {
-        $rootScope.loginError.status = true;
+       // $rootScope.loginError.status = true;
         return [401, 'wrong combination username/password', {}];
     }
   });
