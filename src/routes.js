@@ -239,7 +239,25 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     'login':resovle
                 }
             })
-
+            .state('termsConditions', {
+                url: '/termsConditions',
+                authenticate: false,
+                views: {
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Content": {
+                        templateUrl: 'termsConditions/termsConditions.tpl.html'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                },
+                resolve: {
+                    'login':resovle
+                }
+            })
             .state('calendar', {
                 url: '/calendar',
                 authenticate: true,

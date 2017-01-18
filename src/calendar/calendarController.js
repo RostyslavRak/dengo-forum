@@ -177,7 +177,7 @@ app
                 };
 
                 $scope.addEvent = function () {
-                        $rootScope.events.push($scope.newEvent);
+                        $scope.events.push($scope.newEvent);
                         $state.go('calendar');
                         $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
                         console.log( $scope.newEvent);
