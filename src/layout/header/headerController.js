@@ -13,7 +13,7 @@ app
             category: 'Category',
             catcommon: 'Common discussion',
             en: 'EN',
-            uk: 'UK',
+            uk: 'UA',
             ru: 'RU'
         })
             .translations('uk', {
@@ -22,11 +22,11 @@ app
                 text1: 'Текс українською моваю і',
                 topAuthors: 'TOP-5 Авторів',
                 topPosts: 'TOP-5 Постів',
-                eventsCalendar: 'Календар',
+                eventsCalendar: 'Календар Подій',
                 category: 'Категорії',
                 catcommon: 'Загальні теми для обговорення',
                 en: 'EN',
-                uk: 'UK',
+                uk: 'UA',
                 ru: 'RU'
             })
             .translations('ru', {
@@ -39,7 +39,7 @@ app
                 category: 'Категории',
                 catcommon: 'общие темы для дискуссий',
                 en: 'EN',
-                uk: 'UK',
+                uk: 'UA',
                 ru: 'RU'
             });
 

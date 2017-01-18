@@ -3,9 +3,11 @@
     "name": "Dengo",
     "company": "Dengo-Systems",
     "companySite": "dengo.com",
+    "city": "Львів",
     "photo": "images/src/register/images/no_image1.png",
     "username": "Dengo-Forum",
     "password": "12345",
+    "dataRegistration": "2017-1-17",
     "email": "Dengo-Forum@mail.ru",
     "userRole": {
       "bitMask": 2,
@@ -17,6 +19,8 @@
     "name": "Dima",
     "company": "Dengo-Systems",
     "companySite": "dengo.com",
+    "city": "Львів",
+    "dataRegistration": "2017-1-17",
     "photo": "images/src/viawEvents/images/dima.jpg",
     "username": "Dim4k1993",
     "password": "54321",
@@ -25,37 +29,24 @@
       "bitMask": 2,
       "title": "user"
     },
-    "tokens": []
+    "tokens": [
+      "WYxOAy54cIMmmmuYVHQsinytiVMKU4Q8"
+    ]
   },
   "test": {
+    "dataRegistration": "2017-1-18",
     "photo": "images/src/register/images/no_image1.png",
-    "name": "Test",
+    "name": "test",
     "username": "test",
     "password": "1111",
-    "email": "test@mail.ru",
-    "company": "test",
-    "companySite": "test.com",
+    "city": "kiev",
+    "email": "test@mail.com",
+    "company": "qwerty",
+    "companySite": "qwerty",
     "userRole": {
       "bitMask": 2,
       "title": "user"
     },
     "tokens": []
-  },
-  "dima1": {
-    "dataRegistration": "2017-1-17",
-    "photo": "images/src/register/images/no_image1.png",
-    "name": "dima1",
-    "username": "dima1",
-    "password": "1111",
-    "email": "dima1@mail.ru",
-    "company": "qwqw",
-    "companySite": "wqwwqwqwqw",
-    "userRole": {
-      "bitMask": 2,
-      "title": "user"
-    },
-    "tokens": [
-      "vurRJvUnKwcuL1wDGRmMete2AYLz8FmB"
-    ]
   }
 }

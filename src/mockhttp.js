@@ -1,9 +1,11 @@
 app
-.factory('delayHTTP', function ($q) {
+.factory('delayHTTP', function ($q, $timeout) {
   return {
     request: function (request) {
       var delayedResponse = $q.defer();
-        delayedResponse.resolve(request);
+        $timeout(function () {
+            delayedResponse.resolve(request);
+        }, 0);
          return delayedResponse.promise;
     },
     response: function (response) {

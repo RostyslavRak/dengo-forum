@@ -64,9 +64,14 @@
 
 <div class="col-md-9 profile_header" ng-show="!profile">
     <div class="user_left">
+
         <div class="avatar">
-            <img src="{{ ls.user.photo}}" style="height: 100px; width: 100px" />
+            <img ng-click="addAvatarPhoto()" src="{{ ls.user.photo}}" style="height: 100px; width: 100px; cursor: pointer" id="img">
+            <!--<ng-md-icon icon="delete"size="25" ng-click="deleteAvatarPhoto()"></ng-md-icon>-->
+            <div ng-click="deleteAvatarPhoto()" class="deletePhoto">delete photo</div>
+            <input type="file" name="file" id="filePhoto"/>
         </div>
+
         <div class="user_name_box">
 
             <div class="user_name">
@@ -83,7 +88,6 @@
 
             <div class="user_public">
                 <ng-md-icon ng-click="sendEmail(message.Email, message.subject, message.body)" icon="mail_outline" size="25"></ng-md-icon>
-                <ng-md-icon icon="settings" size="25" ng-click="profileEdit()"></ng-md-icon>
                 <ng-md-icon icon="check_circle" size="25" ng-click="saveProfileEdit()"></ng-md-icon>
             </div>
         </div>
