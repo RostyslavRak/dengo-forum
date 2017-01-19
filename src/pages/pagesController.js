@@ -15,7 +15,7 @@ app
         //         id:1,
         //         name:"Dima",
         //         lastName:"Zelenyuk",
-        //         photo:"images/src/viawEvents/images/dima.jpg",
+        //         photo:"images/src/viewEvents/images/dima.jpg",
         //         role:"User",
         //         dateRegistered:"2017-01-12"
         //     },
@@ -23,7 +23,7 @@ app
         //         id:2,
         //         name:"Andrey",
         //         lastName:"Blizniuk",
-        //         photo:"images/src/viawEvents/images/dima.jpg",
+        //         photo:"images/src/viewEvents/images/dima.jpg",
         //         role:"Admin",
         //         dateRegistered:"2017-01-22"
         //     }

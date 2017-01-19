@@ -1,4 +1,4 @@
-<form class="form-signin" name="registerForm" role="registration" ng-submit="submit(registerForm)">
+<form class="form-signin " name="registerForm" role="registration" ng-submit="submit(registerForm)">
 
   <h2 class="form-signin-heading">Registration</h2>
   <div class="form-input name">
@@ -81,12 +81,14 @@
         <!--<small>Підписатися на розсилку новин</small>-->
       <!--</label>-->
     <!--</div>-->
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" name="checkbox" ng-model="confirm" class="ng-untouched ng-valid ng-dirty ng-empty">
-        <small ui-sref="termsConditions">I agree to the <span>terms and conditions</span></small>
-      </label>
+
+
+    <div class="checkbox checkbox-success">
+      <input id="termsConditions" type="checkbox" ng-model="confirm" class="">
+      <label for="termsConditions"><small ui-sref="termsConditions">I agree to the <span>terms and conditions</span></small></label>
     </div>
+
+
   </div>
 
   <button class="btn btn-lg btn-block" type="submit"

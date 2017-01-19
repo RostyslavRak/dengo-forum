@@ -9,7 +9,7 @@ app
                 date  : "05-01-2017",
                 author :{
                     name:"Ross",
-                    photo:"images/src/viawEvents/images/ross.jpg",
+                    photo:"images/src/viewEvents/images/ross.jpg",
                     phoneNumber:"+38-097-00-00-000"
                 },
                 likes:[
@@ -27,7 +27,7 @@ app
                 date  : "15-01-2017",
                 author  :{
                     name:"Dima",
-                    photo:"images/src/viawEvents/images/dima.jpg",
+                    photo:"images/src/viewEvents/images/dima.jpg",
                     phoneNumber:"+38-097-11-11-111"
 
                 },

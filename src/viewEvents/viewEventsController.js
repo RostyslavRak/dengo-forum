@@ -1,5 +1,5 @@
 /**
- * ViawEvents controller
+ * viewEvents controller
  *
  * @author Dima Zelenyuk
  */
@@ -7,7 +7,7 @@
 
 
 app
-    .controller('ViawEventsController', function ($scope, $state, $uibModal, $log, $document) {
+    .controller('viewEventsController', function ($scope, $state, $uibModal, $log, $document) {
 
 
             var $ctrl = this;

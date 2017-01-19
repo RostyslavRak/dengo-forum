@@ -12,8 +12,11 @@ app
         var m = date.getMonth();
         var m1 = date.getMonth()+1;
         var y = date.getFullYear();
-       $scope.dateFormat=(y+"-"+m+"-"+d);
-       $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
+
+        $scope.dateFormat=(y+"-"+m+"-"+d);
+        $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
+        $scope.iGoEventStatus = false;
+
         /* event source that contains custom events on the scope */
 
 
@@ -28,17 +31,18 @@ app
                 end  : "2017-01-05 23:30",
                     author :{
                          name:"Ross",
-                         photo:"images/src/viawEvents/images/ross.jpg",
+                         photo:"images/src/viewEvents/images/ross.jpg",
                          phoneNumber:"+38-097-00-00-000"
                 },
                 peopleGo:[
                     {
+                    id:1,
                     name:"Ross",
-                    photo:"images/src/viawEvents/images/ross.jpg"
+                    photo:"images/src/viewEvents/images/ross.jpg"
                 },
-                    {
+                    {   id:2,
                         name:"Dima",
-                        photo:"images/src/viawEvents/images/dima.jpg"
+                        photo:"images/src/viewEvents/images/dima.jpg"
                     }
                 ],
 
@@ -54,14 +58,14 @@ app
                 end  : "2017-01-06 21:30",
                     author  :{
                         name:"Dima",
-                        photo:"images/src/viawEvents/images/dima.jpg",
+                        photo:"images/src/viewEvents/images/dima.jpg",
                         phoneNumber:"+38-097-11-11-111"
 
                     },
                 peopleGo:[],
                 comments:[{
                     name:"Oleg",
-                    photo:"images/src/viawEvents/images/oleg.jpg",
+                    photo:"images/src/viewEvents/images/oleg.jpg",
                     content:"content1",
                     data  : "2017-01-10"
 
@@ -77,20 +81,20 @@ app
                 end  : "2017-01-10 13:00",
                     author  :{
                         name:"Oleg",
-                        photo:"images/src/viawEvents/images/oleg.jpg",
+                        photo:"images/src/viewEvents/images/oleg.jpg",
                         phoneNumber:"+38-097-22-22-222"
 
                     },
                 peopleGo:[],
                 comments:[{
                     name:"Oleg",
-                    photo:"images/src/viawEvents/images/oleg.jpg",
+                    photo:"images/src/viewEvents/images/oleg.jpg",
                     content:"content1",
                     data  : "2017-01-10"
 
                 },{
                     name:"Dima",
-                    photo:"images/src/viawEvents/images/dima.jpg",
+                    photo:"images/src/viewEvents/images/dima.jpg",
                     content:"content2",
                     data  : "2017-01-11"
                 }]
@@ -105,9 +109,9 @@ app
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
             $scope.calEventData = calEvent.start.format('YYYY-MM-DD HH:mm');
-           $state.go('calendar.viawEvents');
+           $state.go('calendar.viewEvents');
            $state.go('calendar');
-           $state.go('calendar.viawEvents');
+           $state.go('calendar.viewEvents');
 
             $scope.removeEvent = function () {
                $('#calendar').fullCalendar('removeEvents', calEvent.id);
@@ -124,19 +128,32 @@ app
                 };
             };
             $scope.iGoEvent = function () {
-                $scope.newIgoOnEvent = {
-                    id: "user id",
-                    name: $scope.ls.user.name ,
-                    photo:$scope.ls.user.photo
-                };
                 angular.forEach($scope.events, function (event) {
+                  var peopleIgoId = event.peopleGo.length+1;
                     if(event.id == calEvent.id){
+                          $scope.newIgoOnEvent = {
+                          id: peopleIgoId,
+                          name: $scope.ls.user.name ,
+                          photo:$scope.ls.user.photo
+                    };
                      event.peopleGo.push($scope.newIgoOnEvent);
                     }
                 });
+                $scope.iGoEventStatus = true;
                 console.log( $scope.newIgoOnEvent);
             };
 
+            $scope.iDontGoEvent = function () {
+                angular.forEach($scope.events, function (event) {
+                    if(event.peopleGo == calEvent.peopleGo){
+                        if(event.peopleGo == calEvent.peopleGo){
+                            console.log( event.peopleGo[event.peopleGo.length-1]);
+                            calEvent.peopleGo.splice( event.peopleGo[event.peopleGo.length-1],1);
+                        }
+                    }
+                });
+                $scope.iGoEventStatus = false;
+            };
 
 
             $scope.addCommentEvent = function () {
@@ -153,7 +170,7 @@ app
                     }
                 });
                  $('#commentEvent').val("");
-                //$state.go('viawEvents');
+                //$state.go('viewEvents');
                 $('#event-comment').removeClass("in");
                 console.log( $scope.newCommentEvent);
             };

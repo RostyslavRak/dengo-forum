@@ -87,7 +87,7 @@ module.exports = function (grunt) {
           }
       },
       fonts: {
-         files: ['{eot,svg,ttf,woff,woff2}'],
+         files: ['{eot,svg,ttf,woff,woff2,otf}'],
          tasks: ['copy:fonts']
         }
         // data: {

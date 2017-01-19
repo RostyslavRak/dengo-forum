@@ -8,7 +8,7 @@
             <uib-accordion>
             <div uib-accordion-group class="panel-default map-accordion" is-open="status.isCustomHeaderOpen">
                 <uib-accordion-heading>
-                    <img src="/images/src/viawEvents/images/map-marker_30.png">Location on map
+                    <img src="/images/src/viewEvents/images/map-marker_30.png">Location on map
                 </uib-accordion-heading>
                 <p>{{calEvent.address}}</p>
                 <ng-map zoom="15" center="{{calEvent.address}}">
@@ -44,11 +44,11 @@
                     <span>{{calEvent.author.phoneNumber}}</span>
                 </div>
 
-                <div ng-controller="ViawEventsController as $ctrl" class="modal-demo">
+                <div ng-controller="viewEventsController as $ctrl" class="modal-demo">
 
                     <div class="add-i-go">
-                        <button type="button" class="btn btn-primary"  ng-click="iGoEvent()">Я Піду</button>
-
+                        <button type="button" class="btn btn-primary"  ng-click="iGoEvent()" ng-if="!iGoEventStatus">Я Піду</button>
+                        <button type="button" class="btn btn-danger" ng-click="iDontGoEvent()" ng-if="iGoEventStatus">Отменить</button>
                         <ng-md-icon icon="directions_walk" ng-click="$ctrl.open()" size="30"></ng-md-icon>
                         <span class="i-go-count-total">{{calEvent.peopleGo.length}}</span>
                     </div>

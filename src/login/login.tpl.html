@@ -20,8 +20,14 @@
                 <div class="errorsLogin ng-hide" ng-show="loginForm.password.$error.minlength">Error:</div>
                 <b class="errorsContentLogin" ng-show="loginForm.password.$error.minlength">Please Enter a valid password</b>
             </div>
-
             <h1 class="loginError" ng-show="loginError">username or password not valid</h1>
+
+
+            <div class="checkbox checkbox-success">
+                <input id="remember" type="checkbox"  alt="Remember me" class="">
+                <label for="remember">Remember me</label>
+            </div>
+
 
             <div class="button_box">
                 <button type="submit" class="btn btn-primary"  ng-disabled="loginForm.username.$invalid || loginForm.password.$invalid">
@@ -47,3 +53,4 @@
         </form>
     </div>
 </div>
+

@@ -3,13 +3,6 @@ app
        $scope.ls = loginService;
         $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
         $scope.profile = true;
-        $scope.sendEmail = function(email, subject, body){
-            var link = "mailto:"+ email
-                + "&subject=New email " + escape(subject);
-            + "&body=" + escape(body);
-
-            window.location.href = link;
-        };
 
 
         $scope.profileEdit = function () {

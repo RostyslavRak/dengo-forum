@@ -63,7 +63,7 @@ app
               companySite: "dengo.com",
               city: "Львів",
               dataRegistration:"2017-1-17",
-              photo: "images/src/viawEvents/images/dima.jpg",
+              photo: "images/src/viewEvents/images/dima.jpg",
               username: 'Dim4k1993',
               password: '54321',
               email: 'dimaszelenyuk@gmail.com',

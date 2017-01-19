@@ -27,6 +27,10 @@ var app = angular
                  event.preventDefault();
                  $state.go('login');
              }
+             if(toState.name == "calendar.viewEvents"){
+                 $state.go('calendar');
+                 event.preventDefault();
+             }
          }
      });
 

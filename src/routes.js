@@ -194,6 +194,30 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     'login':resovle
                 }
             })
+            .state('privateMassages', {
+                url: '/privateMassages',
+                authenticate: true,
+                views: {
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Sidebar": {
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
+                    },
+                    "Content": {
+                        templateUrl: 'privateMassages/privateMassages.tpl.html',
+                        controller: 'privateMassagesController'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                },
+                resolve: {
+                    'login':resovle
+                }
+            })
 
             .state('register', {
                 url: '/register',
@@ -300,11 +324,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             })
 
-            .state('calendar.viawEvents', {
-                url: '/viawEvents',
+            .state('calendar.viewEvents', {
+                url: '/viewEvents',
                 authenticate: true,
-                templateUrl: 'viawEvents/viawEvents.tpl.html',
-                controller: 'ViawEventsController',
+                templateUrl: 'viewEvents/viewEvents.tpl.html',
+                controller: 'viewEventsController',
                 resolve: {
                     'login':resovle
                 }
