@@ -200,7 +200,6 @@ app
                         console.log( $scope.newEvent);
                     }
                 }
-
         };
             /* config object */
         var initialLocaleCode = 'en';

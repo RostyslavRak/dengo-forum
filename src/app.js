@@ -31,6 +31,15 @@ var app = angular
                  $state.go('calendar');
                  event.preventDefault();
              }
+             if(toState.name == "calendar.eventsAdd"){
+                 $state.go('calendar');
+                 event.preventDefault();
+             }
+             if(toState.name == "calendar.editEvents"){
+                 $state.go('calendar');
+                 event.preventDefault();
+             }
+
          }
      });
 

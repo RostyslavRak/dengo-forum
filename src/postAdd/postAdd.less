@@ -151,3 +151,53 @@ width: 150px;
     }
   }
 }
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.bootstrap-select > .dropdown-toggle {
+  font-size: 16px;
+  height: 40px;
+  width: 100%;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  background-color: #62a2ae;
+}
+
+.dropdown-toggle:focus {
+  outline: none;
+}
+.dropdown-menu > li > a {
+  margin-bottom: 5px;
+  color: #000000 !important;
+}
+
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  color: #333333;
+   background-color: #ffffff;
+   border-color: #ffffff;
+}
+
+.btn-default:hover {
+  background: white;
+  border-width: 2px;
+  border-color: #62a2ae;
+}
+.btn-default:active:hover, .btn-default.active:hover, .open > .dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open > .dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open > .dropdown-toggle.btn-default.focus {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #62a2ae;
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+  outline: none !important;
+}
+
+.btn-default:focus, .btn-default.focus {
+  border-width: 2px;
+  color: #333333;
+  background-color: #ffffff !important;
+  border-color: #62a2ae ;
+}

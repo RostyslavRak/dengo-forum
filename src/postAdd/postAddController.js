@@ -1,6 +1,6 @@
 app.controller('AddPostController', function ($rootScope, $scope, $state) {
-
     $scope.addPosts = $rootScope.posts;
+    $scope.viewRegion = true;
 
     var date = new Date();
     var d = date.getDate();
@@ -9,6 +9,12 @@ app.controller('AddPostController', function ($rootScope, $scope, $state) {
     var y = date.getFullYear();
     $scope.dateFormat=(y+"-"+m+"-"+d);
     $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
+
+    $('.selectpicker').selectpicker({
+        size: 8
+    });
+
+
 
     // $scope.newPost = {
     //     id:$scope.addPosts.length,
@@ -26,6 +32,7 @@ app.controller('AddPostController', function ($rootScope, $scope, $state) {
     //     $state.go('post');
     //     console.log( $scope.newPost);
     // };
+
 
 
 });

@@ -125,7 +125,8 @@ module.exports = function (grunt) {
           'node_modules/angular-translate/dist/angular-translate.min.js',
           'src/welcome/geometryangle.js',
           'node_modules/jquery-circle-progress/dist/circle-progress.min.js',
-          'node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
+          'node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+          'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js'
 
 
 

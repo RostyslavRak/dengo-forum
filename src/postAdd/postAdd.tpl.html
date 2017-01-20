@@ -4,27 +4,50 @@
 
         <div class="form-input subject">
             <!--<label>Short Title</label>-->
-            <input type="text" class="form-control" placeholder="Enter Title Here" name="subject" autofocus="true"
-                   ng-minlength="5" ng-maxlength="15" ng-required="true" ng-model="newPost.title">
-            <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
-                <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
-                    <p>Provided name is too short!</p>
-                </div>
-                <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
-                    <p>Max name length is 15, please shorten it.</p>
-                </div>
-            </div>
+            <input type="text" class="form-control" placeholder="Enter Title Here" name="subject" ng-model="newPost.title">
         </div>
+
 
 
         <div class="form-input location">
             <!--<label>Select Location</label>-->
-            <select class="form-control" name="location">
-                <option value="">Choose a Category</option>
+            <select class="form-control" name="location" >
+                <!--<option value="">Choose a Category</option>-->
                 <option value="general-group">Загальні теми для обговорення</option>
-                <option value="regional-group">Регіональні групи</option>
+                <option id="select" value="regional-group">Регіональні групи</option>
             </select>
         </div>
+
+
+
+
+        <select class="selectpicker" data-live-search="true">
+            <option data-tokens="Львів">Львів</option>
+            <option data-tokens="Луцьк">Луцьк</option>
+            <option data-tokens="Ів-Франківськ">Ів-Франківськ</option>
+            <option data-tokens="Рівне">Рівне</option>
+            <option data-tokens="Тернопіль">Тернопіль</option>
+            <option data-tokens="Ужгород">Ужгород</option>
+            <option data-tokens="Донецьк">Донецьк</option>
+            <option data-tokens="Луганськ">Луганськ</option>
+            <option data-tokens="Київ">Київ</option>
+            <option data-tokens="Вінниця">Вінниця</option>
+            <option data-tokens="Дніпропетровськ">Дніпропетровськ</option>
+            <option data-tokens="Полтава">Полтава</option>
+            <option data-tokens="Хмельницьк">Хмельницьк</option>
+            <option data-tokens="Черкаси">Черкаси</option>
+            <option data-tokens="Харків">Харків</option>
+            <option data-tokens="Миколаїв">Миколаїв</option>
+            <option data-tokens="Одеса">Одеса</option>
+            <option data-tokens="Запоріжжя">Запоріжжя</option>
+            <option data-tokens="Кіровоград">Кіровоград</option>
+            <option data-tokens="Херсон">Херсон</option>
+            <option data-tokens="Севастопіль">Севастопіль</option>
+            <option data-tokens="Житомир">Житомир</option>
+            <option data-tokens="Чернігів">Чернігів</option>
+            <option data-tokens="Суми">Суми</option>
+            <option data-tokens="АР Крим">АР Крим</option>
+        </select>
 
 
         <div class="form-input body">
