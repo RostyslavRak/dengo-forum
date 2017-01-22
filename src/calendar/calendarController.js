@@ -7,6 +7,7 @@
 
 app
     .controller('CalendarController', function ($scope,$state) {
+
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -184,7 +185,7 @@ app
                 $state.go('calendar.eventsAdd');
 
                 $scope.newEvent = {
-                      id: $scope.events.length,
+                    id: $scope.events.length,
                     author: {
                         name: $scope.ls.user.name,
                         photo: $scope.ls.user.photo

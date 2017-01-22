@@ -29,24 +29,16 @@
                 </div>
             </div>
 
-    <!--<div class="form-input location">-->
-        <!--<label>Select Location</label>-->
-        <!--<ng-map zoom="9" center="{{newEvent.address}}">-->
-            <!--<marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>-->
-        <!--</ng-map>-->
-        <!--<br>-->
-
 
         <label>Address:</label>
-    <input id="pac-input"  class="form-control" ng-model="newEvent.address" placeholder="Search "/>
-    <div id="class map _wrap" ng-repeat="marker in markersHistory">
-        <input ng-model="newEvent.region = marker.address_components" ng-hide="true"/>
-        <pre class="alert alert-info">Address is: {{marker.title}}</pre>
-        <pre class="alert alert-info">Address is: {{marker.address_components}}</pre>
-    </div>
+    <input id="pac-input" class="form-control"  ng-blur="newEvent.address = titleAddress" ng-model="newEvent.address" placeholder="Address "/>
+    <!--<input ng-model="newEvent.region = region" ng-hide="true"/>-->
+        <pre class="alert alert-info">Address is: {{newEvent.address}}</pre>
+        <pre class="alert alert-info" >Address is: {{region}}</pre>
 
-    <div id="googleMap" class="googleMap"></div>
-
+    <ng-map zoom="8" center="{{center}}" class="googleMap">
+    <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
+    </ng-map>
 
 
     <div class="form-input mobile">
