@@ -23,7 +23,7 @@ app
             {   id: 0,
                 title  : "event1",
                 fullTitle: "Events-One",
-                address:"Львів пр. Свободи 10 оф.10",
+                address:"Івано-Фраківська мазепи 10",
                 htmlContent:"<h2>content1</h2>",
                 start  : "2017-01-05 22:30",
                 end  : "2017-01-05 23:30",

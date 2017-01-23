@@ -6,12 +6,12 @@
         <div class="row post-content">
 
             <uib-accordion>
-            <div uib-accordion-group class="panel-default map-accordion" is-open="status.isCustomHeaderOpen">
+                <div uib-accordion-group class="panel-default map-accordion" is-open="status.isCustomHeaderOpen">
                 <uib-accordion-heading>
                     <img src="/images/src/viewEvents/images/map-marker_30.png">Location on map
                 </uib-accordion-heading>
                 <p>{{calEvent.address}}</p>
-                <ng-map zoom="15" center="{{calEvent.address}}">
+                <ng-map zoom="8" center="{{calEvent.address}}" class="googleMap">
                     <marker position="{{calEvent.address}}" title="{{calEvent.address}}"></marker>
                 </ng-map>
             </div>
