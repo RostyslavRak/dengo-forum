@@ -5,7 +5,6 @@
     font-family: 'Raleway ExtraBold';
     text-transform: uppercase;
     font-size: 24px;
-    //color: #353d3e;
     padding-bottom: 15px;
   }
   .category-description {
@@ -13,17 +12,19 @@
     font-size: 14px;
     margin-bottom: 24px;
   }
-  .input-group {
+  .searchPost {
+    margin-bottom: 30px;
     input {
       border-radius: 0;
       height: 30px;
-      float: left;
       &:focus {
         border: 1px solid #dfdfdf;
         box-shadow: none;
       }
     }
+
     .input-group-btn {
+      float: left;
       button {
         background-color: #dfdfdf;
         border-radius: 0;
@@ -32,20 +33,13 @@
         font-family: "Lucida Fax";
         color: #3b3b3b;
         font-size: 16px;
-        float: left;
         padding: 3px 20px;
         &:focus {
           outline: 0;
         }
       }
-      .form-group {
-        margin-left: 15px;
-        margin-right: 15px;
-
-      }
     }
     .btn-search-box {
-      margin-left: -14px;
       button.btn-search {
           background-color: #dfdfdf;
           border-radius: 0;
@@ -54,21 +48,19 @@
         font-family: "Lucida Fax";
           color: #3b3b3b;
           font-size: 14px;
-          float: left;
           padding: 4px 20px;
           &:focus {
             outline: 0;
           }
         }
       button.btn-add-post {
-          background-color: #62a2ae;
-          border-radius: 0;
-          border: 1px solid #62a2ae;
-        font-family: "Lucida Fax";
-          color: #ffffff;
-          font-size: 14px;
-          float: left;
-          padding: 4px 20px;
+        background-color: #62a2ae;
+        border-radius: 0;
+        border: 1px solid #62a2ae;
+        font-family: "Lato";
+        color: #ffffff;
+        font-size: 14px;
+        height: 30px;
           &:focus {
             outline: 0;
           }
@@ -95,6 +87,32 @@
   }
 }
 
+
+.searchPostIcon{
+  margin-left: -30px;
+  float: left;
+  margin-top: 4px;
+  cursor: pointer;
+}
+.searchPostInput{
+  float: left;
+}
+.filterPostIcon{
+  float: left;
+  cursor: pointer;
+}
+
+.dropdownPostFilter{
+  width: 80%;
+  margin-left: 30px;
+}
+
+.searchPostMenu{
+  width: 300px;
+}
+.dropdown-menu-right {
+  left: 0;
+}
 .posts {
   .post-content {
     font-family: 'Raleway Medium';

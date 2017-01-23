@@ -6,13 +6,20 @@
             and questions related to the IT-branch in Ukraine.
         </div>
 
-        <div class="input-group ">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
+
+    <div class="searchPost col-md-12">
+        <div class="col-md-7 searchPostInput">
+            <input type="text" placeholder="Search for..." style="width: 110%">
+        </div>
+        <div class="col-md-1 searchPostIcon">
+            <ng-md-icon icon="search" size="25" ></ng-md-icon>
+        </div>
+        <div class="col-md-1 filterPostIcon" >
+            <span class="input-group-btn" >
                    <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn-s dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form">
+                   <ng-md-icon icon="filter_list" size="30" data-toggle="dropdown"></ng-md-icon>
+                            <div class="dropdown-menu dropdown-menu-right searchPostMenu" role="menu">
+                                <form class="form-horizontal dropdownPostFilter" role="form">
                                   <div class="form-group">
                                     <label>Filter by</label>
                                     <select class="form-control">
@@ -33,14 +40,17 @@
                                   </div>
                                 </form>
                             </div>
-                                  <!--<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
+                       <!--<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
                         </div>
                 </span>
-            <div class="btn-search-box ">
-                    <button class="btn-search">Search</button>
-                <button ui-sref="addPost" class="btn-add-post">Add Post</button>
-                            </div>
         </div>
+        <div class="col-md-3">
+            <div class="btn-search-box">
+                <button ui-sref="addPost" class="btn-add-post">ADD POST</button>
+            </div>
+        </div>
+    </div>
+
 
         <div class="img-title"><img src="images/src/post/images/posts1.png" alt=""></div>
 

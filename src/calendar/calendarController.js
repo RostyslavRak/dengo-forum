@@ -18,9 +18,6 @@ app
         $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
         $scope.iGoEventStatus = false;
 
-        /* event source that contains custom events on the scope */
-
-
 
         $scope.events =  [
             {   id: 0,
@@ -179,10 +176,27 @@ app
         };
 
         $scope.dayClick = function(eventDate){
-            if(eventDate>date) {}
+            // if(eventDate>date) {}
                 $state.go('calendar.eventsAdd');
                 $state.go('calendar');
                 $state.go('calendar.eventsAdd');
+
+                // $scope.newEvent = {
+                //     id: $scope.events.length,
+                //     author: {
+                //         name: $scope.ls.user.name,
+                //         photo: $scope.ls.user.photo
+                //     },
+                //     comments: [],
+                //     peopleGo: []
+                // };
+                //
+                // $scope.addEvent = function () {
+                //         $scope.events.push($scope.newEvent);
+                //         $state.go('calendar');
+                //         $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
+                //         console.log( $scope.newEvent);
+                //     }
 
         };
             /* config object */
