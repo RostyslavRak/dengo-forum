@@ -1,23 +1,60 @@
 .privateMassages-h1{
   font-family: "Lato Black";
-  margin: 70px;
+  margin-left: 35px;
+  margin-top: 35px;
+}
+html {
+  font-family: Lato, sans-serif;
 }
 
-.privateMassages {
-  background: white;
-  margin-left: 50px;
+.activity-stream {
+  list-style-type: none;
+  margin: 3em 3em;
+  padding: 0;
+  border-left: 1px solid #ccc;
 }
-.avatarMassages img{
-  border-radius: 50%;
-  border: 2px solid grey;
+.massageBox {
+  cursor: pointer;
+  overflow-x: hidden;
+  background-color: white;
+  border: 1px solid #62a2ae;
+  padding: 2em 1em 1.5em 1em;
+  margin-top: 20px;
+  margin-left: 30px;
+  display: block;
+  position: relative;
 }
-.nameUserMassages{
-  margin-top: 0;
+
+.massageBox:hover {
+  background-color: rgba(98, 162, 174, 0.13);
+}
+.userMassages{
+  .imgAvatar {
+    border: #62a2ae solid 1px;
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    box-sizing: border-box;
+    display: block;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .nameUserMassages{
+    width: 60px;
+    margin-top: 0;
+    text-align: center;
+    font-family: "Lato";
+    font-size: 18px;
+
+  }
+}
+
+.massagesText{
+
+}
+
+.massagesDataPrivatePage{
   font-family: "Lato";
-  font-size: 18px;
-  margin-left: 18px;
-}
+  margin-top: 30%;
 
-.privateMassages1{
-  background: #e2edff;
 }

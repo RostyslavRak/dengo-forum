@@ -5,7 +5,7 @@
  */
 
 app
-    .controller('eventsAddController', function ($scope) {
+    .controller('eventsAddController', function ($scope,$state) {
 
         $scope.center = new google.maps.LatLng(49.85, 24.0166666667);
         $scope.input = document.getElementById('pac-input');
@@ -18,15 +18,33 @@ app
         $scope.searchBox.addListener('places_changed', function() {
             $scope.newMarker();
 
-            console.log($scope.searchBox.getPlaces()[0].formatted_address);
-            $scope.titleAddress = $scope.searchBox.getPlaces()[0].formatted_address;
+            $scope.newEvent.address = $scope.searchBox.getPlaces()[0].formatted_address;
             $scope.regionTest = $scope.searchBox.getPlaces()[0].formatted_address.split(" область")[0].split(", ");
-            $scope.region = $scope.regionTest[$scope.regionTest.length - 1];
+            $scope.newEvent.region = $scope.regionTest[$scope.regionTest.length - 1];
         });
 
 
+        $scope.newEvent = {
+            id: $scope.events.length,
+            author: {
+                name: $scope.ls.user.name,
+                photo: $scope.ls.user.photo
+            },
+            comments: [],
+            peopleGo: []
+        };
 
-$(function () {
+        $scope.addEvent = function () {
+            $scope.events.push($scope.newEvent);
+            $state.go('calendar');
+            $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
+            console.log( $scope.newEvent);
+        };
+
+
+
+
+        $(function () {
             $('#datetimepickerStart').datetimepicker({
                 format : "YYYY-MM-DD HH:mm"
             });

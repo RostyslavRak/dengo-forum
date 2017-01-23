@@ -1,12 +1,45 @@
 <div class="col-md-9 ng-scope">
     <h1 class="privateMassages-h1">PRIVATE MASSAGES</h1>
 
-    <div class="privateMassages">
-        <div class="avatarMassages">
-            <img src="{{ ls.user.photo}}" style="height: 80px; width: 80px">
-            <h4 class="nameUserMassages">{{ ls.user.name}}</h4>
+    <ol class="activity-stream">
+        <div class="row" ui-sref="massagesToUser">
+            <div class="massageBox">
+            <div class="col-xs-8 col-sm-2">
+                <div class="userMassages">
+                    <img class="imgAvatar" src="{{ ls.user.photo}}">
+                    <h4 class="nameUserMassages">{{ ls.user.name}}</h4>
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <li class="massagesText ">Lorem ipsum dolor sit amet, consere consereconser econserec onserecons
+                    ereconsereconsereconsere. met, consectetur adipiscing elit.Morbi vitae libero sit amet dui ullamcorper ornare. Nullam
+                </li>
+            </div>
+            <div class="col-xs-8 col-sm-2">
+                <li class="massagesDataPrivatePage" >11.11.2017</li>
+            </div>
+            </div>
         </div>
-    </div>
+
+
+        <div class="row">
+            <div class="massageBox">
+                <div class="col-xs-8 col-sm-2">
+                    <div class="userMassages">
+                        <img class="imgAvatar" src="{{ ls.user.photo}}">
+                        <h4 class="nameUserMassages">{{ ls.user.name}}</h4>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <li class="massagesText ">Lorem ipsum dolor sit amet, consere dipiscing elit.Morbi vitae libero sit amet dui ullamcorper ornare. Nullam</li>
+                </div>
+                <div class="col-xs-8 col-sm-2">
+                    <li class="massagesDataPrivatePage" >12.12.2017</li>
+                </div>
+            </div>
+        </div>
+    </ol>
+
 
 </div>
 

@@ -219,6 +219,31 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             })
 
+            .state('massagesToUser', {
+                url: '/massagesToUser',
+                authenticate: true,
+                views: {
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Sidebar": {
+                        templateUrl: "layout/sidebar/sidebar.tpl.html",
+                        controller: 'SidebarController'
+                    },
+                    "Content": {
+                        templateUrl: 'massagesToUser/massagesToUser.tpl.html',
+                        controller: 'massagesToUserController'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                },
+                resolve: {
+                    'login':resovle
+                }
+            })
+
             .state('register', {
                 url: '/register',
                 authenticate: false,

@@ -29,13 +29,10 @@
                 </div>
             </div>
 
-
+    <label>Select Location</label>
         <label>Address:</label>
-    <input id="pac-input" class="form-control"  ng-blur="newEvent.address = titleAddress" ng-model="newEvent.address" placeholder="Address "/>
-    <!--<input ng-model="newEvent.region = region" ng-hide="true"/>-->
-        <pre class="alert alert-info">Address is: {{newEvent.address}}</pre>
-        <pre class="alert alert-info" >Address is: {{region}}</pre>
-
+    <input id="pac-input" class="form-control" ng-model="newEvent.address" placeholder="Address "/>
+    <input ng-model="newEvent.region" ng-hide="true"/>
     <ng-map zoom="8" center="{{center}}" class="googleMap">
     <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
     </ng-map>
