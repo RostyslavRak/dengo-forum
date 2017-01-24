@@ -156,7 +156,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     },
                     "Content":{
                         templateUrl: 'postAdd/postAdd.tpl.html',
-                        controller: 'AddPostController'
+                        controller: 'postAddController'
                     },
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'

@@ -27,10 +27,11 @@ app
                 htmlContent:"<h2>content1</h2>",
                 start  : "2017-01-05 22:30",
                 end  : "2017-01-05 23:30",
+                phoneNumber:"380970000000",
                     author :{
                          name:"Ross",
-                         photo:"images/src/viewEvents/images/ross.jpg",
-                         phoneNumber:"+38-097-00-00-000"
+                         photo:"images/src/viewEvents/images/ross.jpg"
+
                 },
                 peopleGo:[
                     {
@@ -54,10 +55,11 @@ app
                 htmlContent:"content2",
                 start  : "2017-01-06 20:30",
                 end  : "2017-01-06 21:30",
+                phoneNumber:"+380971111111",
                     author  :{
                         name:"Dima",
-                        photo:"images/src/viewEvents/images/dima.jpg",
-                        phoneNumber:"+38-097-11-11-111"
+                        photo:"images/src/viewEvents/images/dima.jpg"
+
 
                     },
                 peopleGo:[],
@@ -77,10 +79,11 @@ app
                 fullTitle: "Events-Three",
                 start  : "2017-01-10 12:30",
                 end  : "2017-01-10 13:00",
+                phoneNumber:"+380972222222",
                     author  :{
                         name:"Oleg",
-                        photo:"images/src/viewEvents/images/oleg.jpg",
-                        phoneNumber:"+38-097-22-22-222"
+                        photo:"images/src/viewEvents/images/oleg.jpg"
+
 
                     },
                 peopleGo:[],
@@ -106,8 +109,7 @@ app
         $scope.eventClick = function (calEvent) {
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
-            $scope.calEventData = calEvent.start.format('YYYY-MM-DD HH:mm');
-           $state.go('calendar.viewEvents');
+            $state.go('calendar.viewEvents');
            $state.go('calendar');
            $state.go('calendar.viewEvents');
 
@@ -116,14 +118,17 @@ app
                 $state.go('calendar');
             };
             $scope.editEvent = function () {
-                calEvent.start = calEvent.start.format('YYYY-MM-DD HH:mm');
-                calEvent.end = calEvent.end.format('YYYY-MM-DD HH:mm');
+                 $scope.calEvent.start  =  $scope.calEvent.start._i;
+                 $scope.calEvent.end = $scope.calEvent.end._i;
                 $state.go('calendar.editEvents');
                 $scope.saveEditEvent = function () {
                     $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
-                    console.log(calEvent.start );
                 };
+                $scope.cancelEventEdit = function () {
+                    $('#calendar').fullCalendar('updateEvent', calEvent);
+                    $state.go('calendar');
+                }
             };
             $scope.iGoEvent = function () {
                 angular.forEach($scope.events, function (event) {
@@ -181,22 +186,6 @@ app
                 $state.go('calendar');
                 $state.go('calendar.eventsAdd');
 
-                // $scope.newEvent = {
-                //     id: $scope.events.length,
-                //     author: {
-                //         name: $scope.ls.user.name,
-                //         photo: $scope.ls.user.photo
-                //     },
-                //     comments: [],
-                //     peopleGo: []
-                // };
-                //
-                // $scope.addEvent = function () {
-                //         $scope.events.push($scope.newEvent);
-                //         $state.go('calendar');
-                //         $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
-                //         console.log( $scope.newEvent);
-                //     }
 
         };
             /* config object */

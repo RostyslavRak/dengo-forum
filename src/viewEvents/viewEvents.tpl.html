@@ -43,50 +43,15 @@
                 <div class="author-tel">
                     <span>{{calEvent.author.phoneNumber}}</span>
                 </div>
-
-                <div ng-controller="viewEventsController as $ctrl" class="modal-demo">
-
                     <div class="add-i-go">
                         <button type="button" class="btn btn-primary"  ng-click="iGoEvent()" ng-if="!iGoEventStatus">Я Піду</button>
                         <button type="button" class="btn btn-danger" ng-click="iDontGoEvent()" ng-if="iGoEventStatus">Отменить</button>
-                        <ng-md-icon icon="directions_walk" ng-click="$ctrl.open()" size="30"></ng-md-icon>
+                        <ng-md-icon icon="directions_walk" size="25"></ng-md-icon>
                         <span class="i-go-count-total">{{calEvent.peopleGo.length}}</span>
                     </div>
-
-                    <script type="text/ng-template" id="myModalContent.html">
-                        <div class="modal-header">
-                            <h3 class="modal-title" id="modal-title">Я піду</h3>
-                        </div>
-                        <div class="modal-body" id="modal-body">
-                            <ul>
-                                <li>
-                                    <a href="#">User#1</a>
-                                </li>
-                                <li>
-                                    <a href="#">User#2</a>
-                                </li>
-                                <li>
-                                    <a href="#">User#3</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                        </div>
-                    </script>
-
-                    <div class="modal-parent"></div>
-                </div>
-
                 <div class="add-reply">
                     <button data-toggle="collapse" data-target="#event-comment" type="button" class="btn btn-primary">Коментар</button>
                 </div>
-                <!--<div class="like-count">-->
-                    <!--&lt;!&ndash;Post Likes Count:&ndash;&gt;-->
-                    <!--<span class="like-count-total">{{singleModel}}</span>-->
-                    <!--<span class="like-count-text">Підтримую</span>-->
-                    <!--<ng-md-icon icon="thumb_up" size="30" ng-model="singleModel"-->
-                                <!--uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"></ng-md-icon>-->
-                <!--</div>-->
             </div>
                 <div id="event-comment" class="comment-add collapse">
                     <div class="form-input comment-body">
@@ -94,7 +59,6 @@
                         <textarea id="commentEvent"></textarea>
                     </div>
                     <button type="button" class="btn btn-primary" ng-click="addCommentEvent()">Add</button>
-
                 </div>
         </div><!--post-->
 

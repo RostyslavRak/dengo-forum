@@ -1,5 +1,4 @@
-app.controller('AddPostController', function ($rootScope, $scope, $state) {
-    $scope.addPosts = $rootScope.posts;
+app.controller('postAddController', function ( $scope, $state) {
     $scope.viewRegion = true;
 
     var date = new Date();
@@ -17,7 +16,6 @@ app.controller('AddPostController', function ($rootScope, $scope, $state) {
 
 
     $scope.newPost = {
-        id:$scope.addPosts.length,
         name:$scope.ls.user.name,
         photo:$scope.ls.user.photo,
         data  : $scope.dateFormat1_12,
@@ -28,11 +26,10 @@ app.controller('AddPostController', function ($rootScope, $scope, $state) {
     };
 
     $scope.addPost = function () {
-        $scope.addPosts.push($scope.newPost);
+       // $scope.addPosts.push($scope.newPost);
         $state.go('post');
         console.log( $scope.newPost);
     };
-
 
 
 });
