@@ -89,3 +89,91 @@
     }
   }
 }
+
+
+
+.commentPost{
+  .commentPost-content {
+    padding: 5px;
+    margin-left: 0px;
+    margin-right: 0;
+    background-color: rgb(236, 236, 236);
+    //border-top: 2px solid #dadada;
+    &:last-child {
+      border-bottom: 2px solid #dadada;
+    }
+    a {
+      cursor: pointer;
+      color: #62a2ae;
+      &:hover {
+        color: #243f4b;
+      }
+    }
+    .commentPost-icon {
+      padding-top: 15px;
+      .author-img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .commentPost-author {
+        font-weight: bold;
+
+        .commentPost-date {
+          font-family: "Lato";
+          color: #B2B2B2;
+          font-size: 12px;
+        }
+      }
+    }
+    .commentPost-cell {
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      .commentPost-body {
+        padding-bottom: 10px;
+        font-family: "Raleway Regular";
+        font-size: 14px;
+      }
+    }
+    .commentPost-info {
+      .like-count {
+        float: right;
+        color: #999999;
+        font-weight: bold;
+        ng-md-icon {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.addCommentPost{
+  float: right;
+  margin-right: -132px;
+  margin-top: 49px;
+  height: 80px!important;
+  width: 60%;
+}
+
+.btnAddPostComment{
+  background-color: #62a2ae;
+  border-color: #62a2ae;
+  border-radius: 0;
+  margin-top: 150px;
+  float: right;
+}
+
+.btnAddPostComment:hover{
+  background-color: #62a2ae;
+  border-color: #62a2ae;
+}
+
+
+.errorComment{
+
+  color: red;
+  float: right;
+}

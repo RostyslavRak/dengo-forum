@@ -2,13 +2,10 @@
         <div class="title-post-one">Post One will be Here
         </div>
     <div class="post-one">
-
-        <!--<div class="input-group">-->
-            <!--<input type="text" class="form-control" placeholder="Search for...">-->
-            <!--<span class="input-group-btn">-->
-                    <!--<button class="btn btn-default" type="button">Search</button>-->
-                <!--</span>-->
-        <!--</div>-->
+        <div class="post-pagination">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
+                class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+        </div>
         <div class="post">
             <div class="row post-content">
                 <div class="col-lg-2 col-md-2 post-icon">
@@ -23,7 +20,7 @@
                 <div class="col-lg-10 col-md-10 post-cell">
                     <div class="welcome-text-title">{{posts[0].title}}</div>
                     <div class="post-date">
-                        <span>{{posts[0].date}}</span>
+                        <span>{{posts[0].data}}</span>
                     </div>
                     <div class="post-body">
                        {{posts[0].content}}
@@ -37,20 +34,56 @@
                     <div class="like-count">
                         <!--Post Likes Count:-->
                         <span class="like-count-total">{{posts[0].likes.length}}</span>
-                        <!--<span class="like-count-text"> Likes </span>-->
                         <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
-                        <span class="like-count-total">{{posts[0].likes.length}}</span>
+                        <span class="reply-count-total">{{posts[0].comments.length}}</span>
                         <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>
             </div><!--post-->
-
-
 </div>
 
-<div class="post-pagination">
-    <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize"
-        class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
-</div>
+
+        <div class="commentPost" ng-repeat="comment in commentsPost" ng-if="commentsPost.length>0">
+            <div class="row commentPost-content">
+                <div class="col-lg-2 col-md-2 commentPost-icon">
+                    <img class="author-img"
+                         src="{{comment.photo}}">
+                    <div class="commentPost-author">
+                        <a class="page-link lia-link-navigation lia-user-name-link"
+                           href="#" target="_blank">{{comment.name}}</a>
+                        <div class="commentPost-date">
+                            <span>{{comment.data}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 commentPost-cell">
+                    <div class="commentPost-body">
+                        {{comment.commentContent}}
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 commentPost-info">
+                    <div class="like-count">
+                        <span class="like-count-total">{{comment.likes.length}}</span>
+                        <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+                    </div>
+                </div>
+            </div><!--post-->
+        </div>
+        <form name="addCommentPostForm" role="addEvent" ng-submit="addCommentPost(addCommentPostForm)">
+            <div class="form-input">
+                <button class="btn btnAddPostComment" type="submit" ng-class="{ 'btn-success': redirect }"
+                        ng-disabled="addCommentPostForm.$invalid || addCommentPostForm.$pristine">ADD COMMENT</button>
+                <textarea type="text" id="commentPost" class="form-control chat-input addCommentPost" placeholder="Enter your text" ng-model="newCommentPost.commentContent"
+                          name="commentContent" autofocus="true" ng-minlength="6" ng-required="true"></textarea>
+                <div class="col-md-5 errorComment">
+                    <div class="errors" ng-class="{ active: addCommentPostForm.commentContent.$invalid && addCommentPostForm.commentContent.$dirty }">
+                        <div class="error ng-hide" ng-show="addCommentPostForm.commentContent.$error.minlength">
+                            <p class="errorsContentAddEvent" >Comment is too short!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+
 </div>
 </div>
