@@ -10,6 +10,12 @@ app
         };
 
         $scope.loginMe = function () {
+
+            // $.post("http://192.168.0.222:8090/api/auth", {headers: {"Content-Type": "application/json"}}, {password: "user", username: "user@gmail.com"})
+
+            // $http.post("http://192.168.0.222:8090/api/auth", {password: "user", username: "user@gmail.com"}, {headers: {"Content-Type": "application/json", 'RememberMe': 'true', 'ReCaptcha': null}}).then(function (data) {
+            //     console.log(data)
+            // });
           var loginPromise = $http.post('/login', $scope.login);
             $scope.login.working = true;
             $scope.login.wrong = false;
