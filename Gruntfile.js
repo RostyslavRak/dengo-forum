@@ -8,7 +8,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-browser-sync');
 
 
 
@@ -124,6 +123,7 @@ module.exports = function (grunt) {
           'node_modules/moment/min/moment.min.js',
           'node_modules/angular-moment/angular-moment.js',
           'node_modules/angular-ui-calendar/src/calendar.js',
+          'node_modules/angular-cookies/angular-cookies.min.js',
           'node_modules/fullcalendar/dist/fullcalendar.min.js',
           'node_modules/textangular/dist/textAngular.min.js',
           'node_modules/angular-translate/dist/angular-translate.min.js',
