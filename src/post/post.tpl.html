@@ -50,9 +50,13 @@
             </div>
         </div>
     </div>
-
-
-        <div class="img-title"><img src="images/src/post/images/posts1.png" alt=""></div>
+    <ul rn-carousel rn-carousel-auto-slide  class="image">
+        <li><img src="images/src/post/images/slider1.png" alt=""></li>
+        <li><img src="images/src/post/images/slider2.png" alt=""></li>
+        <li><img src="images/src/post/images/slider3.png" alt=""></li>
+    </ul>
+    <div rn-carousel-indicators ng-if="slides.length > 1" slides="slides" rn-carousel-index="carouselIndex"></div>
+        <!--<div class="img-title"><img src="images/src/post/images/posts1.png" alt=""></div>-->
 
         <div class="posts" ng-repeat="post in posts" ng-if="posts.length>0">
             <div class="row post-content">

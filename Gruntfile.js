@@ -114,6 +114,7 @@ module.exports = function (grunt) {
           'node_modules/angular-ui-router/release/angular-ui-router.js',
           'node_modules/jquery/dist/jquery.min.js',
           'node_modules/angular-material-icons/angular-material-icons.min.js',
+          'node_modules/angular-carousel/dist/angular-carousel.min.js',
           'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
           'node_modules/bootstrap/dist/js/bootstrap.min.js',
           'node_modules/textangular/dist/textAngular-rangy.min.js',
@@ -129,7 +130,8 @@ module.exports = function (grunt) {
           'src/welcome/geometryangle.js',
           'node_modules/jquery-circle-progress/dist/circle-progress.min.js',
           'node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
-          'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js'
+          'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',
+          'node_modules/angular-touch/angular-touch.min.js'
 
 
 

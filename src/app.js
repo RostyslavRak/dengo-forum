@@ -16,7 +16,9 @@ var app = angular
         'angularMoment',
         'ngMockE2E',
         'ngMap',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'angular-carousel',
+        'ngTouch'
     ])
 
 .run(function ($rootScope, $state, $window, loginService ) {
