@@ -54,6 +54,7 @@ module.exports = function (grunt) {
           options: {
             port: 9000,
             hostname: 'localhost',
+            base: 'build/',
             middleware: function (connect, options, middlewares) {
               /*Requires the Middleware snipped from the Library
                and add it before the other Middlewares.*/
@@ -63,7 +64,7 @@ module.exports = function (grunt) {
           },
           proxies: [{
             context: '/api', //REQUIRED! Must start with a '/' should not end with a '/'
-            host: 'localhost', //REQUIRED! Should not contain 'http://' or 'https://'
+            host: '192.168.0.222', //REQUIRED! Should not contain 'http://' or 'https://'
             port: 8090, //Optional, defaults to 80 if http or 443 if https
             https: false,//Optional, defaults to false
             rewriteHost: true,//Optional, defaults to true
@@ -77,8 +78,8 @@ module.exports = function (grunt) {
     //   connect: {
     //   serve: {
     //     options: {
-    //       port: 808,
-    //       base: '../resources/static/',
+    //       port: 8080,
+    //       base: 'build/',
     //       hostname: 'localhost',
     //       debug: true
     //     }
