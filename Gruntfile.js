@@ -8,8 +8,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-
-
+  grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-middleware-proxy');
 
     grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -49,16 +49,41 @@ module.exports = function (grunt) {
       }
     },
 
-    connect: {
-      serve: {
-        options: {
-          port: 8080,
-          base: 'build/',
-          hostname: '*',
-          debug: true
+      connect: {
+        server: {
+          options: {
+            port: 9000,
+            hostname: 'localhost',
+            middleware: function (connect, options, middlewares) {
+              /*Requires the Middleware snipped from the Library
+               and add it before the other Middlewares.*/
+              middlewares.unshift(require('grunt-middleware-proxy/lib/Utils').getProxyMiddleware());
+              return middlewares;
+            }
+          },
+          proxies: [{
+            context: '/api', //REQUIRED! Must start with a '/' should not end with a '/'
+            host: 'localhost', //REQUIRED! Should not contain 'http://' or 'https://'
+            port: 8090, //Optional, defaults to 80 if http or 443 if https
+            https: false,//Optional, defaults to false
+            rewriteHost: true,//Optional, defaults to true
+            auth: 'user@gmail.com:user', //Optional, adds the Authorization header
+            headers: {//Optional.
+              'header':'value'
+            }
+          }]
         }
-      }
-    },
+      },
+    //   connect: {
+    //   serve: {
+    //     options: {
+    //       port: 808,
+    //       base: '../resources/static/',
+    //       hostname: 'localhost',
+    //       debug: true
+    //     }
+    //   }
+    // },
     watch: {
       options: {
         atBegin: true
@@ -182,6 +207,7 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('build', ['clean', 'html2js', 'less', 'concat_sourcemap:app', 'concat_sourcemap:libs', 'copy']);
-  grunt.registerTask('default', ['clean', 'concat_sourcemap:libs', 'connect', 'watch','imagemin', 'copy:index','copy:fonts']);
+  grunt.registerTask('default', ['concat_sourcemap:libs', 'connect', 'watch','imagemin', 'copy:index','copy:fonts']);
+  grunt.registerTask('server', ['setupProxies:server', 'connect:server', 'watch']);
 
 };

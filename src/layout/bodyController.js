@@ -1,5 +1,5 @@
 app
-    .controller('BodyController', function ($scope, $state, $stateParams, loginService, $http, $timeout,$rootScope) {
+    .controller('BodyController', function ($scope, $state, $stateParams, loginService, $http, $timeout, $rootScope, $cookies) {
         $scope.$state = $state;
         $scope.loginError = false;
         $scope.$stateParams = $stateParams;
@@ -11,12 +11,13 @@ app
 
 
         $scope.loginMe = function () {
-            var loginPromise = $http.post("http://192.168.0.222:8090/api/auth", $scope.login);
+            var loginPromise = $http.post("/api/auth", $scope.login,  {headers: {'RememberMe': 'true'}});
             $scope.login.working = true;
             $scope.login.wrong = false;
             loginService.loginUser(loginPromise);
             loginPromise.success(function () {
                 $cookies.put("JJWT", loginPromise.$$state.value.data.JJWT);
+                localStorage.setItem("userToken", loginPromise.$$state.value.data.JJWT);
                 $state.go("user")
             });
 

@@ -9,51 +9,31 @@
                 <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="">Захід <span class="caret"></span></a>
                     <ul class="displayNone">
-                        <li><a tabindex="-1" href="#">Львів</a></li>
-                        <li><a tabindex="-1" href="#">Луцьк</a></li>
-                        <li><a tabindex="-1" href="#">Ів-Франківськ</a></li>
-                        <li><a tabindex="-1" href="#">Рівне</a></li>
-                        <li><a tabindex="-1" href="#">Тернопіль</a></li>
-                        <li><a tabindex="-1" href="#">Ужгород</a></li>
+                        <li ng-repeat="region in regions | filter:{ partCountry: 'Захід' }"><a tabindex="-1" href="#">{{region.region}}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="">Схід <span class="caret"></span></a>
                     <ul class="displayNone">
-                        <li><a tabindex="-1" href="#">Донецьк</a></li>
-                        <li><a tabindex="-1" href="#">Луганськ</a></li>
-                        <li><a tabindex="-1" href="#">Харків</a></li>
+                        <li ng-repeat="region in regions | filter:{ partCountry: 'Схід' }"><a tabindex="-1" href="#">{{region.region}}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="">Центр <span class="caret"></span></a>
                     <ul class="displayNone">
-                        <li><a tabindex="-1"  href="#">Київ</a></li>
-                        <li><a tabindex="-1"  href="#">Вінниця</a></li>
-                        <li><a tabindex="-1"  href="#">Дніпропетровськ</a></li>
-                        <li><a tabindex="-1"  href="#">Полтава</a></li>
-                        <li><a tabindex="-1"  href="#">Хмельницьк</a></li>
-                        <li><a tabindex="-1"  href="#">Черкаси</a></li>
+                        <li ng-repeat="region in regions | filter:{ partCountry: 'Центр' }"><a tabindex="-1" href="#">{{region.region}}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="">Південь <span class="caret"></span></a>
                     <ul class="displayNone">
-                        <li><a tabindex="-1" href="#">Миколаїв</a></li>
-                        <li><a tabindex="-1" href="#">Одеса</a></li>
-                        <li><a tabindex="-1" href="#">Запоріжжя</a></li>
-                        <li><a tabindex="-1" href="#">Кіровоград</a></li>
-                        <li><a tabindex="-1" href="#">Херсон</a></li>
-                        <li><a tabindex="-1" href="#">Севастопіль</a></li>
-                        <li><a tabindex="-1" href="#">АР Крим</a></li>
+                        <li ng-repeat="region in regions | filter:{ partCountry: 'Південь' }"><a tabindex="-1" href="#">{{region.region}}</a></li>
                     </ul>
                 </li>
                 <li class="dropdown-submenu">
                     <a class="test" tabindex="-1" href="">Північ <span class="caret"></span></a>
                     <ul class="displayNone">
-                        <li><a  tabindex="-1" href="#">Житомир</a></li>
-                        <li><a  tabindex="-1" href="#">Чернігів</a></li>
-                        <li><a  tabindex="-1" href="#">Суми</a></li>
+                        <li ng-repeat="region in regions | filter:{ partCountry: 'Північ' }"><a tabindex="-1" href="#">{{region.region}}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -64,30 +44,10 @@
     <div class="top-authors">
         <div class="top-solution-authors">
             <span class="title">{{ 'topAuthors' | translate }}</span>
-            <div class="autor">
-                <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Valeria K</a></span>
-                <span class="count">171</span>
-            </div>
-            <div class="autor">
-                <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Petra R</a></span>
-                <span class="count">99</span>
-            </div>
-            <div class="autor">
-                <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Petra R</a></span>
-                <span class="count">99</span>
-            </div>
-            <div class="autor">
-                <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Petra R</a></span>
-                <span class="count">99</span>
-            </div>
-            <div class="autor">
-                <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Petra R</a></span>
-                <span class="count">99</span>
+            <div class="autor" ng-repeat="topAuthor in topAuthors">
+                <img class="author-img" src="{{topAuthor.previewPhoto}}">
+                <span class="author-name"><a href="#">{{topAuthor.name}}</a></span>
+                <span class="count">{{topAuthor.countLike}}</span>
             </div>
         </div>
 
@@ -96,7 +56,7 @@
 
         <div class="top-liked-authors">
             <span class="title">{{ 'topPosts' | translate }}</span>
-            <div class="autor">
+            <div class="autor" ng-repeat="topPost in topPosts">
                 <img class="author-img" src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
                 <span class="author-name"><a href="#">Vladimir G</a></span>
                 <span class="count">941</span>

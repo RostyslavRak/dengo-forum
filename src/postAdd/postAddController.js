@@ -1,4 +1,4 @@
-app.controller('postAddController', function ( $scope, $state) {
+app.controller('postAddController', function ( $scope, $state, $http) {
     $scope.viewRegion = true;
 
     var date = new Date();
@@ -14,7 +14,7 @@ app.controller('postAddController', function ( $scope, $state) {
     });
 
 
-
+    
     $scope.newPost = {
         name:$scope.ls.user.name,
         photo:$scope.ls.user.photo,
@@ -26,9 +26,8 @@ app.controller('postAddController', function ( $scope, $state) {
     };
 
     $scope.addPost = function () {
-       // $scope.addPosts.push($scope.newPost);
+        $http.post("/api/post", $scope.newPost);
         $state.go('post');
-        console.log( $scope.newPost);
     };
 
 
