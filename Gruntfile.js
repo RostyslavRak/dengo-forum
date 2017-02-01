@@ -68,7 +68,7 @@ module.exports = function (grunt) {
             port: 8090, //Optional, defaults to 80 if http or 443 if https
             https: false,//Optional, defaults to false
             rewriteHost: true,//Optional, defaults to true
-            auth: 'user@gmail.com:user', //Optional, adds the Authorization header
+            // auth: 'user@gmail.com:user', //Optional, adds the Authorization header
             headers: {//Optional.
               'header':'value'
             }

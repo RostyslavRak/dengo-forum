@@ -1,8 +1,15 @@
 app
-    .controller('PostController', function ($rootScope,$state, $http) {
+    .controller('PostController', function ($rootScope,$state, $http, $scope) {
         $http.get("/api/posts").then(function (data) {
             $rootScope.posts = data.data;
+            console.log (data.data)
         });
+
+        $scope.search = null;
+        $scope.$watch("search", function (data) {
+           console.log(data)
+        });
+
 
         // $rootScope.posts =  [
         //     {   id: 0,

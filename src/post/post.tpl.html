@@ -1,15 +1,11 @@
 <div class="col-md-9 postTest">
-
-
         <div class="welcome-text-title">DENGO Community Discussions</div>
         <div class="category-description">Start a discussion related to IT-workers, freelancing or hiring, problems, policies
             and questions related to the IT-branch in Ukraine.
         </div>
-
-
     <div class="searchPost col-md-12">
         <div class="col-md-7 searchPostInput">
-            <input type="text" placeholder="Search for..." style="width: 110%">
+            <input type="text" placeholder="Шукати в постах" ng-model="search" style="width: 110%">
         </div>
         <div class="col-md-1 searchPostIcon">
             <ng-md-icon icon="search" size="25" ></ng-md-icon>
@@ -21,21 +17,23 @@
                             <div class="dropdown-menu dropdown-menu-right searchPostMenu" role="menu">
                                 <form class="form-horizontal dropdownPostFilter" role="form">
                                   <div class="form-group">
-                                    <label>Filter by</label>
+                                    <label>Фільтрувати:</label>
+                                      <label style="float: none">по містам:</label>
                                     <select class="form-control">
-                                        <option value="0" selected>All Snippets</option>
-                                        <option value="1">Featured</option>
-                                        <option value="2">Most popular</option>
-                                        <option value="3">Top rated</option>
-                                        <option value="4">Most commented</option>
+                                        <option value="0" selected>Всі міста</option>
+                                        <option ng-repeat="sity in sity | filter:{ sity: 'Львів' }"><a tabindex="-1" href="#">{{sity.region}}</a></option>
+                                        <option value="1">Львів</option>
+                                        <option value="2">Київ</option>
+                                        <option value="3">Харків</option>
+                                        <option value="4">інші</option>
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <label>Author</label>
+                                    <label>по автору</label>
                                     <input class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
-                                    <label>Contains the words</label>
+                                    <label>по популярності</label>
                                     <input class="form-control" type="text" />
                                   </div>
                                 </form>
@@ -46,7 +44,7 @@
         </div>
         <div class="col-md-3">
             <div class="btn-search-box">
-                <button ui-sref="addPost" class="btn-add-post">ADD POST</button>
+                <button ui-sref="addPost" class="btn-add-post">Додати пост</button>
             </div>
         </div>
     </div>
@@ -57,6 +55,7 @@
     </ul>
     <div rn-carousel-indicators ng-if="slides.length > 1" slides="slides" rn-carousel-index="carouselIndex"></div>
         <!--<div class="img-title"><img src="images/src/post/images/posts1.png" alt=""></div>-->
+
 
         <div class="posts" ng-repeat="post in posts" ng-if="posts.length>0">
             <div class="row post-content">

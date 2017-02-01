@@ -1,10 +1,13 @@
 app
-    .controller('ProfileController', function ($scope,loginService) {
+    .controller('ProfileController', function ($scope,loginService,$http) {
        $scope.ls = loginService;
-        $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
+        $scope.user = null;
         $scope.profile = true;
 
-
+$http.get("/api/user/my").then(function (answer) {
+    console.log(answer.data)
+    $scope.user = answer.data;
+});
         $scope.profileEdit = function () {
             $scope.profile = false;
         };

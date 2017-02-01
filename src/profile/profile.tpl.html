@@ -1,15 +1,15 @@
 <div class="col-md-9 profile_header contentBackground" ng-show="profile">
     <div class="user_left">
         <div class="avatar">
-            <img src="{{ ls.user.photo}}" style="height: 100px; width: 100px" />
+            <img src="{{user.photo}}" style="height: 100px; width: 100px" />
         </div>
         <div class="user_name_box">
 
             <div class="user_name">
-                <h3 class="user_name_text">{{ ls.user.username}}</h3>
+                <h3 class="user_name_text">{{user.name}}</h3>
             </div>
             <div class="user_status">
-                <h3 class="user_name_text">{{ ls.user.city}}</h3>
+                <h3 class="user_name_text">{{user.city}}</h3>
             </div>
             <div class="user_public">
                 <ng-md-icon ui-sref="privateMassages" icon="mail_outline" size="25"></ng-md-icon>
@@ -38,26 +38,16 @@
             <div class="company-site">
                 <h3 class="company-site_text">Company Site:</h3>
             </div>
-
         </div>
         <div class="user_statistic">
             <div class="date_registration">
-                <h3 class="date_reg"> {{ ls.user.dataRegistration}}</h3>
+                <h3 class="date_reg"> {{ user.dataRegistration}}</h3>
             </div>
-            <div class="last_visited">
-                <h3 class="last_vis"> Last Visited</h3>
-            </div>
-            <div class="massages_posted">
-                <h3 class="massages_posted_text">Messages Posted</h3>
-            </div>
-            <div class="likes">
-                <h3 class="likes_text">Likes received</h3>
-            </div>
-            <div class="company">
-                <h3 class="company_text">{{ls.user.company}}</h3>
+                        <div class="company">
+                <h3 class="company_text">{{user.company}}</h3>
             </div>
             <div class="company-site">
-                <h3 class="company-site_text">{{ls.user.companySite}}</h3>
+                <h3 class="company-site_text">{{user.companySite}}</h3>
             </div>
         </div>
     </div>
@@ -67,7 +57,7 @@
     <div class="user_left">
 
         <div class="avatar">
-            <img ng-click="addAvatarPhoto()" src="{{ ls.user.photo}}" style="height: 100px; width: 100px; cursor: pointer" id="img">
+            <img ng-click="addAvatarPhoto()" src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer" id="img">
             <!--<ng-md-icon icon="delete"size="25" ng-click="deleteAvatarPhoto()"></ng-md-icon>-->
             <div ng-click="deleteAvatarPhoto()" class="deletePhoto">delete photo</div>
             <input type="file" name="file" id="filePhoto"/>
@@ -119,7 +109,7 @@
         </div>
         <div class="user_statistic">
             <div class="date_registration">
-                <h3 class="date_reg"> {{ ls.user.dataRegistration}}</h3>
+                <h3 class="date_reg"> {{user.dataRegistration}}</h3>
             </div>
             <div class="last_visited">
                 <h3 class="last_vis"> Last Visited</h3>

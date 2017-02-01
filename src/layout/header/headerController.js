@@ -11,20 +11,26 @@ app
             topPosts: 'TOP-5 Posts',
             eventsCalendar: 'Calendar',
             category: 'Category',
-            catcommon: 'Common discussion',
+            common: 'Common discussion',
+            regional_groups: 'Regional Groups',
+            west: 'West',
+            log_in: 'Log in',
+            log_out: 'Log out',
             en: 'EN',
             uk: 'UA',
             ru: 'RU'
         })
             .translations('uk', {
-                TITLE: 'Välkommen!',
+                TITLE: 'Ласкаво просимо!',
                 MESSAGE: 'Denna app stöder ditt språk!',
                 text1: 'Текс українською моваю і',
                 topAuthors: 'TOP-5 Авторів',
                 topPosts: 'TOP-5 Постів',
                 eventsCalendar: 'Календар Подій',
                 category: 'Категорії',
-                catcommon: 'Загальні теми для обговорення',
+                common: 'Загальні теми для обговорення',
+                regional_groups: 'Регіональні групи',
+                west: 'Захід',
                 en: 'EN',
                 uk: 'UA',
                 ru: 'RU'
@@ -37,7 +43,9 @@ app
                 topPosts: 'TOP-5 Постов',
                 eventsCalendar: 'Календар Рус',
                 category: 'Категории',
-                catcommon: 'общие темы для дискуссий',
+                common: 'общие темы для дискуссий',
+                regional_groups: 'Региональные групы',
+                west: 'Запад',
                 en: 'EN',
                 uk: 'UA',
                 ru: 'RU'
@@ -47,7 +55,7 @@ app
 
         // $translateProvider.preferredLanguage('uk');
     })
-    .controller('HeaderController', function ($translate, $scope,$state) {
+    .controller('HeaderController', function ($translate, $scope, $state) {
        // console.log($state.current.name);
 
 
@@ -60,7 +68,8 @@ app
         ctrl.updateLanguage = function() {
             $translate.use(ctrl.language);
         };
-
-
-
+//         ngular.module('myApp').run(['$rootScope', 'StorageService', function($rootScope, StorageService) {
+//             $rootScope.currentLanguage = StorageService.local.get('NG_TRANSLATE_LANG_KEY') || 'en';
+//         }]);
+// console.log('NG_TRANSLATE_LANG_KEY')
     });
