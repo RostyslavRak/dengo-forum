@@ -1,13 +1,18 @@
 app
-    .controller('ProfileController', function ($scope,loginService,$http) {
+    .controller('ProfileController', function ($scope,loginService,$http, $stateParams) {
        $scope.ls = loginService;
         $scope.user = null;
         $scope.profile = true;
+        if($stateParams.nickName == ""){
+            $http.get("/api/user/my").then(function (answer) {
+                $scope.user = answer.data;
+            });
+        }else {
+            $http.get("/api/user/nick/" + $stateParams.nickName).then(function (answer) {
+                $scope.user = answer.data;
+            });
+        }
 
-$http.get("/api/user/my").then(function (answer) {
-    console.log(answer.data)
-    $scope.user = answer.data;
-});
         $scope.profileEdit = function () {
             $scope.profile = false;
         };

@@ -28,9 +28,9 @@
             <!-- Logout Form -->
             <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
                 <div class="form-group" ui-sref="profile">
-                    <label class="user-name-header">{{ ls.user.name }}</label>
+                    <label class="user-name-header">{{user.name }}</label>
                     <div class="avatar-header">
-                        <img src="{{ ls.user.photo}}"/>
+                        <img src="{{user.photo}}"/>
                     </div>
                 </div>
                 <div class="form-group">

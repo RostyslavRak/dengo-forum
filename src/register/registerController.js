@@ -19,18 +19,23 @@ app
     $scope.xhr = false;
   $scope.redirect = false;
   $scope.registerObj = {
-    dataRegistration: $scope.dateFormat1_12,
-    role: 'user',
-    photo:"images/src/register/images/no_image1.png"
   };
 
-  $scope.submit = function (formInstance) {
+
+    $http.get("/api/regions").then(function (answer) {
+        $scope.regions = answer.data;
+    });
+
+
+    $scope.submit = function (formInstance) {
     // xhr is departing
+    //     console.log($scope.registerObj)
     $scope.xhr = true;
-      $http.post("/api/permit/all/token/send" , $scope.registerObj).success(function(answer){
+    // $scope.registerObj.city = JSON.parse($scope.registerObj.city);
+        console.log($scope.registerObj);
+        $http.post("/api/permit/all/token/send" , $scope.registerObj).success(function(answer){
           $scope.xhr = false;
             $scope.redirect = true;
-
       }).error(function () {
           $scope.xhr = false;
       });

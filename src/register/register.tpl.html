@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="form-input username">
-    <input type="text" class="form-control" placeholder="Username*" name="username" ng-model="registerObj.nickName"
+    <input type="text" class="form-control" placeholder="Nick Name*" name="username" ng-model="registerObj.nickName"
       ng-minlength="4" ng-maxlength="16" ng-required="true" remote-validated="used">
     <div class="errors" ng-class="{ active: registerForm.username.$invalid && registerForm.username.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.username.$error.minlength">
@@ -41,9 +41,12 @@
   </div>
 
 
-  <div class="form-input city">
-    <input type="text" class="form-control" placeholder="City*" name="city"  ng-model="registerObj.city">
-  </div>
+  <select ng-model="registerObj.city" class="form-input city" name="city">
+    <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
+  </select>
+  <!--<div class="form-input city">-->
+    <!--<input type="text" class="form-control" placeholder="City*" name="city"  ng-model="registerObj.city">-->
+  <!--</div>-->
 
   <div class="form-input email">
     <input type="email" class="form-control email"  ng-pattern="emailFormat" placeholder="E-Mail*" name="email" ng-model="registerObj.email" ng-required="true" remote-validated="used">
@@ -90,7 +93,6 @@
 
 
   </div>
-
   <button class="btn btn-lg btn-block" type="submit"
   ng-class="{ 'btn-primary': registerForm.$valid && registerForm.$dirty, 'btn-success': redirect }"
   ng-disabled="registerForm.$invalid || registerForm.$pristine || xhr || redirect || !confirm">

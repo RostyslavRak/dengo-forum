@@ -30,84 +30,32 @@
             </select>
         </div>
         <div class="form-input city">
-            <select ng-model="newPost.city" class="form-control citySelect"
+            <select ng-model="newPost.sity" class="form-control citySelect"
                     ng-show="newPost.region=='west'" name="city">
-                <option value="">Виберіть місто</option>
-                <option value="Lviv">Львів</option>
-                <option value="Lutsk">Луцьк</option>
-                <option value="Iv_Frankiv">Ів-Франківськ</option>
-                <option value="Rivne">Рівне</option>
-                <option value="Ternopil">Тернопіль</option>
+                <option ng-repeat="region in regions | filter:{ partCountry: 'Захід' }" value="{{region}}">{{region.region}}</option>
             </select>
-            <select ng-model="newPost.city" class="form-control citySelect"
+            <select ng-model="newPost.sity" class="form-control citySelect"
                     ng-show="newPost.region=='east'" name="city">
-                <option value="">Виберіть місто</option>
-                <option value="Donetsk">Донецьк</option>
-                <option value="Lugansk">Луганськ</option>
-                <option value="Kharkiv">Харків</option>
+                <option ng-repeat="region in regions | filter:{ partCountry: 'Схід' }" value="{{region}}">{{region.region}}</option>
             </select>
-            <select ng-model="newPost.city" class="form-control citySelect"
+            <select ng-model="newPost.sity" class="form-control citySelect"
                     ng-show="newPost.region=='center'" name="city">
-                <option value="">Виберіть місто</option>
-                <option value="Kiev">Київ</option>
-                <option value="Vinnytsia">Вінниця</option>
-                <option value="Dnipro">Дніпро</option>
-                <option value="Poltava">Полтава</option>
-                <option value="Khmelnytsk">Хмельницьк</option>
-                <option value="Cherkasy">Черкаси</option>
+                <option ng-repeat="region in regions | filter:{ partCountry: 'Центр' }" value="{{region}}">{{region.region}}</option>
             </select>
-            <select ng-model="newPost.city" class="form-control citySelect"
+            <select ng-model="newPost.sity" class="form-control citySelect"
                     ng-show="newPost.region=='south'" name="city">
-                <option value="">Виберіть місто</option>
-                <option value="mykolaiv">Миколаїв</option>
-                <option value="odessa">Одеса</option>
-                <option value="zaporizzia">Запоріжжя</option>
-                <option value="kirovograd">Кіровоград</option>
-                <option value="sevastopil">Севастопіль</option>
-                <option value="krym">АР Крим</option>
+                <option ng-repeat="region in regions | filter:{ partCountry: 'Південь' }" value="{{region}}">{{region.region}}</option>
             </select>
-            <select ng-model="newPost.city" class="form-control citySelect"
-                    ng-show="newPost.categoryPost=='north'" name="city">
-                <option value="">Виберіть місто</option>
-                <option value="zhytomyr">Житомир</option>
-                <option value="chernihiv">Чернігів</option>
-                <option value="sumy">Суми</option>
+            <select ng-model="newPost.sity"  class="form-control citySelect"
+                    ng-show="newPost.region=='north'" name="city">
+                <option ng-repeat="region in regions | filter:{ partCountry: 'Північ' }" value="{{region}}">{{region.region}}</option>
             </select>
         </div>
 
 
-        <!--<select class="selectpicker" data-live-search="true" ng-show="newPost.categoryPost=='regional-group'"  ng-model="newPost.regionalGroup">-->
-        <!--<option data-tokens="Львів">Львів</option>-->
-        <!--<option data-tokens="Луцьк">Луцьк</option>-->
-        <!--<option data-tokens="Ів-Франківськ">Ів-Франківськ</option>-->
-        <!--<option data-tokens="Рівне">Рівне</option>-->
-        <!--<option data-tokens="Тернопіль">Тернопіль</option>-->
-        <!--<option data-tokens="Ужгород">Ужгород</option>-->
-        <!--<option data-tokens="Донецьк">Донецьк</option>-->
-        <!--<option data-tokens="Луганськ">Луганськ</option>-->
-        <!--<option data-tokens="Київ">Київ</option>-->
-        <!--<option data-tokens="Вінниця">Вінниця</option>-->
-        <!--<option data-tokens="Дніпропетровськ">Дніпропетровськ</option>-->
-        <!--<option data-tokens="Полтава">Полтава</option>-->
-        <!--<option data-tokens="Хмельницьк">Хмельницьк</option>-->
-        <!--<option data-tokens="Черкаси">Черкаси</option>-->
-        <!--<option data-tokens="Харків">Харків</option>-->
-        <!--<option data-tokens="Миколаїв">Миколаїв</option>-->
-        <!--<option data-tokens="Одеса">Одеса</option>-->
-        <!--<option data-tokens="Запоріжжя">Запоріжжя</option>-->
-        <!--<option data-tokens="Кіровоград">Кіровоград</option>-->
-        <!--<option data-tokens="Херсон">Херсон</option>-->
-        <!--<option data-tokens="Севастопіль">Севастопіль</option>-->
-        <!--<option data-tokens="Житомир">Житомир</option>-->
-        <!--<option data-tokens="Чернігів">Чернігів</option>-->
-        <!--<option data-tokens="Суми">Суми</option>-->
-        <!--<option data-tokens="АР Крим">АР Крим</option>-->
-        <!--</select>-->
-
-
         <div class="form-input body">
             <!--<label>Print Text Here</label>-->
-            <div text-angular="text-angular" name="htmlcontent" ng-model="newPost.htmlContent"
+            <div text-angular="text-angular" name="htmlcontent" ng-model="newPost.content"
                  ta-disabled='disabled'></div>
         </div>
 

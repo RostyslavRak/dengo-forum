@@ -91,6 +91,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
             .state('post', {
                 url: '/post',
+                params:{
+                    regionId: null
+                },
                 authenticate: true,
 
                 views: {
@@ -169,7 +172,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 
             .state('profile', {
-                url: '/profile',
+                url: '/profile/{nickName}',
                 authenticate: true,
 
                 views: {

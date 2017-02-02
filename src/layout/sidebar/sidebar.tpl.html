@@ -10,35 +10,35 @@
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="">Захід <span class="caret"></span></a>
                 <ul class="displayNone">
-                    <li ng-repeat="region in regions | filter:{ partCountry: 'Захід' }"><a tabindex="-1" href="#">{{region.region}}</a>
+                    <li ng-repeat="region in regions | filter:{ partCountry: 'Захід' }"><a ng-click="goToPost(region.id)" tabindex="-1">{{region.region}}</a>
                     </li>
                 </ul>
             </li>
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="">Схід <span class="caret"></span></a>
                 <ul class="displayNone">
-                    <li ng-repeat="region in regions | filter:{ partCountry: 'Схід' }"><a tabindex="-1" href="#">{{region.region}}</a>
+                    <li ng-repeat="region in regions | filter:{ partCountry: 'Схід' }"><a ng-click="goToPost(region.id)"  tabindex="-1">{{region.region}}</a>
                     </li>
                 </ul>
             </li>
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="">Центр <span class="caret"></span></a>
                 <ul class="displayNone">
-                    <li ng-repeat="region in regions | filter:{ partCountry: 'Центр' }"><a tabindex="-1" href="#">{{region.region}}</a>
+                    <li ng-repeat="region in regions | filter:{ partCountry: 'Центр' }" ><a  ng-click="goToPost(region.id)"  tabindex="-1">{{region.region}}</a>
                     </li>
                 </ul>
             </li>
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="">Південь <span class="caret"></span></a>
                 <ul class="displayNone">
-                    <li ng-repeat="region in regions | filter:{ partCountry: 'Південь' }"><a tabindex="-1" href="#">{{region.region}}</a>
+                    <li ng-repeat="region in regions | filter:{ partCountry: 'Південь' }"><a ng-click="goToPost(region.id)" tabindex="-1">{{region.region}}</a>
                     </li>
                 </ul>
             </li>
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="">Північ <span class="caret"></span></a>
                 <ul class="displayNone">
-                    <li ng-repeat="region in regions | filter:{ partCountry: 'Північ' }"><a tabindex="-1" href="#">{{region.region}}</a>
+                    <li ng-repeat="region in regions | filter:{ partCountry: 'Північ' }"><a ng-click="goToPost(region.id)" tabindex="-1">{{region.region}}</a>
                     </li>
                 </ul>
             </li>
@@ -52,7 +52,7 @@
             <span class="title">{{ 'topAuthors' | translate }}</span>
             <div class="autor" ng-repeat="topAuthor in topAuthors">
                 <img class="author-img" src="{{topAuthor.previewPhoto}}">
-                <span class="author-name"><a href="#">{{topAuthor.name}}</a></span>
+                <span class="author-name"><a href="/#/profile/{{topAuthor.nickName}}">{{topAuthor.name}}</a></span>
                 <span class="count">{{topAuthor.countLike}}</span>
             </div>
         </div>

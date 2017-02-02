@@ -5,10 +5,9 @@ app
         $scope.$stateParams = $stateParams;
         $scope.ls = loginService;
         $scope.login = {
-            working: false,
-            wrong: false
+            username: "",
+            password: ""
         };
-
 
         $scope.loginMe = function () {
             var loginPromise = $http.post("/api/auth", $scope.login,  {headers: {'RememberMe': 'true'}});
@@ -18,6 +17,9 @@ app
             loginPromise.success(function () {
                 $cookies.put("JJWT", loginPromise.$$state.value.data.JJWT);
                 localStorage.setItem("userToken", loginPromise.$$state.value.data.JJWT);
+                $http.get("/api/user/my").then(function (answer) {
+                    $rootScope.user = answer.data;
+                });
                 $state.go("user")
             });
 

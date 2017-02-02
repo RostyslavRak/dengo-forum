@@ -4,12 +4,14 @@
             <img src="{{user.photo}}" style="height: 100px; width: 100px" />
         </div>
         <div class="user_name_box">
-
+            <div class="user_nick_name">
+                <h3 class="user_name_text">{{user.nickName}}</h3>
+            </div>
             <div class="user_name">
                 <h3 class="user_name_text">{{user.name}}</h3>
             </div>
             <div class="user_status">
-                <h3 class="user_name_text">{{user.city}}</h3>
+                <h3 class="user_name_text">{{user.city.region}}</h3>
             </div>
             <div class="user_public">
                 <ng-md-icon ui-sref="privateMassages" icon="mail_outline" size="25"></ng-md-icon>
@@ -41,9 +43,20 @@
         </div>
         <div class="user_statistic">
             <div class="date_registration">
-                <h3 class="date_reg"> {{ user.dataRegistration}}</h3>
+                <h3 class="date_reg"> {{user.dataRegistration.year}}-{{user.dataRegistration.monthValue}}-{{user.dataRegistration.dayOfMonth}}</h3>
             </div>
-                        <div class="company">
+            <div class="date_registration">
+                <h3 class="date_reg">{{user.lastVisited.year}}-{{user.lastVisited.monthValue}}-{{user.lastVisited.dayOfMonth}}
+                at {{user.lastVisited.hour}}:{{user.lastVisited.minute}}
+                </h3>
+            </div>
+            <div class="date_registration">
+                <h3 class="date_reg"> {{ user.activity}}</h3>
+            </div>
+            <div class="date_registration">
+                <h3 class="date_reg"> {{ user.countLike}}</h3>
+            </div>
+            <div class="company">
                 <h3 class="company_text">{{user.company}}</h3>
             </div>
             <div class="company-site">
@@ -109,7 +122,7 @@
         </div>
         <div class="user_statistic">
             <div class="date_registration">
-                <h3 class="date_reg"> {{user.dataRegistration}}</h3>
+                <h3 class="date_reg"> Date Registration</h3>
             </div>
             <div class="last_visited">
                 <h3 class="last_vis"> Last Visited</h3>

@@ -1,5 +1,5 @@
 app
-    .controller('SidebarController', function ($scope, $http) {
+    .controller('SidebarController', function ($scope, $http, $state) {
 
         var date = new Date();
         var d = date.getDate();
@@ -18,6 +18,10 @@ app
         $http.get("/api/top/post").then(function (data) {
             $scope.topPosts = data.data;
         });
+
+        $scope.goToPost = function (regionId) {
+            $state.go("post", {"regionId": regionId})
+        };
 
         $(function() {
             $('#calendarSidebar').fullCalendar({

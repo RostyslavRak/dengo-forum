@@ -19,7 +19,8 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     src: ['src/**/*.{png,jpg,gif}'],
-                    dest: 'build/images'
+                    dest: 'build/images',
+                    // dest: '../../resources/static/images'
                 }]
             }
         },
@@ -35,6 +36,7 @@ module.exports = function (grunt) {
         },
         src: ['src/**/*.tpl.html'],
         dest: 'build/templates-app.js'
+        // dest: '../../resources/static/templates-app.js'
       }
     },
 
@@ -43,6 +45,7 @@ module.exports = function (grunt) {
       all: {
         src: 'style.less',
         dest: 'build/style.css',
+        // dest: '../../resources/static/style.css',
         options: {
           report: 'gzip'
         }
@@ -55,6 +58,7 @@ module.exports = function (grunt) {
             port: 9000,
             hostname: 'localhost',
             base: 'build/',
+            // base: '../../resources/static/',
             middleware: function (connect, options, middlewares) {
               /*Requires the Middleware snipped from the Library
                and add it before the other Middlewares.*/
@@ -129,6 +133,7 @@ module.exports = function (grunt) {
       app: {
         src: ['src/**/*.js', 'src/*.js'],
         dest: 'build/app.js'
+        // dest: '../../resources/static/app.js'
       },
       libs: {
         src: [
@@ -163,12 +168,14 @@ module.exports = function (grunt) {
 
         ],
         dest: 'build/libs.js'
+        // dest: '../../resources/static/libs.js'
       }
     },
     copy: {
       index: {
         src: 'index.html',
-        dest: 'build/'
+        dest: 'build/',
+        // dest: '../../resources/static/',
         // options: {
         //   processContent: function (content, srcpath) {
         //     // Compiling index.html file!
@@ -188,6 +195,7 @@ module.exports = function (grunt) {
                 cwd: 'src/fonts',
                 src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
                 dest: 'build/fonts/'
+                // dest: '../../resources/static/fonts/'
             }]
         }
         // data: {
@@ -201,6 +209,7 @@ module.exports = function (grunt) {
     clean: {
       all: {
         src: ['build/']
+        // src: ['../../resources/static']
       }
     }
 
