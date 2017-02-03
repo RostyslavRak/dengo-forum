@@ -18,6 +18,13 @@ app
             $state.go("postone", {"postId": postId});
         };
 
+        // $scope.countLike = function (countLike) {
+        //     countLike.like += 1;
+        //     $http.countLike("/api/post", $scope.newPost);
+        // };
+        //
+
+
         $scope.search = null;
         $scope.$watch("search", function (data) {
            console.log(data)

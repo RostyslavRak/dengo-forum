@@ -17,7 +17,7 @@ app
         });
 
         $scope.sendComment = function () {
-            $http.post("/api/add/comment/post/" + $scope.post.id, $scope.newCommentPost).then(function (data) {
+            $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {
                 $scope.post = data.data;
                 $('#commentPost').val("");
                 console.log (data.data)
