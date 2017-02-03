@@ -6,7 +6,7 @@
 
 
 app
-    .controller('CalendarController', function ($scope,$state) {
+    .controller('CalendarController', function ($scope,$state,$http) {
 
         var date = new Date();
         var d = date.getDate();
@@ -17,92 +17,102 @@ app
         $scope.dateFormat=(y+"-"+m+"-"+d);
         $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
         $scope.iGoEventStatus = false;
+        $http.get("/api/events").then(function (answer) {
 
+            $scope.events = angular.forEach(answer.data, function (event) {
+                    event.start =  moment(event.start.year + "-" + event.start.monthValue + "-" + event.start.dayOfMonth +
+                        " " + event.start.hour + ":" + event.start.minute).format("YYYY-MM-DD HH:mm");
+                    event.end = moment(event.end.year + "-" + event.end.monthValue + "-" + event.end.dayOfMonth +
+                    " " + event.end.hour + ":" + event.end.minute).format("YYYY-MM-DD HH:mm")
+            });
+            // $scope.events = answer.data;
+            console.log($scope.events)
+        })
 
-        $scope.events =  [
-            {   id: 0,
-                title  : "event1",
-                fullTitle: "Events-One",
-                address:"Івано-Фраківська мазепи 10",
-                htmlContent:"<h2>content1</h2>",
-                start  : "2017-01-05 22:30",
-                end  : "2017-01-05 23:30",
-                phoneNumber:"380970000000",
-                    author :{
-                         name:"Ross",
-                         photo:"images/src/viewEvents/images/ross.jpg"
-
-                },
-                peopleGo:[
-                    {
-                    id:1,
-                    name:"Ross",
-                    photo:"images/src/viewEvents/images/ross.jpg"
-                },
-                    {   id:2,
-                        name:"Dima",
-                        photo:"images/src/viewEvents/images/dima.jpg"
-                    }
-                ],
-
-                comments:[
-                ]
-            },
-            {   id: 1,
-                title  : "event2",
-                fullTitle: "Events-Two",
-                address:"пр. Свободи 11 оф.11",
-                htmlContent:"content2",
-                start  : "2017-01-06 20:30",
-                end  : "2017-01-06 21:30",
-                phoneNumber:"+380971111111",
-                    author  :{
-                        name:"Dima",
-                        photo:"images/src/viewEvents/images/dima.jpg"
-
-
-                    },
-                peopleGo:[],
-                comments:[{
-                    name:"Oleg",
-                    photo:"images/src/viewEvents/images/oleg.jpg",
-                    content:"content1",
-                    data  : "2017-01-10"
-
-                }]
-            },
-            {   id: 2,
-                time:"15:00",
-                address:"пр. Свободи 13 оф.13",
-                htmlContent:"content3",
-                title  : "event3",
-                fullTitle: "Events-Three",
-                start  : "2017-01-10 12:30",
-                end  : "2017-01-10 13:00",
-                phoneNumber:"+380972222222",
-                    author  :{
-                        name:"Oleg",
-                        photo:"images/src/viewEvents/images/oleg.jpg"
-
-
-                    },
-                peopleGo:[],
-                comments:[{
-                    name:"Oleg",
-                    photo:"images/src/viewEvents/images/oleg.jpg",
-                    content:"content1",
-                    data  : "2017-01-10"
-
-                },{
-                    name:"Dima",
-                    photo:"images/src/viewEvents/images/dima.jpg",
-                    content:"content2",
-                    data  : "2017-01-11"
-                }]
-
-            }
-
-        ];
+        // $scope.events =  [
+        //     {   id: 0,
+        //         title  : "event1",
+        //         fullTitle: "Events-One",
+        //         address:"Івано-Фраківська мазепи 10",
+        //         htmlContent:"<h2>content1</h2>",
+        //         start  : "2017-01-05 22:30",
+        //         end  : "2017-01-05 23:30",
+        //         phoneNumber:"380970000000",
+        //             author :{
+        //                  name:"Ross",
+        //                  photo:"images/src/viewEvents/images/ross.jpg"
+        //
+        //         },
+        //         peopleGo:[
+        //             {
+        //             id:1,
+        //             name:"Ross",
+        //             photo:"images/src/viewEvents/images/ross.jpg"
+        //         },
+        //             {   id:2,
+        //                 name:"Dima",
+        //                 photo:"images/src/viewEvents/images/dima.jpg"
+        //             }
+        //         ],
+        //
+        //         comments:[
+        //         ]
+        //     },
+        //     {   id: 1,
+        //         title  : "event2",
+        //         fullTitle: "Events-Two",
+        //         address:"пр. Свободи 11 оф.11",
+        //         htmlContent:"content2",
+        //         start  : "2017-01-06 20:30",
+        //         end  : "2017-01-06 21:30",
+        //         phoneNumber:"+380971111111",
+        //             author  :{
+        //                 name:"Dima",
+        //                 photo:"images/src/viewEvents/images/dima.jpg"
+        //
+        //
+        //             },
+        //         peopleGo:[],
+        //         comments:[{
+        //             name:"Oleg",
+        //             photo:"images/src/viewEvents/images/oleg.jpg",
+        //             content:"content1",
+        //             data  : "2017-01-10"
+        //
+        //         }]
+        //     },
+        //     {   id: 2,
+        //         time:"15:00",
+        //         address:"пр. Свободи 13 оф.13",
+        //         htmlContent:"content3",
+        //         title  : "event3",
+        //         fullTitle: "Events-Three",
+        //         start  : "2017-01-10 12:30",
+        //         end  : "2017-01-10 13:00",
+        //         phoneNumber:"+380972222222",
+        //             author  :{
+        //                 name:"Oleg",
+        //                 photo:"images/src/viewEvents/images/oleg.jpg"
+        //
+        //
+        //             },
+        //         peopleGo:[],
+        //         comments:[{
+        //             name:"Oleg",
+        //             photo:"images/src/viewEvents/images/oleg.jpg",
+        //             content:"content1",
+        //             data  : "2017-01-10"
+        //
+        //         },{
+        //             name:"Dima",
+        //             photo:"images/src/viewEvents/images/dima.jpg",
+        //             content:"content2",
+        //             data  : "2017-01-11"
+        //         }]
+        //
+        //     }
+        //
+        // ];
 
 
 

@@ -14,6 +14,9 @@ app
             });
         }
 
+        $scope.goPost = function (postId) {
+            $state.go("postone", {"postId": postId});
+        };
 
         $scope.search = null;
         $scope.$watch("search", function (data) {

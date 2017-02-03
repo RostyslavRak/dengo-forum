@@ -7,8 +7,11 @@
 
 
 app
-    .controller('viewEventsController', function ($scope, $state) {
-
+    .controller('viewEventsController', function ($scope, $state,$http) {
+        $http.get("/api/events").then(function (answer) {
+            $scope.events = answer.data;
+            console.log (answer.data)
+        });
     });
 
 

@@ -122,7 +122,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             .state('postone', {
                 url: '/postone',
                 authenticate: true,
-
+                params:{
+                    postId: null
+                },
                 views: {
                     "Header": {
                         templateUrl: 'layout/header/header.tpl.html',

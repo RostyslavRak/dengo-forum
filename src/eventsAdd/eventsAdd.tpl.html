@@ -1,7 +1,8 @@
 <form name="addEventForm" role="addEvent" ng-submit="addEvent(addEventForm)">
 <div class="add-event" id="addEventPage">
+    <!--add new event-->
     <div class="add-event-title">Add Event</div>
-
+    <!--add Short Title-->
     <div class="form-input subject">
         <label>Short Title</label>
         <input type="text" ng-model="newEvent.title" class="form-control" placeholder="Enter Short Title Here" name="ShortTitle" autofocus="true" ng-minlength="4" ng-maxlength="15" ng-required="true">
@@ -10,10 +11,11 @@
                 <p class="errorsContentAddEvent" >Title is too short!</p>
             </div>
             <div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.maxlength">
-                <p class="errorsContentAddEvent" >>Max ShortTitle length is 15, please shorten it.</p>
+                <p class="errorsContentAddEvent" >Max ShortTitle length is 15, please shorten it.</p>
             </div>
         </div>
     </div>
+    <!--add Full Title-->
     <div class="form-input subject">
         <label>Full Title</label>
         <input type="text" class="form-control" placeholder="Enter Full Title Here" name="FullTitle"   ng-model="newEvent.fullTitle" autofocus="true" ng-minlength="6" ng-maxlength="52" ng-required="true">
@@ -26,6 +28,7 @@
         </div>
     </div>
     </div>
+    <!--add Start Date event-->
     <label>Start Data</label>
             <div class="form-group form-input">
                 <div class='input-group date' id='datetimepickerStart' >
@@ -43,6 +46,9 @@
                     </div>
                 </div>
             </div>
+
+    <!--add End Date event-->
+
     <label>End Data</label>
             <div class="form-group form-input">
                 <div class='input-group date' id='datetimepickerEnd'>
@@ -60,7 +66,7 @@
                     </div>
                 </div>
             </div>
-
+    <!--add Location for event-->
     <label>Select Location</label>
         <label>Address:</label>
     <div class="form-input">
@@ -76,7 +82,7 @@
     <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
     </ng-map>
 
-
+    <!--add Contact Number-->
     <div class="form-input mobile">
         <label>Contact Number</label>
         <input type="number" class="form-control" placeholder="+3(0 _ _)_ _ _ _ _ _ _" name="mobileEvent" autofocus="true" ng-minlength="10" ng-maxlength="13" ng-required="true"
@@ -90,10 +96,10 @@
             </div>
         </div>
     </div>
-
+    <!--add Text in text Editor-->
     <div text-angular="text-angular"  name="newEvent.htmlContent" ng-model="newEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
          ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]"></div>
-
+<!--buttons for Send and Cancel-->
     <div class="add-post-btn">
         <button type="submit" class="btn btn-primary"  ng-class="{ 'btn-primary': addEventForm.$valid && addEventForm.$dirty, 'btn-success': redirect }"
                 ng-disabled="addEventForm.$invalid || addEventForm.$pristine">Add Event</button>

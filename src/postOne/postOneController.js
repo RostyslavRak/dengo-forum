@@ -6,12 +6,25 @@
 
 
 app
-    .controller('PostOneController', function ($scope,$rootScope) {
+    .controller('PostOneController', function ($scope,$rootScope, $http, $stateParams) {
         $scope.maxSize = 5;
         $scope.bigTotalItems = 175;
         $scope.bigCurrentPage = 1;
 
-        $scope.commentsPost = $rootScope.posts[0].comments;
+        $http.get("/api/post/" + $stateParams.postId).then(function (data) {
+            $scope.post = data.data;
+            console.log($scope.post)
+        });
+
+        $scope.sendComment = function () {
+            $http.post("/api/add/comment/post/" + $scope.post.id, $scope.newCommentPost).then(function (data) {
+                $scope.post = data.data;
+                $('#commentPost').val("");
+                console.log (data.data)
+            });
+        };
+
+        // $scope.commentsPost = $rootScope.posts[0].comments;
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -22,19 +35,11 @@ app
 
 
         $scope.newCommentPost = {
-            name:$scope.ls.user.name,
-            photo:$scope.ls.user.photo,
-            data  : $scope.dateFormat1_12,
-            likes:[
-            ]
-
         };
 
         $scope.addCommentPost = function () {
             $scope.commentsPost.push($scope.newCommentPost);
-            $('#commentPost').val("");
-            console.log( $scope.newCommentPost);
+            // console.log( $scope.newCommentPost);
         };
-
 
     });

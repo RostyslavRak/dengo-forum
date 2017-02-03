@@ -10,20 +10,20 @@
             <div class="row post-content">
                 <div class="col-lg-2 col-md-2 post-icon">
                     <img class="author-img"
-                         src="{{posts[0].author.photo}}">
+                         src="{{post.author.photo}}">
                     <div class="post-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">{{posts[0].author.name}}</a>
+                           href="#" target="_blank">{{post.author.name}}</a>
                     </div>
                 </div>
 
                 <div class="col-lg-10 col-md-10 post-cell">
-                    <div class="welcome-text-title">{{posts[0].title}}</div>
+                    <div class="welcome-text-title">{{post.title}}</div>
                     <div class="post-date">
-                        <span>{{posts[0].data}}</span>
+                        <span>{{post.data}}</span>
                     </div>
                     <div class="post-body">
-                       {{posts[0].content}}
+                       {{post.content}}
                     </div>
                 </div>
 
@@ -33,9 +33,9 @@
                     <!--</div>-->
                     <div class="like-count">
                         <!--Post Likes Count:-->
-                        <span class="like-count-total">{{posts[0].likes.length}}</span>
+                        <span class="like-count-total">{{post.likes.length}}</span>
                         <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
-                        <span class="reply-count-total">{{posts[0].comments.length}}</span>
+                        <span class="reply-count-total">{{post.comments.length}}</span>
                         <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>
@@ -43,14 +43,14 @@
 </div>
 
 
-        <div class="commentPost" ng-repeat="comment in commentsPost" ng-if="commentsPost.length>0">
+        <div class="commentPost" ng-repeat="comment in post.comments">
             <div class="row commentPost-content">
                 <div class="col-lg-2 col-md-2 commentPost-icon">
                     <img class="author-img"
-                         src="{{comment.photo}}">
+                         src="{{comment.author.previewPhoto}}">
                     <div class="commentPost-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">{{comment.name}}</a>
+                           href="#" target="_blank">{{comment.author.name}}</a>
                         <div class="commentPost-date">
                             <span>{{comment.data}}</span>
                         </div>
@@ -58,22 +58,23 @@
                 </div>
                 <div class="col-lg-10 col-md-10 commentPost-cell">
                     <div class="commentPost-body">
-                        {{comment.commentContent}}
+                        {{comment.content}}
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 commentPost-info">
                     <div class="like-count">
-                        <span class="like-count-total">{{comment.likes.length}}</span>
+                        <span class="like-count-total">{{comment.countLike}}</span>
                         <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>
             </div><!--post-->
         </div>
-        <form name="addCommentPostForm" role="addEvent" ng-submit="addCommentPost(addCommentPostForm)">
+        <!--add comments to the post-->
+        <form name="addCommentPostForm" role="addEvent" ng-submit="sendComment()">
             <div class="form-input">
                 <button class="btn btnAddPostComment" type="submit" ng-class="{ 'btn-success': redirect }"
                         ng-disabled="addCommentPostForm.$invalid || addCommentPostForm.$pristine">ADD COMMENT</button>
-                <textarea type="text" id="commentPost" class="form-control chat-input addCommentPost" placeholder="Enter your text" ng-model="newCommentPost.commentContent"
+                <textarea type="text" id="commentPost" class="form-control chat-input addCommentPost" placeholder="Enter your text" ng-model="newCommentPost.content"
                           name="commentContent" autofocus="true" ng-minlength="6" ng-required="true"></textarea>
                 <div class="col-md-5 errorComment">
                     <div class="errors" ng-class="{ active: addCommentPostForm.commentContent.$invalid && addCommentPostForm.commentContent.$dirty }">

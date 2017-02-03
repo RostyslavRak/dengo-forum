@@ -3,6 +3,7 @@
         <div class="category-description">Start a discussion related to IT-workers, freelancing or hiring, problems, policies
             and questions related to the IT-branch in Ukraine.
         </div>
+    <!--Search input for posts-->
     <div class="searchPost col-md-12">
         <div class="col-md-7 searchPostInput">
             <input type="text" placeholder="Шукати в постах" ng-model="search" style="width: 110%">
@@ -57,12 +58,12 @@
         <!--<div class="img-title"><img src="images/src/post/images/posts1.png" alt=""></div>-->
 
 
-        <div class="posts" ng-repeat="post in posts" ng-if="posts.length>0">
+        <div class="posts" ng-repeat="post in posts">
             <div class="row post-content">
 
                 <div class="col-lg-10 col-md-10 post-cell">
                     <div class="post-subject">
-                        <a class="message-subject" ui-sref="postone">{{post.title}}</a>
+                        <a class="message-subject" ng-click="goPost(post.id)" ui-sref="postone">{{post.title}}</a>
                     </div>
 
                     <div class="post-author">

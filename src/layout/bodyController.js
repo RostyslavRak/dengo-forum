@@ -10,6 +10,7 @@ app
         };
 
         $scope.loginMe = function () {
+            console.log($scope.login)
             var loginPromise = $http.post("/api/auth", $scope.login,  {headers: {'RememberMe': 'true'}});
             $scope.login.working = true;
             $scope.login.wrong = false;
