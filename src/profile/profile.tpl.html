@@ -145,76 +145,113 @@
 </div>
 
 <div class="col-md-9">
-    <div class="user">
+    <div class="post">
+        <div class="row post-content">
+            <div class="col-lg-2 col-md-2 post-icon">
+                <img class="author-img"
+                     src="{{post.author.photo}}">
+                <div class="post-author">
+                    <a class="page-link lia-link-navigation lia-user-name-link"
+                       href="#" target="_blank">{{post.author.name}}post.author.name</a>
+                </div>
+            </div>
 
+            <div class="col-lg-10 col-md-10 post-cell">
+                <div class="welcome-text-title">{{post.title}}post.title</div>
+                <div class="post-date">
+                    <span>{{post.data}}post.data</span>
+                </div>
+                <div class="post-body">
+                    {{post.content}}post.content
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 post-info">
+                <!--<div class="add-reply">-->
+                <!--<button type="button" class="btn btn-primary">Reply</button>-->
+                <!--</div>-->
+                <div ng-click="addLikes()" class="like-count">
+                    <!--Post Likes Count:-->
+
+                    <span class="like-count-total">{{post.likes.length}}</span>
+                    <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+                    <span class="reply-count-total">{{post.comments.length}}</span>
+                    <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
+                </div>
+            </div>
+        </div><!--post-->
+    </div>
+    <div class="row post-content1">
+        <div class="view-all-button">
+            <button class="btn btn-primary" href="#">View All</button>
+        </div>
+    </div>
+    </div>
+
+<!--old posts list-->
         <div class="posts">   <!-----Latest Posts By User---------->
-                <div class="post-cell">
-                    <div class="post-subject">
-                        <h3 class="title-posts">Latest Posts By User</h3>
-                    </div>
-                </div>
-            <div class="row post-content">
-                <div class="col-lg-10 col-md-10 post-cell">
-                    <div class="Post_latest">
-                            <a class="Post_latest_text_link"
-                               ui-sref="postone">
-                                Re: Welcome to our first forum post
-                            </a>
-                    </div>
-                    <div class="message-subject-board">
-                        <h3 class="message-subject-board1">
-                            <a class="local-time xsmall-text"
-                               href="#">Регіональні групи / Львів</a>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 post-info">
-                    <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>
-                </div>
-            </div>
-            <div class="row post-content">
-                <div class="col-lg-10 col-md-10 post-cell">
-                    <div class="Post_latest">
-                            <a class="Post_latest_text_link"
-                               ui-sref="postone">
-                                Re: Welcome to our first forum post
-                            </a>
-                    </div>
-                    <div class="message-subject-board">
-                        <h3 class="message-subject-board1">
-                            <a class="local-time xsmall-text"
-                               href="#">Регіональні групи / Львів</a>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 post-info">
-                    <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>
-                </div>
-            </div>
-            <div class="row post-content">
-                <div class="col-lg-10 col-md-10 post-cell">
-                    <div class="Post_latest">
-                        <a class="Post_latest_text_link"
-                           ui-sref="postone">
-                            Re: Welcome to our first forum post
-                        </a>
-                    </div>
-                    <div class="message-subject-board">
-                        <h3 class="message-subject-board1">
-                            <a class="local-time xsmall-text"
-                               href="#">Регіональні групи / Львів</a>
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 post-info">
-                    <div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>
-                </div>
-            </div>
-            <div class="row post-content">
-                <div class="view-all-button">
-                    <button class="btn btn-primary" href="#">View All</button>
-                </div>
-            </div>
+                <!--<div class="post-cell">-->
+                    <!--<div class="post-subject">-->
+                        <!--<h3 class="title-posts">Latest Posts By User</h3>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--<div class="row post-content">-->
+                <!--<div class="col-lg-10 col-md-10 post-cell">-->
+                    <!--<div class="Post_latest">-->
+                            <!--<a class="Post_latest_text_link"-->
+                               <!--ui-sref="postone">-->
+                                <!--Re: Welcome to our first forum post-->
+                            <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="message-subject-board">-->
+                        <!--<h3 class="message-subject-board1">-->
+                            <!--<a class="local-time xsmall-text"-->
+                               <!--href="#">Регіональні групи / Львів</a>-->
+                        <!--</h3>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-lg-2 col-md-2 post-info">-->
+                    <!--<div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row post-content">-->
+                <!--<div class="col-lg-10 col-md-10 post-cell">-->
+                    <!--<div class="Post_latest">-->
+                            <!--<a class="Post_latest_text_link"-->
+                               <!--ui-sref="postone">-->
+                                <!--Re: Welcome to our first forum post-->
+                            <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="message-subject-board">-->
+                        <!--<h3 class="message-subject-board1">-->
+                            <!--<a class="local-time xsmall-text"-->
+                               <!--href="#">Регіональні групи / Львів</a>-->
+                        <!--</h3>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-lg-2 col-md-2 post-info">-->
+                    <!--<div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row post-content">-->
+                <!--<div class="col-lg-10 col-md-10 post-cell">-->
+                    <!--<div class="Post_latest">-->
+                        <!--<a class="Post_latest_text_link"-->
+                           <!--ui-sref="postone">-->
+                            <!--Re: Welcome to our first forum post-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="message-subject-board">-->
+                        <!--<h3 class="message-subject-board1">-->
+                            <!--<a class="local-time xsmall-text"-->
+                               <!--href="#">Регіональні групи / Львів</a>-->
+                        <!--</h3>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-lg-2 col-md-2 post-info">-->
+                    <!--<div title="&lrm;12-24-2016 01:46 PM" class="local-friendly-date"><span>Yesterday</span></div>-->
+                <!--</div>-->
+            <!--</div>-->
 
         </div>
         <div class="posts">   <!-----My Kudoed Posts---------->

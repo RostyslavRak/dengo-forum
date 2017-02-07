@@ -31,18 +31,20 @@
                     <!--<div class="add-reply">-->
                         <!--<button type="button" class="btn btn-primary">Reply</button>-->
                     <!--</div>-->
-                    <div class="like-count">
+                    <div  ng-click="addLikes()" class="like-count">
                         <!--Post Likes Count:-->
-                        <span class="like-count-total">{{post.likes.length}}</span>
-                        <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+
+                        <span  class="like-count-total">{{post.likes.length}}</span>
+                        <ng-md-icon  icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
                         <span class="reply-count-total">{{post.comments.length}}</span>
                         <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>
-            </div><!--post-->
+            </div>
+            <!--post-content-->
 </div>
 
-
+        <!--comments to the post-->
         <div class="commentPost" ng-repeat="comment in post.comments">
             <div class="row commentPost-content">
                 <div class="col-lg-2 col-md-2 commentPost-icon">
@@ -63,7 +65,7 @@
                 </div>
                 <div class="col-lg-12 col-md-12 commentPost-info">
                     <div class="like-count">
-                        <span class="like-count-total">{{comment.likes.length}}</span>
+                        <span ng-model="addLikes" class="like-count-total">{{comment.likes.length}}</span>
                         <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>

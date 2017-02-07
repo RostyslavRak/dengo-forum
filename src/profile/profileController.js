@@ -12,6 +12,11 @@ app
                 $scope.user = answer.data;
             });
         }
+        $http.get("/api/posts" + $stateParams.regionId).then(function (data) {
+            $rootScope.posts = data.data;
+            console.log (data.data)
+        });
+
 
         $scope.profileEdit = function () {
             $scope.profile = false;
@@ -50,9 +55,41 @@ app
             localStorage.setItem('userStorage', angular.toJson($scope.users));
         };
 
+        // $http.get("/api/post/" + $stateParams.postId + $rootScope.user.id.then(function (data) {
+        //     $scope.post = data.data;
+        //     console.log($scope.post)
+        // });
+
+        $scope.sendComment = function () {
+            $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {
+                $scope.post = data.data;
+                $('#commentPost').val("");
+                console.log (data.data)
+            });
+        };
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var m1 = date.getMonth()+1;
+        var y = date.getFullYear();
+        $scope.dateFormat=(y+"-"+m+"-"+d);
+        $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
 
+        $scope.newCommentPost = {
+        };
 
+        $scope.addCommentPost = function () {
+            $scope.commentsPost.push($scope.newCommentPost);
+        };
+
+        // adding like to post
+        $scope.addLikes = function () {
+            $http.post('/api/like/post', {userId: $rootScope.user.id, postId: $stateParams.postId}).then(function (answer) {
+                $scope.post = answer.data;
+            })
+        };
 
 
 

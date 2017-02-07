@@ -18,7 +18,7 @@
       margin-left: 20px;
       //flex-grow: 1;
       width: 340px;
-      .user_nick_name{
+      .user_nick_name {
         width: 100%;
         h3.user_name_text {
           font-size: 22px;
@@ -246,28 +246,27 @@
     .view-all-button {
       float: right;
       padding-top: 20px;
-      }
-      .btn-primary, .btn-primary:focus {
-        color: #fff;
-        background-color: #62a2ae;
-        border-color: #62a2ae;
-        width: 100px;
-        height: 31px;
-        float: right;
-      }
-      .btn {
-        border-radius: 0px;
-        text-align: center;
-        vertical-align: middle;
-        touch-action: manipulation;
-        cursor: pointer;
-        font-size: 14px;
-        font-family: "Lucida Fax";
-        font-style: normal;
-        margin: 0;
-      }
+    }
+    .btn-primary, .btn-primary:focus {
+      color: #fff;
+      background-color: #62a2ae;
+      border-color: #62a2ae;
+      width: 100px;
+      height: 31px;
+      float: right;
+    }
+    .btn {
+      border-radius: 0px;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: "Lucida Fax";
+      font-style: normal;
+      margin: 0;
+    }
     a.view-all {
-
 
     }
   }
@@ -290,7 +289,7 @@
   }
 }
 
-.deletePhoto{
+.deletePhoto {
   font-family: "Raleway Medium";
   cursor: pointer;
   text-align: center;
@@ -298,26 +297,131 @@
   font-size: 15px;
   color: #494846;
 }
-.deletePhoto:hover{
-  color:#e40000;
+
+.deletePhoto:hover {
+  color: #e40000;
 }
 
-.addPhotoIcon{
+.addPhotoIcon {
   font-size: 40px;
 }
-#filePhoto{display:none;}
 
-.sendInvitation{
+#filePhoto {
+  display: none;
+}
+
+.sendInvitation {
   margin-top: 6px;
   border-radius: 0;
   color: white;
   background: #62a2ae;
 }
-.sendInvitation:focus{
-outline: none;
+
+.sendInvitation:focus {
+  outline: none;
 }
-.sendInvitation:hover{
+
+.sendInvitation:hover {
   background: #589aae;
   color: white;
   outline: none;
+}
+
+.post {
+  //border-left: 2px solid #dadada;
+  //border-right: 2px solid #dadada;
+  .post-content {
+    margin-top: 40px;
+    padding: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #fff;
+    //border-top: 2px solid #dadada;
+    &:last-child {
+      border-bottom: 2px solid #dadada;
+    }
+    a {
+      cursor: pointer;
+      color: #62a2ae;
+      &:hover {
+        color: #243f4b;
+      }
+    }
+    .post-icon {
+      padding-top: 15px;
+      .author-img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .post-author {
+        font-weight: bold;
+      }
+    }
+    .post-cell {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      .welcome-text-title {
+        background: #b8b8b8;
+      }
+
+      .post-date {
+        margin: 0 0 30px;
+        color: #B2B2B2;
+        font-weight: bold;
+      }
+      .post-body {
+        padding-bottom: 10px;
+        font-family: "Raleway Regular";
+        font-size: 14px;
+      }
+    }
+    .post-info {
+      padding-top: 15px;
+      .like-count {
+        float: right;
+        color: #999999;
+        font-weight: bold;
+        ng-md-icon {
+          cursor: pointer;
+        }
+        :hover {
+          fill: #62A2AE;
+        }
+      }
+    }
+  }
+}
+
+.post-content1 {
+  float: right;
+  padding-top: 20px;
+
+  .view-all-button {
+    float: right;
+    padding-top: 20px;
+  }
+  .btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #62a2ae;
+    border-color: #62a2ae;
+    width: 100px;
+    height: 31px;
+    float: right;
+  }
+  .btn {
+    border-radius: 0px;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Lucida Fax";
+    font-style: normal;
+    margin: 0;
+  }
+  a.view-all {
+
+  }
 }

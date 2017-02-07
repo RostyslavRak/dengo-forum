@@ -24,7 +24,6 @@ app
             });
         };
 
-        // $scope.commentsPost = $rootScope.posts[0].comments;
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -39,7 +38,13 @@ app
 
         $scope.addCommentPost = function () {
             $scope.commentsPost.push($scope.newCommentPost);
-            // console.log( $scope.newCommentPost);
+        };
+
+        // adding like to post
+        $scope.addLikes = function () {
+            $http.post('/api/like/post', {userId: $rootScope.user.id, postId: $stateParams.postId}).then(function (answer) {
+                $scope.post = answer.data;
+            })
         };
 
     });
