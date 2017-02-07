@@ -146,7 +146,6 @@ module.exports = function (grunt) {
           'node_modules/bootstrap-select/dist/js/bootstrap-select.min.js',
           'node_modules/angular-material-icons/angular-material-icons.min.js',
           'node_modules/angular-carousel/dist/angular-carousel.min.js',
-          'node_modules/ng-intl-tel-input/dist/ng-intl-tel-input.min.js',
           'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
           'node_modules/bootstrap/dist/js/bootstrap.min.js',
           'node_modules/textangular/dist/textAngular-rangy.min.js',

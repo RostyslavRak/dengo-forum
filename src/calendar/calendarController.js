@@ -51,7 +51,6 @@ app
                 });
             });
         };
-
         $scope.loadEvent();
 
         $scope.$on("updateEventCalendar", function () {
@@ -153,7 +152,6 @@ app
         //     }
         //
         // ];
-
         $scope.eventClick = function (calEvent) {
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
@@ -169,12 +167,18 @@ app
                 $scope.calEvent.start = $scope.calEvent.start._i;
                 $scope.calEvent.end = $scope.calEvent.end._i;
                 $state.go('calendar.editEvents');
+
                 $scope.saveEditEvent = function () {
-                    $('#calendar').fullCalendar('updateEvent', calEvent);
+                    $http.post("/api/event", calEvent).then(function (answer) {
+                        $scope.events.push(answer.data);
+                        $('#calendar').fullCalendar('updateEvent', calEvent);
+                    });
+                    console.log(calEvent);
+                   // $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
+
                 };
                 $scope.cancelEventEdit = function () {
-                    $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
                 }
             };
