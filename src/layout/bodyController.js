@@ -10,14 +10,12 @@ app
         };
 
         $scope.loginMe = function () {
-            console.log($scope.login)
             var loginPromise = $http.post("/api/auth", $scope.login,  {headers: {'RememberMe': 'true'}});
             $scope.login.working = true;
             $scope.login.wrong = false;
             loginService.loginUser(loginPromise);
             loginPromise.success(function () {
-                $cookies.put("JJWT", loginPromise.$$state.value.data.JJWT);
-                localStorage.setItem("userToken", loginPromise.$$state.value.data.JJWT);
+                loginService.isLogged = true;
                 $http.get("/api/user/my").then(function (answer) {
                     $rootScope.user = answer.data;
                 });
@@ -35,7 +33,8 @@ app
         };
 
         $scope.logoutMe = function () {
-            loginService.logoutUser($http.get('/logout'));
+            loginService.isLogged = false;
+            loginService.logoutUser();
         };
 
 

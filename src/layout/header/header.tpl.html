@@ -21,10 +21,6 @@
                     <a ui-sref="register">Sing up</a>
                 </li>
             </ul>
-
-            <button class="btn btn-default navbar-btn navbar-right" ng-hide="ls.doneLoading">
-                <i class="fa fa-spinner fa-spin"></i>
-            </button>
             <!-- Logout Form -->
             <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
                 <div class="form-group" ui-sref="profile">

@@ -14,7 +14,6 @@ var app = angular
         'templates-app',
         'ui.calendar',
         'angularMoment',
-        // 'ngMockE2E',
         'ngCookies',
         'ngMap',
         'pascalprecht.translate',
@@ -24,25 +23,28 @@ var app = angular
 
 .run(function ($rootScope, $state, $window, loginService ) {
      $rootScope.$on("$stateChangeStart", function(event, toState){
-         if (toState.authenticate && !loginService.isLogged){
-             if(loginService.isLogged == false){
+        // console.log(loginService.isLogged)
+        //  console.log(toState)
+        if (toState.authenticate && !loginService.isLogged){
+             if( toState.authenticate && loginService.isLogged == false){
                  event.preventDefault();
                  $state.go('login');
              }
-             if(toState.name == "calendar.viewEvents"){
-                 $state.go('calendar');
-                 event.preventDefault();
-             }
-             if(toState.name == "calendar.eventsAdd"){
-                 $state.go('calendar');
-                 event.preventDefault();
-             }
-             if(toState.name == "calendar.editEvents"){
-                 $state.go('calendar');
-                 event.preventDefault();
-             }
+            // if(toState.name == "calendar.viewEvents"){
+            //      $state.go('calendar');
+            //      event.preventDefault();
+            //  }
+            //  if(toState.name == "calendar.eventsAdd"){
+            //      $state.go('calendar');
+            //      event.preventDefault();
+            //  }
+            //  if(toState.name == "calendar.editEvents"){
+            //      $state.go('calendar');
+            //      event.preventDefault();
+            //  }
+        }
 
-         }
+
      });
 
 

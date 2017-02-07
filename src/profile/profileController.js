@@ -6,6 +6,7 @@ app
         if($stateParams.nickName == ""){
             $http.get("/api/user/my").then(function (answer) {
                 $scope.user = answer.data;
+                console.log($scope.user)
             });
         }else {
             $http.get("/api/user/nick/" + $stateParams.nickName).then(function (answer) {

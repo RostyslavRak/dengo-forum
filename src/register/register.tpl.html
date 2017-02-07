@@ -41,7 +41,8 @@
   </div>
 
 
-  <select ng-model="registerObj.city" class="form-input city" name="city">
+  <select ng-model="registerObj.city" class="form-input city form-control" name="city">
+    <option value="" disabled>Select city*</option>
     <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
   </select>
   <!--<div class="form-input city">-->

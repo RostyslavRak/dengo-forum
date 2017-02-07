@@ -6,18 +6,6 @@
  */
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-
-        var resovle =  function (loginService, $q, $http) {
-            var roleDefined = $q.defer();
-
-            if (loginService.pendingStateChange) {
-                return loginService.resolvePendingState($http.get('/user'));
-            } else {
-                roleDefined.resolve();
-            }
-            return roleDefined.promise;
-        };
-
         //Main provider
         $stateProvider
             .state('welcome', {
@@ -36,9 +24,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/statisticfooter.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
             .state('login', {
@@ -56,9 +41,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -83,9 +65,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -113,9 +92,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
 
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -141,9 +117,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -166,9 +139,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -194,9 +164,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
             .state('privateMassages', {
@@ -218,9 +185,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -243,9 +207,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -266,10 +227,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -288,9 +245,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
             .state('termsConditions', {
@@ -307,9 +261,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-                resolve: {
-                    'login':resovle
                 }
             })
             .state('calendar', {
@@ -327,10 +278,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     "Footer": {
                         templateUrl: 'layout/footer/footer.tpl.html'
                     }
-                },
-
-                resolve: {
-                    'login':resovle
                 }
             })
 
@@ -338,30 +285,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 url: '/eventsAdd',
                 authenticate: true,
                         templateUrl: 'eventsAdd/eventsAdd.tpl.html',
-                        controller: 'eventsAddController',
-                resolve: {
-                    'login':resovle
-                }
+                        controller: 'eventsAddController'
             })
 
             .state('calendar.editEvents', {
                     url: '/editEvents',
                 authenticate: true,
                 templateUrl: 'editEvents/editEvent.tpl.html',
-                controller: 'editEventController',
-                resolve: {
-                    'login':resovle
-                }
+                controller: 'editEventController'
             })
 
             .state('calendar.viewEvents', {
                 url: '/viewEvents',
                 authenticate: true,
                 templateUrl: 'viewEvents/viewEvents.tpl.html',
-                controller: 'viewEventsController',
-                resolve: {
-                    'login':resovle
-                }
+                controller: 'viewEventsController'
             });
 
 
