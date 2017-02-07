@@ -6,9 +6,15 @@
 
 app
     .controller('eventsAddController', function ($scope,$state, $http) {
+
         $http.get("/api/regions").then(function (answer) {
             $scope.regions = answer.data;
         });
+
+        $(document).ready(function () {
+            $('#phoneNumber').inputmask("+38(999) 99-99-999");
+        });
+
 
         $scope.center = new google.maps.LatLng(49.85, 24.0166666667);
         $scope.input = document.getElementById('pac-input');
@@ -20,13 +26,14 @@ app
         $scope.searchBox.addListener('places_changed', function() {
             $scope.newMarker();
 
-            $scope.newEvent.address = $scope.searchBox.getPlaces()[0].formatted_address;
-            $scope.regionTest = $scope.searchBox.getPlaces()[0].formatted_address.split(" область")[0].split(", ");
-            $scope.newEvent.region = $scope.regionTest[$scope.regionTest.length - 1];
+              $scope.newEvent.address = $scope.searchBox.getPlaces()[0].formatted_address;
+           // $scope.regionTest = $scope.searchBox.getPlaces()[0].formatted_address.split(" область")[0].split(", ");
+           // $scope.newEvent.region = $scope.regionTest[$scope.regionTest.length - 1];
         });
 
 
         $scope.newEvent = {
+            phoneNumber: $("#phoneNumber").val()
         };
 
         $scope.addEvent = function () {
@@ -35,6 +42,8 @@ app
             $http.post("/api/event", $scope.newEvent).then(function (answer) {
                 $scope.events.push(answer.data);
                 $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
+                console.log(answer.data)
+                console.log($scope.newEvent)
             });
             $state.go('calendar');
         };
@@ -63,8 +72,6 @@ app
             });
         });
 
-
-
-
     });
+
 

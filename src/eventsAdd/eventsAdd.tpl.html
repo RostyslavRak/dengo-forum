@@ -6,6 +6,7 @@
     <div class="form-input subject">
         <label>Short Title</label>
         <input type="text" ng-model="newEvent.title" class="form-control" placeholder="Enter Short Title Here" name="ShortTitle" autofocus="true" ng-minlength="4" ng-maxlength="15" ng-required="true">
+        <div>{{newEvent.title}}</div>
         <div class="errors" ng-class="{ active: addEventForm.ShortTitle.$invalid && addEventForm.ShortTitle.$dirty }">
             <div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.minlength">
                 <p class="errorsContentAddEvent" >Title is too short!</p>
@@ -66,6 +67,21 @@
                     </div>
                 </div>
             </div>
+
+
+    <!--<div class="subject">-->
+        <!--<label>Region</label>-->
+        <!--<select data-size="7" class="selectpicker" ng-model="newEvent.region" data-live-search="true" name="region">-->
+            <!--<option ng-repeat="region in regions" value="{{region.region}}" data-tokens="{{region.region}}">{{region.region}}</option>-->
+        <!--</select>-->
+    <!--</div>-->
+
+    <!--add region-->
+        <label>Region</label>
+    <select class="form-control form-input subject" ng-model="newEvent.region" name="region">
+        <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
+    </select>
+
     <!--add Location for event-->
     <label>Select Location</label>
         <label>Address:</label>
@@ -82,36 +98,30 @@
     <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
     </ng-map>
 
-    <!--add region-->
-    <div class="form-input subject">
-        <label>Region</label>
-        <select data-size="5" class="selectpicker" ng-model="newEvent.region" data-live-search="true" >
-            <option ng-repeat="region in regions" value="{{region.region}}" data-tokens="{{region.region}}">{{region.region}}</option>
-        </select>
-        <!--<div class="errors" ng-class="{ active: addEventForm.ShortTitle.$invalid && addEventForm.ShortTitle.$dirty }">-->
-            <!--<div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.minlength">-->
-                <!--<p class="errorsContentAddEvent" >Title is too short!</p>-->
-            <!--</div>-->
-            <!--<div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.maxlength">-->
-                <!--<p class="errorsContentAddEvent" >Max ShortTitle length is 15, please shorten it.</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    </div>
-
     <!--add Contact Number-->
     <div class="form-input mobile">
         <label>Contact Number</label>
-        <input type="number" class="form-control" placeholder="+3(0 _ _)_ _ _ _ _ _ _" name="mobileEvent" autofocus="true" ng-minlength="10" ng-maxlength="13" ng-required="true"
-                ng-model="newEvent.phoneNumber">
-        <div class="errors" ng-class="{ active: addEventForm.mobileEvent.$invalid && addEventForm.mobileEvent.$dirty }">
-            <div class="error ng-hide" ng-show="addEventForm.mobileEvent.$error.minlength">
-                <p class="errorsContentAddEvent" >Phone Number is not valid!</p>
-            </div>
-            <div class="error ng-hide" ng-show="addEventForm.mobileEvent.$error.maxlength">
-                <p class="errorsContentAddEvent" >Phone Number is not valid!.</p>
-            </div>
-        </div>
+        <input id="phoneNumber" type="text" class="form-control" ng-model="newEvent.phoneNumber">
+        <div>{{newEvent.phoneNumber}}</div>
     </div>
+
+    <!--&lt;!&ndash;add Contact Number&ndash;&gt;-->
+    <!--<div class="form-input mobile">-->
+        <!--<label>Contact Number</label>-->
+        <!--<input type="number" class="form-control" placeholder="+3(80_ _)_ _ _ _ _ _ _" name="mobileEvent" autofocus="true" ng-minlength="10" ng-maxlength="13" ng-required="true"-->
+               <!--ng-model="newEvent.phoneNumber">-->
+        <!--<div class="errors" ng-class="{ active: addEventForm.mobileEvent.$invalid && addEventForm.mobileEvent.$dirty }">-->
+            <!--<div class="error ng-hide" ng-show="addEventForm.mobileEvent.$error.minlength">-->
+                <!--<p class="errorsContentAddEvent" >Phone Number is not valid!</p>-->
+            <!--</div>-->
+            <!--<div class="error ng-hide" ng-show="addEventForm.mobileEvent.$error.maxlength">-->
+                <!--<p class="errorsContentAddEvent" >Phone Number is not valid!.</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
     <!--add Text in text Editor-->
     <div text-angular="text-angular"  name="newEvent.htmlContent" ng-model="newEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
          ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]"></div>

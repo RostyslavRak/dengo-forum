@@ -14,12 +14,6 @@ app.controller('postAddController', function ( $scope, $state, $http) {
     $scope.dateFormat=(y+"-"+m+"-"+d);
     $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
-    $('.selectpicker').selectpicker({
-        size: 8
-    });
-
-
-    
     $scope.newPost = {
         name:$scope.ls.user.name,
         photo:$scope.ls.user.photo,

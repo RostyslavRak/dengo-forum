@@ -79,13 +79,13 @@
         <div class="user_name_box">
 
             <div class="user_name">
-                <input placeholder="username" class="editInput" ng-model="ls.user.username"/>
+                <input placeholder="username" class="editInput" ng-model="user.nickName"/>
             </div>
             <div class="user_name">
-                <input placeholder="name" class="editInput" ng-model="ls.user.name"/>
+                <input placeholder="name" class="editInput" ng-model="user.name"/>
             </div>
             <div class="user_status">
-                <input placeholder="city" class="editInput" ng-model="ls.user.city"/>
+                <input placeholder="city" class="editInput" ng-model="user.city.region"/>
             </div>
             <br/>
             <div class="checkbox checkbox-success">
@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="user_right">
+    <div class="user_right ">
         <div class="user_data">
             <div class="date_registration">
                 <h3 class="date_reg"> Date Registered:</h3>
@@ -118,28 +118,28 @@
             <div class="company-site">
                 <h3 class="company-site_text">Company Site:</h3>
             </div>
-
         </div>
         <div class="user_statistic">
             <div class="date_registration">
-                <h3 class="date_reg"> Date Registration</h3>
+                <h3 class="date_reg"> {{user.dataRegistration.year}}-{{user.dataRegistration.monthValue}}-{{user.dataRegistration.dayOfMonth}}</h3>
             </div>
-            <div class="last_visited">
-                <h3 class="last_vis"> Last Visited</h3>
+            <div class="date_registration">
+                <h3 class="date_reg">{{user.lastVisited.year}}-{{user.lastVisited.monthValue}}-{{user.lastVisited.dayOfMonth}}
+                    at {{user.lastVisited.hour}}:{{user.lastVisited.minute}}
+                </h3>
             </div>
-            <div class="massages_posted">
-                <h3 class="massages_posted_text">Messages Posted</h3>
+            <div class="date_registration">
+                <h3 class="date_reg"> {{ user.activity}}</h3>
             </div>
-            <div class="likes">
-                <h3 class="likes_text">Likes received</h3>
+            <div class="date_registration">
+                <h3 class="date_reg"> {{ user.countLike}}</h3>
             </div>
             <div class="company">
-                <input placeholder="Company" class="editInput company_text" ng-model="ls.user.company"/>
+                <input placeholder="Company" class="editInput company_text" ng-model="user.company"/>
             </div>
             <div class="company-site">
-                <input placeholder="Company Site" class="editInput company-site_text" ng-model="ls.user.companySite"/>
+                <input placeholder="Company Site" class="editInput company-site_text" ng-model="user.companySite"/>
             </div>
-
         </div>
     </div>
 </div>

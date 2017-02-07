@@ -41,7 +41,7 @@ app
         };
 
         $scope.deleteAvatarPhoto = function () {
-            $scope.ls.user.photo = "images/src/register/images/no_image1.png";
+            $scope.user.photo = "images/src/register/images/no_image1.png";
             $scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")].photo = $scope.ls.user.photo;
             console.log($scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")]);
             localStorage.setItem('userStorage', angular.toJson($scope.users));

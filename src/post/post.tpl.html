@@ -70,7 +70,7 @@
                         Автор: <a ui-sref="profile">{{post.author.name}}</a>
                     </div>
 
-                    <div class="post-body">{{post.content}}
+                    <div class="post-body" ng-bind-html="post.content">{{post.content}}
                         <a ui-sref="postone">...</a>
                     </div>
 
