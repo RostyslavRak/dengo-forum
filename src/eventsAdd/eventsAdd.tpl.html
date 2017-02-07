@@ -71,7 +71,7 @@
         <label>Address:</label>
     <div class="form-input">
     <input id="pac-input" class="form-control" ng-model="newEvent.address" placeholder="Address " autofocus="true" ng-minlength="5" ng-required="true" name="addressEvent"/>
-    <input ng-model="newEvent.region"/>
+    <!--<input ng-model="newEvent.region"/>-->
     <div class="errors" ng-class="{ active: addEventForm.addressEvent.$invalid && addEventForm.addressEvent.$dirty }">
         <div class="error ng-hide" ng-show="addEventForm.addressEvent.$error.minlength">
             <p class="errorsContentAddEvent" >Address is not valid!</p>
@@ -81,6 +81,22 @@
     <ng-map zoom="8" center="{{center}}" class="googleMap">
     <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
     </ng-map>
+
+    <!--add region-->
+    <div class="form-input subject">
+        <label>Region</label>
+        <select data-size="5" class="selectpicker" ng-model="newEvent.region" data-live-search="true" >
+            <option ng-repeat="region in regions" value="{{region.region}}" data-tokens="{{region.region}}">{{region.region}}</option>
+        </select>
+        <!--<div class="errors" ng-class="{ active: addEventForm.ShortTitle.$invalid && addEventForm.ShortTitle.$dirty }">-->
+            <!--<div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.minlength">-->
+                <!--<p class="errorsContentAddEvent" >Title is too short!</p>-->
+            <!--</div>-->
+            <!--<div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.maxlength">-->
+                <!--<p class="errorsContentAddEvent" >Max ShortTitle length is 15, please shorten it.</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
 
     <!--add Contact Number-->
     <div class="form-input mobile">
