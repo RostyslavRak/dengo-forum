@@ -71,7 +71,7 @@
         <label>Address:</label>
     <div class="form-input">
     <input id="pac-input" class="form-control" ng-model="newEvent.address" placeholder="Address " autofocus="true" ng-minlength="5" ng-required="true" name="addressEvent"/>
-    <input ng-model="newEvent.region" ng-hide="true"/>
+    <input ng-model="newEvent.region"/>
     <div class="errors" ng-class="{ active: addEventForm.addressEvent.$invalid && addEventForm.addressEvent.$dirty }">
         <div class="error ng-hide" ng-show="addEventForm.addressEvent.$error.minlength">
             <p class="errorsContentAddEvent" >Address is not valid!</p>

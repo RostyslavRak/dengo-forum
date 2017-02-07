@@ -7,27 +7,57 @@
 
 app
     .controller('CalendarController', function ($scope,$state,$http) {
+        $scope.events = null;
+
+
+        $http.get("/api/events").then(function (answer) {
+            $scope.events = angular.forEach(answer.data, function (event) {
+                event.start =  moment(event.start.year + "-" + event.start.monthValue + "-" + event.start.dayOfMonth +
+                    " " + event.start.hour + ":" + event.start.minute).format("YYYY-MM-DD HH:mm");
+                event.end = moment(event.end.year + "-" + event.end.monthValue + "-" + event.end.dayOfMonth +
+                    " " + event.end.hour + ":" + event.end.minute).format("YYYY-MM-DD HH:mm")
+            });
+            console.log($scope.events)
+            var initialLocaleCode = 'en';
+            $(function() {
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'month,agendaWeek,agendaDay,today ',
+                        center: 'title',
+                        right: 'prev,next',
+                        locale: initialLocaleCode
+                    },
+                    dayClick: $scope.dayClick,
+                    eventClick: $scope.eventClick,
+                    events: $scope.events
+
+                });
+                $.each($.fullCalendar.locales, function(localeCode) {
+                    $('#locale-selector').append(
+                        $('<option/>')
+                            .attr('value', localeCode)
+                            .prop('selected', localeCode)
+                            .text(localeCode)
+                    );
+                });
+
+                // when the selected option changes, dynamically change the calendar option
+                $('#locale-selector').on('change', function() {
+                    if (this.value) {
+                        $('#calendar').fullCalendar('option', 'locale', this.value);
+                    }
+                })
+            });
+        });
 
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var m1 = date.getMonth()+1;
         var y = date.getFullYear();
-
         $scope.dateFormat=(y+"-"+m+"-"+d);
         $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
         $scope.iGoEventStatus = false;
-        $http.get("/api/events").then(function (answer) {
-
-            $scope.events = angular.forEach(answer.data, function (event) {
-                    event.start =  moment(event.start.year + "-" + event.start.monthValue + "-" + event.start.dayOfMonth +
-                        " " + event.start.hour + ":" + event.start.minute).format("YYYY-MM-DD HH:mm");
-                    event.end = moment(event.end.year + "-" + event.end.monthValue + "-" + event.end.dayOfMonth +
-                    " " + event.end.hour + ":" + event.end.minute).format("YYYY-MM-DD HH:mm")
-            });
-            // $scope.events = answer.data;
-            console.log($scope.events)
-        })
 
         // $scope.events =  [
         //     {   id: 0,
@@ -114,8 +144,6 @@ app
         //
         // ];
 
-
-
         $scope.eventClick = function (calEvent) {
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
@@ -198,37 +226,7 @@ app
 
 
         };
-            /* config object */
-        var initialLocaleCode = 'en';
-        $(function() {
-            $('#calendar').fullCalendar({
-            header: {
-                left: 'month,agendaWeek,agendaDay,today ',
-                center: 'title',
-                right: 'prev,next',
-                locale: initialLocaleCode
-                },
-                dayClick: $scope.dayClick,
-                eventClick: $scope.eventClick,
-                events: $scope.events
 
-            });
-            $.each($.fullCalendar.locales, function(localeCode) {
-                $('#locale-selector').append(
-                    $('<option/>')
-                        .attr('value', localeCode)
-                        .prop('selected', localeCode)
-                        .text(localeCode)
-                );
-            });
-
-            // when the selected option changes, dynamically change the calendar option
-            $('#locale-selector').on('change', function() {
-                if (this.value) {
-                    $('#calendar').fullCalendar('option', 'locale', this.value);
-                }
-            })
-        });
         $('.dropdown-submenu a.test').on("click", function(e){
             $(this).next('ul').toggle();
             e.stopPropagation();

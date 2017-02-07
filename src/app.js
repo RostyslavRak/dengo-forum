@@ -16,7 +16,7 @@ var app = angular
         'angularMoment',
         // 'ngMockE2E',
         'ngCookies',
-        // 'ngMap',
+        'ngMap',
         'pascalprecht.translate',
         'angular-carousel',
         'ngTouch'
