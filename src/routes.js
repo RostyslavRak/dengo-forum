@@ -288,6 +288,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                         controller: 'eventsAddController'
             })
 
+            .state('admin', {
+                url: '/admin',
+                authenticate: true,
+                views: {
+                    "Header": {
+                        templateUrl: 'layout/header/header.tpl.html',
+                        controller: 'HeaderController'
+                    },
+                    "Content": {
+                        templateUrl: 'pages/admin.tpl.html',
+                        controller: 'PagesController'
+                    },
+                    "Footer": {
+                        templateUrl: 'layout/footer/footer.tpl.html'
+                    }
+                }
+            })
+
             .state('calendar.editEvents', {
                     url: '/editEvents',
                 authenticate: true,

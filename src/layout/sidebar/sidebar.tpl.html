@@ -61,26 +61,13 @@
 
 
         <div class="top-liked-authors">
-            <span class="title">{{ 'topPosts' | translate }}</span>
-            <div class="autor" ng-repeat="topPost in topPosts">
+            <span class="title">{{ 'topActive' | translate }}</span>
+            <div class="autor" ng-repeat="member in topActiveMembers">
                 <img class="author-img"
-                     src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Vladimir G</a></span>
-                <span class="count">941</span>
+                     src="{{member.previewPhoto}}">
+                <span class="author-name"><a href="/#/profile/{{member.nickName}}">{{member.name}}</a></span>
+                <span class="count">{{member.activity}}</span>
             </div>
-            <div class="autor">
-                <img class="author-img"
-                     src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Nichola L</a></span>
-                <span class="count">399</span>
-            </div>
-            <div class="autor">
-                <img class="author-img"
-                     src="https://odesk-prod-portraits.s3.amazonaws.com/Users:kochubei_valeria:PortraitUrl_100?AWSAccessKeyId=1XVAX3FNQZAFC9GJCFR2&Expires=2147483647&Signature=xMnywSdljPFbt12VFxNhtHFFtG8%3D&1456156206622909">
-                <span class="author-name"><a href="#">Preston H</a></span>
-                <span class="count">9</span>
-            </div>
-
         </div>
     </div>
 

@@ -35,8 +35,8 @@ module.exports = function (grunt) {
           base: 'src'
         },
         src: ['src/**/*.tpl.html'],
-        dest: 'build/templates-app.js'
-        // dest: '../../resources/static/templates-app.js'
+        // dest: 'build/templates-app.js'
+        dest: '../../resources/static/templates-app.js'
       }
     },
 
@@ -44,8 +44,8 @@ module.exports = function (grunt) {
     less: {
       all: {
         src: 'style.less',
-        dest: 'build/style.css',
-        // dest: '../../resources/static/style.css',
+        // dest: 'build/style.css',
+        dest: '../../resources/static/style.css',
         options: {
           report: 'gzip'
         }
@@ -57,8 +57,8 @@ module.exports = function (grunt) {
           options: {
             port: 9000,
             hostname: 'localhost',
-            base: 'build/',
-            // base: '../../resources/static/',
+            // base: 'build/',
+            base: '../../resources/static/',
             middleware: function (connect, options, middlewares) {
               /*Requires the Middleware snipped from the Library
                and add it before the other Middlewares.*/
@@ -132,8 +132,8 @@ module.exports = function (grunt) {
       },
       app: {
         src: ['src/**/*.js', 'src/*.js'],
-        dest: 'build/app.js'
-        // dest: '../../resources/static/app.js'
+        // dest: 'build/app.js'
+        dest: '../../resources/static/app.js'
       },
       libs: {
         src: [
@@ -169,15 +169,15 @@ module.exports = function (grunt) {
 
 
         ],
-        dest: 'build/libs.js'
-        // dest: '../../resources/static/libs.js'
+        // dest: 'build/libs.js'
+        dest: '../../resources/static/libs.js'
       }
     },
     copy: {
       index: {
         src: 'index.html',
-        dest: 'build/',
-        // dest: '../../resources/static/',
+        // dest: 'build/',
+        dest: '../../resources/static/',
         // options: {
         //   processContent: function (content, srcpath) {
         //     // Compiling index.html file!
@@ -196,8 +196,8 @@ module.exports = function (grunt) {
                 expand: true,
                 cwd: 'src/fonts',
                 src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
-                dest: 'build/fonts/'
-                // dest: '../../resources/static/fonts/'
+                // dest: 'build/fonts/'
+                dest: '../../resources/static/fonts/'
             }]
         }
         // data: {
@@ -210,8 +210,8 @@ module.exports = function (grunt) {
 
     clean: {
       all: {
-        src: ['build/']
-        // src: ['../../resources/static']
+        // src: ['build/']
+        src: ['../../resources/static']
       }
     }
 

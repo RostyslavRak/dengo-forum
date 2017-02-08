@@ -8,7 +8,29 @@
 
 
 app
-    .controller('PagesController', function ($scope) {
+    .controller('PagesController', function ($scope, $http) {
+        $scope.superAdmin = false;
+
+        $http.get("/api/user/my").then(function (answer) {
+            $scope.admin = answer.data;
+            angular.forEach(answer.data.authorities, function (role) {
+               if(role.authority == "SUPER_ADMIN"){
+                   $scope.superAdmin = true;
+               }
+           })
+        });
+
+        $scope.send = function (unp) {
+          $http.get(unp.url).then(function (answer) {
+              $scope.admin = answer.data;
+          })
+        };
+
+        $scope.remove = function (unp) {
+            $http.get(unp.url.replace("continue", 'remove')).then(function (answer) {
+                $scope.admin = answer.data;
+            })
+        };
 
         // $scope.userObj = [
         //     {

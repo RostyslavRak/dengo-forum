@@ -11,13 +11,20 @@ app
         $scope.bigTotalItems = 175;
         $scope.bigCurrentPage = 1;
 
+        if($stateParams.postId != null){
+            localStorage.setItem("lastPost", $stateParams.postId)
+        }
 
-        $http.get("/api/post/" + $stateParams.postId).then(function (data) {
-            $scope.post = data.data;
-            console.log($scope.post)
-        });
-
-        console.log($stateParams)
+        if($stateParams.postId == null){
+            $http.get("/api/post/" + localStorage.getItem("lastPost")).then(function (data) {
+                $scope.post = data.data;
+            });
+        }else {
+            $http.get("/api/post/" + $stateParams.postId).then(function (data) {
+                $scope.post = data.data;
+                console.log($scope.post)
+            });
+        }
 
         $scope.sendComment = function () {
             $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {
@@ -35,19 +42,18 @@ app
         $scope.dateFormat=(y+"-"+m+"-"+d);
         $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
+
+        $scope.newCommentPost = {
+        };
+
+        $scope.addCommentPost = function () {
+            $scope.commentsPost.push($scope.newCommentPost);
+        };
+
         // adding like to post
         $scope.addLikes = function () {
             $http.post('/api/like/post', {userId: $rootScope.user.id, postId: $stateParams.postId}).then(function (answer) {
                 $scope.post = answer.data;
-
-                //console.log(answer.data.likes)
-                // if(){
-                //     $("#addLikes").addClass("colorLikesTrue");
-                // }
-                // if(){
-                //     $("#addLikes").removeClass("colorLikesTrue");
-                // }
-
             })
         };
 
