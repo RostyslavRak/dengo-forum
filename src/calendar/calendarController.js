@@ -65,7 +65,13 @@ app
         $scope.dateFormat = (y + "-" + m + "-" + d);
         $scope.dateFormat1_12 = (y + "-" + m1 + "-" + d);
         $scope.iGoEventStatus = false;
-
+        $scope.regions = null;
+        $http.get("/api/regions").then(function (data) {
+            $scope.regions = data.data;
+        });
+        $scope.goToPost = function (regionId) {
+            $state.go("post", {"regionId": regionId})
+        };
         // $scope.events =  [
         //     {   id: 0,
         //         title  : "event1",
