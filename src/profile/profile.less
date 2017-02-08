@@ -61,9 +61,9 @@
   }
   .sendInvitation1{
     width: 370px;
-    height: 60px;
+    height: 65px;
     background: #f9f9f9;
-    box-shadow: 2px 2px 2px #888888;
+    box-shadow: 3px 3px 10px #888888;
     border: 1px solid #dedede;
     .user_box_email {
       width: 230px;
@@ -332,17 +332,44 @@
 .sendInvitation {
   margin-top: 6px;
   border-radius: 0;
-  color: white;
+  box-shadow: none;
+  border: none;
+  color: #ffffff;
   background: #62a2ae;
 }
+.sendInvitation1 {
+  margin-top: 17px;
+  margin-left: -119px;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  color: #ffa144;
+  background: #62a2ae;
+  input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border: 1px solid lightgray;
+    border-style: solid ;
+    border-color: none;
+    border-image: none;
 
-.sendInvitation:focus {
-  outline: none;
+  }
 }
 
-.sendInvitation:hover {
-  background: #589aae;
-  color: white;
+.sendInvitation1:focus {
+  outline: none;
+  z-index: 200000;
+
+}
+
+
+.sendInvitation1:hover {
+  //background: #589aae;
+  //color: white;
   outline: none;
 }
 
@@ -350,11 +377,12 @@
   //margin-top: 6px;
   border-radius: 0;
   width: 100px;
-  height: 25px;
+  height: 26px;
   color: white;
   background: #62a2ae;
-  .btn {
-    padding: 2px 12px!important;
+  button.btn {
+    padding: 0px 12px!important;
+    font-weight: lighter;
   }
 }
 .sendInvitation2:focus {
@@ -399,7 +427,7 @@
     .post-cell {
       padding-top: 15px;
       padding-bottom: 15px;
-      border-bottom: 1px solid #cdcdcd;
+      //border-bottom: 1px solid #cdcdcd;
 
       .welcome-text-title {
         //background: #b8b8b8;

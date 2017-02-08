@@ -71,9 +71,10 @@ app
             $('.sendInvitation1').removeClass('display', 'none');
             $('.sendInvitation1').css('display', 'block');
         };
-
-        $scope.sendInvitationToEmail = function () {
-            console.log( $scope.invitation)
+               $scope.sendInvitationToEmail = function () {
+            $('.sendInvitation1').removeClass('display', 'block');
+            $('.sendInvitation1').css('display', 'none');
+            console.log( $scope.invitation);
           $http.post("/api/send/invitation", $scope.invitation).then(function (answer) {
               console.log(answer.data)
           })
