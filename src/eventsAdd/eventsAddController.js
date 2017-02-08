@@ -39,8 +39,10 @@ app
             $http.post("/api/event", $scope.newEvent).then(function (answer) {
                 $scope.events.push(answer.data);
                 $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
+                console.log(answer.data)
             });
             $state.go('calendar');
+            //location.reload()
         };
 
 

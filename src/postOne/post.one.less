@@ -33,7 +33,6 @@
     //border-left: 2px solid #dadada;
     //border-right: 2px solid #dadada;
     .post-content {
-      margin-top: 40px;
       padding: 25px;
       margin-left: 0;
       margin-right: 0;
@@ -87,8 +86,11 @@
           :hover {
             fill: #62A2AE;
           }
+          :active {
+            fill: #62A2AE;
+          }
         }
-             }
+      }
     }
   }
 }
@@ -176,9 +178,15 @@
   border-color: #62a2ae;
 }
 
-
 .errorComment{
-
   color: red;
   float: right;
+}
+
+.post .post-content .post-cell .welcome-text-title {
+  background: white;
+}
+
+.colorLikesTrue{
+  fill: #62A2AE !important;
 }

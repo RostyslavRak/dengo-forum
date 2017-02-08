@@ -20,8 +20,8 @@ app
             $scope.newMarker();
 
             $scope.calEvent.address = $scope.searchBox.getPlaces()[0].formatted_address;
-            $scope.regionTest = $scope.searchBox.getPlaces()[0].formatted_address.split(" область")[0].split(", ");
-            $scope.calEvent.region = $scope.regionTest[$scope.regionTest.length - 1];
+           // $scope.regionTest = $scope.searchBox.getPlaces()[0].formatted_address.split(" область")[0].split(", ");
+           // $scope.calEvent.region = $scope.regionTest[$scope.regionTest.length - 1];
         });
 
 

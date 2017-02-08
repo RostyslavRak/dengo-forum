@@ -19,7 +19,7 @@
 
             <div class="col-lg-3 col-md-3 post-icon">
                 <img class="author-img"
-                     src="{{calEvent.author.photo}}">
+                     src="{{calEvent.author.previewPhoto}}">
                 <div class="post-author">
                     <a class="page-link lia-link-navigation lia-user-name-link"
                        href="#" target="_blank">{{calEvent.author.name}}</a>
@@ -41,7 +41,7 @@
 
             <div class="col-lg-12 col-md-12 post-info">
                 <div class="author-tel">
-                    <span>{{calEvent.author.phoneNumber}}</span>
+                    <span>{{calEvent.phoneNumber}}</span>
                 </div>
                     <div class="add-i-go">
                         <button type="button" class="btn btn-primary"  ng-click="iGoEvent()" ng-if="!iGoEventStatus">Я Піду</button>
@@ -62,19 +62,19 @@
                 </div>
         </div><!--post-->
 
-        <div class="row post-content post-reply" ng-repeat="comment in commentForm" ng-if="commentForm.length>0">
+        <div class="row post-content post-reply" ng-repeat="commentEvent in commentForm" ng-if="commentForm.length>0">
             <div class="col-lg-3 col-md-3 post-icon">
-                <img class="author-img" src="{{comment.photo}}">
+                <img class="author-img" src="{{commentEvent.author.previewPhoto}}">
                 <div class="post-author">
-                    <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">{{comment.name}}</a>
+                    <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">{{commentEvent.author.name}}</a>
                 </div>
             </div>
             <div class="col-lg-9 col-md-9 post-cell">
                 <div class="post-date">
-                    <span>{{comment.data}}</span>
+                    <span>{{commentEvent.data}}</span>
                 </div>
                 <div class="post-body"><br>
-               {{comment.content}}
+               {{commentEvent.content}}
                 </div>
             </div>
         </div><!--post reply-->

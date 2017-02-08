@@ -8,8 +8,6 @@
 app
     .controller('CalendarController', function ($scope, $state, $http) {
         $scope.events = null;
-
-
         $scope.loadEvent = function () {
             $http.get("/api/events").then(function (answer) {
                 $scope.events = angular.forEach(answer.data, function (event) {
@@ -155,6 +153,8 @@ app
         $scope.eventClick = function (calEvent) {
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
+            $scope.calEventData = calEvent._start._i;
+            //console.log(calEvent)
             $state.go('calendar.viewEvents');
             $state.go('calendar');
             $state.go('calendar.viewEvents');
@@ -209,25 +209,24 @@ app
                 });
                 $scope.iGoEventStatus = false;
             };
-
-
             $scope.addCommentEvent = function () {
                 $scope.newCommentEvent = {
-                    name: $scope.ls.user.name,
-                    photo: $scope.ls.user.photo,
                     content: $('#commentEvent').val(),
-                    data: $scope.dateFormat1_12
                 };
-
-                angular.forEach($scope.events, function (event) {
+                angular.forEach($scope.events, function (event, key) {
                     if (event.id == calEvent.id) {
-                        event.comments.push($scope.newCommentEvent);
+                        $http.post("/api/add/comment/event/" + calEvent.id, $scope.newCommentEvent).then(function (data) {
+                            $scope.commentForm = data.data.comments;
+                        });
+                        console.log($scope.newCommentEvent);
+                        // event.comments.push($scope.newCommentEvent);
                     }
                 });
+                console.log($scope.events)
                 $('#commentEvent').val("");
                 //$state.go('viewEvents');
                 $('#event-comment').removeClass("in");
-                console.log($scope.newCommentEvent);
+               // console.log($scope.newCommentEvent);
             };
 
         };
@@ -237,6 +236,10 @@ app
             $state.go('calendar.eventsAdd');
             $state.go('calendar');
             $state.go('calendar.eventsAdd');
+            // $scope.ClickDay = eventDate._d;
+            // $scope.ClickDay = moment($scope.ClicDay).format("YYYY-MM-DD HH:mm");
+            // $("#startData").val($scope.ClickDay )
+
 
 
         };

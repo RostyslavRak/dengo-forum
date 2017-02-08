@@ -13,7 +13,7 @@
                          src="{{post.author.photo}}">
                     <div class="post-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">{{post.author.name}}</a>
+                           href="/#/profile/{{post.author.nickName}}" target="_blank">{{post.author.name}}</a>
                     </div>
                 </div>
 
@@ -22,8 +22,7 @@
                     <div class="post-date">
                         <span>{{post.data}}</span>
                     </div>
-                    <div class="post-body">
-                       {{post.content}}
+                    <div class="post-body" ng-bind-html="post.content">{{post.content}}
                     </div>
                 </div>
 
@@ -33,9 +32,8 @@
                     <!--</div>-->
                     <div  ng-click="addLikes()" class="like-count">
                         <!--Post Likes Count:-->
-
                         <span  class="like-count-total">{{post.likes.length}}</span>
-                        <ng-md-icon  icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+                        <ng-md-icon  icon="thumb_up" id="addLikes" style="fill: #b1b1b1"></ng-md-icon>
                         <span class="reply-count-total">{{post.comments.length}}</span>
                         <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
@@ -52,7 +50,7 @@
                          src="{{comment.author.previewPhoto}}">
                     <div class="commentPost-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">{{comment.author.name}}</a>
+                           href="/#/profile/{{comment.author.nickName}}" target="_blank">{{comment.author.name}}</a>
                         <div class="commentPost-date">
                             <span>{{comment.data}}</span>
                         </div>
@@ -65,8 +63,8 @@
                 </div>
                 <div class="col-lg-12 col-md-12 commentPost-info">
                     <div class="like-count">
-                        <span ng-model="addLikes" class="like-count-total">{{comment.likes.length}}</span>
-                        <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
+                        <!--<span ng-model="addLikes" class="like-count-total">{{comment.likes.length}}</span>-->
+                        <!--<ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>-->
                     </div>
                 </div>
             </div><!--post-->
