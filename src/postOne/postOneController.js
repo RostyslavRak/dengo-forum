@@ -11,10 +11,20 @@ app
         $scope.bigTotalItems = 175;
         $scope.bigCurrentPage = 1;
 
-        $http.get("/api/post/" + $stateParams.postId).then(function (data) {
-            $scope.post = data.data;
-            console.log($scope.post)
-        });
+        if($stateParams.postId != null){
+            localStorage.setItem("lastPost", $stateParams.postId)
+        }
+
+        if($stateParams.postId == null){
+            $http.get("/api/post/" + localStorage.getItem("lastPost")).then(function (data) {
+                $scope.post = data.data;
+            });
+        }else {
+            $http.get("/api/post/" + $stateParams.postId).then(function (data) {
+                $scope.post = data.data;
+                console.log($scope.post)
+            });
+        }
 
         $scope.sendComment = function () {
             $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {

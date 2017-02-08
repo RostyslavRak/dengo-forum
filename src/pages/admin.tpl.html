@@ -2,3 +2,12 @@
   <!--<h1>Admin interface</h1>-->
   <!--<p class="text-danger" >Only accessible by admins</p>-->
 <!--</div>-->
+<h2>Admin Welcome</h2>
+<div ng-if="superAdmin">
+    <div ng-repeat="unp in admin.unapproved">
+        <img src="{{unp.user.previewPhoto}}" alt="">
+        <span>{{unp.user.name}}</span>
+        <button ng-click="send(unp)">Confirm</button>
+        <button ng-click="remove(unp)">Remove</button>
+    </div>
+</div>

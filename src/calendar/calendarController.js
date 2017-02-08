@@ -9,15 +9,28 @@ app
     .controller('CalendarController', function ($scope, $state, $http) {
         $scope.events = null;
 
+        $http.get("/api/regions").then(function (data) {
+            $scope.regions = data.data;
+        });
+
+        $scope.selectEventByRegion = function (regionId) {
+            $http.get("/api/events/region/" + regionId).then(function (answer) {
+                $scope.events = $scope.editDateTime(answer);
+            });
+        };
+
+        $scope.editDateTime = function (answer) {
+            return angular.forEach(answer.data, function (event) {
+                event.start = moment(event.start.year + "-" + event.start.monthValue + "-" + event.start.dayOfMonth +
+                    " " + event.start.hour + ":" + event.start.minute).format("YYYY-MM-DD HH:mm");
+                event.end = moment(event.end.year + "-" + event.end.monthValue + "-" + event.end.dayOfMonth +
+                    " " + event.end.hour + ":" + event.end.minute).format("YYYY-MM-DD HH:mm")
+            });
+        };
 
         $scope.loadEvent = function () {
             $http.get("/api/events").then(function (answer) {
-                $scope.events = angular.forEach(answer.data, function (event) {
-                    event.start = moment(event.start.year + "-" + event.start.monthValue + "-" + event.start.dayOfMonth +
-                        " " + event.start.hour + ":" + event.start.minute).format("YYYY-MM-DD HH:mm");
-                    event.end = moment(event.end.year + "-" + event.end.monthValue + "-" + event.end.dayOfMonth +
-                        " " + event.end.hour + ":" + event.end.minute).format("YYYY-MM-DD HH:mm")
-                });
+                $scope.events = $scope.editDateTime(answer);
 
                 var initialLocaleCode = 'en';
                 $(function () {
@@ -51,13 +64,12 @@ app
                 });
             });
         };
+
         $scope.loadEvent();
 
-        $scope.$on("updateEventCalendar", function () {
-            $scope.loadEvent();
-            console.log("dfdfdf")
-            $('#calendar').fullCalendar('renderEvent',  $scope.events);
-        });
+        // $scope.$on("updateEventCalendar", function () {
+        //     $('#calendar').fullCalendar('updateEvents', $scope.events );
+        // });
 
         var date = new Date();
         var d = date.getDate();
@@ -169,7 +181,18 @@ app
                 $state.go('calendar.editEvents');
 
                 $scope.saveEditEvent = function () {
-                    $http.post("/api/event", calEvent).then(function (answer) {
+                    $scope.editEventObj = {
+                        id: calEvent.id,
+                        address: calEvent.address,
+                        start: moment(calEvent.start).format("YYYY-MM-DDTHH:mm:ss.SSS"),
+                        end: moment(calEvent.end).format("YYYY-MM-DDTHH:mm:ss.SSS"),
+                        title: calEvent.title,
+                        phoneNumber: calEvent.phoneNumber,
+                        fullTitle: calEvent.fullTitle,
+                        htmlContent: calEvent.htmlContent
+                    };
+                    console.log($scope.editEventObj);
+                    $http.post("/api/event/update", $scope.editEventObj).then(function (answer) {
                         $scope.events.push(answer.data);
                         $('#calendar').fullCalendar('updateEvent', calEvent);
                     });

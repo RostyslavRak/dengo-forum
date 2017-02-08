@@ -33,12 +33,20 @@ app
         $scope.newEvent = {
         };
 
+        $scope.editDateTime = function (event) {
+                event.start = moment(event.start.year + "-" + event.start.monthValue + "-" + event.start.dayOfMonth +
+                    " " + event.start.hour + ":" + event.start.minute).format("YYYY-MM-DD HH:mm");
+                event.end = moment(event.end.year + "-" + event.end.monthValue + "-" + event.end.dayOfMonth +
+                    " " + event.end.hour + ":" + event.end.minute).format("YYYY-MM-DD HH:mm");
+            return event;
+        };
+
+
         $scope.addEvent = function () {
             $scope.newEvent.start = moment($scope.newEvent.start).format("YYYY-MM-DDTHH:mm:ss.SSS");
             $scope.newEvent.end = moment($scope.newEvent.end).format("YYYY-MM-DDTHH:mm:ss.SSS");
             $http.post("/api/event", $scope.newEvent).then(function (answer) {
-                $scope.events.push(answer.data);
-                $('#calendar').fullCalendar('renderEvent', $scope.newEvent);
+                $('#calendar').fullCalendar('renderEvent', $scope.editDateTime(answer.data));
             });
             $state.go('calendar');
         };

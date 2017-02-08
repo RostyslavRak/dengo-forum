@@ -5,12 +5,10 @@ app
         if($stateParams.regionId != null){
             $http.get("/api/post/region/" + $stateParams.regionId).then(function (data) {
                 $rootScope.posts = data.data;
-                console.log (data.data)
             });
         }else {
             $http.get("/api/posts").then(function (data) {
                 $rootScope.posts = data.data;
-                console.log (data.data)
             });
         }
 
@@ -24,10 +22,16 @@ app
         // };
         //
 
-
         $scope.search = null;
         $scope.$watch("search", function (data) {
-           console.log(data)
+            if(data === "" || $scope.search === null){
+                $http.get("/api/posts").then(function (data) {
+                    $rootScope.posts = data.data;
+                });
+            }
+           $http.get("/api/post/title/" + data ).then(function (answer) {
+               $rootScope.posts = answer.data;
+           })
         });
 
 

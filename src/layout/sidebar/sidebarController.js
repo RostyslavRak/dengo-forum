@@ -15,8 +15,8 @@ app
         $http.get("/api/top/author").then(function (data) {
             $scope.topAuthors = data.data;
         });
-        $http.get("/api/top/post").then(function (data) {
-            $scope.topPosts = data.data;
+        $http.get("/api/top/active/members").then(function (data) {
+            $scope.topActiveMembers = data.data;
         });
 
         $scope.goToPost = function (regionId) {
