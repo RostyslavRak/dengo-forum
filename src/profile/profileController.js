@@ -4,6 +4,9 @@ app
         $scope.user = null;
         $scope.profile = true;
         $scope.post = null;
+        $scope.invitation = {
+            email: ""
+        };
         if($stateParams.nickName == ""){
             $http.get("/api/user/my").then(function (answer) {
                 $scope.user = answer.data;
@@ -67,6 +70,13 @@ app
         $scope.sendInvitation = function () {
             $('.sendInvitation1').removeClass('display', 'none');
             $('.sendInvitation1').css('display', 'block');
+        };
+
+        $scope.sendInvitationToEmail = function () {
+            console.log( $scope.invitation)
+          $http.post("/api/send/invitation", $scope.invitation).then(function (answer) {
+              console.log(answer.data)
+          })
         };
 
         // $http.get("/api/post/" + $stateParams.postId + $rootScope.user.id.then(function (data) {
