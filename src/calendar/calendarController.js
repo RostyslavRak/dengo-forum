@@ -236,22 +236,23 @@ app
 
             $scope.addCommentEvent = function () {
                 $scope.newCommentEvent = {
-                    name: $scope.ls.user.name,
-                    photo: $scope.ls.user.photo,
                     content: $('#commentEvent').val(),
-                    data: $scope.dateFormat1_12
                 };
-
-                angular.forEach($scope.events, function (event) {
+                angular.forEach($scope.events, function (event, key) {
                     if (event.id == calEvent.id) {
-                        event.comments.push($scope.newCommentEvent);
+                        $http.post("/api/add/comment/event/" + calEvent.id, $scope.newCommentEvent).then(function (data) {
+                            $scope.commentForm = data.data.comments;
+                        });
+                        console.log($scope.newCommentEvent);
+                        // event.comments.push($scope.newCommentEvent);
                     }
                 });
                 $('#commentEvent').val("");
                 //$state.go('viewEvents');
                 $('#event-comment').removeClass("in");
-                console.log($scope.newCommentEvent);
+                // console.log($scope.newCommentEvent);
             };
+
 
         };
 
