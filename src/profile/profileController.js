@@ -1,23 +1,31 @@
 app
-    .controller('ProfileController', function ($scope,loginService,$http, $stateParams) {
+    .controller('ProfileController', function ($scope,loginService,$http, $stateParams, $rootScope, $state) {
        $scope.ls = loginService;
         $scope.user = null;
         $scope.profile = true;
+        $scope.post = null;
         if($stateParams.nickName == ""){
             $http.get("/api/user/my").then(function (answer) {
                 $scope.user = answer.data;
-                console.log($scope.user)
+                $http.get('/api/posts/' + $rootScope.user.id).then(function (data) {
+                    $scope.posts = data.data;
+                    console.log (data.data)
+                });
             });
         }else {
             $http.get("/api/user/nick/" + $stateParams.nickName).then(function (answer) {
                 $scope.user = answer.data;
+                $http.get('/api/posts/nick/' + $stateParams.nickName).then(function (data) {
+                    $scope.posts = data.data;
+                    console.log (data.data)
+                });
             });
         }
-        $http.get("/api/posts" + $stateParams.regionId).then(function (data) {
-            $rootScope.posts = data.data;
-            console.log (data.data)
-        });
 
+        $scope.goPost = function (postId) {
+            console.log(postId)
+            $state.go("postone", {"postId": postId});
+        };
 
         $scope.profileEdit = function () {
             $scope.profile = false;
@@ -56,11 +64,15 @@ app
             localStorage.setItem('userStorage', angular.toJson($scope.users));
         };
 
+        $scope.sendInvitation = function () {
+            $('.sendInvitation1').removeClass('display', 'none');
+            $('.sendInvitation1').css('display', 'block');
+        };
+
         // $http.get("/api/post/" + $stateParams.postId + $rootScope.user.id.then(function (data) {
         //     $scope.post = data.data;
         //     console.log($scope.post)
         // });
-
         $scope.sendComment = function () {
             $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {
                 $scope.post = data.data;
@@ -89,10 +101,7 @@ app
         $scope.addLikes = function () {
             $http.post('/api/like/post', {userId: $rootScope.user.id, postId: $stateParams.postId}).then(function (answer) {
                 $scope.post = answer.data;
-            })
+            });
         };
+                });
 
-
-
-
-    });

@@ -5,7 +5,9 @@
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="">Захід <span class="caret"></span></a>
                 <ul class="displayNone">
-                    <li><a tabindex="-1" href="#">Львів</a></li>
+                    <li><a tabindex="-1" href="">Львів</a></li>
+                    <li ng-repeat="region in regions | filter:{ partCountry: 'Захід' }"><a ng-click="goToPost(region.id)" tabindex="-1">{{region.region}}</a>
+                    </li>
                     <li><a tabindex="-1" href="#">Луцьк</a></li>
                     <li><a tabindex="-1" href="#">Ів-Франківськ</a></li>
                     <li><a tabindex="-1" href="#">Рівне</a></li>

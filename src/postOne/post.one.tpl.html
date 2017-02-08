@@ -64,8 +64,8 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 commentPost-info">
-                    <div class="like-count">
-                        <span ng-model="addLikes" class="like-count-total">{{comment.likes.length}}</span>
+                    <div ng-click="addLikes()" class="like-count">
+                        <span class="like-count-total">{{comment.likes.length}}</span>
                         <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
                     </div>
                 </div>

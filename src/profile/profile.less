@@ -59,7 +59,26 @@
       fill: #62a2ae;
     }
   }
+  .sendInvitation1{
+    width: 370px;
+    height: 60px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 2px #888888;
+    border: 1px solid #dedede;
+    .user_box_email {
+      width: 230px;
+      height: 25px;
+      background: #f9f9f9;
+      padding-left: 20px;
+      margin-left: 20px;
+      margin-top: 20px;
+      label {
+        font-weight: 300;
+      }
+    }
 
+
+  }
   .user_right {
     width: 50%;
     display: flex;
@@ -327,14 +346,32 @@
   outline: none;
 }
 
+.sendInvitation2 {
+  //margin-top: 6px;
+  border-radius: 0;
+  width: 100px;
+  height: 25px;
+  color: white;
+  background: #62a2ae;
+  .btn {
+    padding: 2px 12px!important;
+  }
+}
+.sendInvitation2:focus {
+  outline: none;
+}
+
+.sendInvitation2:hover {
+  background: #589aae;
+  color: white;
+  outline: none;
+}
 .post {
   //border-left: 2px solid #dadada;
   //border-right: 2px solid #dadada;
   .post-content {
-    margin-top: 40px;
-    padding: 25px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
+    padding: 0;
     background-color: #fff;
     //border-top: 2px solid #dadada;
     &:last-child {
@@ -362,14 +399,20 @@
     .post-cell {
       padding-top: 15px;
       padding-bottom: 15px;
+      border-bottom: 1px solid #cdcdcd;
+
       .welcome-text-title {
-        background: #b8b8b8;
+        //background: #b8b8b8;
       }
 
       .post-date {
         margin: 0 0 30px;
         color: #B2B2B2;
         font-weight: bold;
+        :hover {
+          cursor: pointer;
+          color: #ae1e24;
+        }
       }
       .post-body {
         padding-bottom: 10px;
