@@ -176,8 +176,8 @@ app
                 $state.go('calendar');
             };
             $scope.editEvent = function () {
-                $scope.calEvent.start = $scope.calEvent.start._i;
-                $scope.calEvent.end = $scope.calEvent.end._i;
+                $scope.calEvent.start = $scope.calEvent._start._i;
+                $scope.calEvent.end = $scope.calEvent._end._i;
                 $state.go('calendar.editEvents');
 
                 $scope.saveEditEvent = function () {
@@ -197,11 +197,11 @@ app
                         $('#calendar').fullCalendar('updateEvent', calEvent);
                     });
                     console.log(calEvent);
-                   // $('#calendar').fullCalendar('updateEvent', calEvent);
                     $state.go('calendar');
 
                 };
                 $scope.cancelEventEdit = function () {
+                    console.log($scope.calEvent);
                     $state.go('calendar');
                 }
             };
@@ -224,33 +224,27 @@ app
             $scope.iDontGoEvent = function () {
                 angular.forEach($scope.events, function (event) {
                     if (event.peopleGo == calEvent.peopleGo) {
-                        if (event.peopleGo == calEvent.peopleGo) {
                             console.log(event.peopleGo[event.peopleGo.length - 1]);
                             calEvent.peopleGo.splice(event.peopleGo[event.peopleGo.length - 1], 1);
-                        }
+
                     }
                 });
                 $scope.iGoEventStatus = false;
             };
 
-
+            $scope.newCommentEvent = {};
             $scope.addCommentEvent = function () {
-                $scope.newCommentEvent = {
-                    content: $('#commentEvent').val(),
-                };
                 angular.forEach($scope.events, function (event, key) {
                     if (event.id == calEvent.id) {
                         $http.post("/api/add/comment/event/" + calEvent.id, $scope.newCommentEvent).then(function (data) {
                             $scope.commentForm = data.data.comments;
+                            console.log(data.data);
                         });
-                        console.log($scope.newCommentEvent);
-                        // event.comments.push($scope.newCommentEvent);
                     }
                 });
                 $('#commentEvent').val("");
                 //$state.go('viewEvents');
                 $('#event-comment').removeClass("in");
-                // console.log($scope.newCommentEvent);
             };
 
 
@@ -259,10 +253,8 @@ app
         $scope.dayClick = function (eventDate) {
             // if(eventDate>date) {}
             $state.go('calendar.eventsAdd');
-            $state.go('calendar');
-            $state.go('calendar.eventsAdd');
-
-
+            // $scope.clickEventDate =  moment(eventDate).format("YYYY-MM-DD HH:mm");
+            // $("#startData").val($scope.clickEventDate)
         };
 
         $('.dropdown-submenu a.test').on("click", function (e) {

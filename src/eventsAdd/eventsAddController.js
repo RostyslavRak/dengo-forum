@@ -10,10 +10,6 @@ app
             $scope.regions = answer.data;
         });
 
-        // $(document).ready(function () {
-        //     $('#phoneNumber').inputmask("+38(999) 99-99-999");
-        // });
-
         $scope.center = new google.maps.LatLng(49.85, 24.0166666667);
         $scope.input = document.getElementById('pac-input');
         $scope.searchBox = new google.maps.places.SearchBox($scope.input);
@@ -48,6 +44,7 @@ app
             $http.post("/api/event", $scope.newEvent).then(function (answer) {
                 $('#calendar').fullCalendar('renderEvent', $scope.editDateTime(answer.data));
             });
+            console.log($scope.newEvent)
             $state.go('calendar');
         };
 

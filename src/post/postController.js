@@ -1,6 +1,5 @@
 app
     .controller('PostController', function ($rootScope, $state, $http, $scope, $stateParams) {
-        console.log($stateParams);
 
         if($stateParams.regionId != null){
             $http.get("/api/post/region/" + $stateParams.regionId).then(function (data) {

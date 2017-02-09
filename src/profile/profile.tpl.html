@@ -1,7 +1,7 @@
 <div class="col-md-9 profile_header contentBackground" ng-show="profile">
     <div class="user_left">
         <div class="avatar">
-            <img src="{{user.photo}}" style="height: 100px; width: 100px"/>
+            <img ng-src="{{user.photo}}" style="height: 100px; width: 100px"/>
         </div>
         <div class="user_name_box">
             <div class="user_nick_name">
@@ -80,7 +80,7 @@
     <div class="user_left">
 
         <div class="avatar">
-            <img ng-click="addAvatarPhoto()" src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer"
+            <img ng-click="addAvatarPhoto()" ng-src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer"
                  id="img">
             <!--<ng-md-icon icon="delete"size="25" ng-click="deleteAvatarPhoto()"></ng-md-icon>-->
             <div ng-click="deleteAvatarPhoto()" class="deletePhoto">delete photo</div>
@@ -163,7 +163,7 @@
             <div class="col-lg-10 col-md-10 post-cell">
                 <div class="col-lg-2 col-md-2 post-icon">
                     <img class="author-img"
-                         src="{{post.author.photo}}">
+                         ng-src="{{post.author.photo}}">
                     <div class="post-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
                            href="#" target="_blank">{{post.author.name}}</a>
@@ -173,7 +173,7 @@
                 <div class="post-date">
                     <!--<span>{{post.date}}post.data</span>-->
                 </div>
-                <div class="post-body">
+                <div class="post-body" ng-bind-html="post.content">
                     {{post.content}}
                 </div>
             </div>

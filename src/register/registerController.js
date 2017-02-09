@@ -19,6 +19,7 @@ app
     $scope.xhr = false;
   $scope.redirect = false;
   $scope.registerObj = {
+      //photo: "build/images/src/register/images/no_image1.png"
   };
 
 

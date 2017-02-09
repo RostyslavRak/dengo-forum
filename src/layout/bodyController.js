@@ -9,6 +9,7 @@ app
             password: ""
         };
 
+
         $scope.loginMe = function () {
             var loginPromise = $http.post("/api/auth", $scope.login,  {headers: {'RememberMe': 'true'}});
             $scope.login.working = true;
