@@ -43,6 +43,8 @@ app
             $scope.newEvent.end = moment($scope.newEvent.end).format("YYYY-MM-DDTHH:mm:ss.SSS");
             $http.post("/api/event", $scope.newEvent).then(function (answer) {
                 $('#calendar').fullCalendar('renderEvent', $scope.editDateTime(answer.data));
+                console.log(answer.data)
+
             });
             console.log($scope.newEvent)
             $state.go('calendar');

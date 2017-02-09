@@ -165,6 +165,7 @@ app
         //
         // ];
         $scope.eventClick = function (calEvent) {
+             console.log(calEvent);
             $scope.commentForm = calEvent.comments;
             $scope.calEvent = calEvent;
             $state.go('calendar.viewEvents');
@@ -172,6 +173,10 @@ app
             $state.go('calendar.viewEvents');
 
             $scope.removeEvent = function () {
+                $http.get("/api/remove/event/"+calEvent.id).then(function (answer) {
+                    $scope.events.push(answer.data);
+                });
+
                 $('#calendar').fullCalendar('removeEvents', calEvent.id);
                 $state.go('calendar');
             };
@@ -187,6 +192,7 @@ app
                         start: moment(calEvent.start).format("YYYY-MM-DDTHH:mm:ss.SSS"),
                         end: moment(calEvent.end).format("YYYY-MM-DDTHH:mm:ss.SSS"),
                         title: calEvent.title,
+                        region:calEvent.region.region,
                         phoneNumber: calEvent.phoneNumber,
                         fullTitle: calEvent.fullTitle,
                         htmlContent: calEvent.htmlContent
@@ -195,8 +201,9 @@ app
                     $http.post("/api/event/update", $scope.editEventObj).then(function (answer) {
                         $scope.events.push(answer.data);
                         $('#calendar').fullCalendar('updateEvent', calEvent);
+                        console.log(answer.data);
                     });
-                    console.log(calEvent);
+                    // console.log(calEvent.id);
                     $state.go('calendar');
 
                 };

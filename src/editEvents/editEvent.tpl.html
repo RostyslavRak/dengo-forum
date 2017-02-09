@@ -63,6 +63,12 @@
         </div>
     </div>
 
+    <!--add region-->
+    <label>Region</label>
+    <select class="form-control form-input subject" ng-model="calEvent.region.region" name="region">
+        <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
+    </select>
+
 
         <label>Select Location</label>
         <label>Address:</label>

@@ -14,16 +14,6 @@ app.controller('postAddController', function ( $scope, $state, $http) {
     $scope.dateFormat=(y+"-"+m+"-"+d);
     $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
-    $scope.newPost = {
-        name:$scope.ls.user.name,
-        photo:$scope.ls.user.photo,
-        data  : $scope.dateFormat1_12,
-        likes:[
-        ],
-        comments:[
-        ]
-    };
-
     $scope.addPost = function () {
         if($scope.newPost.categoryPost != "general-group"){
             $scope.newPost.sity = JSON.parse($scope.newPost.sity);
