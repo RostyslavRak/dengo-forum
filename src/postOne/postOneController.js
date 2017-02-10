@@ -43,17 +43,28 @@ app
         $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
 
-        $scope.newCommentPost = {
-        };
-
-        $scope.addCommentPost = function () {
-            $scope.commentsPost.push($scope.newCommentPost);
-        };
+        // $scope.newCommentPost = {
+        // };
+        //
+        // $scope.addCommentPost = function () {
+        //     $scope.commentsPost.push($scope.newCommentPost);
+        // };
 
         // adding like to post
         $scope.addLikes = function () {
             $http.post('/api/like/post', {userId: $rootScope.user.id, postId: $stateParams.postId}).then(function (answer) {
                 $scope.post = answer.data;
+
+                // angular.forEach(answer.data.likes, function (likes) {
+                // });
+                //console.log(answer.data.likes)
+                // if(){
+                //     $("#addLikes").addClass("colorLikesTrue");
+                // }
+                // if(){
+                //     $("#addLikes").removeClass("colorLikesTrue");
+                // }
+
             })
         };
 

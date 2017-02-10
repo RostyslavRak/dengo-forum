@@ -1,11 +1,11 @@
 <form name="addEventForm" role="addEvent" ng-submit="addEvent(addEventForm)">
-<div class="add-event" id="addEventPage">
+<v class="add-event" id="addEventPage">
     <!--add new event-->
     <div class="add-event-title">Add Event</div>
     <!--add Short Title-->
     <div class="form-input subject">
         <label>Short Title</label>
-        <input type="text" ng-model="newEvent.title" class="form-control" placeholder="Enter Short Title Here" name="ShortTitle" autofocus="true" ng-minlength="4" ng-maxlength="15" ng-required="true">
+        <input type="text" ng-model="newEvent.title" class="form-control" placeholder="Enter Short Title Here" name="ShortTitle" autofocus="true" ng-minlength="2" ng-maxlength="15" ng-required="true">
         <div class="errors" ng-class="{ active: addEventForm.ShortTitle.$invalid && addEventForm.ShortTitle.$dirty }">
             <div class="error ng-hide" ng-show="addEventForm.ShortTitle.$error.minlength">
                 <p class="errorsContentAddEvent" >Title is too short!</p>
@@ -18,18 +18,18 @@
     <!--add Full Title-->
     <div class="form-input subject">
         <label>Full Title</label>
-        <input type="text" class="form-control" placeholder="Enter Full Title Here" name="FullTitle"   ng-model="newEvent.fullTitle" autofocus="true" ng-minlength="6" ng-maxlength="52" ng-required="true">
+        <input type="text" class="form-control" placeholder="Enter Full Title Here" name="FullTitle"   ng-model="newEvent.fullTitle" autofocus="true" ng-minlength="2" ng-maxlength="255" ng-required="true">
     <div class="errors" ng-class="{ active: addEventForm.FullTitle.$invalid && addEventForm.FullTitle.$dirty }">
         <div class="error ng-hide" ng-show="addEventForm.FullTitle.$error.minlength">
             <p class="errorsContentAddEvent" >FullTitle is too short!</p>
         </div>
         <div class="error ng-hide" ng-show="addEventForm.FullTitle.$error.maxlength">
-            <p class="errorsContentAddEvent" >>Max FullTitle length is 52, please shorten it.</p>
+            <p class="errorsContentAddEvent" >>Max FullTitle length is 255, please shorten it.</p>
         </div>
     </div>
     </div>
     <!--add Start Date event-->
-    <label>Start Data</label>
+    <label>Start Data-Time</label>
             <div class="form-group form-input">
                 <div class='input-group date' id='datetimepickerStart' >
                     <input type='text' id="startData" class="form-control" ng-model="newEvent.start" autofocus="true" ng-minlength="16" ng-maxlength="16" ng-required="true" name="dataStartEvent" />
@@ -97,35 +97,31 @@
     <marker position="{{newEvent.address}}" title="{{newEvent.address}}"></marker>
     </ng-map>
 
-    <!--&lt;!&ndash;add Contact Number&ndash;&gt;-->
-    <!--<div class="form-input mobile">-->
-        <!--<label>Contact Number</label>-->
-        <!--<input id="phoneNumber" type="text" class="form-control" ng-model="newEvent.phoneNumber">-->
-        <!--<div>{{newEvent.phoneNumber}}</div>-->
-    <!--</div>-->
-
-
 
     <!--add Contact Number-->
     <div class="form-input mobile">
         <label>Contact Number</label>
-        <input type="number" class="form-control" placeholder="+3(80_ _)_ _ _ _ _ _ _" name="mobileEvent" autofocus="true" ng-minlength="10" ng-maxlength="13" ng-required="true"
-               ng-model="newEvent.phoneNumber">
-        <div class="errors" ng-class="{ active: addEventForm.mobileEvent.$invalid && addEventForm.mobileEvent.$dirty }">
-            <div class="error ng-hide" ng-show="addEventForm.mobileEvent.$error.minlength">
-                <p class="errorsContentAddEvent" >Phone Number is not valid!</p>
-            </div>
-            <div class="error ng-hide" ng-show="addEventForm.mobileEvent.$error.maxlength">
-                <p class="errorsContentAddEvent" >Phone Number is not valid!.</p>
-            </div>
+    <input type="text" name="phoneNumber"  class="form-control" placeholder="38(098)-53-12-955"  mask="99(999)-99-99-999" ng-model="newEvent.phoneNumber" ng-required="false">
+    <div class="errors" ng-class="{ active: addEventForm.phoneNumber.$invalid && addEventForm.phoneNumber.$dirty }">
+    <div class="error ng-hide" ng-show="addEventForm.phoneNumber.$invalid">
+    <p class="errorsContentAddEvent" >Phone Number is not valid!</p>
+    </div>
+    </div>
+    </div>
+
+    <!--add Text in text Editor-->
+    <div class="form-input">
+    <div text-angular="text-angular"  name="htmlContent" ng-model="newEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
+         ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]" ng-required="true"></div>
+    <div class="errors" ng-class="{ active: addEventForm.htmlContent.$invalid && addEventForm.htmlContent.$dirty }">
+        <div class="error ng-hide" ng-show="addEventForm.htmlContent.$invalid">
+            <p class="errorsContentAddEvent" >Please enter Content</p>
         </div>
+    </div>
     </div>
 
 
 
-    <!--add Text in text Editor-->
-    <div text-angular="text-angular"  name="newEvent.htmlContent" ng-model="newEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
-         ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]"></div>
 <!--buttons for Send and Cancel-->
     <div class="add-post-btn">
         <button type="submit" class="btn btn-primary"  ng-class="{ 'btn-primary': addEventForm.$valid && addEventForm.$dirty, 'btn-success': redirect }"

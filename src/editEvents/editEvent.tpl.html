@@ -4,7 +4,7 @@
     <div class="form-input subject">
         <label>Short Title</label>
         <input type="text" class="form-control"  placeholder="Enter Short Title Here" name="ShortTitle" autofocus="true"
-               ng-minlength="4" ng-maxlength="15" ng-required="true" ng-model="calEvent.title">
+               ng-minlength="2" ng-maxlength="15" ng-required="true" ng-model="calEvent.title">
         <div class="errors" ng-class="{ active: editEventForm.ShortTitle.$invalid && editEventForm.ShortTitle.$dirty }">
             <div class="error ng-hide" ng-show="editEventForm.ShortTitle.$error.minlength">
                 <p class="errorsContentAddEvent" >Title is too short!</p>
@@ -17,7 +17,7 @@
     <div class="form-input subject">
         <label>Full Title</label>
         <input type="text" class="form-control" placeholder="Enter Subject Here" name="FullTitle" autofocus="true"
-               ng-minlength="6" ng-maxlength="52" ng-required="true" ng-model="calEvent.fullTitle">
+               ng-minlength="2" ng-maxlength="52" ng-required="true" ng-model="calEvent.fullTitle">
         <div class="errors" ng-class="{ active: editEventForm.FullTitle.$invalid && editEventForm.FullTitle.$dirty }">
             <div class="error ng-hide" ng-show="editEventForm.FullTitle.$error.minlength">
                 <p class="errorsContentAddEvent" >FullTitle is too short!</p>
@@ -63,6 +63,12 @@
         </div>
     </div>
 
+    <!--add region-->
+    <label>Region</label>
+    <select class="form-control form-input subject" ng-model="calEvent.region.region" name="region">
+        <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
+    </select>
+
 
         <label>Select Location</label>
         <label>Address:</label>
@@ -78,23 +84,29 @@
             <marker position="{{calEvent.address}}" title="{{calEvent.address}}"></marker>
         </ng-map>
 
-
-
+        <!--add Contact Number-->
         <div class="form-input mobile">
-        <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="+3(80_ _)_ _ _ _ _ _ _" name="mobileEvent" autofocus="true" ng-minlength="10" ng-maxlength="13" ng-required="true" ng-model="calEvent.phoneNumber">
-            <div class="errors" ng-class="{ active: editEventForm.mobileEvent.$invalid && editEventForm.mobileEvent.$dirty }">
-                <div class="error ng-hide" ng-show="editEventForm.mobileEvent.$error.minlength">
+            <label>Contact Number</label>
+            <input type="text" name="phoneNumber"  class="form-control" placeholder="38(098)-53-12-955"  mask="99(999)-99-99-999" ng-model="calEvent.phoneNumber" ng-required="false">
+            <div class="errors" ng-class="{ active: editEventForm.phoneNumber.$invalid && editEventForm.phoneNumber.$dirty }">
+                <div class="error ng-hide" ng-show="editEventForm.phoneNumber.$invalid">
                     <p class="errorsContentAddEvent" >Phone Number is not valid!</p>
                 </div>
-                <div class="error ng-hide" ng-show="editEventForm.mobileEvent.$error.maxlength">
-                    <p class="errorsContentAddEvent" >Phone Number is not valid!.</p>
+            </div>
+        </div>
+
+
+        <!--add Text in text Editor-->
+        <div class="form-input">
+            <div text-angular="text-angular"  name="htmlContent" ng-model="calEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
+                 ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]" ng-required="true"></div>
+            <div class="errors" ng-class="{ active: editEventForm.htmlContent.$invalid && editEventForm.htmlContent.$dirty }">
+                <div class="error ng-hide" ng-show="editEventForm.htmlContent.$invalid">
+                    <p class="errorsContentAddEvent" >Please enter Content</p>
                 </div>
             </div>
-    </div>
+        </div>
 
-    <div text-angular="text-angular"  name="htmlContent" ng-model="calEvent.htmlContent" ta-disabled='disabled' placeholder="enter text:"
-         ta-toolbar="[['bold','underline','italics','undo','redo', 'quote','p','ul','ol', 'insertImage','insertLink']]"></div>
 
     <div class="add-post-btn">
         <button type="submit"  class="btn btn-primary"  ng-class="{ 'btn-primary': editEventForm.$valid && editEventForm.$dirty, 'btn-success': redirect }"

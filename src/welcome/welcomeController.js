@@ -7,7 +7,8 @@
 
 
 app
-    .controller('WelcomeController', function ($scope) {
+    .controller('WelcomeController', function ($scope,$http) {
+
         $( document ).ready(function(){
             var winHeight = window.innerHeight    ||
                 document.documentElement.clientHeight ||
@@ -25,8 +26,12 @@ app
                     gradient: ["rgb(98, 162, 174)", "rgb(255, 255, 255)"]
                 }
             }).on('circle-animation-progress', function(event, progress) {
-                $(this).find('strong').html(Math.round(900 * progress));
+                $(this).find('strong').html(Math.round(800 * progress));
             });
+
+
+            $http.get("/api/posts").then(function (data) {
+                $scope.posts = data.data;
 
             $('.second.circle').circleProgress({
                 value: 0.3,
@@ -35,9 +40,12 @@ app
                     gradient: ["rgb(98, 162, 174)", "rgb(255, 255, 255)"]
                 }
             }).on('circle-animation-progress', function(event, progress) {
-                $(this).find('strong').html(Math.round(30 * progress) + '<i>%</i>');
+                $(this).find('strong').html(Math.round($scope.posts.length * progress) + '<i></i>');
+            });
             });
 
+            $http.get("/api/events").then(function (data) {
+                $scope.events = data.data;
             $('.third.circle').circleProgress({
                 value: 0.9,
                 size: 130,
@@ -45,9 +53,9 @@ app
                     gradient: ["rgb(98, 162, 174)", "rgb(255, 255, 255)"]
                 }
             }).on('circle-animation-progress', function(event, progress) {
-                $(this).find('strong').html(Math.round(100 * progress));
+                $(this).find('strong').html(Math.round( $scope.events.length * progress));
             });
-
+            });
 
             $('.background').Geometryangle({
                 mesh:{

@@ -10,7 +10,7 @@
             <div class="row post-content">
                 <div class="col-lg-2 col-md-2 post-icon">
                     <img class="author-img"
-                         src="{{post.author.photo}}">
+                         ng-src="{{post.author.photo}}">
                     <div class="post-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
                            href="/#/profile/{{post.author.nickName}}" target="_blank">{{post.author.name}}</a>
@@ -47,7 +47,7 @@
             <div class="row commentPost-content">
                 <div class="col-lg-2 col-md-2 commentPost-icon">
                     <img class="author-img"
-                         src="{{comment.author.previewPhoto}}">
+                         ng-src="{{comment.author.previewPhoto}}">
                     <div class="commentPost-author">
                         <a class="page-link lia-link-navigation lia-user-name-link"
                            href="/#/profile/{{comment.author.nickName}}" target="_blank">{{comment.author.name}}</a>
@@ -75,7 +75,7 @@
                 <button class="btn btnAddPostComment" type="submit" ng-class="{ 'btn-success': redirect }"
                         ng-disabled="addCommentPostForm.$invalid || addCommentPostForm.$pristine">ADD COMMENT</button>
                 <textarea type="text" id="commentPost" class="form-control chat-input addCommentPost" placeholder="Enter your text" ng-model="newCommentPost.content"
-                          name="commentContent" autofocus="true" ng-minlength="6" ng-required="true"></textarea>
+                          name="commentContent" autofocus="true" ng-minlength="2" ng-required="true"></textarea>
                 <div class="col-md-5 errorComment">
                     <div class="errors" ng-class="{ active: addCommentPostForm.commentContent.$invalid && addCommentPostForm.commentContent.$dirty }">
                         <div class="error ng-hide" ng-show="addCommentPostForm.commentContent.$error.minlength">

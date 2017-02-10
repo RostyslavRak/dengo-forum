@@ -9,6 +9,7 @@ var app = angular
         'ngAnimate',
         'ui.bootstrap',
         'ngMdIcons',
+        'ngMask',
         'textAngular',
         'ui.router',
         'templates-app',

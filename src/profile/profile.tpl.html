@@ -1,7 +1,7 @@
 <div class="col-md-9 profile_header contentBackground" ng-show="profile">
     <div class="user_left">
         <div class="avatar">
-            <img src="{{user.photo}}" style="height: 100px; width: 100px"/>
+            <img ng-src="{{user.photo}}" style="height: 100px; width: 100px"/>
         </div>
         <div class="user_name_box">
             <div class="user_nick_name">
@@ -80,7 +80,7 @@
     <div class="user_left">
 
         <div class="avatar">
-            <img ng-click="addAvatarPhoto()" src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer"
+            <img ng-click="addAvatarPhoto()" ng-src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer"
                  id="img">
             <!--<ng-md-icon icon="delete"size="25" ng-click="deleteAvatarPhoto()"></ng-md-icon>-->
             <div ng-click="deleteAvatarPhoto()" class="deletePhoto">delete photo</div>
@@ -159,36 +159,74 @@
 
 <div class="col-md-9">
     <div class="post">
-        <div class="row post-content" ng-repeat="post in posts">
-            <div class="col-lg-10 col-md-10 post-cell">
-                <div class="col-lg-2 col-md-2 post-icon">
-                    <img class="author-img"
-                         src="{{post.author.photo}}">
+        <!--<div class="row post-content" ng-repeat="post in posts">-->
+            <!--<div class="col-lg-10 col-md-10 post-cell">-->
+                <!--<div class="col-lg-2 col-md-2 post-icon">-->
+                    <!--<img class="author-img"-->
+                         <!--ng-src ="{{post.author.photo}}">-->
+                    <!--<div class="post-author">-->
+                        <!--<a class="page-link lia-link-navigation lia-user-name-link"-->
+                           <!--href="#" target="_blank">{{post.author.name}}</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="welcome-text-title" ng-click="goPost(post.id)">{{post.title}}</div>-->
+                <!--<div class="post-date">-->
+                    <!--&lt;!&ndash;<span>{{post.date}}post.data</span>&ndash;&gt;-->
+                <!--</div>-->
+                <!--<div class="post-body" ng-bind-html="post.content">-->
+                    <!--{{post.content}}-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-lg-12 col-md-12 post-info">-->
+                <!--<div ng-click="addLikes()" class="like-count">-->
+                    <!--&lt;!&ndash;Post Likes Count:&ndash;&gt;-->
+
+                    <!--<span class="like-count-total">{{post.likes.length}}</span>-->
+                    <!--<ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>-->
+                    <!--<span class="reply-count-total">{{post.comments.length}}</span>-->
+                    <!--<ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash;post&ndash;&gt;-->
+
+        <div class="posts" ng-repeat="post in posts">
+            <div class="row post-content">
+
+                <div class="col-lg-10 col-md-10 post-cell">
+                    <div class="post-subject">
+                        <a class="message-subject" ng-click="goPost(post.id)" ui-sref="postone">{{post.title}}</a>
+                    </div>
+
                     <div class="post-author">
-                        <a class="page-link lia-link-navigation lia-user-name-link"
-                           href="#" target="_blank">{{post.author.name}}</a>
+                       <div ng-show="post.sity"><a ui-sref="profile">Регіональні групи</a>/<a ui-sref="profile">{{post.sity.region}}</a></div>
+                       <div ng-show="!post.sity"><a ui-sref="post">Загальні теми для обговорення</a></div>
+                    </div>
+
+                    <div class="post-body" ng-bind-html="post.content">{{post.content}}
+                        <a ui-sref="postone">...</a>
+                    </div>
+
+                    <div class="post-date">
+                        <span>{{post.data}}</span>
                     </div>
                 </div>
-                <div class="welcome-text-title" ng-click="goPost(post.id)">{{post.title}}</div>
-                <div class="post-date">
-                    <!--<span>{{post.date}}post.data</span>-->
-                </div>
-                <div class="post-body">
-                    {{post.content}}
-                </div>
-            </div>
 
-            <div class="col-lg-12 col-md-12 post-info">
-                <div ng-click="addLikes()" class="like-count">
-                    <!--Post Likes Count:-->
+                <div class="col-lg-2 col-md-2 post-info">
+                    <div class="reply-count">
+                        <!--Post Reply Count-->
+                        <span class="reply-count-total">{{post.comments.length}}</span>
+                        <span class="reply-count-text"> Replies</span>
+                    </div>
+                    <div class="like-count">
+                        <!--Post Likes Count:-->
 
-                    <span class="like-count-total">{{post.likes.length}}</span>
-                    <ng-md-icon icon="thumb_up" style="fill: #b1b1b1"></ng-md-icon>
-                    <span class="reply-count-total">{{post.comments.length}}</span>
-                    <ng-md-icon icon="reply" style="fill: #b1b1b1"></ng-md-icon>
+                        <span class="like-count-total">{{post.likes.length}}</span>
+                        <span class="like-count-text"> Likes</span><br><br><br><br>
+                    </div>
                 </div>
-            </div>
-        </div><!--post-->
+            </div><!--post-->
+        </div>
     </div>
     <div class="row post-content1">
         <div class="view-all-button">

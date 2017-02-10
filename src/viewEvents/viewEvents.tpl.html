@@ -53,18 +53,29 @@
                     <button data-toggle="collapse" data-target="#event-comment" type="button" class="btn btn-primary">Коментар</button>
                 </div>
             </div>
-                <div id="event-comment" class="comment-add collapse">
-                    <div class="form-input comment-body">
+            <div id="event-comment" class="comment-add collapse">
+
+            <form name="addEventComment" role="addEventComment" class="form-input comment-body" ng-submit="addCommentEvent(addEventComment)">
                         <label>Comment</label>
-                        <textarea id="commentEvent"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-primary" ng-click="addCommentEvent()">Add</button>
-                </div>
+                        <textarea id="commentEvent" name="commentEvent"  ng-minlength="2" ng-maxlength="255" ng-required="true" ng-model="newCommentEvent.content"></textarea>
+                            <div class="errors errorComment" ng-class="{ active: addEventComment.commentEvent.$invalid && addEventComment.commentEvent.$dirty }">
+                                <div class="error ng-hide" ng-show="addEventComment.commentEvent.$error.minlength">
+                                    <p class="errorsContentAddEvent" >Comment is too short!</p>
+                                </div>
+                                <div class="error ng-hide" ng-show="addEventComment.commentEvent.$error.maxlength">
+                                    <p class="errorsContentAddEvent" >>Max Comment length is 255, please shorten it.</p>
+                                </div>
+                            </div>
+                    <button type="submit" class="btn btn-primary" ng-class="{ 'btn-success': redirect }"
+                            ng-disabled="addEventComment.$invalid || addEventComment.$pristine">Add</button>
+            </form>
+            </div>
+
         </div><!--post-->
 
         <div class="row post-content post-reply" ng-repeat="commentEvent in commentForm" ng-if="commentForm.length>0">
             <div class="col-lg-3 col-md-3 post-icon">
-                <img class="author-img" src="{{commentEvent.author.previewPhoto}}">
+                <img class="author-img" ng-src="{{commentEvent.author.previewPhoto}}">
                 <div class="post-author">
                     <a class="page-link lia-link-navigation lia-user-name-link" href="#" target="_blank">{{commentEvent.author.name}}</a>
                 </div>
