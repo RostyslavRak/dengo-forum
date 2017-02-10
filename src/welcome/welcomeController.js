@@ -8,6 +8,10 @@
 
 app
     .controller('WelcomeController', function ($scope,$http) {
+        $(document).ready(function() {
+            $("body").css("display", "none");
+            $("body").fadeIn(1000);
+        });
 
         $( document ).ready(function(){
             var winHeight = window.innerHeight    ||

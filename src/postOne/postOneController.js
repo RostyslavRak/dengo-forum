@@ -22,7 +22,6 @@ app
         }else {
             $http.get("/api/post/" + $stateParams.postId).then(function (data) {
                 $scope.post = data.data;
-                console.log($scope.post)
             });
         }
 
@@ -30,7 +29,6 @@ app
             $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {
                 $scope.post = data.data;
                 $('#commentPost').val("");
-                console.log (data.data)
             });
         };
 

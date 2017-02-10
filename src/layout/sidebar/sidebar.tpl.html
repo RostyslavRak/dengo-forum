@@ -1,6 +1,6 @@
 <div class="col-md-3 sidebar">
     <h4>{{ 'category' | translate }}</h4>
-    <h1 ui-sref="post" class="categoryDropDown">{{ 'common' | translate }}</h1>
+    <h1 ui-sref="post" ng-click="goToPost()" class="categoryDropDown">{{ 'common' | translate }}</h1>
 
 
     <div class="dropdown">
@@ -77,4 +77,5 @@
         <div id="calendarSidebar"></div>
         <br>
     </div>
+
 </div>

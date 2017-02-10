@@ -7,7 +7,6 @@
 
 app
 .controller('RegisterController', function ($scope, $http, $timeout, $state) {
-    // $scope.users = angular.fromJson(localStorage.getItem('userStorage'));
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();

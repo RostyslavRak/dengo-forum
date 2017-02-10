@@ -1,18 +1,22 @@
 app
-    .controller('ProfileController', function ($scope,loginService,$http, $stateParams, $rootScope, $state) {
-       $scope.ls = loginService;
+    .controller('ProfileController', function ($scope,loginService,$http, $stateParams, $state) {
+        $scope.ls = loginService;
         $scope.user = null;
         $scope.profile = true;
         $scope.post = null;
         $scope.invitation = {
             email: ""
         };
+        $http.get("/api/regions").then(function (data) {
+            $scope.regions = data.data;
+        });
         if($stateParams.nickName == ""){
             $http.get("/api/user/my").then(function (answer) {
                 $scope.user = answer.data;
-                $http.get('/api/posts/' + $rootScope.user.id).then(function (data) {
+                console.log( $scope.user)
+                $http.get('/api/posts/' +$scope.user.id).then(function (data) {
                     $scope.posts = data.data;
-                    console.log (data.data)
+
                 });
             });
         }else {
@@ -20,15 +24,19 @@ app
                 $scope.user = answer.data;
                 $http.get('/api/posts/nick/' + $stateParams.nickName).then(function (data) {
                     $scope.posts = data.data;
-                    console.log (data.data)
                 });
             });
         }
 
         $scope.goPost = function (postId) {
-            console.log(postId)
             $state.go("postone", {"postId": postId});
         };
+
+        $scope.goToPost = function (regionId) {
+            $state.go("post", {"regionId": regionId})
+        };
+
+
 
         $scope.profileEdit = function () {
             $scope.profile = false;
@@ -53,19 +61,26 @@ app
 
         $scope.deleteAvatarPhoto = function () {
             $scope.user.photo = "images/src/register/images/no_image1.png";
-            $scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")].photo = $scope.ls.user.photo;
-            console.log($scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")]);
-            localStorage.setItem('userStorage', angular.toJson($scope.users));
         };
         $scope.saveProfileEdit = function () {
+            $scope.editUserObj = {
+                company: $scope.user.company,
+                companySite: $scope.user.companySite,
+                htmlContent: calEvent.htmlContent
+            };
+            console.log($scope.editUserObj);
+            $http.post("/api/event/update", $scope.editEventObj).then(function (answer) {
+                $scope.events.push(answer.data);
+                console.log(answer.data);
+            });
             $scope.profile = true;
-            $scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")].name =  $scope.ls.user.name;
-            $scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")].city =  $scope.ls.user.city;
-            $scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")].company =  $scope.ls.user.company;
-            $scope.users[localStorage.getItem('tokenStorage').split(":\"")[1].replace("\"}", "")].companySite =  $scope.ls.user.companySite;
-            $scope.ls.user.photo = img.src;
-            localStorage.setItem('userStorage', angular.toJson($scope.users));
+            $scope.user.photo = img.src;
         };
+
+
+
+
+
 
         $scope.sendInvitation = function () {
             $('.sendInvitation1').removeClass('display', 'none');
@@ -74,9 +89,7 @@ app
                $scope.sendInvitationToEmail = function () {
             $('.sendInvitation1').removeClass('display', 'block');
             $('.sendInvitation1').css('display', 'none');
-            console.log( $scope.invitation);
           $http.post("/api/send/invitation", $scope.invitation).then(function (answer) {
-              console.log(answer.data)
           })
         };
 
@@ -84,35 +97,8 @@ app
         //     $scope.post = data.data;
         //     console.log($scope.post)
         // });
-        $scope.sendComment = function () {
-            $http.post("/api/add/comment/post/" + $stateParams.postId, $scope.newCommentPost).then(function (data) {
-                $scope.post = data.data;
-                $('#commentPost').val("");
-                console.log (data.data)
-            });
-        };
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var m1 = date.getMonth()+1;
-        var y = date.getFullYear();
-        $scope.dateFormat=(y+"-"+m+"-"+d);
-        $scope.dateFormat1_12=(y+"-"+m1+"-"+d);
 
 
-        $scope.newCommentPost = {
-        };
 
-        $scope.addCommentPost = function () {
-            $scope.commentsPost.push($scope.newCommentPost);
-        };
-
-        // adding like to post
-        $scope.addLikes = function () {
-            $http.post('/api/like/post', {userId: $rootScope.user.id, postId: $stateParams.postId}).then(function (answer) {
-                $scope.post = answer.data;
-            });
-        };
-                });
+ });
 

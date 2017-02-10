@@ -1,14 +1,14 @@
 app
-    .controller('PostController', function ($rootScope, $state, $http, $scope, $stateParams) {
+    .controller('PostController', function ( $state, $http, $scope, $stateParams) {
+
 
         if($stateParams.regionId != null){
             $http.get("/api/post/region/" + $stateParams.regionId).then(function (data) {
-                $rootScope.posts = data.data;
-                console.log(data.data)
+                $scope.posts = data.data;
             });
         }else {
             $http.get("/api/posts").then(function (data) {
-                $rootScope.posts = data.data;
+                $scope.posts = data.data;
             });
         }
 
@@ -22,17 +22,19 @@ app
         // };
         //
 
-        $scope.search = null;
-        $scope.$watch("search", function (data) {
-            if(data === "" || $scope.search === null){
-                $http.get("/api/posts").then(function (data) {
-                    $rootScope.posts = data.data;
-                });
-            }
-           $http.get("/api/post/title/" + data ).then(function (answer) {
-               $rootScope.posts = answer.data;
-           })
-        });
+
+
+        // $scope.search = null;
+        // $scope.$watch("search", function (data) {
+        //     if(data === "" || $scope.search === null){
+        //         $http.get("/api/posts").then(function (data) {
+        //             $scope.posts = data.data;
+        //         });
+        //     }
+        //    $http.get("/api/post/title/" + data ).then(function (answer) {
+        //        $scope.posts = answer.data;
+        //    })
+        // });
 
 
 

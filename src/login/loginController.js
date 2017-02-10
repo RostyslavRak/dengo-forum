@@ -9,5 +9,4 @@
 app
 .controller('LoginController', function ($scope, $state) {
 
-
 });

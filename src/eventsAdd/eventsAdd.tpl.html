@@ -101,7 +101,7 @@
     <!--add Contact Number-->
     <div class="form-input mobile">
         <label>Contact Number</label>
-    <input type="text" name="phoneNumber"  class="form-control" placeholder="38(098)-53-12-955"  mask="99(999)-99-99-999" ng-model="newEvent.phoneNumber" ng-required="false">
+    <input type="text" name="phoneNumber"  class="form-control" placeholder="38(098)-53-12-955"  mask="+99(999)-99-99-999" ng-model="newEvent.phoneNumber" ng-required="false">
     <div class="errors" ng-class="{ active: addEventForm.phoneNumber.$invalid && addEventForm.phoneNumber.$dirty }">
     <div class="error ng-hide" ng-show="addEventForm.phoneNumber.$invalid">
     <p class="errorsContentAddEvent" >Phone Number is not valid!</p>
