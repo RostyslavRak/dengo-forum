@@ -28,10 +28,7 @@ app
 
 
     $scope.submit = function (formInstance) {
-    // xhr is departing
-    //     console.log($scope.registerObj)
     $scope.xhr = true;
-    // $scope.registerObj.city = JSON.parse($scope.registerObj.city);
         console.log($scope.registerObj);
         $http.post("/api/permit/all/token/send" , $scope.registerObj).success(function(answer){
           $scope.xhr = false;

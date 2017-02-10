@@ -1,62 +1,59 @@
 <form class="form-signin " name="registerForm" role="registration" ng-submit="submit(registerForm)">
 
-  <h2 class="form-signin-heading">Registration</h2>
+  <h2 class="form-signin-heading">{{ 'registration' | translate }}</h2>
   <div class="form-input name">
-    <input type="text"  class="form-control" placeholder="Name*" name="name" ng-model="registerObj.name" autofocus="true" ng-minlength="4" ng-maxlength="32" ng-required="true">
+    <input type="text"  class="form-control" placeholder="{{ 'name' | translate }}" name="name" ng-model="registerObj.name" autofocus="true" ng-minlength="4" ng-maxlength="32" ng-required="true">
     <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
-        <p class="errorsContent" >Provided name is too short!</p>
+        <p class="errorsContent" >{{ 'error_name' | translate }}</p>
       </div>
       <div class="error ng-hide" ng-show="registerForm.name.$error.maxlength">
-        <p class="errorsContent" >>Max name length is 32, please shorten it.</p>
+        <p class="errorsContent" >{{ 'error_name_long' | translate }}</p>
       </div>
     </div>
   </div>
   <div class="form-input username">
-    <input type="text" class="form-control" placeholder="Nick Name*" name="username" ng-model="registerObj.nickName"
+    <input type="text" class="form-control" placeholder="{{ 'nick_name' | translate }}" name="username" ng-model="registerObj.nickName"
       ng-minlength="4" ng-maxlength="16" ng-required="true" remote-validated="used">
     <div class="errors" ng-class="{ active: registerForm.username.$invalid && registerForm.username.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.username.$error.minlength">
-        <p class="errorsContent">Username is too short!</p>
+        <p class="errorsContent">{{ 'error_name' | translate }}</p>
       </div>
       <div class="error ng-hide" ng-show="registerForm.username.$error.maxlength">
-        <p class="errorsContent">Max username length is 16, please shorten it.</p>
+        <p class="errorsContent">{{ 'error_name_long' | translate }}</p>
       </div>
       <div class="error ng-hide" ng-show="registerForm.username.$error.used">
-        <p class="errorsContent">Username is already taken.</p>
+        <p class="errorsContent">{{ 'error_name_is' | translate }}</p>
       </div>
     </div>
   </div>
   <div class="form-input password">
-    <input type="password"  class="form-control password1" placeholder="Password*" name="password" ng-model="registerObj.password" ng-minlength="4" ng-maxlength="16" ng-required="true" password-match="password2">
-    <input type="password" class="form-control password2"  placeholder="Repeat password*" name="password2" ng-model="password2" password-match="registerObj.password">
+    <input type="password"  class="form-control password1" placeholder="{{ 'password' | translate }}" name="password" ng-model="registerObj.password" ng-minlength="4" ng-maxlength="16" ng-required="true" password-match="password2">
+    <input type="password" class="form-control password2"  placeholder="{{ 'repeatPassword' | translate }} " name="password2" ng-model="password2" password-match="registerObj.password">
     <div class="errors" ng-class="{ active: registerForm.password.$invalid && registerForm.password.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.password.$error.match">
-        <p class="errorsContent">Passwords do not match.</p>
+        <p class="errorsContent">{{ 'error_pass' | translate }}</p>
       </div>
       <div class="error ng-hide" ng-show="registerForm.password.$error.minlength">
-        <p class="errorsContent">For your own safety, use a password longer than 4 characters.</p>
+        <p class="errorsContent">{{ 'error_pass_short' | translate }}</p>
       </div>
     </div>
   </div>
 
 
   <select ng-model="registerObj.city" class="form-input city form-control" name="city">
-    <option value="" disabled>Select city*</option>
-    <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
+    <option value="" disabled>{{ 'selectCity' | translate }}</option>
+    <option ng-repeat="region in regions" value="{{region.region}}">{{region.regionENG | translate}}</option>
   </select>
-  <!--<div class="form-input city">-->
-    <!--<input type="text" class="form-control" placeholder="City*" name="city"  ng-model="registerObj.city">-->
-  <!--</div>-->
 
   <div class="form-input email">
     <input type="email" class="form-control email"  ng-pattern="emailFormat" placeholder="E-Mail*" name="email" ng-model="registerObj.email" ng-required="true" remote-validated="used">
     <div class="errors" ng-class="{ active: registerForm.email.$invalid && registerForm.email.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.email.$error.email">
-        <p class="errorsContentEmail">E-Mail seems invalid.</p>
+        <p class="errorsContentEmail">{{ 'error_email' | translate }}</p>
       </div>
       <div class="error ng-hide" ng-show="registerForm.email.$error.used">
-        <p class="errorsContentEmail">E-Mail is already taken.</p>
+        <p class="errorsContentEmail">{{ 'error_email_is' | translate }}</p>
       </div>
     </div>
   </div>
@@ -68,10 +65,10 @@
     <!--</select>-->
   <!--</div>-->
   <div class="form-input company">
-      <input type="text" class="form-control" placeholder="Company Name" name="company-name" ng-model="registerObj.company">
+      <input type="text" class="form-control" placeholder="{{ 'сompanyName' | translate }}" name="company-name" ng-model="registerObj.company">
   </div>
   <div class="form-input company-site">
-    <input type="text" class="form-control" placeholder="Website" name="company-site" ng-model="registerObj.companySite">
+    <input type="text" class="form-control" placeholder="{{ 'Website' | translate }}" name="company-site" ng-model="registerObj.companySite">
   </div>
   <!--<div class="captcha-img">-->
       <!--<input type="text" class="form-control" placeholder="Type the letters below" name="captcha">-->
@@ -89,7 +86,7 @@
 
     <div class="checkbox checkbox-success">
       <input id="termsConditions" type="checkbox" ng-model="confirm" class="">
-      <label for="termsConditions"><small ui-sref="termsConditions">I agree to the <span>terms and conditions</span></small></label>
+      <label for="termsConditions"><small ui-sref="termsConditions">{{ 'terms1' | translate }}<span>{{ 'terms2' | translate }}</span></small></label>
     </div>
 
 
@@ -97,7 +94,7 @@
   <button class="btn btn-lg btn-block" type="submit"
   ng-class="{ 'btn-primary': registerForm.$valid && registerForm.$dirty, 'btn-success': redirect }"
   ng-disabled="registerForm.$invalid || registerForm.$pristine || xhr || redirect || !confirm">
-  <span ng-hide="redirect" >Register<i class="fa fa-repeat fa-spin" ng-show="xhr"></i></span>
+  <span ng-hide="redirect" >{{ 'register' | translate }}<i class="fa fa-repeat fa-spin" ng-show="xhr"></i></span>
   <span ng-show="redirect">Redirecting...<i class="fa fa-repeat fa-spin"></i></span>
   </button>
 </form>

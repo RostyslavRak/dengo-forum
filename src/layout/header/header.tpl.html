@@ -8,7 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="navbar-brand" ng-class="{ active: $state.is('user') }">
+            <!--ng-class="{ active: $state.is('user') }-->
+            <div class="navbar-brand" >
                 <a ui-sref="user">Dengo <span>Forum</span></a>
             </div>
         </div>
@@ -21,6 +22,7 @@
                     <a ui-sref="register">Sing up</a>
                 </li>
             </ul>
+
             <!-- Logout Form -->
             <form class="navbar-form navbar-right" role="logout" ng-submit="logoutMe()" ng-show="ls.isLogged">
                 <div class="form-group" ui-sref="profile">
@@ -37,12 +39,13 @@
                     </ul>
                     <button type="submit" class="btn-loguot btn-default-loguot">Log Out<i class="fa fa-signout"></i></button>
                 </div>
-                <div ng-controller="HeaderController as ctrl" style="display: inline-block">
-                    <select id='locale-selector' ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language"
-                            ng-change="ctrl.updateLanguage()">
-                    </select>
-                </div>
+
             </form>
+            <div ng-controller="HeaderController as ctrl" style="display: inline-block; float: right;">
+                <select id='locale-selector' style="display: inline-block; float: right; border: none; padding-top: 18px  " ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language"
+                        ng-change="ctrl.updateLanguage()">
+                </select>
+            </div>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
