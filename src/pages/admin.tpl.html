@@ -1,13 +1,119 @@
 <!--<div class="jumbotron">-->
-  <!--<h1>Admin interface</h1>-->
-  <!--<p class="text-danger" >Only accessible by admins</p>-->
+<!--<h1>Admin interface</h1>-->
+<!--<p class="text-danger" >Only accessible by admins</p>-->
 <!--</div>-->
-<h2>Admin Welcome</h2>
+<h2 style="text-align: center">Admin Welcome</h2>
 <div ng-if="superAdmin">
     <div ng-repeat="unp in admin.unapproved">
         <img src="{{unp.user.previewPhoto}}" alt="">
         <span>{{unp.user.name}}</span>
         <button ng-click="send(unp)">Confirm</button>
         <button ng-click="remove(unp)">Remove</button>
+    </div>
+</div>
+<div class="container">
+    <div class="left_side1 col-md-1"></div>
+    <div class="left_side col-md-5">
+        <div class="title_left_side">Create admin/moderator</div>
+
+        <input id='user_url' class="user_url" type="text" placeholder="{{ 'user_url' | translate }}">
+        <div class="check_role"></div>
+        <div class="form-input location">
+            <!--<label>Select Location</label>-->
+            <select ng-model="newPost.categoryPost" class="form-control" name="location">
+                <option value="">{{ 'CheckTheRole' | translate }}</option>
+                <option value="general-group">{{ 'admin' | translate }}</option>
+                <option value="regional-group">{{ 'moderator' | translate }}</option>
+            </select>
+        </div>
+        <div class="form-input select-height" ng-model="newPost.region"  ng-show="newPost.categoryPost=='regional-group'" name="region">
+            <div class="form-control regionSelect1 col-lg-5">
+                <div class="title_location">{{ 'selectCity' | translate }}</div>
+                <p style="float: left; margin-left: 14px;">{{ 'all' | translate }}</p>
+                <input class="checkbox_all_city" type="checkbox" value="All"/>
+                   <select id="form_input_city" multiple ng-model="registerObj.city" class="form-input city form-control" name="city">
+                        <option ng-repeat="region in regions" value="{{region.region}}">{{region.regionENG | translate}}</option>
+                    </select>
+                <div class="selected_cites" ng-repeat="regioncelect in registerObj.city">
+                   <div class="regionselect2"> - {{regioncelect}}</div>
+                </div>
+            </div>
+
+        </div>
+<div class="title_textinput">Create news</div>
+        <textarea class="textinput" placeholder="{{ 'print_text' | translate }}"></textarea>
+        <div class="add-post-btn">
+            <a ui-sref="#user_url" class="btn cancel-post" ng-click="remove(unp)" >Cancel</a>
+            <button type="submit" class="btn btn-primary" ng-click="send(unp)"   ng-class="accept">Accept</button>
+        </div>
+        <div class="sendInvitation2">
+                <input class="user_box_email2"  style="font-weight: 100;" type="email" ng-model="invitation.email" id="E-mail"
+                       placeholder="E-mail">
+
+            <button class="add-post-btn2" icon="send" ng-click="sendInvitationToEmail()">Send</button>
+        </div>
+    </div>
+    <!--<div class="form-input body">-->
+    <!--<label>Print Text Here</label>-->
+    <!--<div text-angular="text-angular" name="htmlcontent" ng-model="newPost.content"  ta-toolbar="[['h1', 'h2', 'h3', 'p', 'pre', 'bold', 'italics', 'ul', 'ol', 'redo', 'undo'],['html', 'insertImage', 'insertLink','insertVideo']]"-->
+    <!--ta-disabled='disabled'></div>-->
+    <!--</div>-->
+
+
+    <div class="right_side  col-md-5">
+        <div class="title_right_side">Registration request</div>
+
+        <div class="panel">
+        <div id="accordion" class="user1 dropdown-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion" data-target="#users_id1">User name1</div>
+        <ul id="users_id1" class="list-group collapse">
+        <li class="list-group-item">Name</li>
+        <li class="list-group-item">Username</li>
+        <li class="list-group-item">Pasaword</li>
+        <li class="list-group-item">E-mail</li>
+        <li class="list-group-item">Company name</li>
+        <li class="list-group-item">Was invited by Nazar 27/01/2017</li>
+            <div class="add-post-btn1">
+                <a ui-sref="#user_url" class="btn cancel-post" ng-click="remove(unp)" >Decline</a>
+                <button type="submit" class="btn btn-primary" ng-click="send(unp)"   ng-class="accept">Confirm</button>
+            </div>
+    </ul>
+            </div>
+        <div class="panel">
+        <div id="accordion" class="user1 dropdown-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion" data-target="#users_id2">User name2</div>
+        <ul id="users_id2" class="list-group collapse">
+        <li class="list-group-item">Name</li>
+        <li class="list-group-item">Username</li>
+        <li class="list-group-item">Pasaword</li>
+        <li class="list-group-item">E-mail</li>
+        <li class="list-group-item">Company name</li>
+        <li class="list-group-item">Was invited by Nazar 27/01/2017</li>
+    </ul>
+            </div>
+        <div class="panel">
+        <div id="accordion" class="user1 dropdown-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion" data-target="#users_id3">User name3</div>
+        <ul id="users_id3" class="list-group collapse">
+        <li class="list-group-item">Name</li>
+        <li class="list-group-item">Username</li>
+        <li class="list-group-item">Pasaword</li>
+        <li class="list-group-item">E-mail</li>
+        <li class="list-group-item">Company name</li>
+        <li class="list-group-item">Was invited by Nazar 27/01/2017</li>
+    </ul>
+            </div>
+        <div class="panel">
+        <div id="accordion" class="user1 dropdown-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion" data-target="#users_id4">User name4</div>
+        <ul id="users_id4" class="list-group collapse">
+        <li class="list-group-item">Name</li>
+        <li class="list-group-item">Username</li>
+        <li class="list-group-item">Pasaword</li>
+        <li class="list-group-item">E-mail</li>
+        <li class="list-group-item">Company name</li>
+        <li class="list-group-item">Was invited by Nazar 27/01/2017</li>
+    </ul>
+            </div>
+        </div>
+
+    <div class="right_side1 col-md-1">
+
     </div>
 </div>

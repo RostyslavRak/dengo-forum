@@ -49,9 +49,11 @@ app
             terms1: "I agree ",
             terms2: "with terms and conditions",
             register: "Register",
-
-
-
+            print_text: "Print text here",
+            CheckTheRole: "Check the role",
+            admin: "Administrator",
+            moderator: 'Moderator',
+            user_url: 'User Identifier',
 
             MESSAGE: 'This app supports your lanaguage!',
             text1: 'Why You Should Join Our Community ?',
@@ -115,8 +117,11 @@ app
                 terms1: "Я погоджуюсь ",
                 terms2: "з умовами конфіденційності",
                 register: "Зареєструватися",
-
-
+                print_text: "Введіть Ваш текст тут",
+                user_url: 'Ідентифікатор користувача',
+                CheckTheRole: "Визначіть роль користувача",
+                admin: "Адміністратор",
+                moderator: 'Модератор',
 
                 topAuthors: 'TOP-5 Авторів',
                 topPosts: 'TOP-5 Постів',
@@ -180,9 +185,11 @@ app
                 terms1: "Я согласен ",
                 terms2: "с условиями конфиденциaльности",
                 register: "Зарегистрироваться",
-
-
-
+                print_text: "Введите Ваш текст сдесь",
+                user_url: 'Идентификатор пользователя',
+                CheckTheRole: "Назначьте роль порльзователю",
+                admin: "Администратор",
+                moderator: 'Модератор',
 
 
                 topAuthors: 'TOP-5 Авторов',
