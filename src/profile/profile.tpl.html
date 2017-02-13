@@ -16,15 +16,16 @@
             <div class="user_public">
                 <ng-md-icon ui-sref="privateMassages" icon="mail_outline" size="25"></ng-md-icon>
                 <ng-md-icon icon="settings" size="25" ng-click="profileEdit()"></ng-md-icon>
-                <button ng-click="sendInvitation()" class="btn sendInvitation" icon="send" href="">Send an invitation
+                <button ng-click="sendInvitation()" class="sendInvitation" icon="send" href="">Send an invitation
                 </button>
             </div>
             <div class="sendInvitation1" style="display: none;">
+                <div class="glyphicon glyphicon-remove closeSendInvitationToEmail" ng-click="closeSendInvitationToEmail()"></div>
                 <label for="E-mail">
                     <input class="user_box_email"  style="font-weight: 100;" type="email" ng-model="invitation.email" id="E-mail"
                            placeholder="E-mail">
                 </label>
-                <button class="btn sendInvitation2" style="padding: 0px 12px" icon="send" ng-click="sendInvitationToEmail()">Send</button>
+                <button class="sendInvitation2" style="padding: 0px 12px" icon="send" ng-click="sendInvitationToEmail()">Send</button>
             </div>
             </div>
     </div>
@@ -78,39 +79,108 @@
 
 <div class="col-md-9 profile_header" ng-show="!profile">
     <div class="user_left">
-
         <div class="avatar">
-            <img ng-click="addAvatarPhoto()" ng-src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer"
-                 id="img">
-            <!--<ng-md-icon icon="delete"size="25" ng-click="deleteAvatarPhoto()"></ng-md-icon>-->
+            <img ng-click="addAvatarPhoto()" ng-src="{{user.photo}}" style="height: 100px; width: 100px; cursor: pointer" id="img">
             <div ng-click="deleteAvatarPhoto()" class="deletePhoto">delete photo</div>
             <input type="file" name="file" id="filePhoto"/>
+
+            <md-card-title-media>
+                                <span class="header-title">
+                                         <md-toolbar style="background: transparent" ngf-select
+                                                     class="photo-in-create-user"
+                                                     ng-model="file"
+                                                     ngf-multiple="false"
+                                                     ngf-allow-dir="false"
+                                                     accept="image/jpeg png jpg">
+                                             <div class="md-media-lg card-media"
+                                                  style="background: #cbcbcb; border-radius: 50%">
+                                                 <img class="avatar__img" ng-if="user.photo" ngf-src="user.photo"
+                                                      ng-if="user.photo">
+                                             </div>
+                                         </md-toolbar>
+                                    <md-toolbar ngf-select
+                                                class="upload-photo-in-user-create"
+                                                style="z-index:0;background: transparent; min-height: 18px !important"
+                                                ng-model="file"
+                                                ngf-multiple="false"
+                                                ngf-allow-dir="false"
+                                                accept="image/jpeg png jpg">
+                                    <div class="avatar__icons">
+                                        <a class="avatar__upload-icon" style="cursor: pointer">
+                                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                                            <span>Upload</span>
+                                        </a>
+                                    </div>
+                                    </md-toolbar>
+                                </span>
+            </md-card-title-media>
+
         </div>
 
         <div class="user_name_box">
 
             <div class="user_name">
-                <input placeholder="username" class="editInput" ng-model="user.nickName"/>
+                <h3 class="user_name_text">{{user.nickName}}</h3>
             </div>
             <div class="user_name">
-                <input placeholder="name" class="editInput" ng-model="user.name"/>
+                <input placeholder="name" class="editInput" ng-model="user.name" ng-required="true"/>
             </div>
             <div class="user_status">
                 <select placeholder="city" class="editInput" ng-model="user.city.region">
                     <option ng-repeat="region in regions" value="{{region.region}}">{{region.region}}</option>
                 </select>
             </div>
+
+            <div class="user_public">
+                <button ng-click="changePassword()" class=" ChangePassword" icon="send" href="">Change Password
+                </button>
+            </div>
+            <form name="newPassword" role="newPassword" ng-submit="sendNewPassword(newPassword)"  class="changePassword1" style="display: none;">
+                <div class="glyphicon glyphicon-remove closeChangePassword1" ng-click="closeChangePassword1()"></div>
+                <input class="user_box_email"  style="font-weight: 100;" placeholder="New Password:" type="password" name="changePassword" ng-minlength="6" ng-maxlength="16" ng-model="editUserPassword.password" ng-required="true" password-match="changePassword2">
+                <input class="user_box_email"  style="font-weight: 100;" placeholder="Confirm New Password:"  type="password" name="changePassword2" ng-minlength="6" ng-maxlength="16" ng-required="true"  ng-model="changePassword2" password-match="editUserPassword.password">
+
+                <div class="errors" ng-class="{ active: newPassword.changePassword.$invalid && newPassword.changePassword.$dirty }">
+                    <div class="error ng-hide" ng-show="newPassword.changePassword.$error.match && editUserPassword.passwordlanch != null">
+                        <p class="errorsChangePassword">{{ 'error_pass' | translate }}</p>
+                    </div>
+                    <div class="error ng-hide" ng-show="newPassword.changePassword.$error.minlength">
+                        <p class="errorsChangePassword">{{ 'error_pass_short' | translate }}</p>
+                    </div>
+                    <div class="error ng-hide" ng-show="newPassword.password.$error.maxlength">
+                        <p class="errorsContent">max 16</p>
+                    </div>
+                </div>
+                <button class="changePassword2 btn" type="submit"  ng-class="{ 'btn-primary': newPassword.$valid && newPassword.$dirty, 'btn-success': redirect }"
+                        ng-disabled="newPassword.$invalid || newPassword.$pristine">Change</button>
+            </form>
+
+
             <br/>
             <div class="checkbox checkbox-success">
-                <input id="newsletter" type="checkbox" alt="newsletter" class="">
+                <input id="newsletter" type="checkbox" alt="newsletter" ng-checked="user.subscriptionToNewsletter" ng-model="user.subscriptionToNewsletter">
                 <label for="newsletter">підписатись на розсилку новин</label>
             </div>
+            <div class="checkbox checkbox-success">
+                <input id="newsletter1" type="checkbox" alt="newsletter" ng-checked="user.subscriptionToResponseNotification" ng-model="user.subscriptionToResponseNotification">
+                <label for="newsletter1">Сповіщення про відповідь</label>
+            </div>
+            <div class="checkbox checkbox-success">
+                <input id="newsletter2" type="checkbox" alt="newsletter" ng-checked="user.subscriptionToLikeNotification" ng-model="user.subscriptionToLikeNotification">
+                <label for="newsletter2">Сповіщення про лайк поста чи відповіді</label>
+            </div>
+            <div class="checkbox checkbox-success">
+                <input id="newsletter3" type="checkbox" alt="newsletter" ng-checked="user.subscriptionToEventsNotification" ng-model="user.subscriptionToEventsNotification">
+                <label for="newsletter3">Сповіщення про подію у вашому регіоні</label>
+            </div>
             <div class="user_public">
-                <ng-md-icon ui-sref="privateMassages" icon="mail_outline" size="25"></ng-md-icon>
+                <ng-md-icon icon="cancel" size="25" ng-click="cancelProfileEdit()"></ng-md-icon>
                 <ng-md-icon icon="check_circle" size="25" ng-click="saveProfileEdit()"></ng-md-icon>
+                <!--<a class="cancelEditUser">Cancel</a>-->
+
             </div>
         </div>
-    </div>
+        </div>
     <div class="user_right ">
         <div class="user_data">
             <div class="date_registration">
@@ -150,10 +220,10 @@
                 <h3 class="date_reg"> {{ user.countLike}}</h3>
             </div>
             <div class="company">
-                <input placeholder="Company" class="editInput company_text" ng-model="user.company"/>
+                <input placeholder="Company" class="editInput company_text" ng-model="user.company"  ng-required="true"/>
             </div>
             <div class="company-site">
-                <input placeholder="Company Site" class="editInput company-site_text" ng-model="user.companySite"/>
+                <input placeholder="Company Site" class="editInput company-site_text" ng-model="user.companySite"  ng-required="true"/>
             </div>
         </div>
     </div>

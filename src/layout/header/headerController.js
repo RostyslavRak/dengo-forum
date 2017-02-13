@@ -13,7 +13,7 @@ app
             error_name_long: 'Max name length is 32, please shorten it.',
             error_name_is: "Username is already taken.",
             error_pass: "Passwords do not match.",
-            error_pass_short: 'For your own safety, use a password longer than 4 characters.',
+            error_pass_short: 'For your own safety, use a password longer than 6 characters.',
             error_email: "E-Mail seems invalid.",
             error_email_is: "E-Mail is already taken.",
             password: 'Password*',
@@ -81,7 +81,7 @@ app
                 error_name_long: 'Максимальна довжина слова 32 символи, буда-ласка зменьшіть.',
                 error_name_is: "Імя користувача вже використовується",
                 error_pass: "Паролі не співпадають.",
-                error_pass_short: 'Для Вашої безпеки використовуйте пароль не коротший 4 символів',
+                error_pass_short: 'Для Вашої безпеки використовуйте пароль не коротший 6 символів',
                 error_email: "E-Mail не вірний",
                 error_email_is: "E-Mail вже використовується",
                 password: 'Пароль*',
@@ -146,7 +146,7 @@ app
                 error_name_long: 'Максимальная длинна слова 32 символа, пожалуйста сократите.',
                 error_name_is: "Имя пользователя уже используется",
                 error_pass: "Пароли не совпадают.",
-                error_pass_short: 'Для Вашой безопастности используйте пароль не меньше 4 символов',
+                error_pass_short: 'Для Вашой безопастности используйте пароль не меньше 6 символов',
                 error_email: "E-Mail не верный",
                 error_email_is: "E-Mail уже используется",
 
@@ -205,9 +205,10 @@ app
             });
         $translateProvider.preferredLanguage('uk');
     })
-    .controller('HeaderController', function ($translate, $scope, $state) {
-       // console.log($state.current.name);
-
+    .controller('HeaderController', function ($translate, $scope, $state,$rootScope) {
+        $rootScope.$on('myProfile', function (event, data) {
+            $scope.user = data;
+        });
 
         var ctrl = this;
 

@@ -28,14 +28,17 @@
     </div>
   </div>
   <div class="form-input password">
-    <input type="password"  class="form-control password1" placeholder="{{ 'password' | translate }}" name="password" ng-model="registerObj.password" ng-minlength="4" ng-maxlength="16" ng-required="true" password-match="password2">
-    <input type="password" class="form-control password2"  placeholder="{{ 'repeatPassword' | translate }} " name="password2" ng-model="password2" password-match="registerObj.password">
+    <input type="password"  class="form-control password1" placeholder="{{ 'password' | translate }}" name="password" ng-model="registerObj.password" ng-minlength="6" ng-maxlength="16" ng-required="true" password-match="password2">
+    <input type="password" class="form-control password2"  placeholder="{{ 'repeatPassword' | translate }} " name="password2" ng-model="password2" ng-minlength="6" ng-maxlength="16" ng-required="true"  password-match="registerObj.password">
     <div class="errors" ng-class="{ active: registerForm.password.$invalid && registerForm.password.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.password.$error.match">
         <p class="errorsContent">{{ 'error_pass' | translate }}</p>
       </div>
       <div class="error ng-hide" ng-show="registerForm.password.$error.minlength">
         <p class="errorsContent">{{ 'error_pass_short' | translate }}</p>
+      </div>
+      <div class="error ng-hide" ng-show="registerForm.password.$error.maxlength">
+        <p class="errorsContent">max 16</p>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@ var app = angular
         'ui.bootstrap',
         'ngMdIcons',
         'ngMask',
+        'ngFileUpload',
         'textAngular',
         'ui.router',
         'templates-app',

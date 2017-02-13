@@ -34,6 +34,7 @@ app
         };
 
         $scope.logoutMe = function () {
+            $http.post("/logout");
             loginService.isLogged = false;
             loginService.logoutUser();
         };

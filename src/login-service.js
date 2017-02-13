@@ -7,7 +7,7 @@
 
 app
 .provider('loginService', function () {
-    this.$get = function ($rootScope, $http, $q, $state, $cookies) {
+    this.$get = function ($rootScope, $http, $q, $state, $cookies,Upload) {
   var userToken = $cookies.get("JJWT"),
       welcomeState = 'welcome';
 
@@ -114,8 +114,24 @@ app
         this.userRole = userRoles.public;
         this.user = {};
         this.isLogged = false;
+        // $http.post("/api/logout")
         $state.go(welcomeState);
       },
+
+        uploadImage: function (file) {
+            var deferred = $q.defer();
+            if (file != null) {
+                Upload.upload({
+                    url: "/api/image/upload/",
+                    data: {
+                        file: file
+                    }
+                }).success(function (response) {
+                    deferred.resolve(response)
+                });
+            }
+            return deferred.promise;
+        },
 
         // resolvePendingState: function (httpPromise) {
         //     var checkUser = $q.defer(),

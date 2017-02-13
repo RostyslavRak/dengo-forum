@@ -65,6 +65,7 @@
     box-shadow: 3px 3px 10px #888888;
     border: 1px solid #dedede;
     .user_box_email {
+      outline: none;
       width: 230px;
       height: 25px;
       background: #f9f9f9;
@@ -75,8 +76,6 @@
         font-weight: 300;
       }
     }
-
-
   }
   .user_right {
     width: 50%;
@@ -214,13 +213,24 @@
 }
 
 .sendInvitation {
+  height: 35px;
   margin-top: 6px;
   border-radius: 0;
   box-shadow: none;
   border: none;
   color: #ffffff;
   background: #62a2ae;
+  width: 130px;
 }
+
+.sendInvitation:hover {
+  color: white;
+  background-color: #40a9bd;
+}
+
+
+
+
 .sendInvitation1 {
   margin-top: 17px;
   margin-left: -119px;
@@ -317,4 +327,88 @@
 }
 .user_name_text {
   font-size: 16px;
+}
+
+.ChangePassword{
+  border: none;
+  border-radius: 0px;
+  height: 34px;
+  color: white;
+  width: 170px;
+  background-color: #62a2ae;
+}
+
+.ChangePassword:hover{
+  color: white;
+  background-color: #40a9bd;
+}
+
+.changePassword1{
+  margin-top: 10px;
+  width: 270px;
+  background: #f9f9f9;
+  box-shadow: 3px 3px 10px #888888;
+  border: 1px solid #dedede;
+  .user_box_email {
+    outline: none;
+    width: 230px;
+    height: 25px;
+    background: #f9f9f9;
+    padding-left: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    label {
+      font-weight: 300;
+    }
+  }
+}
+.changePassword1:focus{
+  outline: none;
+}
+
+.changePassword2{
+  margin-bottom: 10px;
+  margin-left: 33%;
+  padding: 2px 20px;
+  background-color: #62a2ae;
+  color: white;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.changePassword2:hover{
+  background-color: #40a9bd;
+  color: white;
+}
+
+.changePassword2:focus{
+  outline: none;
+}
+
+.ChangePassword:active{
+  outline: none;
+  color: white;
+}
+
+.closeChangePassword1{
+  cursor: pointer;
+  float: right;
+  color: #868686;
+}
+
+.closeSendInvitationToEmail{
+  cursor: pointer;
+  float: right;
+  color: #868686;}
+
+.errorsChangePassword{
+  margin-left: 20px;
+  font-size: 10px;
+  color: black;
+  margin-top: 5px;
+}
+
+
+.cancelEditUser{
+  color: red;
 }
