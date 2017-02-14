@@ -46,7 +46,7 @@ app
                 console.log(answer.data)
 
             });
-            console.log($scope.newEvent)
+            // console.log($scope.newEvent)
             $state.go('calendar');
         };
 
