@@ -2,7 +2,7 @@
 
   <h2 class="form-signin-heading">{{ 'registration' | translate }}</h2>
   <div class="form-input name">
-    <input type="text"  class="form-control" placeholder="{{ 'name' | translate }}" name="name" ng-model="registerObj.name" autofocus="true" ng-minlength="4" ng-maxlength="32" ng-required="true">
+    <input type="text"  class="form-control" placeholder="{{ 'name' | translate }}" name="name" ng-model="registerObj.name" autofocus="true" ng-minlength="2" ng-maxlength="32" ng-required="true">
     <div class="errors" ng-class="{ active: registerForm.name.$invalid && registerForm.name.$dirty }">
       <div class="error ng-hide" ng-show="registerForm.name.$error.minlength">
         <p class="errorsContent" >{{ 'error_name' | translate }}</p>

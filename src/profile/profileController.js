@@ -65,19 +65,19 @@ app
 
 
 
-        $scope.deleteAvatarPhoto = function () {
-            $scope.file = null;
-            $scope.user.photo = null;
-            $http.delete("/api/image/delete/");
-        };
+        // $scope.deleteAvatarPhoto = function () {
+        //     $scope.file = null;
+        //     $scope.user.photo = null;
+        //     $http.delete("/api/image/delete/");
+        // };
 
-        $scope.$watch('file', function (data) {
-            if(data != undefined){
-                $scope.ls.uploadImage(data).then(function (data) {
-                    $scope.user = data;
-                });
-            }
-        });
+        // $scope.$watch('file', function (data) {
+        //     if(data != undefined){
+        //         $scope.ls.uploadImage(data).then(function (data) {
+        //             $scope.user = data;
+        //         });
+        //     }
+        // });
 
 
         $scope.profileEdit = function () {

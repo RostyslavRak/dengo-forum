@@ -18,7 +18,7 @@ app
             error_email_is: "E-Mail is already taken.",
             password: 'Password*',
             repeatPassword: 'Repeat password*',
-            selectCity: 'Select oblast*',
+            selectCity: 'Select region*',
             сompanyName: 'Company Name',
             Website: "Website",
             Lviv: 'Lviv',

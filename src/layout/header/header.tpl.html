@@ -39,10 +39,9 @@
                     </ul>
                     <button type="submit" class="btn-loguot btn-default-loguot">Log Out<i class="fa fa-signout"></i></button>
                 </div>
-
             </form>
             <div ng-controller="HeaderController as ctrl" style="display: inline-block; float: right;">
-                <select id='locale-selector' style="display: inline-block; float: right; border: none; padding-top: 18px  " ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language"
+                <select id='locale-selector' style="display: inline-block; float: right; border: none; padding-top: 15px  " ng-options="language | translate for language in ctrl.languages" ng-model="ctrl.language"
                         ng-change="ctrl.updateLanguage()">
                 </select>
             </div>
